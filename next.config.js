@@ -2,7 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'raw.githubusercontent.com', 'github.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      }
+    ],
   },
   i18n: {
     locales: ['fr'],

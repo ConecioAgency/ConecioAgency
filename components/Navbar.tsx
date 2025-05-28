@@ -48,7 +48,6 @@ const Navbar = () => {
   const aboutDropdown = [
     { name: 'FAQ', href: '/faq' },
     { name: 'Qui nous sommes', href: '/about' },
-    { name: 'Portfolio', href: '/#portfolio' },
     { name: 'Témoignages', href: '/#testimonials' },
   ];
 

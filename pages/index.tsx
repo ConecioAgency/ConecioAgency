@@ -5,7 +5,6 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import WhatToExpect from '../components/WhatToExpect';
 import Process from '../components/Process';
-import Portfolio from '../components/Portfolio';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import AOS from 'aos';
@@ -107,9 +106,6 @@ export default function Home() {
           <section aria-label="Notre Processus" itemScope itemType="https://schema.org/ItemList">
             <Process />
           </section>
-          {/* <section id="portfolio" aria-label="Notre Portfolio" itemScope itemType="https://schema.org/ItemList">
-            <Portfolio />
-          </section> */}
           <section id="testimonials" aria-label="Témoignages" itemScope itemType="https://schema.org/ItemList">
             <Testimonials />
           </section>
