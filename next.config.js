@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'raw.githubusercontent.com', 'github.com','conecio-agency.vercel.app'],
+    domains: ['images.unsplash.com', 'raw.githubusercontent.com', 'github.com',''],
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'conecio-agency.vercel.app',
+        hostname: '',
       },
     ],
   },
