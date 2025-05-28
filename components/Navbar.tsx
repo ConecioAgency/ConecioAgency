@@ -116,7 +116,7 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <Link href="/" className="flex items-center">
-              <Image src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2" priority />
+              <img src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2" />
               <H6 className="font-bold">Conecio</H6>
               <Image src="/images/w2.png" alt="Test Image" width={40} height={40} className="ml-4" />
             </Link>
