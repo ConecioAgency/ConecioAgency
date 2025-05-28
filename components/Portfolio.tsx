@@ -68,10 +68,11 @@ const Portfolio = () => {
           </span>
         </div>
         <AnimatedPremiumTitle
-          title="Notre Portfolio"
           intro="Découvrez nos réalisations et laissez-vous inspirer par nos projets"
           className="mb-16 animate__animated animate__zoomInDown"
-        />
+        >
+          Notre Portfolio
+        </AnimatedPremiumTitle>
 
         {/* Filtres */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">

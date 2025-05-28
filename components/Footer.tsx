@@ -178,7 +178,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <Caption className="text-gray-500 dark:text-gray-400">
-            © {currentYear} Conecio. Tous droits réservés.
+            Copyright © Conecio Agency. 2025 - All Rights Reserved.
           </Caption>
         </div>
       </div>
