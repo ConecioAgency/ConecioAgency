@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import {
   ChartBarIcon,
@@ -18,6 +18,7 @@ import ContactFaqSection from '../components/ContactFaqSection';
 import GooeyButton from '../components/GooeyButton';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const ServiceMarquee = () => {
   const { t } = useTranslation('common');
@@ -84,26 +85,26 @@ function CodeEditorDemo(): React.ReactElement {
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon"><g strokeWidth="0" /><g strokeLinejoin="round" strokeLinecap="round" /><g> <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
       </div>
       <div className="editor-content">
-        <code className="code">
-          <p><span className="color-0">.code-editor </span> <span>{'{'}</span></p>
-          <p className="property">
+        <pre className="code">
+          <span><span className="color-0">.code-editor </span> <span>{'{'}</span></span>
+          <span className="property">
             <span className="color-2">max-width</span><span>:</span>
             <span className="color-1">300px</span>;
-          </p>
-          <p className="property">
+          </span>
+          <span className="property">
             <span className="color-2">background-color</span><span>:</span>
             <span className="color-preview-1"></span><span>#1d1e22</span>;
-          </p>
-          <p className="property">
+          </span>
+          <span className="property">
             <span className="color-2"> box-shadow</span><span>:</span>
-            <span className="color-1">0px 4px 30px <span className="color-preview-2"></span><span className="color-3">rgba(</span>0, 0, 0, 0.5<span className="color-3">)</span></span>;
-          </p>
-          <p className="property">
+            <span className="color-1">0px 4px 30px <span className="color-preview-2"></span><span className="color-3">rgba(</span>0, 0, 0, 0.5)</span>;</span>
+          </span>
+          <span className="property">
             <span className="color-2">border-radius</span><span>:</span>
             <span className="color-1">8px</span>;
-          </p>
+          </span>
           <span>{'}'}</span>
-        </code>
+        </pre>
       </div>
       <style jsx>{`
         .code-editor-demo {
@@ -1616,8 +1617,16 @@ function HexagonLoader(): React.ReactElement {
   );
 }
 
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default function ServicesPage() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   type ServiceType = {
     icon: any;
     title: string;
@@ -1633,7 +1642,7 @@ export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<ServiceType | null>(null);
   const router = useRouter();
 
-  const services = [
+  const services = useMemo(() => [
     {
       icon: ChartBarIcon,
       title: t('services.seo_sem.title'),
@@ -1753,7 +1762,7 @@ export default function ServicesPage() {
       sectionTitle: t('services.innovation_digitale.sectionTitle'),
       sectionDescription: t('services.innovation_digitale.sectionDescription')
     }
-  ];
+  ], [t, i18n.language]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1780,7 +1789,7 @@ export default function ServicesPage() {
         }, 200);
       }
     }
-  }, [router.asPath]);
+  }, [router.asPath, services]);
 
   // CSS du marquee social media
   const marqueeSocialStyle = `
@@ -1857,6 +1866,20 @@ export default function ServicesPage() {
       }
     }
   `;
+
+  const isArabic = i18n.language === 'ar';
+  const getToolKey = (suffix: string) => isArabic ? `tools.${suffix}` : `expect.tools.${suffix}`;
+
+  // Ajout du tableau dynamique pour les tabs/outils
+  const toolTabs = useMemo(() => [
+    { key: 'content', label: t(getToolKey('content.label')) },
+    { key: 'ai', label: t(getToolKey('ai.label')) },
+    { key: 'social', label: t(getToolKey('social.label')) },
+    { key: 'advertising', label: t(getToolKey('advertising.label')) },
+    { key: 'traffic', label: t(getToolKey('traffic.label')) },
+    { key: 'seo', label: t(getToolKey('seo.label')) },
+    { key: 'creation', label: t(getToolKey('creation.label')) },
+  ], [t, i18n.language]);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
@@ -2529,6 +2552,19 @@ export default function ServicesPage() {
         <div className="bg-gray-50 dark:bg-gray-900">
         <ContactFaqSection />
         </div>
+
+        {/* Onglets outils dynamiques */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8 mb-4">
+          {toolTabs.map(tab => (
+            <div key={tab.key} className="px-4 py-2 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-200 font-semibold text-base shadow-sm">
+              {tab.label}
+            </div>
+          ))}
+        </div>
+        {/* Sous-titre dynamique des outils */}
+        <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-8">
+          {t('tools.subtitle')}
+        </p>
       </main>
     </div>
   );

@@ -23,7 +23,9 @@
       "title": "Ready to bring your digital project to life?",
       "desc": "Let's discuss your ideas and create a tailor-made, high-performing and creative solution.",
       "button": "Contact us",
-      "img_alt": "Start a project"
+      "img_alt": "Start a project",
+      "startProject": "Start a project",
+      "discoverAgency": "Discover the agency"
     }
   },
   "home": "Home",
@@ -129,6 +131,24 @@
       "detailedDescription": "Our Digital Innovation service helps you stay competitive in a constantly evolving world. We identify and integrate emerging technologies that can transform your business, from artificial intelligence to augmented reality. Our pragmatic approach allows us to implement innovative solutions that deliver tangible results while preparing your company for tomorrow's challenges.",
       "sectionTitle": "Innovative Digital Solutions",
       "sectionDescription": "Cutting-edge technologies to transform your business and stay competitive"
+    },
+    "tabs": {
+      "create": {
+        "desc": "We create modern, high-performance websites with captivating video animations for a unique user experience.",
+        "cta": "Learn more"
+      },
+      "design": {
+        "desc": "We build a strong identity for your brand: logo, graphic charter, visuals... as well as logo animations, animated storyboards, explainer videos and motion design content.",
+        "cta": "Learn more"
+      },
+      "promote": {
+        "desc": "We create and manage your advertising campaigns on Meta (Facebook/Instagram) and Google Ads, with visuals optimized for conversion. Each message is clear, targeted, and designed to maximize your results.",
+        "cta": "Learn more"
+      },
+      "manage": {
+        "desc": "From content creation to publication planning, we ensure smooth management of your social networks. We set up clear and effective dashboards to track your results and adjust your strategy in real time.",
+        "cta": "Learn more"
+      }
     }
   },
   "pricing": "Pricing",
@@ -166,7 +186,9 @@
     "phone": "Phone",
     "address": "Address",
     "send_message": "Send message",
-    "sending": "Sending..."
+    "sending": "Sending...",
+    "message": "Message*",
+    "error_message_required": "Message is required"
   },
   "about": "About",
   "start_project": "Start a project",
@@ -227,6 +249,7 @@
     "feature_4_desc": "Our creations are not just beautiful. They are designed to perform in the field: social media, ads, SEO, UX.",
     "tools_title": "The right tool for every task",
     "tools_badge": "Our Tools",
+    "tools_subtitle": "Discover our full range of tools to boost your digital presence",
     "tools": {
       "content": {
         "label": "Content",
@@ -367,24 +390,6 @@
       "Sécurité": "Security"
     }
   },
-  "tabs": {
-    "create": {
-      "desc": "We create modern, high-performance websites with captivating video animations for a unique user experience.",
-      "cta": "Learn more"
-    },
-    "design": {
-      "desc": "We build a strong identity for your brand: logo, brand guidelines, visuals... as well as logo animations, animated storyboards, explainer videos, and motion design content.",
-      "cta": "Learn more"
-    },
-    "promote": {
-      "desc": "We create and manage your ad campaigns on Meta (Facebook/Instagram) and Google Ads, with visuals optimized for conversion. Every message is clear, targeted, and designed to maximize your results.",
-      "cta": "Learn more"
-    },
-    "manage": {
-      "desc": "From content creation to publishing schedules, we ensure smooth management of your social networks. We set up clear and effective dashboards to track your results and adjust your strategy in real time.",
-      "cta": "Learn more"
-    }
-  },
   "process_steps": [
     {
       "title": "Analysis & Strategy",
@@ -426,5 +431,14 @@
       "name": "Youssef Boutaib",
       "position": "Founder & CTO"
     }
+  },
+  "servicesPage": {
+    "title": "Our Services",
+    "subtitle": "Discover all our digital expertise to boost your brand.",
+    "agencyTitle": "Conecio Agency",
+    "agencyIntro": "Our team supports you in all your digital projects, from strategy to execution, with creativity and performance."
+  },
+  "tools": {
+    "subtitle": "Discover our full range of tools to boost your digital presence"
   }
 } 

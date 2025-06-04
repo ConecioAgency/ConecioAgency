@@ -23,7 +23,9 @@
       "title": "¿Listo para concretar tu proyecto digital?",
       "desc": "Hablemos de tus ideas y demos vida a una solución a medida, creativa y de alto rendimiento.",
       "button": "Contáctanos",
-      "img_alt": "Iniciar un proyecto"
+      "img_alt": "Iniciar un proyecto",
+      "startProject": "Iniciar un proyecto",
+      "discoverAgency": "Descubrir la agencia"
     }
   },
   "home": "Inicio",
@@ -426,5 +428,11 @@
       "name": "Youssef Boutaib",
       "position": "Fundador y CTO"
     }
+  },
+  "servicesPage": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Descubre todas nuestras experticias digitales para impulsar tu marca.",
+    "agencyTitle": "Agencia Conecio",
+    "agencyIntro": "Nuestro equipo te acompaña en todos tus proyectos digitales, desde la estrategia hasta la realización, con creatividad y rendimiento."
   }
 } 

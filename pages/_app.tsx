@@ -86,7 +86,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Conecio - Agence Web Créative</title>
         <meta name="description" content="Conecio - Votre partenaire pour des solutions web innovantes et créatives" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/logo/conecio_logo.png" />
       </Head>
 
       <Navbar />

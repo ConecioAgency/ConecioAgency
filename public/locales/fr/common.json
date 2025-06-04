@@ -23,10 +23,40 @@
       "title": "Prêt à concrétiser votre projet digital ?",
       "desc": "Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.",
       "button": "Contactez-nous",
-      "img_alt": "Démarrer un projet"
+      "img_alt": "Démarrer un projet",
+      "startProject": "Démarrer un projet",
+      "discoverAgency": "Découvrir l'agence"
     }
   },
-  "home": "Accueil",
+  "home": {
+    "seo": {
+      "title": "Conecio - Agence de Marketing Digital & Innovation",
+      "description": "Conecio est une agence de marketing digital innovante qui vous accompagne dans votre transformation digitale avec des solutions sur mesure : SEO, web design, social media, content marketing et plus encore.",
+      "keywords": "agence marketing digital, SEO, web design, social media, content marketing, transformation digitale, innovation digitale, stratégie digitale",
+      "og_image_alt": "Conecio - Agence de Marketing Digital",
+      "structured_desc": "Agence de marketing digital innovante spécialisée dans la transformation digitale"
+    },
+    "parallax": {
+      "innovate": "INNOVEZ.",
+      "impact": "IMPACTEZ.",
+      "dare": "OSEZ.",
+      "strategy": "STRATÉGIE",
+      "digital": "DIGITALE.",
+      "creativity": "CRÉATIVITÉ.",
+      "results": "RÉSULTATS.",
+      "agency_diff": "L'AGENCE QUI FAIT LA",
+      "difference": "DIFFÉRENCE"
+    },
+    "cta": {
+      "badge": "DÉMARRER UN PROJET",
+      "title": "Prêt à concrétiser votre projet digital ?",
+      "desc": "Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.",
+      "button": "Contactez-nous",
+      "img_alt": "Démarrer un projet",
+      "startProject": "Démarrer un projet",
+      "discoverAgency": "Découvrir l'agence"
+    }
+  },
   "services": {
     "section_title": "SERVICES",
     "section_subtitle": "Nos expertises digitales",
@@ -129,6 +159,24 @@
       "detailedDescription": "Notre service d'Innovation Digitale vous aide à rester compétitif dans un monde en constante évolution. Nous identifions et intégrons les technologies émergentes qui peuvent transformer votre business, de l'intelligence artificielle à la réalité augmentée. Notre approche pragmatique nous permet de mettre en place des solutions innovantes qui génèrent des résultats concrets tout en préparant votre entreprise aux défis de demain.",
       "sectionTitle": "Solutions Digitales Innovantes",
       "sectionDescription": "Des technologies de pointe pour transformer votre business et rester compétitif"
+    },
+    "tabs": {
+      "create": {
+        "desc": "Nous créons des sites web modernes et performants, avec des animations vidéo captivantes pour une expérience utilisateur unique.",
+        "cta": "En savoir plus"
+      },
+      "design": {
+        "desc": "Nous construisons une identité forte pour votre marque : logo, charte graphique, visuels... mais aussi animations de logo, storyboards animés, vidéos explicatives et contenus motion design.",
+        "cta": "En savoir plus"
+      },
+      "promote": {
+        "desc": "Nous créons et gérons vos campagnes publicitaires sur Meta (Facebook/Instagram) et Google Ads, avec des visuels optimisés pour la conversion. Chaque message est clair, ciblé, et pensé pour maximiser vos résultats.",
+        "cta": "En savoir plus"
+      },
+      "manage": {
+        "desc": "De la création de contenu au planning de publication, nous assurons une gestion fluide de vos réseaux sociaux. Nous mettons en place des dashboards lisibles et efficaces pour suivre vos résultats et ajuster votre stratégie en temps réel.",
+        "cta": "En savoir plus"
+      }
     }
   },
   "pricing": "Tarifs",
@@ -166,7 +214,9 @@
     "phone": "Téléphone",
     "address": "Adresse",
     "send_message": "Envoyer le message",
-    "sending": "Envoi en cours..."
+    "sending": "Envoi en cours...",
+    "message": "Message*",
+    "error_message_required": "Le message est requis"
   },
   "about": "À propos",
   "start_project": "Démarrer un projet",
@@ -227,6 +277,7 @@
     "feature_4_desc": "Nos créations ne sont pas que belles. Elles sont conçues pour performer sur le terrain : réseaux sociaux, pubs, SEO, UX.",
     "tools_title": "À chaque tâche sa boîte à outils",
     "tools_badge": "Nos outils",
+    "tools_subtitle": "Découvrez notre gamme complète d'outils pour booster votre présence digitale",
     "tools": {
       "content": {
         "label": "Contenu",
@@ -258,18 +309,18 @@
           "Création de visuels et vidéos viraux",
           "Gestion de communauté et campagnes d'influence"
         ],
-        "description": "Développez votre présence sur les réseaux sociaux grâce à des contenus créatifs, une gestion proactive et des campagnes d'influence.",
+        "description": "Développez votre présence sur les réseaux sociaux avec des contenus créatifs, une gestion active et des campagnes d'influence.",
         "button": "Voir les tarifs"
       },
       "advertising": {
         "label": "Publicité",
         "title": "Publicité",
         "items": [
-          "Création de campagnes Google & Meta",
+          "Création de campagnes Google et Meta",
           "Optimisation des budgets publicitaires",
           "Analyse des performances et reporting détaillé"
         ],
-        "description": "Lancez des campagnes publicitaires performantes sur tous les canaux. De la création à l'optimisation, nous pilotons vos campagnes pour générer des leads et des ventes.",
+        "description": "Lancez des campagnes publicitaires efficaces sur tous les canaux. De la création à l'optimisation, nous gérons vos campagnes pour attirer clients et ventes.",
         "button": "Voir les tarifs"
       },
       "traffic": {
@@ -291,7 +342,7 @@
           "Recherche avancée de mots-clés",
           "Optimisation du contenu et netlinking"
         ],
-        "description": "Boostez votre visibilité sur Google grâce à des audits, une stratégie de mots-clés et une optimisation continue de votre site.",
+        "description": "Boostez votre visibilité sur Google grâce aux audits, à la stratégie de mots-clés et une optimisation continue de votre site.",
         "button": "Voir les tarifs"
       },
       "creation": {
@@ -370,25 +421,84 @@
       "Services": "Services",
       "Support": "Support",
       "Sécurité": "Sécurité"
-    }
-  },
-  "tabs": {
-    "create": {
-      "desc": "Nous créons des sites web modernes et performants, avec des animations vidéo captivantes pour une expérience utilisateur unique.",
-      "cta": "En savoir plus"
     },
-    "design": {
-      "desc": "Nous construisons une identité forte pour votre marque : logo, charte graphique, visuels... mais aussi animations de logo, storyboards animés, vidéos explicatives et contenus motion design.",
-      "cta": "En savoir plus"
-    },
-    "promote": {
-      "desc": "Nous créons et gérons vos campagnes publicitaires sur Meta (Facebook/Instagram) et Google Ads, avec des visuels optimisés pour la conversion. Chaque message est clair, ciblé, et pensé pour maximiser vos résultats.",
-      "cta": "En savoir plus"
-    },
-    "manage": {
-      "desc": "De la création de contenu au planning de publication, nous assurons une gestion fluide de vos réseaux sociaux. Nous mettons en place des dashboards lisibles et efficaces pour suivre vos résultats et ajuster votre stratégie en temps réel.",
-      "cta": "En savoir plus"
-    }
+    "questions": [
+      {
+        "category": "Général",
+        "question": "Comment Conecio se démarque-t-elle des autres agences digitales ?",
+        "answer": "Conecio se distingue par son approche holistique et personnalisée. Nous combinons expertise technique, créativité et stratégie business pour créer des solutions digitales qui génèrent des résultats concrets. Notre équipe d'experts certifiés et notre méthodologie éprouvée nous permettent d'offrir un accompagnement premium et des résultats mesurables."
+      },
+      {
+        "category": "Général",
+        "question": "Quelle est votre approche pour le développement d'un projet digital ?",
+        "answer": "Notre méthodologie se déroule en 4 phases clés : 1) Analyse approfondie de vos besoins et objectifs business, 2) Élaboration d'une stratégie sur-mesure, 3) Développement et mise en œuvre des solutions, 4) Suivi et optimisation continue. Chaque phase est documentée et validée avec vous pour garantir l'alignement parfait avec vos objectifs."
+      },
+      {
+        "category": "Général",
+        "question": "Combien de temps dure la création d'un site web ?",
+        "answer": "La durée dépend du type de site et de la complexité du projet. Un site vitrine prend généralement 4 à 6 semaines, tandis qu'un site e-commerce peut nécessiter 8 à 12 semaines. Nous vous fournissons un planning précis dès le début."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Quels sont vos tarifs et modes de facturation ?",
+        "answer": "Nos tarifs sont transparents et adaptés à chaque projet. Nous proposons des devis personnalisés basés sur vos besoins spécifiques. Les paiements sont échelonnés selon l'avancement du projet, avec des options de maintenance mensuelle ou annuelle. Contactez-nous pour un devis détaillé adapté à vos objectifs."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Proposez-vous des solutions pour les petites entreprises ?",
+        "answer": "Absolument ! Nous avons développé des solutions adaptées aux budgets et besoins des PME. Nos forfaits évolutifs permettent de démarrer avec l'essentiel et de développer votre présence digitale progressivement. Nous croyons que chaque entreprise mérite une stratégie digitale performante, quelle que soit sa taille."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Quels sont les facteurs qui influencent le prix d'un site web ?",
+        "answer": "Le prix dépend de plusieurs critères : type de site (vitrine, e-commerce, sur-mesure), nombre de pages, fonctionnalités spécifiques, design personnalisé, intégrations tierces, etc. Nous réalisons toujours un devis détaillé et transparent."
+      },
+      {
+        "category": "Services",
+        "question": "Quels types de services proposez-vous ?",
+        "answer": "Nous proposons une gamme complète de services digitaux : création de site web, SEO, SEA, gestion des réseaux sociaux, branding, analytics, campagnes publicitaires, et plus encore. Nous adaptons chaque prestation à vos besoins spécifiques."
+      },
+      {
+        "category": "Services",
+        "question": "Quels sont vos délais moyens pour un projet de site web ?",
+        "answer": "Les délais varient selon la complexité du projet. Un site vitrine prend généralement 4-6 semaines, un site e-commerce 8-12 semaines. Nous établissons un planning détaillé dès le début du projet et assurons un suivi régulier pour respecter les délais convenus."
+      },
+      {
+        "category": "Services",
+        "question": "Réalisez-vous des sites e-commerce performants ?",
+        "answer": "Oui, nous concevons des boutiques en ligne optimisées pour la conversion, la sécurité et la gestion des stocks. Nous intégrons les meilleurs outils de paiement et proposons des solutions évolutives pour accompagner votre croissance."
+      },
+      {
+        "category": "Services",
+        "question": "Proposez-vous des services de design sur-mesure ?",
+        "answer": "Notre équipe de designers crée des interfaces uniques, modernes et adaptées à votre image de marque. Nous privilégions l'expérience utilisateur (UX) et l'esthétique pour maximiser l'impact de votre site."
+      },
+      {
+        "category": "Support",
+        "question": "Quelle est votre politique de maintenance et de support ?",
+        "answer": "Nous offrons un support technique réactif 24/7, des mises à jour régulières, des sauvegardes automatiques et une maintenance préventive. Nos clients bénéficient d'un accès à un portail dédié pour suivre l'état de leur projet et soumettre des demandes."
+      },
+      {
+        "category": "Support",
+        "question": "Comment fonctionne le suivi de projet ?",
+        "answer": "Un chef de projet dédié vous accompagne à chaque étape. Vous recevez des points réguliers, des rapports détaillés et pouvez suivre l'avancement en temps réel via notre plateforme."
+      },
+      {
+        "category": "Services",
+        "question": "Proposez-vous des prestations SEO pour améliorer la visibilité ?",
+        "answer": "Oui, nous proposons des audits SEO, l'optimisation technique, la rédaction de contenus optimisés, le netlinking et le suivi de positionnement. Notre objectif est d'augmenter durablement votre trafic qualifié."
+      },
+      {
+        "category": "Sécurité",
+        "question": "Comment assurez-vous la sécurité des données de mes clients ?",
+        "answer": "La sécurité est au cœur de nos préoccupations. Nous implémentons les dernières normes de sécurité (RGPD, SSL, cryptage), effectuons des audits réguliers et formons nos clients aux bonnes pratiques. Nos solutions sont hébergées sur des serveurs sécurisés et nous garantissons la confidentialité totale des données."
+      },
+      {
+        "category": "Sécurité",
+        "question": "Êtes-vous conforme au RGPD ?",
+        "answer": "Oui, toutes nos solutions sont conçues pour être conformes au RGPD. Nous accompagnons également nos clients dans la mise en conformité de leurs propres outils digitaux."
+      }
+    ]
   },
   "process_steps": [
     {
@@ -431,5 +541,14 @@
       "name": "Youssef Boutaib",
       "position": "Fondateur & CTO"
     }
+  },
+  "servicesPage": {
+    "title": "Nos Services",
+    "subtitle": "Découvrez l'ensemble de nos expertises digitales pour propulser votre marque.",
+    "agencyTitle": "L'Agence Conecio",
+    "agencyIntro": "Notre équipe vous accompagne dans tous vos projets digitaux, de la stratégie à la réalisation, avec créativité et performance."
+  },
+  "tools": {
+    "subtitle": "Découvrez notre gamme complète d'outils pour booster votre présence digitale"
   }
 } 

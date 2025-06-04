@@ -366,7 +366,7 @@ export default function Blog() {
               "name": "Conecio",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.conecio.com/images/logo.png"
+                "url": "https://www.conecio.com/images/logo/conecio_logo.png"
               }
             },
             "blogPost": blogArticles.map(article => ({

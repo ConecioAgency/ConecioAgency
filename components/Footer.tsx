@@ -83,7 +83,7 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <Image src="/images/logo/Conecio_logo_C.png" alt="Conecio Logo" width={40} height={40} className="mr-2 h-10 w-10 object-contain" priority />
+              <Image src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2 h-10 w-10 object-contain" priority />
             </Link>
             <div className="mb-6">
               <H6 className="mb-4">{t('footer.about_title')}</H6>

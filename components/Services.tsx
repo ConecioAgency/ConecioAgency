@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Section from './Section';
 import ScrollAnimation from './ScrollAnimation';
@@ -28,7 +28,7 @@ const slides = [
 ];
 
 export default function Services() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const [selected, setSelected] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -41,6 +41,10 @@ export default function Services() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+
+  useEffect(() => {
+    i18n.reloadResources(i18n.language, 'common');
+  }, [i18n.language]);
 
   const handlePlayPause = () => {
     if (!videoRef.current) return;

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '../lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useInView } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
@@ -45,17 +45,23 @@ const Counter = ({ value, duration = 1200, suffix = '' }: { value: string, durat
 };
 
 export const WhatToExpect = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const [activeIndex, setActiveIndex] = useState(0);
-  const categories = [
-    { id: 'content', label: t('expect.tools.content.label') },
-    { id: 'ai', label: t('expect.tools.ai.label') },
-    { id: 'social', label: t('expect.tools.social.label') },
-    { id: 'advertising', label: t('expect.tools.advertising.label') },
-    { id: 'traffic', label: t('expect.tools.traffic.label') },
-    { id: 'seo', label: t('expect.tools.seo.label') },
-    { id: 'creation', label: t('expect.tools.creation.label') },
-  ];
+
+  const isArabic = i18n.language === 'ar';
+  const getToolKey = (suffix: string) => isArabic ? `tools.${suffix}` : `expect.tools.${suffix}`;
+
+  // Génère dynamiquement les catégories et outils à chaque changement de langue
+  const categories = useMemo(() => [
+    { id: 'content', label: t(getToolKey('content.label')) },
+    { id: 'ai', label: t(getToolKey('ai.label')) },
+    { id: 'social', label: t(getToolKey('social.label')) },
+    { id: 'advertising', label: t(getToolKey('advertising.label')) },
+    { id: 'traffic', label: t(getToolKey('traffic.label')) },
+    { id: 'seo', label: t(getToolKey('seo.label')) },
+    { id: 'creation', label: t(getToolKey('creation.label')) },
+  ], [t, i18n.language]);
+
   const swiperRef = useRef<any>(null);
 
   const stats = [
@@ -92,113 +98,113 @@ export const WhatToExpect = () => {
     }
   ];
 
-  const tools = [
+  const tools = useMemo(() => [
     {
       id: 'content',
-      title: t('expect.tools.content.title'),
+      title: t(getToolKey('content.title')),
       items: [
-        t('expect.tools.content.items.0'),
-        t('expect.tools.content.items.1'),
-        t('expect.tools.content.items.2'),
+        t(getToolKey('content.items.0')),
+        t(getToolKey('content.items.1')),
+        t(getToolKey('content.items.2')),
       ],
       icon: '/images/icons/carouselle/blogging.png',
       illustration: '/images/illustrations/content.png',
-      buttonText: t('expect.tools.content.button'),
+      buttonText: t(getToolKey('content.button')),
       color: 'bg-indigo-100 text-indigo-600',
       buttonColor: 'bg-indigo-500',
-      description: t('expect.tools.content.description')
+      description: t(getToolKey('content.description'))
     },
     {
       id: 'ai',
-      title: t('expect.tools.ai.title'),
+      title: t(getToolKey('ai.title')),
       items: [
-        t('expect.tools.ai.items.0'),
-        t('expect.tools.ai.items.1'),
-        t('expect.tools.ai.items.2'),
+        t(getToolKey('ai.items.0')),
+        t(getToolKey('ai.items.1')),
+        t(getToolKey('ai.items.2')),
       ],
       icon: '/images/icons/carouselle/intelligence.png',
       illustration: '/images/illustrations/ai.png',
-      buttonText: t('expect.tools.ai.button'),
+      buttonText: t(getToolKey('ai.button')),
       color: 'bg-purple-100 text-purple-600',
       buttonColor: 'bg-purple-500',
-      description: t('expect.tools.ai.description')
+      description: t(getToolKey('ai.description'))
     },
     {
       id: 'social',
-      title: t('expect.tools.social.title'),
+      title: t(getToolKey('social.title')),
       items: [
-        t('expect.tools.social.items.0'),
-        t('expect.tools.social.items.1'),
-        t('expect.tools.social.items.2'),
+        t(getToolKey('social.items.0')),
+        t(getToolKey('social.items.1')),
+        t(getToolKey('social.items.2')),
       ],
       icon: '/images/icons/carouselle/digital-marketing.png',
       illustration: '/images/illustrations/social.png',
-      buttonText: t('expect.tools.social.button'),
+      buttonText: t(getToolKey('social.button')),
       color: 'bg-pink-100 text-pink-600',
       buttonColor: 'bg-pink-500',
-      description: t('expect.tools.social.description')
+      description: t(getToolKey('social.description'))
     },
     {
       id: 'advertising',
-      title: t('expect.tools.advertising.title'),
+      title: t(getToolKey('advertising.title')),
       items: [
-        t('expect.tools.advertising.items.0'),
-        t('expect.tools.advertising.items.1'),
-        t('expect.tools.advertising.items.2'),
+        t(getToolKey('advertising.items.0')),
+        t(getToolKey('advertising.items.1')),
+        t(getToolKey('advertising.items.2')),
       ],
       icon: '/images/icons/carouselle/shopping-online.png',
       illustration: '/images/illustrations/ads.png',
-      buttonText: t('expect.tools.advertising.button'),
+      buttonText: t(getToolKey('advertising.button')),
       color: 'bg-blue-100 text-blue-600',
       buttonColor: 'bg-blue-500',
-      description: t('expect.tools.advertising.description')
+      description: t(getToolKey('advertising.description'))
     },
     {
       id: 'traffic',
-      title: t('expect.tools.traffic.title'),
+      title: t(getToolKey('traffic.title')),
       items: [
-        t('expect.tools.traffic.items.0'),
-        t('expect.tools.traffic.items.1'),
-        t('expect.tools.traffic.items.2'),
+        t(getToolKey('traffic.items.0')),
+        t(getToolKey('traffic.items.1')),
+        t(getToolKey('traffic.items.2')),
       ],
       icon: '/images/icons/carouselle/internet-of-things.png',
       illustration: '/images/illustrations/traffic.png',
-      buttonText: t('expect.tools.traffic.button'),
+      buttonText: t(getToolKey('traffic.button')),
       color: 'bg-cyan-100 text-cyan-600',
       buttonColor: 'bg-cyan-500',
-      description: t('expect.tools.traffic.description')
+      description: t(getToolKey('traffic.description'))
     },
     {
       id: 'seo',
-      title: t('expect.tools.seo.title'),
+      title: t(getToolKey('seo.title')),
       items: [
-        t('expect.tools.seo.items.0'),
-        t('expect.tools.seo.items.1'),
-        t('expect.tools.seo.items.2'),
+        t(getToolKey('seo.items.0')),
+        t(getToolKey('seo.items.1')),
+        t(getToolKey('seo.items.2')),
       ],
       icon: '/images/icons/carouselle/seo.png',
       illustration: '/images/illustrations/seo.png',
-      buttonText: t('expect.tools.seo.button'),
+      buttonText: t(getToolKey('seo.button')),
       color: 'bg-teal-100 text-teal-600',
       buttonColor: 'bg-teal-500',
-      description: t('expect.tools.seo.description')
+      description: t(getToolKey('seo.description'))
     },
     {
       id: 'creation',
-      title: t('expect.tools.creation.title'),
+      title: t(getToolKey('creation.title')),
       items: [
-        t('expect.tools.creation.items.0'),
-        t('expect.tools.creation.items.1'),
-        t('expect.tools.creation.items.2'),
+        t(getToolKey('creation.items.0')),
+        t(getToolKey('creation.items.1')),
+        t(getToolKey('creation.items.2')),
       ],
       icon: '/images/icons/carouselle/landing-page.png',
       illustration: '/images/illustrations/local.png',
-      buttonText: t('expect.tools.creation.button'),
+      buttonText: t(getToolKey('creation.button')),
       color: 'bg-violet-100 text-violet-600',
       buttonColor: 'bg-violet-500',
-      description: t('expect.tools.creation.description')
+      description: t(getToolKey('creation.description'))
     }
-  ];
+  ], [t, i18n.language]);
 
   const ToolCard = ({ tool }: { tool: typeof tools[0] }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -313,7 +319,7 @@ export const WhatToExpect = () => {
             {t('expect.tools_title')}
           </motion.h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 text-center max-w-2xl mx-auto mb-6">
-            Découvrez notre suite complète d'outils pour optimiser votre présence digitale
+            {t('expect.tools_subtitle')}
           </p>
           {/* Pills catégories */}
           <div className="flex gap-1 bg-gray-900/90 backdrop-blur-sm rounded-[20px] px-1 py-1 shadow-lg mx-auto mb-8 relative z-20 w-max border border-gray-700/30">

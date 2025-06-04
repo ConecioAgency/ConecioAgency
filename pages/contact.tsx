@@ -5,6 +5,7 @@ import SectionTitle from '../components/SectionTitle';
 import DevisPopup from '../components/DevisPopup';
 import ContactFaqSection from '../components/ContactFaqSection';
 import { H1, H2, Body1, Body2, Overline } from '../components/Typography';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const ContactForm = dynamic(() => import('../components/Contact'), { ssr: false });
 const Testimonials = dynamic(() => import('../components/Testimonials'), { ssr: false });
@@ -40,4 +41,12 @@ export default function ContactPage() {
       <ContactFaqSection />
     </>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

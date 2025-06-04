@@ -133,7 +133,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{t('home.seo.title')}</title>
+        <title>{t('home.seo.title') === 'home.seo.title' ? 'Conecio - Agence de Marketing Digital & Innovation' : t('home.seo.title')}</title>
         <meta name="description" content={t('home.seo.description')} />
         <meta name="keywords" content={t('home.seo.keywords')} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -143,7 +143,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={t('home.seo.title')} />
         <meta property="og:description" content={t('home.seo.description')} />
-        <meta property="og:image" content="https://www.conecio.com/images/og-image.jpg" />
+        <meta property="og:image" content="https://www.conecio.com/images/logo/conecio_logo.png" />
         <meta property="og:image:alt" content={t('home.seo.og_image_alt')} />
         <meta property="og:url" content="https://www.conecio.com" />
         <meta property="og:site_name" content="Conecio" />
@@ -153,7 +153,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('home.seo.title')} />
         <meta name="twitter:description" content={t('home.seo.description')} />
-        <meta name="twitter:image" content="https://www.conecio.com/images/og-image.jpg" />
+        <meta name="twitter:image" content="https://www.conecio.com/images/logo/conecio_logo.png" />
         <meta name="twitter:site" content="@conecio" />
         <meta name="twitter:creator" content="@conecio" />
         
@@ -170,7 +170,7 @@ export default function Home() {
             "@type": "Organization",
             "name": "Conecio",
             "url": "https://www.conecio.com",
-            "logo": "https://www.conecio.com/images/logo.png",
+            "logo": "https://www.conecio.com/images/logo/conecio_logo.png",
             "description": t('home.seo.structured_desc'),
             "address": {
               "@type": "PostalAddress",
@@ -265,10 +265,10 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'fr', ['common'])),
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   };
 } 

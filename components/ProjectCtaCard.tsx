@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -26,6 +27,7 @@ const buttonVariants = {
 };
 
 const ProjectCtaCard = () => {
+  const { t } = useTranslation('common');
   return (
     <section className="w-full flex justify-center items-center py-8 md:py-10 bg-zinc-50 dark:bg-zinc-900 relative overflow-hidden">
       {/* Pattern SVG discret en fond */}
@@ -59,40 +61,35 @@ const ProjectCtaCard = () => {
         >
           <span className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 px-3 py-1 rounded-lg font-bold text-xs tracking-widest mb-2 uppercase text-indigo-600 dark:text-indigo-300" style={{letterSpacing: '0.09em'}}>
             <span className="text-lg">🚀</span>
-            DÉMARRER UN PROJET
+            {t('home.cta.badge')}
           </span>
           <h2 className="text-lg md:text-xl font-extrabold mb-1 text-zinc-900 dark:text-white leading-snug">
-            Prêt à concrétiser votre projet&nbsp;digital&nbsp;?
+            {t('home.cta.title')}
           </h2>
           <p className="text-zinc-600 dark:text-zinc-300 text-sm md:text-base font-normal mb-4 max-w-xl leading-snug">
-            Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.
+            {t('home.cta.desc')}
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-all shadow-sm mt-1">
-            <span>Contactez-nous</span>
-            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-              <path d="M5 12h14"></path>
-              <path d="M13 6l6 6-6 6"></path>
-            </svg>
-          </Link>
+          <a href="/contact" className="btn-main btn-main--dark group mt-1">
+            <span>{t('home.cta.button')}</span>
+            <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
+          </a>
         </motion.div>
-        {/* Illustration à droite, plus compacte */}
+        {/* Illustration à droite */}
         <motion.div
-          className="flex-1 flex items-end justify-center md:justify-end mt-6 md:mt-0 md:ml-0 z-10 relative"
+          className="flex-1 flex justify-center items-center z-10"
           variants={imageVariants}
           initial="hidden"
           whileInView="visible"
           animate="animate"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="relative w-[120px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[200px] lg:h-[140px] xl:w-[220px] xl:h-[160px]">
-            <Image
-              src="/images/project-need-dee85a1f.png"
-              alt="Démarrer un projet"
-              fill
-              style={{ objectFit: 'contain' }}
-              priority={true}
-            />
-          </div>
+          <Image
+            src="/images/04.png"
+            alt={t('home.cta.img_alt')}
+            width={220}
+            height={160}
+            className="object-contain w-[120px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[200px] lg:h-[140px] xl:w-[220px] xl:h-[160px]"
+          />
         </motion.div>
       </motion.div>
     </section>

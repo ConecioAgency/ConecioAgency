@@ -230,7 +230,7 @@ export default function BlogArticle({ article, prev, next }: BlogArticleProps) {
               "name": "Conecio",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.conecio.com/images/logo.png"
+                "url": "https://www.conecio.com/images/logo/conecio_logo.png"
               }
             },
             "mainEntityOfPage": {
