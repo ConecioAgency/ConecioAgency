@@ -2,45 +2,17 @@ import { motion } from 'framer-motion';
 import { ChartBarIcon, LightBulbIcon, RocketLaunchIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { FaCloud, FaChartBar, FaLightbulb, FaSearch, FaEnvelope, FaDesktop, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
-import React from 'react';
+import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { AnimatedTitle } from './AnimatedTitle';
 import GooeyButton from './GooeyButton';
-
-const steps = [
-  {
-    icon: ChartBarIcon,
-    title: "Analyse & Stratégie",
-    desc: "On analyse vos besoins et on définit une stratégie digitale sur-mesure.",
-    color: "from-indigo-500 via-purple-500 to-pink-500",
-  },
-  {
-    icon: LightBulbIcon,
-    title: "Création & Innovation",
-    desc: "On conçoit des solutions créatives et innovantes pour votre marque.",
-    color: "from-green-400 via-teal-400 to-blue-500",
-  },
-  {
-    icon: RocketLaunchIcon,
-    title: "Croissance & Suivi",
-    desc: "On propulse votre business et on optimise vos résultats en continu.",
-    color: "from-pink-500 via-red-400 to-yellow-400",
-  },
-];
-
-const textVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay },
-  }),
-};
+import BrandIconsCarousel from 'src/components/BrandIconsCarousel';
+import { useTranslation } from 'next-i18next';
 
 // Nouvelle section : Pourquoi nous choisir (thème du site)
 const marketingServices = [
@@ -82,93 +54,52 @@ const marketingServices = [
   },
 ];
 
-const bizkarServices = [
-  {
-    icon: <FaLightbulb className="w-6 h-6" />,
-    title: "Manage Your Project",
-    desc: "Consectetur adipisicing elit sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-    color: "border-orange-400 text-orange-500 bg-white",
-  },
-  {
-    icon: <FaChartBar className="w-6 h-6" />,
-    title: "Business & Data Analytics",
-    desc: "Consectetur adipisicing elit sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-    color: "border-indigo-400 text-indigo-500 bg-white",
-  },
-];
-
 function PourquoiNousChoisirSection() {
+  const { t } = useTranslation('common');
+  const steps = [
+    {
+      icon: ChartBarIcon,
+      title: t('process.step_1_title'),
+      desc: t('process.step_1_desc'),
+      color: "from-indigo-500 via-purple-500 to-pink-500",
+    },
+    {
+      icon: LightBulbIcon,
+      title: t('process.step_2_title'),
+      desc: t('process.step_2_desc'),
+      color: "from-green-400 via-teal-400 to-blue-500",
+    },
+    {
+      icon: RocketLaunchIcon,
+      title: t('process.step_3_title'),
+      desc: t('process.step_3_desc'),
+      color: "from-pink-500 via-red-400 to-yellow-400",
+    },
+  ];
   // On ne garde que 3 services
   const displayedServices = marketingServices.slice(0, 3);
   return (
-    <section className="py-20 bg-white dark:bg-gray-800">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+    <section className="py-20 bg-white dark:bg-gray-800 w-full">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Image à gauche dans une forme arrondie moderne, agrandie et animée */}
-        <motion.div
-          className="w-full md:w-1/2 flex justify-center items-center"
-          initial={{ opacity: 0, scale: 0.92, x: -40 }}
-          animate={{ opacity: 1, scale: 1, x: 0, y: [0, -16, 0, 16, 0] }}
-          viewport={{ once: true }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="relative w-[420px] h-[420px] md:w-[520px] md:h-[520px] rounded-[45%_55%_60%_40%_/_60%_40%_60%_40%] bg-gradient-to-br from-indigo-400 via-purple-400 to-orange-300 shadow-2xl flex items-center justify-center overflow-visible">
-            {/* Glow animé autour de l'image */}
-            <motion.div
-              className="absolute inset-0 rounded-[45%_55%_60%_40%_/_60%_40%_60%_40%] pointer-events-none"
-              style={{
-                background: 'radial-gradient(circle at 60% 40%, #a78bfa55 0%, #fbc2eb33 60%, transparent 100%)',
-                zIndex: 1,
-              }}
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <img
-              src="/images/home4-banner-el.png"
-              alt="Agence marketing digital"
-              className="w-[96%] h-[96%] object-contain drop-shadow-2xl opacity-100 transition-transform duration-500 hover:scale-105 z-10"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.onerror = null;
-                target.src = "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80";
-              }}
-            />
-            {/* Légère ombre colorée supplémentaire */}
-            <div className="absolute inset-0 rounded-[45%_55%_60%_40%_/_60%_40%_60%_40%] pointer-events-none" style={{boxShadow: '0 0 64px 8px #a78bfa55, 0 0 32px 8px #fbc2eb33'}} />
-          </div>
-        </motion.div>
+        {/* <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+          <BrandIconsCarousel small />
+        </div> */}
         {/* Contenu à droite */}
         <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
           <div className="flex flex-col items-center mb-4">
             <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">NOTRE PROCESSUS</span>
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('process.section_title')}</span>
             </span>
           </div>
           <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            L'Innovation au Cœur de Votre Croissance
+            {t('process.section_subtitle')}
           </AnimatedTitle>
-          <p className="body text-gray-700 dark:text-gray-300 mb-8 max-w-xl">Notre équipe vous accompagne à chaque étape pour propulser votre marque et atteindre vos objectifs business grâce au digital.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full mb-8">
-            {displayedServices.map((service, idx) => (
-              <motion.div
-                key={idx}
-                className="flex flex-col items-center gap-4 bg-white/80 dark:bg-gray-800/80 rounded-xl shadow-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className={`flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br ${service.color} text-white shadow-lg mb-2 transition-transform duration-300 animate-float group-hover:scale-110 group-hover:shadow-2xl`}>
-                  {service.icon}
-                </div>
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1 text-center">{service.title}</h3>
-                <p className="text-xs text-gray-600 dark:text-gray-300 text-center">{service.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="flex justify-center w-full">
+          <p className="text-gray-700 dark:text-gray-200 text-lg mb-8 max-w-xl text-center md:text-left mx-auto md:mx-0">{t('process.section_desc')}</p>
+          <ProcessShowcaseSection />
+          <div className="flex justify-center w-full mt-8">
             <a className="btn-main btn-main--dark group" href="#contact">
-              <span>Démarrer Maintenant</span>
+              <span>{t('process.cta_btn')}</span>
               <span className="arrow">→</span>
             </a>
           </div>
@@ -213,13 +144,16 @@ const BizkarProcess = () => {
         </motion.div>
         {/* Badge, titre, texte, services, bouton, slogan */}
         <div className="flex flex-col items-center mb-4">
-          <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
+          <span className="inline-block bg-blue-50 dark:bg-blue-900/60 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">NOTRE AGENCE</span>
           </span>
         </div>
         <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
           L'Art de Révéler Votre Marque
         </AnimatedTitle>
+        <div className="flex justify-center w-full mb-4">
+          <BrandIconsCarousel small />
+        </div>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -378,108 +312,7 @@ function TrustedCompaniesCarousel() {
 }
 
 const Process = () => {
-  return (
-    <>
-      <BizkarProcess />
-      <section className="py-24 bg-white dark:bg-gray-800 relative overflow-hidden">
-        <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center md:items-stretch gap-8 md:gap-0">
-          {/* Colonne texte/processus à gauche */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center md:justify-center items-center md:items-start text-center md:text-left">
-            <div className="flex flex-col items-center mb-4">
-              <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-                <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">SUCCÈS</span>
-              </span>
-            </div>
-            <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Votre succès, étape par étape
-            </AnimatedTitle>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="body text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-8"
-            >Atteignez de nouveaux sommets avec Conecio : chaque étape de votre parcours digital est pensée pour transformer vos ambitions en réussites concrètes.</motion.p>
-            {/* Timeline horizontale */}
-            <div className="flex flex-col w-full md:w-[80%] mx-auto">
-              {/* Rangée des bulles avec trait positionné en absolu */}
-              <div className="relative flex flex-col md:flex-row items-center md:items-stretch justify-center gap-8 w-full pb-10">
-                <TraitGlowAnimated />
-                {steps.map((step, idx) => (
-                  <motion.div
-                    key={step.title}
-                    initial={{ opacity: 0, y: 40, scale: 0.92 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: idx * 0.18 }}
-                    className="relative z-10 flex flex-col items-center md:w-1/3 group mx-2"
-                    whileHover={{ scale: 1.08 }}
-                  >
-                    {/* Bulle glassmorphism avec effet pulse au survol */}
-                    <motion.div
-                      className={`relative w-24 h-24 md:w-28 md:h-28 flex items-center justify-center rounded-full bg-white/70 dark:bg-gray-900/70 shadow-2xl border-2 border-white dark:border-gray-800 backdrop-blur-xl group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ scale: 1.13, boxShadow: '0 0 32px 8px #a78bfa77' }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-                    >
-                      {/* Glow */}
-                      <motion.div
-                        className={`absolute inset-0 rounded-full blur-2xl opacity-50 z-0 bg-gradient-to-br ${step.color}`}
-                        animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.08, 1] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                      />
-                      {/* Icône dans cercle 3D avec effet pulse */}
-                      <motion.div
-                        className={`relative z-10 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-gradient-to-br ${step.color} shadow-xl`}
-                        animate={{ scale: [1, 1.08, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.3 }}
-                      >
-                        <step.icon className="w-6 h-6 md:w-8 md:h-8 text-white drop-shadow-lg" />
-                      </motion.div>
-                      {/* Numéro d'étape */}
-                      <span className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/80 dark:bg-gray-900/80 text-base md:text-lg font-extrabold heading text-primary-light dark:text-primary-dark shadow-lg border-2 border-white dark:border-gray-800">{idx + 1}</span>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-              {/* Espace entre trait et descriptions */}
-              <div className="mt-10" />
-              {/* Rangée des descriptions */}
-              <div className="flex flex-col md:flex-row items-start justify-center gap-8 w-full">
-                {steps.map((step, idx) => (
-                  <div key={step.title} className="md:w-1/3 mx-2 text-center md:text-left max-w-xs">
-                    <h3 className="heading text-base md:text-lg font-bold text-gray-900 dark:text-white mb-1 drop-shadow-sm">{step.title}</h3>
-                    <p className="body text-gray-600 dark:text-gray-300 text-xs md:text-sm">{step.desc}</p>
-                    <div className="my-4"></div>
-                    <div className="my-4"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          {/* Colonne image flottante à droite */}
-          <div className="relative flex items-center justify-center md:w-1/2 w-full min-h-[320px] md:min-h-[500px] mb-8 md:mb-0 pl-0 md:pl-8 pr-0 md:pr-12">
-            <motion.div
-              initial={{ y: 0 }}
-              animate={{ y: [0, -30, 0, 30, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-[80vw] max-w-[420px] md:w-[90%] md:max-w-[420px] h-[270px] md:h-[420px] pointer-events-none"
-              style={{ opacity: 0.6 }}
-            >
-              <Image
-                src="/images/features.png"
-                alt="Décor features"
-                fill
-                style={{ objectFit: 'contain' }}
-                priority={true}
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      <PourquoiNousChoisirSection />
-      <TrustedCompaniesCarousel />
-    </>
-  );
+  return <ProcessShowcaseSection />;
 };
 
 // Composant pour le trait animé avec adaptation dark mode et shimmer
@@ -531,4 +364,95 @@ const TraitGlowAnimated = () => {
   );
 };
 
-export default Process; 
+// --- Nouveau composant interactif pour la section Process ---
+const processSteps = [
+  {
+    titleKey: 'process_steps.0.title',
+    descKey: 'process_steps.0.desc',
+    image: "/images/character/analyse_strategie.png",
+    descriptionKey: 'process_steps.0.description'
+  },
+  {
+    titleKey: 'process_steps.1.title',
+    descKey: 'process_steps.1.desc',
+    image: "/images/character/creation_innovation.png",
+    descriptionKey: 'process_steps.1.description'
+  },
+  {
+    titleKey: 'process_steps.2.title',
+    descKey: 'process_steps.2.desc',
+    image: "/images/character/croisse_suivi.png",
+    descriptionKey: 'process_steps.2.description'
+  },
+];
+
+export default function ProcessShowcaseSection() {
+  const [selected, setSelected] = useState<number>(0);
+  const { t } = useTranslation('common');
+  return (
+    <section className="w-full min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-800 relative overflow-hidden py-12 px-2 md:px-8">
+      <div className="w-full max-w-7xl flex flex-col md:flex-row items-center justify-center gap-12">
+        {/* Colonne gauche */}
+        <div className="flex-1 flex flex-col items-center md:items-start justify-center px-2 md:px-8">
+          <span className="inline-block mb-4 px-6 py-1 rounded-xl font-bold tracking-widest bg-blue-50 text-base animate__animated animate__zoomInDown mx-auto md:mx-0" style={{letterSpacing: '0.08em'}}>
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('process.section_title')}</span>
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold font-heading mb-4 text-center md:text-left bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            {t('process.section_subtitle')}
+          </h2>
+          <p className="text-gray-700 dark:text-gray-200 text-lg mb-8 max-w-xl text-center md:text-left mx-auto md:mx-0">{t('process.section_desc')}</p>
+          <div className="w-full max-w-xl divide-y divide-gray-200 dark:divide-gray-700 border-t border-b border-gray-200 dark:border-gray-700 bg-transparent">
+            {processSteps.map((step, idx) => {
+              const isOpen = selected === idx;
+              return (
+                <div key={step.titleKey} className="py-1">
+                  <button
+                    onClick={() => setSelected(idx)}
+                    className={`w-full flex flex-col items-start text-left transition-colors group focus:outline-none py-3 px-2 md:px-4 ${isOpen ? 'bg-gray-100 dark:bg-[#23232b]' : 'hover:bg-gray-100/60 dark:hover:bg-[#23232b]/60'}`}
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <span className={`text-base md:text-lg font-semibold ${isOpen ? 'text-indigo-500' : 'text-gray-900 dark:text-white'}`}>{t(step.titleKey)}</span>
+                      <span className={`ml-4 text-xl font-bold transition-transform duration-300 ${isOpen ? 'rotate-45 text-indigo-500' : 'text-gray-400 dark:text-gray-400 group-hover:text-indigo-500'}`}>+</span>
+                    </div>
+                    {isOpen && (
+                      <div className="w-full animate-fade-in-up text-gray-700 dark:text-gray-200 text-sm mt-2 mb-1 leading-snug">
+                        {t(step.descriptionKey)}
+                      </div>
+                    )}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        {/* Colonne droite : carte avec effet glow */}
+        <div className="flex-1 flex items-center justify-center py-8 px-2 md:px-8">
+          <div className="relative flex items-center justify-center w-full max-w-lg min-h-[420px]">
+            {/* Glow effet */}
+            <div className="absolute inset-0 rounded-[2.5rem] blur-2xl pointer-events-none" style={{boxShadow: '0 0 120px 24px #a855f7cc, 0 0 80px 16px #38bdf8cc'}} />
+            <div className="relative bg-[#23232b] rounded-[2.5rem] p-8 shadow-2xl w-full min-h-[420px] flex items-center justify-center">
+              <img
+                src={processSteps[selected].image}
+                alt={t(processSteps[selected].titleKey)}
+                className="w-full h-full max-h-[340px] object-contain drop-shadow-2xl animate-zoom-in"
+                style={{ transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', transform: 'scale(1.08)' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <style jsx global>{`
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fade-in-up 0.5s cubic-bezier(.4,2,.6,1); }
+        @keyframes zoom-in {
+          from { opacity: 0; transform: scale(0.92); }
+          to { opacity: 1; transform: scale(1.08); }
+        }
+        .animate-zoom-in { animation: zoom-in 0.7s cubic-bezier(.4,2,.6,1); }
+      `}</style>
+    </section>
+  );
+} 

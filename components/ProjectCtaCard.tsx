@@ -27,9 +27,22 @@ const buttonVariants = {
 
 const ProjectCtaCard = () => {
   return (
-    <section className="w-full flex justify-center items-center py-10 md:py-16 bg-transparent">
+    <section className="w-full flex justify-center items-center py-8 md:py-10 bg-zinc-50 dark:bg-zinc-900 relative overflow-hidden">
+      {/* Pattern SVG discret en fond */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <svg width="100%" height="100%" viewBox="0 0 1800 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="2" fill="#e0e7ef" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+          <circle cx="1550" cy="80" r="90" fill="#a78bfa22" />
+          <circle cx="120" cy="320" r="70" fill="#fbc2eb22" />
+        </svg>
+      </div>
       <motion.div
-        className="relative w-full max-w-[98vw] xl:max-w-[1500px] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl flex flex-col md:flex-row items-center px-3 sm:px-8 md:px-16 py-8 md:py-12 gap-0 md:gap-20 overflow-visible min-h-[320px] md:min-h-[320px] lg:min-h-[280px]"
+        className="relative w-full max-w-3xl bg-white dark:bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-center px-2 sm:px-6 md:px-8 py-6 md:py-8 gap-0 md:gap-10 overflow-visible min-h-[180px] md:min-h-[180px] z-10 border border-zinc-100 dark:border-zinc-800"
         variants={cardVariants}
         initial="hidden"
         whileInView="visible"
@@ -38,41 +51,40 @@ const ProjectCtaCard = () => {
       >
         {/* Texte à gauche */}
         <motion.div
-          className="flex-1 flex flex-col items-start justify-center z-10 max-w-2xl w-full"
+          className="flex-1 flex flex-col items-start justify-center z-10 max-w-xl w-full"
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <span className="inline-block bg-blue-50 px-4 py-1 rounded-xl font-bold text-xs tracking-widest mb-2 uppercase" style={{letterSpacing: '0.09em'}}>
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">NOUVEAU PROJET ?</span>
+          <span className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 px-3 py-1 rounded-lg font-bold text-xs tracking-widest mb-2 uppercase text-indigo-600 dark:text-indigo-300" style={{letterSpacing: '0.09em'}}>
+            <span className="text-lg">🚀</span>
+            DÉMARRER UN PROJET
           </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent leading-relaxed text-balance">
-            Prêt à concrétiser<br className="hidden md:block" /> votre projet&nbsp;digital&nbsp;?
+          <h2 className="text-lg md:text-xl font-extrabold mb-1 text-zinc-900 dark:text-white leading-snug">
+            Prêt à concrétiser votre projet&nbsp;digital&nbsp;?
           </h2>
-          <p className="text-gray-700 dark:text-gray-200 text-base md:text-lg font-medium mb-7 max-w-xl text-balance leading-relaxed">
+          <p className="text-zinc-600 dark:text-zinc-300 text-sm md:text-base font-normal mb-4 max-w-xl leading-snug">
             Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.
           </p>
-          <Link href="/contact" className="btn-premium mt-2 md:mt-0">
-            Contactez-nous
-            <span className="ml-3">
-              <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                <path d="M5 12h14"></path>
-                <path d="M13 6l6 6-6 6"></path>
-              </svg>
-            </span>
+          <Link href="/contact" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-all shadow-sm mt-1">
+            <span>Contactez-nous</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <path d="M5 12h14"></path>
+              <path d="M13 6l6 6-6 6"></path>
+            </svg>
           </Link>
         </motion.div>
-        {/* Illustration à droite */}
+        {/* Illustration à droite, plus compacte */}
         <motion.div
-          className="flex-1 flex items-end justify-center md:justify-end mt-8 md:mt-0 md:ml-0 z-10 relative"
+          className="flex-1 flex items-end justify-center md:justify-end mt-6 md:mt-0 md:ml-0 z-10 relative"
           variants={imageVariants}
           initial="hidden"
           whileInView="visible"
           animate="animate"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="relative w-[220px] h-[140px] sm:w-[300px] sm:h-[200px] md:w-[370px] md:h-[240px] lg:w-[420px] lg:h-[270px] xl:w-[480px] xl:h-[320px] md:-mr-10 lg:-mr-16 xl:-mr-24">
+          <div className="relative w-[120px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[200px] lg:h-[140px] xl:w-[220px] xl:h-[160px]">
             <Image
               src="/images/project-need-dee85a1f.png"
               alt="Démarrer un projet"
@@ -82,13 +94,6 @@ const ProjectCtaCard = () => {
             />
           </div>
         </motion.div>
-        {/* Effet décoratif */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg width="100%" height="100%" viewBox="0 0 1800 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 w-full h-full">
-            <circle cx="1550" cy="80" r="120" fill="#a78bfa22" />
-            <circle cx="120" cy="320" r="100" fill="#fbc2eb22" />
-          </svg>
-        </div>
       </motion.div>
     </section>
   );

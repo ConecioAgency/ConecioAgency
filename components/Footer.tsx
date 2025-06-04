@@ -2,33 +2,35 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { H6, Body2, Caption } from './Typography';
+import { useTranslation } from 'next-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation('common');
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     services: [
-      { name: 'SEO & SEM', href: '/services#seo' },
-      { name: 'Web Design', href: '/services#web-design' },
-      { name: 'Marketing Mobile', href: '/services#marketing-mobile' },
-      { name: 'Social Media', href: '/services#social-media' },
-      { name: 'Content Marketing', href: '/services#content-marketing' },
-      { name: 'Analytics & Reporting', href: '/services#analytics' },
-      { name: 'Branding & Identité', href: '/services#branding' },
+      { name: t('footer.services.seo'), href: '/services#seo' },
+      { name: t('footer.services.web_design'), href: '/services#web-design' },
+      { name: t('footer.services.marketing_mobile'), href: '/services#marketing-mobile' },
+      { name: t('footer.services.social_media'), href: '/services#social-media' },
+      { name: t('footer.services.content_marketing'), href: '/services#content-marketing' },
+      { name: t('footer.services.analytics'), href: '/services#analytics' },
+      { name: t('footer.services.branding'), href: '/services#branding' },
     ],
     company: [
-      { name: 'À propos', href: '/about' },
-      { name: 'Tarifs', href: '/pricing' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Contact', href: '/contact' },
+      { name: t('footer.company.about'), href: '/about' },
+      { name: t('footer.company.pricing'), href: '/pricing' },
+      { name: t('footer.company.blog'), href: '/blog' },
+      { name: t('footer.company.contact'), href: '/contact' },
     ],
     legal: [
-      { name: 'Politique de confidentialité', href: '/privacy' },
+      { name: t('footer.legal.privacy'), href: '/politique-confidentialite' },
     ],
     blog: [
-      { name: 'Tendances du Digital Marketing à suivre en 2025', href: '/blog/tendances-digital-marketing-2025' },
-      { name: '10 astuces SEO incontournables pour 2024', href: '/blog/astuces-seo-2024' },
-      { name: 'Comment bâtir une stratégie de contenu efficace ?', href: '/blog/strategie-contenu-efficace' },
+      { name: t('footer.blog.trends'), href: '/blog/tendances-digital-marketing-2025' },
+      { name: t('footer.blog.seo_tips'), href: '/blog/astuces-seo-2024' },
+      { name: t('footer.blog.content_strategy'), href: '/blog/strategie-contenu-efficace' },
     ],
   };
 
@@ -84,9 +86,9 @@ const Footer = () => {
               <Image src="/images/logo/Conecio_logo_C.png" alt="Conecio Logo" width={40} height={40} className="mr-2 h-10 w-10 object-contain" priority />
             </Link>
             <div className="mb-6">
-              <H6 className="mb-4">À propos</H6>
+              <H6 className="mb-4">{t('footer.about_title')}</H6>
               <Body2 className="text-gray-600 dark:text-gray-400">
-                Conecio est votre partenaire digital pour une transformation numérique réussie.
+                {t('footer.description')}
               </Body2>
             </div>
             <div className="flex space-x-4 mt-2">
@@ -108,7 +110,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <H6 className="mb-4">Services</H6>
+            <H6 className="mb-4">{t('footer.services_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -126,7 +128,7 @@ const Footer = () => {
 
           {/* Entreprise */}
           <div>
-            <H6 className="mb-4">Entreprise</H6>
+            <H6 className="mb-4">{t('footer.company_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -144,7 +146,7 @@ const Footer = () => {
 
           {/* Blog */}
           <div>
-            <H6 className="mb-4">Blog</H6>
+            <H6 className="mb-4">{t('footer.blog_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.blog.map((link) => (
                 <li key={link.name}>
@@ -158,7 +160,7 @@ const Footer = () => {
 
           {/* Légal */}
           <div>
-            <H6 className="mb-4">Légal</H6>
+            <H6 className="mb-4">{t('footer.legal_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
@@ -177,7 +179,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <Caption className="text-gray-500 dark:text-gray-400">
-            Copyright © Conecio Agency. 2025 - All Rights Reserved.
+            {t('footer.copyright', { year: currentYear })}
           </Caption>
         </div>
       </div>

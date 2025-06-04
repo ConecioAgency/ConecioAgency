@@ -5,6 +5,7 @@ import { SunIcon, MoonIcon, ChartBarIcon, GlobeAltIcon, DevicePhoneMobileIcon, M
 import { H6, Body2, Button } from './Typography';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
@@ -15,6 +16,7 @@ const Navbar = () => {
   const servicesTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const router = useRouter();
+  const { i18n, t } = useTranslation('common');
 
   useEffect(() => {
     const darkMode = localStorage.getItem('darkMode') === 'true';
@@ -98,14 +100,24 @@ const Navbar = () => {
     });
   };
 
+  const changeLanguage = (lng: string) => {
+    if (lng === i18n.language) return;
+    router.push(router.asPath, router.asPath, { locale: lng });
+    if (lng === 'ar') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${
         isScrolled
-          ? 'bg-gray-50 dark:bg-gray-800/80 backdrop-blur-md shadow-2xl'
-          : 'bg-transparent'
+          ? 'bg-white shadow-2xl dark:bg-gray-800/80 backdrop-blur-md'
+          : 'bg-white/90 dark:bg-gray-900/80 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,12 +129,11 @@ const Navbar = () => {
           >
             <Link href="/" className="flex items-center">
               <img src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2" />
-              <H6 className="font-bold">Conecio</H6>
-              <Image src="/images/w2.png" alt="Test Image" width={40} height={40} className="ml-4" />
+              <H6 className="font-bold text-white">Conecio</H6>
             </Link>
           </motion.div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-6">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item, index) => (
                 item.name === 'Services' ? (
@@ -134,7 +145,7 @@ const Navbar = () => {
                     tabIndex={0}
                   >
                     <button
-                      className="relative px-3 py-2 rounded-md body text-gray-700 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group flex items-center focus:outline-none"
+                      className="relative px-3 py-2 rounded-md body text-gray-900 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group flex items-center focus:outline-none"
                       aria-haspopup="true"
                       aria-expanded={servicesOpen}
                       onClick={() => setServicesOpen((v) => !v)}
@@ -151,7 +162,7 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.18 }}
-                          className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 z-50"
+                          className="absolute left-0 mt-2 w-64 bg-gray-900 dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 z-50"
                           onMouseEnter={handleServicesEnter}
                           onMouseLeave={handleServicesLeave}
                         >
@@ -160,7 +171,7 @@ const Navbar = () => {
                               <li key={item.name}>
                                 <Link
                                   href={item.href}
-                                  className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
+                                  className="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-primary-light/10 dark:text-gray-200 dark:hover:bg-gray-800"
                                 >
                                   <item.icon className="w-5 h-5" />
                                   {item.name}
@@ -181,7 +192,7 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.href}
-                      className="relative px-3 py-2 rounded-md body text-gray-700 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group"
+                      className="relative px-3 py-2 rounded-md body text-gray-900 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group"
                     >
                       <span className="relative z-10">{item.name}</span>
                       <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-primary-light to-secondary-light rounded-full transition-all duration-300 group-hover:w-full"></span>
@@ -195,7 +206,7 @@ const Navbar = () => {
                 tabIndex={0}
               >
                 <button
-                  className="relative px-3 py-2 rounded-md body text-gray-700 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group flex items-center focus:outline-none"
+                  className="relative px-3 py-2 rounded-md body text-gray-900 dark:text-gray-200 hover:text-primary-light dark:hover:text-primary-dark transition-colors group flex items-center focus:outline-none"
                   aria-haspopup="true"
                   aria-expanded={aboutOpen}
                   onClick={() => setAboutOpen((v) => !v)}
@@ -212,7 +223,7 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 z-50"
+                      className="absolute left-0 mt-2 w-56 bg-gray-900 dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 z-50"
                       onMouseEnter={handleAboutEnter}
                       onMouseLeave={handleAboutLeave}
                     >
@@ -221,7 +232,7 @@ const Navbar = () => {
                           <li key={item.name}>
                             <Link
                               href={item.href}
-                              className="block px-5 py-2 body text-gray-700 dark:text-gray-200 hover:bg-primary-light/20 dark:hover:bg-primary-dark/20 transition-all rounded-md focus:bg-primary-light/30 dark:focus:bg-primary-dark/30 focus:outline-none"
+                              className="block px-5 py-2 body text-white hover:bg-primary-light/20 dark:text-gray-200 dark:hover:bg-primary-dark/20 transition-all rounded-md focus:bg-primary-light/30 dark:focus:bg-primary-dark/30 focus:outline-none"
                               tabIndex={0}
                             >
                               {item.name}
@@ -233,6 +244,19 @@ const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
+            </div>
+            <div className="ml-6 flex items-center gap-2">
+              <select
+                value={i18n.language}
+                onChange={e => changeLanguage(e.target.value)}
+                className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
+                aria-label={t('language')}
+              >
+                <option value="fr">FR</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+                <option value="ar">AR</option>
+              </select>
             </div>
           </div>
 

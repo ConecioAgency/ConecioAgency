@@ -16,131 +16,67 @@ import {
 import WhatToExpect from '../components/WhatToExpect';
 import ContactFaqSection from '../components/ContactFaqSection';
 import GooeyButton from '../components/GooeyButton';
+import { useTranslation } from 'next-i18next';
+import React from 'react';
 
+const ServiceMarquee = () => {
+  const { t } = useTranslation('common');
 const services = [
-  {
-    icon: ChartBarIcon,
-    title: 'SEO & SEM',
-    description: 'Optimisez votre visibilité et atteignez le sommet des résultats de recherche',
-    image: '/images/seo-sem.jpg',
-    color: 'from-indigo-500 via-purple-500 to-pink-500',
-    iconColor: 'text-indigo-500',
-    features: [
-      'Audit SEO Complet',
-      'Optimisation Technique',
-      'Stratégie de Contenu',
-      'Suivi des Performances'
-    ],
-    detailedDescription: `Notre service SEO & SEM combine l'optimisation naturelle et la publicité payante pour maximiser votre visibilité en ligne. Nous analysons en profondeur votre site, identifions les opportunités d'amélioration et mettons en place des stratégies personnalisées pour augmenter votre classement dans les moteurs de recherche. Notre approche data-driven nous permet de mesurer précisément l'impact de nos actions et d'ajuster continuellement notre stratégie pour de meilleurs résultats.`,
-    sectionTitle: 'Stratégie de Visibilité Digitale',
-    sectionDescription: 'Une approche complète pour dominer les résultats de recherche et maximiser votre présence en ligne'
-  },
-  {
-    icon: GlobeAltIcon,
-    title: 'Web Design',
-    description: 'Créez une présence digitale qui captive et convertit',
-    image: '/images/web-design.jpg',
-    color: 'from-green-400 via-teal-400 to-blue-500',
-    iconColor: 'text-teal-500',
-    features: [
-      'Design Responsif',
-      'Conversion Optimisée',
-      'Expérience Utilisateur',
-      'Performance Technique'
-    ],
-    detailedDescription: `Notre service de Web Design va au-delà de la simple création de sites web. Nous concevons des expériences digitales immersives qui captent l'attention de vos visiteurs et les guident naturellement vers la conversion. Chaque élément est pensé pour optimiser l'expérience utilisateur, des animations subtiles à la navigation intuitive, en passant par une architecture de contenu claire et engageante.`,
-    sectionTitle: 'Design Web Créatif & Fonctionnel',
-    sectionDescription: 'Des sites web qui allient esthétique et performance pour une expérience utilisateur optimale'
-  },
-  {
-    icon: DevicePhoneMobileIcon,
-    title: 'Marketing Mobile',
-    description: 'Connectez-vous avec votre audience où qu\'elle soit',
-    image: '/images/mobile-marketing.jpg',
-    color: 'from-pink-500 via-red-400 to-yellow-400',
-    iconColor: 'text-pink-500',
-    features: [
-      'Stratégies Adaptées',
-      'Expérience Utilisateur',
-      'Analyse Mobile',
-      'Optimisation Conversion'
-    ],
-    detailedDescription: `Dans un monde où le mobile est devenu le premier point de contact avec vos clients, notre service de Marketing Mobile vous permet d'atteindre votre audience au bon moment, au bon endroit. Nous développons des stratégies mobiles-first, optimisons vos campagnes pour les appareils mobiles et créons des expériences utilisateur fluides qui convertissent.`,
-    sectionTitle: 'Stratégie Mobile-First',
-    sectionDescription: 'Une approche centrée sur l\'expérience mobile pour toucher votre audience partout'
-  },
-  {
-    icon: MegaphoneIcon,
-    title: 'Social Media',
-    description: 'Engagez votre communauté sur les réseaux sociaux',
-    image: '/images/social-media.jpg',
-    color: 'from-blue-500 via-cyan-400 to-green-400',
-    iconColor: 'text-cyan-500',
-    features: [
-      'Stratégie Social Media',
-      'Création de Contenu',
-      'Community Management',
-      'Analyse des Performances'
-    ],
-    detailedDescription: `Notre service Social Media transforme vos réseaux sociaux en véritables leviers de croissance. Nous créons et gérons votre présence sur les plateformes les plus pertinentes pour votre secteur, développons des contenus engageants qui résonnent avec votre audience, et construisons une communauté active autour de votre marque. Notre approche data-driven nous permet de mesurer l'impact de chaque action et d'optimiser continuellement votre stratégie.`,
-    sectionTitle: 'Gestion de Communauté Digitale',
-    sectionDescription: 'Une présence sociale dynamique qui engage et fidélise votre audience'
-  },
-  {
-    icon: PresentationChartLineIcon,
-    title: 'Content Creator',
-    description: 'Créez du contenu engageant pour tous vos canaux',
-    image: '/images/content-creator.jpg',
-    color: 'from-yellow-400 via-orange-400 to-red-500',
-    iconColor: 'text-yellow-500',
-    features: [
-      'Rédaction de Blogs',
-      'Posts Réseaux Sociaux',
-      'Contenu Web',
-      'Stratégie Éditoriale'
-    ],
-    detailedDescription: `Notre service Content Creator vous aide à raconter votre histoire de manière captivante à travers différents formats et canaux. Nous créons des contenus qui non seulement informent et divertissent votre audience, mais qui renforcent également votre position d'expert dans votre domaine. Notre approche stratégique assure que chaque contenu contribue à vos objectifs business tout en engageant votre audience.`,
-    sectionTitle: 'Création de Contenu Stratégique',
-    sectionDescription: 'Des contenus qui racontent votre histoire et renforcent votre position d\'expert'
-  },
-  {
-    icon: PaintBrushIcon,
-    title: 'UX/UI Design',
-    description: 'Concevez des interfaces intuitives et esthétiques',
-    image: '/images/ux-ui-design.jpg',
-    color: 'from-purple-500 via-pink-400 to-red-500',
-    iconColor: 'text-purple-500',
-    features: [
-      'Design d\'Interface',
-      'Expérience Utilisateur',
-      'Prototypage',
-      'Tests Utilisateurs'
-    ],
-    detailedDescription: `Notre service UX/UI Design combine esthétique et fonctionnalité pour créer des interfaces qui non seulement plaisent à l'œil mais qui sont également intuitives et efficaces. Nous mettons l'utilisateur au centre de notre processus de design, en créant des expériences fluides et agréables qui facilitent la navigation et augmentent l'engagement. Notre approche itérative nous permet d'affiner continuellement le design en fonction des retours utilisateurs.`,
-    sectionTitle: 'Design Centré Utilisateur',
-    sectionDescription: 'Des interfaces qui allient beauté et fonctionnalité pour une expérience utilisateur optimale'
-  },
-  {
-    icon: SparklesIcon,
-    title: 'Innovation Digitale',
-    description: 'Restez à la pointe avec les dernières technologies',
-    image: '/images/innovation.jpg',
-    color: 'from-purple-500 via-pink-400 to-red-500',
-    iconColor: 'text-purple-500',
-    features: [
-      'Veille Technologique',
-      'Solutions Innovantes',
-      'Transformation Digitale',
-      'Accompagnement'
-    ],
-    detailedDescription: `Notre service d'Innovation Digitale vous aide à rester compétitif dans un monde en constante évolution. Nous identifions et intégrons les technologies émergentes qui peuvent transformer votre business, de l'intelligence artificielle à la réalité augmentée. Notre approche pragmatique nous permet de mettre en place des solutions innovantes qui génèrent des résultats concrets tout en préparant votre entreprise aux défis de demain.`,
-    sectionTitle: 'Solutions Digitales Innovantes',
-    sectionDescription: 'Des technologies de pointe pour transformer votre business et rester compétitif'
+    { name: t('services.seo_sem.title'), icon: ChartBarIcon },
+    { name: t('services.web_design.title'), icon: GlobeAltIcon },
+    { name: t('services.marketing_mobile.title'), icon: DevicePhoneMobileIcon },
+    { name: t('services.social_media.title'), icon: MegaphoneIcon },
+    { name: t('services.content_creator.title'), icon: PresentationChartLineIcon },
+    { name: t('services.ux_ui_design.title'), icon: PaintBrushIcon },
+    { name: t('services.innovation_digitale.title'), icon: SparklesIcon }
+  ];
+
+  return (
+    <div className="relative w-full overflow-hidden bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-pink-900/20 backdrop-blur-sm h-6">
+      <div className="flex animate-scroll">
+        {[...services, ...services].map((service, index) => (
+          <div key={index} className="flex-shrink-0 px-4 flex items-center gap-2">
+            <service.icon className="w-5 h-5 text-white/80" />
+            <span className="text-xl font-bold text-white/80 hover:text-white transition-colors duration-300">
+              {service.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const styles = `
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-];
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+`;
+
+// Add the styles to the document
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
+}
 
 // Composant CodeEditor pour la carte Web Design
-function CodeEditorDemo() {
+function CodeEditorDemo(): React.ReactElement {
   return (
     <div className="code-editor-demo">
       <div className="header">
@@ -237,7 +173,7 @@ function CodeEditorDemo() {
 }
 
 // Composant MobileDemo pour la carte Marketing Mobile
-function MobileDemo() {
+function MobileDemo(): React.ReactElement {
   return (
     <div className="mobile-ui-demo-container">
       <span className="top-border"></span>
@@ -352,7 +288,7 @@ function MobileDemo() {
 }
 
 // Composant TypewriterDemo pour la carte Content Creator
-function TypewriterDemo() {
+function TypewriterDemo(): React.ReactElement {
   return (
     <div className="typewriter">
       <div className="slide"><i></i></div>
@@ -371,7 +307,6 @@ function TypewriterDemo() {
           -webkit-animation: bounce05 var(--duration) linear infinite;
           animation: bounce05 var(--duration) linear infinite;
         }
-
         .typewriter .slide {
           width: 92px;
           height: 20px;
@@ -382,7 +317,6 @@ function TypewriterDemo() {
           -webkit-animation: slide05 var(--duration) ease infinite;
           animation: slide05 var(--duration) ease infinite;
         }
-
         .typewriter .slide:before,
         .typewriter .slide:after,
         .typewriter .slide i:before {
@@ -390,14 +324,12 @@ function TypewriterDemo() {
           position: absolute;
           background: var(--tool);
         }
-
         .typewriter .slide:before {
           width: 2px;
           height: 8px;
           top: 6px;
           left: 100%;
         }
-
         .typewriter .slide:after {
           left: 94px;
           top: 3px;
@@ -405,7 +337,6 @@ function TypewriterDemo() {
           width: 6px;
           border-radius: 3px;
         }
-
         .typewriter .slide i {
           display: block;
           position: absolute;
@@ -415,7 +346,6 @@ function TypewriterDemo() {
           top: 4px;
           background: var(--tool);
         }
-
         .typewriter .slide i:before {
           right: 100%;
           top: -2px;
@@ -423,7 +353,6 @@ function TypewriterDemo() {
           border-radius: 2px;
           height: 14px;
         }
-
         .typewriter .paper {
           position: absolute;
           left: 24px;
@@ -436,7 +365,6 @@ function TypewriterDemo() {
           -webkit-animation: paper05 var(--duration) linear infinite;
           animation: paper05 var(--duration) linear infinite;
         }
-
         .typewriter .paper:before {
           content: "";
           position: absolute;
@@ -449,7 +377,6 @@ function TypewriterDemo() {
           background: var(--text);
           box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);
         }
-
         .typewriter .keyboard {
           width: 120px;
           height: 56px;
@@ -457,13 +384,11 @@ function TypewriterDemo() {
           z-index: 1;
           position: relative;
         }
-
         .typewriter .keyboard:before,
         .typewriter .keyboard:after {
           content: "";
           position: absolute;
         }
-
         .typewriter .keyboard:before {
           top: 0;
           left: 0;
@@ -474,7 +399,6 @@ function TypewriterDemo() {
           transform: perspective(10px) rotateX(2deg);
           transform-origin: 50% 100%;
         }
-
         .typewriter .keyboard:after {
           left: 2px;
           top: 25px;
@@ -488,84 +412,68 @@ function TypewriterDemo() {
           -webkit-animation: keyboard05 var(--duration) linear infinite;
           animation: keyboard05 var(--duration) linear infinite;
         }
-
         @keyframes bounce05 {
           85%,
           92%,
           100% {
             transform: translateY(0);
           }
-
           89% {
             transform: translateY(-4px);
           }
-
           95% {
             transform: translateY(2px);
           }
         }
-
         @keyframes slide05 {
           5% {
             transform: translateX(14px);
           }
-
           15%,
           30% {
             transform: translateX(6px);
           }
-
           40%,
           55% {
             transform: translateX(0);
           }
-
           65%,
           70% {
             transform: translateX(-4px);
           }
-
           80%,
           89% {
             transform: translateX(-12px);
           }
-
           100% {
             transform: translateX(14px);
           }
         }
-
         @keyframes paper05 {
           5% {
             transform: translateY(46px);
           }
-
           20%,
           30% {
             transform: translateY(34px);
           }
-
           40%,
           55% {
             transform: translateY(22px);
           }
-
           65%,
           70% {
             transform: translateY(10px);
           }
-
           80%,
           85% {
             transform: translateY(0);
           }
-
           92%,
           100% {
             transform: translateY(46px);
           }
         }
-
         @keyframes keyboard05 {
           5%,
           12%,
@@ -582,63 +490,54 @@ function TypewriterDemo() {
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           9% {
             box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           18% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           27% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           36% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key),
               60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           45% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           54% {
             box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           63% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key);
           }
-
           72% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
               22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
               60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
           }
-
           81% {
             box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
               60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
@@ -652,7 +551,7 @@ function TypewriterDemo() {
 }
 
 // Composant MacbookDemo pour la carte UX/UI Design
-function MacbookDemo() {
+function MacbookDemo(): React.ReactElement {
   return (
     <div className="container">
       <div className="macbook">
@@ -1033,7 +932,6 @@ function MacbookDemo() {
             opacity: 0;
           }
         }
-
         @keyframes load {
           0% {
             width: 0;
@@ -1054,7 +952,6 @@ function MacbookDemo() {
             width: 80px;
           }
         }
-
         @keyframes modal {
           0% {
             transform: scale(0) rotate(-30deg) skew(30deg);
@@ -1085,7 +982,6 @@ function MacbookDemo() {
             opacity: 1;
           }
         }
-
         @keyframes key {
           0% {
             transform: translate(60px, -60px);
@@ -1132,7 +1028,7 @@ function MacbookDemo() {
 }
 
 // Composant SocialMediaDemo pour la carte Social Media
-function SocialMediaDemo() {
+function SocialMediaDemo(): React.ReactElement {
   return (
     <div className="main">
       <div className="up">
@@ -1157,19 +1053,16 @@ function SocialMediaDemo() {
           flex-direction: column;
           gap: 0.5em;
         }
-
         .up {
           display: flex;
           flex-direction: row;
           gap: 0.5em;
         }
-
         .down {
           display: flex;
           flex-direction: row;
           gap: 0.5em;
         }
-
         .card1 {
           width: 90px;
           height: 90px;
@@ -1180,13 +1073,11 @@ function SocialMediaDemo() {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           transition: .2s ease-in-out;
         }
-
         .instagram {
           margin-top: 1.5em;
           margin-left: 1.2em;
           fill: #cc39a4;
         }
-
         .card2 {
           width: 90px;
           height: 90px;
@@ -1197,13 +1088,11 @@ function SocialMediaDemo() {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           transition: .2s ease-in-out;
         }
-
         .twitter {
           margin-top: 1.5em;
           margin-left: -.9em;
           fill: #03A9F4;
         }
-
         .card3 {
           width: 90px;
           height: 90px;
@@ -1214,12 +1103,10 @@ function SocialMediaDemo() {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           transition: .2s ease-in-out;
         }
-
         .github {
           margin-top: -.6em;
           margin-left: 1.2em;
         }
-
         .card4 {
           width: 90px;
           height: 90px;
@@ -1230,49 +1117,40 @@ function SocialMediaDemo() {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           transition: .2s ease-in-out;
         }
-
         .discord {
           margin-top: -.9em;
           margin-left: -1.2em;
           fill: #8c9eff;
         }
-
         .card1:hover {
           cursor: pointer;
           scale: 1.1;
           background-color: #cc39a4;
         }
-
         .card1:hover .instagram {
           fill: white;
         }
-
         .card2:hover {
           cursor: pointer;
           scale: 1.1;
           background-color: #03A9F4;
         }
-
         .card2:hover .twitter {
           fill: white;
         }
-
         .card3:hover {
           cursor: pointer;
           scale: 1.1;
           background-color: black;
         }
-
         .card3:hover .github {
           fill: white;
         }
-
         .card4:hover {
           cursor: pointer;
           scale: 1.1;
           background-color: #8c9eff;
         }
-
         .card4:hover .discord {
           fill: white;
         }
@@ -1282,7 +1160,7 @@ function SocialMediaDemo() {
 }
 
 // Composant InnovationDemo pour la carte Innovation Digitale
-function InnovationDemo() {
+function InnovationDemo(): React.ReactElement {
   return (
     <div className="pyramid-loader">
       <div className="wrapper">
@@ -1301,7 +1179,6 @@ function InnovationDemo() {
           transform-style: preserve-3d;
           transform: rotateX(-20deg);
         }
-
         .wrapper {
           position: relative;
           width: 100%;
@@ -1309,13 +1186,11 @@ function InnovationDemo() {
           transform-style: preserve-3d;
           animation: spin 4s linear infinite;
         }
-
         @keyframes spin {
           100% {
             transform: rotateY(360deg);
           }
         }
-
         .pyramid-loader .wrapper .side {
           width: 70px;
           height: 70px;
@@ -1328,27 +1203,22 @@ function InnovationDemo() {
           transform-origin: center top;
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
-
         .pyramid-loader .wrapper .side1 {
           transform: rotateZ(-30deg) rotateY(90deg);
           background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
         }
-
         .pyramid-loader .wrapper .side2 {
           transform: rotateZ(30deg) rotateY(90deg);
           background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
         }
-
         .pyramid-loader .wrapper .side3 {
           transform: rotateX(30deg);
           background: conic-gradient( #2F2585, #D8CCE6, #F028FD, #2BDEAC);
         }
-
         .pyramid-loader .wrapper .side4 {
           transform: rotateX(-30deg);
           background: conic-gradient( #2BDEAC, #F028FD, #D8CCE6, #2F2585);
         }
-
         .pyramid-loader .wrapper .shadow {
           width: 60px;
           height: 60px;
@@ -1368,7 +1238,7 @@ function InnovationDemo() {
 }
 
 // Composant HexagonLoader pour l'animation en haut de la page
-function HexagonLoader() {
+function HexagonLoader(): React.ReactElement {
   return (
     <div className="hexagon-loader">
       <div className="socket">
@@ -1746,64 +1616,144 @@ function HexagonLoader() {
   );
 }
 
-const ServiceMarquee = () => {
-  const services = [
-    { name: "SEO & SEM", icon: ChartBarIcon },
-    { name: "Web Design", icon: GlobeAltIcon },
-    { name: "Marketing Mobile", icon: DevicePhoneMobileIcon },
-    { name: "Social Media", icon: MegaphoneIcon },
-    { name: "Content Creator", icon: PresentationChartLineIcon },
-    { name: "UX/UI Design", icon: PaintBrushIcon },
-    { name: "Innovation Digitale", icon: SparklesIcon }
-  ];
-
-  return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-pink-900/20 backdrop-blur-sm h-6">
-      <div className="flex animate-scroll">
-        {[...services, ...services].map((service, index) => (
-          <div key={index} className="flex-shrink-0 px-4 flex items-center gap-2">
-            <service.icon className="w-5 h-5 text-white/80" />
-            <span className="text-xl font-bold text-white/80 hover:text-white transition-colors duration-300">
-              {service.name}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const styles = `
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-scroll {
-    animation: scroll 40s linear infinite;
-    display: flex;
-    width: max-content;
-  }
-
-  .animate-scroll:hover {
-    animation-play-state: paused;
-  }
-`;
-
-// Add the styles to the document
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement("style");
-  styleSheet.textContent = styles;
-  document.head.appendChild(styleSheet);
-}
-
 export default function ServicesPage() {
-  const [selectedService, setSelectedService] = useState(services[0]);
+  const { t } = useTranslation('common');
+  type ServiceType = {
+    icon: any;
+    title: string;
+    description: string;
+    image: string;
+    color: string;
+    iconColor: string;
+    features: string[];
+    detailedDescription: string;
+    sectionTitle: string;
+    sectionDescription: string;
+  };
+  const [selectedService, setSelectedService] = useState<ServiceType | null>(null);
   const router = useRouter();
+
+  const services = [
+    {
+      icon: ChartBarIcon,
+      title: t('services.seo_sem.title'),
+      description: t('services.seo_sem.description'),
+      image: '/images/seo-sem.jpg',
+      color: 'from-indigo-500 via-purple-500 to-pink-500',
+      iconColor: 'text-indigo-500',
+      features: [
+        t('services.seo_sem.features.0'),
+        t('services.seo_sem.features.1'),
+        t('services.seo_sem.features.2'),
+        t('services.seo_sem.features.3')
+      ],
+      detailedDescription: t('services.seo_sem.detailedDescription'),
+      sectionTitle: t('services.seo_sem.sectionTitle'),
+      sectionDescription: t('services.seo_sem.sectionDescription')
+    },
+    {
+      icon: GlobeAltIcon,
+      title: t('services.web_design.title'),
+      description: t('services.web_design.description'),
+      image: '/images/web-design.jpg',
+      color: 'from-green-400 via-teal-400 to-blue-500',
+      iconColor: 'text-teal-500',
+      features: [
+        t('services.web_design.features.0'),
+        t('services.web_design.features.1'),
+        t('services.web_design.features.2'),
+        t('services.web_design.features.3')
+      ],
+      detailedDescription: t('services.web_design.detailedDescription'),
+      sectionTitle: t('services.web_design.sectionTitle'),
+      sectionDescription: t('services.web_design.sectionDescription')
+    },
+    {
+      icon: DevicePhoneMobileIcon,
+      title: t('services.marketing_mobile.title'),
+      description: t('services.marketing_mobile.description'),
+      image: '/images/mobile-marketing.jpg',
+      color: 'from-pink-500 via-red-400 to-yellow-400',
+      iconColor: 'text-pink-500',
+      features: [
+        t('services.marketing_mobile.features.0'),
+        t('services.marketing_mobile.features.1'),
+        t('services.marketing_mobile.features.2'),
+        t('services.marketing_mobile.features.3')
+      ],
+      detailedDescription: t('services.marketing_mobile.detailedDescription'),
+      sectionTitle: t('services.marketing_mobile.sectionTitle'),
+      sectionDescription: t('services.marketing_mobile.sectionDescription')
+    },
+    {
+      icon: MegaphoneIcon,
+      title: t('services.social_media.title'),
+      description: t('services.social_media.description'),
+      image: '/images/social-media.jpg',
+      color: 'from-blue-500 via-cyan-400 to-green-400',
+      iconColor: 'text-cyan-500',
+      features: [
+        t('services.social_media.features.0'),
+        t('services.social_media.features.1'),
+        t('services.social_media.features.2'),
+        t('services.social_media.features.3')
+      ],
+      detailedDescription: t('services.social_media.detailedDescription'),
+      sectionTitle: t('services.social_media.sectionTitle'),
+      sectionDescription: t('services.social_media.sectionDescription')
+    },
+    {
+      icon: PresentationChartLineIcon,
+      title: t('services.content_creator.title'),
+      description: t('services.content_creator.description'),
+      image: '/images/content-creator.jpg',
+      color: 'from-yellow-400 via-orange-400 to-red-500',
+      iconColor: 'text-yellow-500',
+      features: [
+        t('services.content_creator.features.0'),
+        t('services.content_creator.features.1'),
+        t('services.content_creator.features.2'),
+        t('services.content_creator.features.3')
+      ],
+      detailedDescription: t('services.content_creator.detailedDescription'),
+      sectionTitle: t('services.content_creator.sectionTitle'),
+      sectionDescription: t('services.content_creator.sectionDescription')
+    },
+    {
+      icon: PaintBrushIcon,
+      title: t('services.ux_ui_design.title'),
+      description: t('services.ux_ui_design.description'),
+      image: '/images/ux-ui-design.jpg',
+      color: 'from-purple-500 via-pink-400 to-red-500',
+      iconColor: 'text-purple-500',
+      features: [
+        t('services.ux_ui_design.features.0'),
+        t('services.ux_ui_design.features.1'),
+        t('services.ux_ui_design.features.2'),
+        t('services.ux_ui_design.features.3')
+      ],
+      detailedDescription: t('services.ux_ui_design.detailedDescription'),
+      sectionTitle: t('services.ux_ui_design.sectionTitle'),
+      sectionDescription: t('services.ux_ui_design.sectionDescription')
+    },
+    {
+      icon: SparklesIcon,
+      title: t('services.innovation_digitale.title'),
+      description: t('services.innovation_digitale.description'),
+      image: '/images/innovation.jpg',
+      color: 'from-purple-500 via-pink-400 to-red-500',
+      iconColor: 'text-purple-500',
+      features: [
+        t('services.innovation_digitale.features.0'),
+        t('services.innovation_digitale.features.1'),
+        t('services.innovation_digitale.features.2'),
+        t('services.innovation_digitale.features.3')
+      ],
+      detailedDescription: t('services.innovation_digitale.detailedDescription'),
+      sectionTitle: t('services.innovation_digitale.sectionTitle'),
+      sectionDescription: t('services.innovation_digitale.sectionDescription')
+    }
+  ];
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -2367,26 +2317,26 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="relative inline-block group">
               <h1 className="heading heading-lg mb-8 tracking-in-contract-bck relative z-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Nos Services
+                {t('servicesPage.title')}
               </h1>
               <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </div>
             <p className="hero-subtitle text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-              Des solutions digitales complètes pour propulser votre business vers de nouveaux sommets
+              {t('servicesPage.subtitle')}
             </p>
             <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
                 href="/contact"
                 className="px-6 py-3 rounded-lg bg-gray-800 dark:bg-white border border-gray-700 dark:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 group flex items-center gap-2"
               >
-                <span className="text-gray-200 dark:text-gray-700 font-medium group-hover:text-white dark:group-hover:text-gray-900">Démarrer un projet</span>
+                <span className="text-gray-200 dark:text-gray-700 font-medium group-hover:text-white dark:group-hover:text-gray-900">{t('cta.startProject')}</span>
                 <span className="text-indigo-400 dark:text-indigo-500 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </a>
               <Link 
                 href="/#agence" 
                 className="px-6 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 group flex items-center gap-2"
               >
-                <span className="text-gray-700 dark:text-gray-200 font-medium">Découvrir l'agence</span>
+                <span className="text-gray-700 dark:text-gray-200 font-medium">{t('cta.discoverAgency')}</span>
                 <span className="text-indigo-500 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </Link>
             </div>
@@ -2414,12 +2364,11 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <div className="relative inline-block group">
-                <h2 className="text-3xl font-bold mb-6 tracking-in-contract-bck relative z-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Une Agence Digitale Complète</h2>
+                <h2 className="text-3xl font-bold mb-6 tracking-in-contract-bck relative z-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('servicesPage.agencyTitle')}</h2>
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
               </div>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Chez Conecio, nous vous accompagnons dans votre transformation digitale avec une approche sur mesure. 
-                De la création de votre identité en ligne à l'optimisation de votre présence digitale, nous mettons notre expertise à votre service pour propulser votre succès.
+                {t('servicesPage.agencyIntro')}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -2430,7 +2379,7 @@ export default function ServicesPage() {
                     key={service.title}
                     onClick={() => setSelectedService(service)}
                     className={`w-full text-left rounded-xl border transition-all p-5 flex items-center gap-4 shadow-sm font-semibold bg-white dark:bg-gray-800 hover:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300/40 focus:border-indigo-500 duration-200 ${
-                      selectedService.title === service.title
+                      selectedService?.title === service.title
                         ? 'border-2 border-indigo-500 ring-2 ring-indigo-200 dark:ring-indigo-900/30 bg-indigo-50 dark:bg-indigo-900/20'
                         : 'border border-gray-200 dark:border-gray-700'
                     }`}
@@ -2455,9 +2404,9 @@ export default function ServicesPage() {
                       key={service.title}
                       id={id}
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: selectedService.title === service.title ? 1 : 0, y: selectedService.title === service.title ? 0 : 20 }}
+                      animate={{ opacity: selectedService?.title === service.title ? 1 : 0, y: selectedService?.title === service.title ? 0 : 20 }}
                       transition={{ duration: 0.4 }}
-                      style={{ display: selectedService.title === service.title ? 'block' : 'none' }}
+                      style={{ display: selectedService?.title === service.title ? 'block' : 'none' }}
                       className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl sticky top-8"
                     >
                       {/* Si Web Design, afficher le code editor, si SEO & SEM l'image dynamique, si Marketing Mobile le mobile UI, si Social Media le SVG animé, sinon l'image */}

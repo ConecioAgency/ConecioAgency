@@ -1,400 +1,401 @@
-import {
-  ChartBarIcon,
-  GlobeAltIcon,
-  DevicePhoneMobileIcon,
-  MegaphoneIcon,
-  PresentationChartLineIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import { AnimatedPremiumTitle } from './AnimatedPremiumTitle';
-import 'animate.css';
-import { AnimatedTitle } from './AnimatedTitle';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import Section from './Section';
+import ScrollAnimation from './ScrollAnimation';
+import { useTranslation } from 'next-i18next';
 
-const services = [
+const slides = [
   {
-    icon: ChartBarIcon,
-    title: 'SEO & SEM',
-    description: 'Optimisez votre visibilité et atteignez le sommet des résultats de recherche',
-    gradient: 'from-indigo-500 via-purple-500 to-pink-500',
+    titleKey: 'services.slide_1_title',
+    descriptionKey: 'services.slide_1_desc',
+    image: '/images/PSD/mockup_paper_out_of_screen_website_copy.png',
   },
   {
-    icon: GlobeAltIcon,
-    title: 'Web Design',
-    description: 'Créez une présence digitale qui captive et convertit',
-    gradient: 'from-green-400 via-teal-400 to-blue-500',
+    titleKey: 'services.slide_2_title',
+    descriptionKey: 'services.slide_2_desc',
+    video: '/videos/design.webm',
   },
   {
-    icon: DevicePhoneMobileIcon,
-    title: 'Marketing Mobile',
-    description: 'Connectez-vous avec votre audience où qu\'elle soit',
-    gradient: 'from-pink-500 via-red-400 to-yellow-400',
+    titleKey: 'services.slide_3_title',
+    descriptionKey: 'services.slide_3_desc',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80',
   },
   {
-    icon: MegaphoneIcon,
-    title: 'Social Media',
-    description: 'Développez votre communauté et amplifiez votre message',
-    gradient: 'from-blue-500 via-cyan-400 to-green-400',
-  },
-  {
-    icon: PresentationChartLineIcon,
-    title: 'Analytics & Reporting',
-    description: 'Prenez des décisions basées sur des données concrètes',
-    gradient: 'from-yellow-400 via-orange-400 to-red-500',
-  },
-  {
-    icon: SparklesIcon,
-    title: 'Branding & Identité',
-    description: 'Donnez vie à votre marque avec une identité unique',
-    gradient: 'from-purple-500 via-pink-400 to-red-500',
+    titleKey: 'services.slide_4_title',
+    descriptionKey: 'services.slide_4_desc',
+    image: '',
   },
 ];
 
-const textVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay },
-  }),
-};
+export default function Services() {
+  const { t } = useTranslation('common');
+  const [selected, setSelected] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
 
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.7, delay, type: 'spring', stiffness: 80 },
-  }),
-};
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
-const Services = () => {
+  const handlePlayPause = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
-    <section className="py-24 bg-white dark:bg-gray-800 relative overflow-hidden">
-      {/* Image animée en fond */}
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: [0, -30, 0, 30, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-        style={{ opacity: 0.15 }}
-      >
-        <Image
-          src="/images/withdraw-bg.png"
-          alt="Décor agence"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority={true}
-        />
-      </motion.div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center mb-4">
-          <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">SERVICES</span>
-          </span>
-        </div>
-        <div className="flex flex-col items-center w-full">
-          <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
-            Solutions Marketing Digital
-          </AnimatedTitle>
-        </div>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="body text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-12"
-        >
-          Nous accompagnons votre croissance avec des solutions innovantes et performantes.
-        </motion.p>
-
-        <style jsx>{`
-          .services-e-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem 2.5rem;
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 1rem;
-          }
-          .e-card {
-            margin: 0 auto;
-            background: transparent;
-            box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
-            position: relative;
-            width: 240px;
-            height: 260px;
-            border-radius: 16px;
-            overflow: hidden;
-            font: 18px Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-          .e-card .card-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            padding: 1.1rem 0.7rem 0.7rem 0.7rem;
-            gap: 0.3em;
-          }
-          .e-card.card-1 { background-color: rgba(227,234,254,0.85); color: #23263a; }
-          .e-card.card-2 { background-color: rgba(237,233,254,0.85); color: #23263a; }
-          .e-card.card-3 { background-color: rgba(253,242,248,0.85); color: #23263a; }
-          .e-card.card-4 { background-color: rgba(224,242,241,0.85); color: #23263a; }
-          .e-card.card-5 { background-color: rgba(254,249,195,0.85); color: #23263a; }
-          .e-card.card-6 { background-color: rgba(243,244,246,0.85); color: #23263a; }
-          .dark .e-card.card-1 { background-color: rgba(35,38,58,0.92); color: #e0e7ef; }
-          .dark .e-card.card-2 { background-color: rgba(49,46,129,0.92); color: #ede9fe; }
-          .dark .e-card.card-3 { background-color: rgba(131,24,67,0.92); color: #fdf2f8; }
-          .dark .e-card.card-4 { background-color: rgba(19,78,74,0.92); color: #e0f2f1; }
-          .dark .e-card.card-5 { background-color: rgba(120,53,15,0.92); color: #fef9c3; }
-          .dark .e-card.card-6 { background-color: rgba(30,41,59,0.92); color: #f3f4f6; }
-          .wave {
-            position: absolute;
-            width: 540px;
-            height: 700px;
-            opacity: 0.35;
-            left: 0;
-            top: 0;
-            margin-left: -50%;
-            margin-top: -70%;
-            background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
-            border-radius: 40%;
-            animation: wave 55s infinite linear;
-            z-index: 1;
-            pointer-events: none;
-          }
-          .wave:nth-child(2), .wave:nth-child(3) { top: 210px; }
-          .wave:nth-child(2) { animation-duration: 50s; }
-          .wave:nth-child(3) { animation-duration: 45s; }
-          @keyframes wave {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-          .e-card .icon {
-            width: 3em;
-            height: 3em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.18);
-            border-radius: 50%;
-            margin: 0 auto;
-            z-index: 2;
-            transition: transform 0.3s;
-          }
-          .e-card:hover .icon {
-            transform: scale(1.13) rotate(-8deg);
-            background: rgba(255,255,255,0.28);
-          }
-          .e-card .icon svg {
-            transition: all 0.3s;
-            color: #fff;
-          }
-          .e-card.card-1:hover .icon svg { color: #6366f1; }
-          .e-card.card-2:hover .icon svg { color: #a21caf; }
-          .e-card.card-3:hover .icon svg { color: #db2777; }
-          .e-card.card-4:hover .icon svg { color: #059669; }
-          .e-card.card-5:hover .icon svg { color: #eab308; }
-          .e-card.card-6:hover .icon svg { color: #2563eb; }
-          .e-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0.2em 0 0.1em 0;
-            z-index: 2;
-          }
-          .e-card p {
-            font-size: 0.95rem;
-            margin: 0 auto;
-            line-height: 1.3;
-            z-index: 2;
-            text-align: center;
-            max-width: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 48px;
-          }
-          @media (max-width: 900px) {
-            .services-e-cards-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
-          }
-          @media (max-width: 600px) {
-            .services-e-cards-grid { grid-template-columns: 1fr; gap: 1.2rem 0; }
-            .e-card { width: 98vw; height: 320px; }
-          }
-          .premium-btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2.5rem;
-          }
-          button {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            outline: none;
-            border: 0;
-            vertical-align: middle;
-            text-decoration: none;
-            background: transparent;
-            padding: 0;
-            font-size: inherit;
-            font-family: inherit;
-          }
-          button.learn-more {
-            width: 12rem;
-            height: auto;
-          }
-          button.learn-more .circle {
-            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
-            position: relative;
-            display: block;
-            margin: 0;
-            width: 3rem;
-            height: 3rem;
-            background: #fff;
-            border-radius: 1.625rem;
-          }
-          .dark button.learn-more .circle {
-            background: #fff;
-            box-shadow: 0 0 5px 1px rgba(255,255,255,0.2);
-          }
-          button.learn-more .circle .icon {
-            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            background: #fff;
-          }
-          .dark button.learn-more .circle .icon {
-            background: #fff;
-          }
-          button.learn-more .circle .icon.arrow {
-            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            left: 0.625rem;
-            width: 1.125rem;
-            height: 0.125rem;
-            background: none;
-          }
-          button.learn-more .circle .icon.arrow::before {
-            position: absolute;
-            content: "";
-            top: -0.29rem;
-            right: 0.0625rem;
-            width: 0.625rem;
-            height: 0.625rem;
-            border-top: 0.125rem solid #000;
-            border-right: 0.125rem solid #000;
-            transform: rotate(45deg);
-          }
-          .dark button.learn-more .circle .icon.arrow::before {
-            border-top: 0.125rem solid #000;
-            border-right: 0.125rem solid #000;
-          }
-          button.learn-more .button-text {
-            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0.75rem 0;
-            margin: 0 0 0 1.85rem;
-            color: #000;
-            font-weight: 700;
-            line-height: 1.6;
-            text-align: center;
-            text-transform: uppercase;
-          }
-          .dark button.learn-more .button-text {
-            color: #000;
-          }
-          button:hover .circle {
-            width: 100%;
-            box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
-          }
-          .dark button:hover .circle {
-            box-shadow: 0 0 10px 2px rgba(255,255,255,0.2);
-          }
-          button:hover .button-text {
-            transform: translate(-1.7rem, 0);
-            color: #000;
-          }
-          .dark button:hover .button-text {
-            color: #000;
-          }
-          button:hover .circle .icon.arrow {
-            background: #fff;
-            transform: translate(8.7rem, 0);
-          }
-          .dark button:hover .circle .icon.arrow {
-            background: #fff;
-          }
-          button:active .circle .icon.arrow {
-            transform: translate(9.5rem, 0);
-            transition: all 0.3s;
-          }
-          button:active .circle {
-            transform: scale(0.9);
-            transition: all 0.3s;
-            box-shadow: 0 0 5px 0.5px rgba(0,0,0,0.2);
-          }
-          .dark button:active .circle {
-            box-shadow: 0 0 5px 0.5px rgba(255,255,255,0.2);
-          }
-          button:active .button-text {
-            color: #000;
-          }
-          .dark button:active .button-text {
-            color: #000;
-          }
-        `}</style>
-        <div className="services-e-cards-grid">
-          {services.slice(0,6).map((service, idx) => (
-            <div className={`e-card card-${idx+1} playing`} key={service.title}>
-              <div className="wave" />
-              <div className="wave" style={{ animationDuration: '50s', top: '210px' }} />
-              <div className="wave" style={{ animationDuration: '45s', top: '210px' }} />
-              <div className="card-content">
-                <div className="icon">
-                  <service.icon className="w-6 h-6 text-white mx-auto" />
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <a
-                  href={`/services#${service.title.toLowerCase().replace(/\s|&/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
-                  className="text-xs font-bold text-white flex items-center gap-1 px-2 py-1 rounded hover:bg-indigo-500 dark:hover:bg-indigo-400 transition-all group shadow"
-                >
-                  Découvrez <span className="transition-transform group-hover:translate-x-1">&gt;</span>
-                </a>
-              </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 80, filter: 'blur(8px)' }}
+      whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+    >
+      <Section className="bg-transparent overflow-hidden">
+        <div className="flex flex-col items-center">
+          {/* Titre section */}
+          <ScrollAnimation direction="up" delay={0.4}>
+            <div className="flex flex-col items-center mb-12">
+              <ScrollAnimation direction="up" delay={0.5}>
+                <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest mb-4" style={{letterSpacing: '0.08em'}}>
+                  <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('services.section_title')}</span>
+                </span>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" delay={0.6}>
+                <h2 className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
+                  {t('services.section_subtitle')}
+                </h2>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" delay={0.7}>
+                <p className="text-gray-400 text-center max-w-xl mx-auto mt-4">
+                  {t('services.section_desc')}
+                </p>
+              </ScrollAnimation>
             </div>
-          ))}
-        </div>
+          </ScrollAnimation>
 
-        <div className="premium-btn-container flex justify-center mt-8">
-          <a
-            href="/contact"
-            className="btn-main btn-main--dark group"
-          >
-            <span>En savoir plus</span>
-            <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
-          </a>
+          {/* Carrousel */}
+          <ScrollAnimation direction="up" delay={0.8}>
+            <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center mb-8 mt-0">
+              {/* Box du carrousel avec animation d'entrée */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ 
+                  duration: 0.7, 
+                  ease: [0.4, 0, 0.2, 1],
+                  delay: 1
+                }}
+                className="relative z-20 rounded-[2.5rem] w-full max-w-7xl aspect-[16/9] min-h-[450px] flex flex-col items-center justify-center px-8 overflow-hidden"
+                style={{
+                  background: 'radial-gradient(ellipse at 50% 0%, rgba(106,51,255,0.18) 0%, rgba(56,125,255,0.12) 60%, transparent 100%)',
+                  boxShadow: '0 0 60px 10px rgba(106,51,255,0.18), 0 0 0 1.5px rgba(56,125,255,0.10)'
+                }}
+              >
+                {/* GitHub-like background gradients */}
+                <div className="absolute inset-0 pointer-events-none z-0">
+                  <div className="absolute top-[-50%] left-[-10%] right-[-50%] bottom-[-50%] rotate-[30deg]"
+                    style={{
+                      background: 'radial-gradient(ellipse at bottom right, rgba(56,125,255,0.17) 0%, transparent 70%)'
+                    }}
+                  />
+                  <div className="absolute top-[-50%] left-[-50%] right-[-20%] bottom-[-50%] rotate-[30deg]"
+                    style={{
+                      background: 'radial-gradient(ellipse at top left, rgba(106,51,255,0.25) 0%, transparent 70%)'
+                    }}
+                  />
+                  {/* Dark mode overlay */}
+                  <div className="absolute inset-0 hidden dark:block" style={{background: 'rgba(13,17,23,0.6)'}} />
+                  {/* Light mode overlay */}
+                  <div className="absolute inset-0 block dark:hidden" style={{background: 'rgba(255,255,255,0.5)'}} />
+                </div>
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    {slides.map((slide, i) => (
+                      <motion.div
+                        key={slide.titleKey}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ 
+                          opacity: selected === i ? 1 : 0,
+                          scale: selected === i ? 1 : 0.95,
+                          zIndex: selected === i ? 10 : 0
+                        }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className={`absolute inset-0 flex flex-col items-center justify-center ${
+                          selected === i ? 'pointer-events-auto' : 'pointer-events-none'
+                        }`}
+                      >
+                        {/* Afficher la vidéo si slide.video existe, sinon l'image, sinon la vidéo spéciale 'Gérer' */}
+                        {slide.video ? (
+                          <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden rounded-3xl bg-black">
+                            <video
+                              src={slide.video}
+                              className="w-full h-full object-cover shadow-2xl bg-black"
+                              loop
+                              muted
+                              autoPlay
+                              playsInline
+                            />
+                            <motion.h3 
+                              className="absolute bottom-8 left-8 text-3xl font-bold text-white"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.5 }}
+                            >
+                              {t(slide.titleKey)}
+                            </motion.h3>
+                          </div>
+                        ) : slide.titleKey === 'services.slide_4_title' ? (
+                          <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden rounded-3xl bg-black">
+                            <video
+                              ref={videoRef}
+                              src="/videos/Gerer-Service.mp4"
+                              className="w-full h-full object-cover shadow-2xl bg-black"
+                              loop
+                              muted
+                              autoPlay
+                              playsInline
+                              onPlay={() => setIsPlaying(true)}
+                              onPause={() => setIsPlaying(false)}
+                            />
+                            <motion.button
+                              onClick={handlePlayPause}
+                              className="absolute bottom-4 right-4 bg-white/80 dark:bg-gray-800/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-gray-700 transition"
+                              style={{ zIndex: 20 }}
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                              aria-label={isPlaying ? 'Pause' : 'Play'}
+                            >
+                              {isPlaying ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-indigo-600 dark:text-indigo-300">
+                                  <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" />
+                                  <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" />
+                                </svg>
+                              ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-indigo-600 dark:text-indigo-300">
+                                  <polygon points="8,5 20,12 8,19" fill="currentColor" />
+                                </svg>
+                              )}
+                            </motion.button>
+                          </div>
+                        ) : (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0 w-full h-full"
+                          >
+                            <motion.img 
+                              src={slide.image} 
+                              alt={t(slide.titleKey)} 
+                              className="w-full h-full object-cover rounded-3xl"
+                              initial={{ scale: 1.1 }}
+                              animate={{ scale: 1 }}
+                              transition={{ duration: 0.8 }}
+                            />
+                            {slide.titleKey !== 'services.slide_1_title' && (
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-3xl"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3 }}
+                              />
+                            )}
+                            <motion.h3 
+                              className="absolute bottom-8 left-8 text-3xl font-bold text-white"
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.5 }}
+                            >
+                              {t(slide.titleKey)}
+                            </motion.h3>
+                          </motion.div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            </div>
+          </ScrollAnimation>
+
+          {/* Menu toggle */}
+          <ScrollAnimation direction="up" delay={1.1}>
+            <div className="flex gap-1 bg-gray-900/90 backdrop-blur-sm rounded-[20px] px-1 py-1 shadow-lg mx-auto -mt-16 mb-8 relative z-20 w-max border border-gray-700/30">
+              {slides.map((slide, i) => (
+                <motion.button
+                  key={slide.titleKey}
+                  onClick={() => setSelected(i)}
+                  className={`px-4 py-1.5 rounded-[16px] text-sm font-medium transition-all duration-300 font-sans relative ${
+                    selected === i
+                      ? 'text-white'
+                      : 'text-gray-400 hover:text-white/90'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {selected === i && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-[16px] border border-indigo-500/30 backdrop-blur-sm"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <span className="relative z-10">{t(slide.titleKey)}</span>
+                </motion.button>
+              ))}
+            </div>
+          </ScrollAnimation>
+
+          {/* Texte descriptif */}
+          <ScrollAnimation direction="up" delay={1.2}>
+            <div className="w-full flex justify-center z-30 bg-transparent">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selected}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="max-w-2xl text-center text-gray-700 dark:text-gray-200 text-base md:text-lg font-normal leading-relaxed bg-transparent"
+                >
+                  {selected === 0 && (
+                    <motion.div 
+                      className="space-y-6"
+                      initial="hidden"
+                      animate="visible"
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: {
+                            staggerChildren: 0.2
+                          }
+                        }
+                      }}
+                    >
+                      <motion.div
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        className="text-center"
+                      >
+                        <p className="text-gray-400 text-center max-w-xl mx-auto mt-4">
+                          {t('services.tabs.create.desc')}
+                        </p>
+                        <motion.a
+                          href="/services#web-design"
+                          className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors group font-medium mt-4"
+                          whileHover={{ x: 5 }}
+                        >
+                          {t('services.tabs.create.cta')}
+                          <motion.span
+                            className="inline-block"
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          >
+                            →
+                          </motion.span>
+                        </motion.a>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                  {selected === 1 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-center"
+                    >
+                      <p className="text-gray-400 text-center max-w-xl mx-auto mt-4">
+                        {t('services.tabs.design.desc')}
+                      </p>
+                      <motion.a
+                        href="/services#design"
+                        className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors group font-medium mt-4"
+                        whileHover={{ x: 5 }}
+                      >
+                        {t('services.tabs.design.cta')}
+                        <motion.span
+                          className="inline-block"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.a>
+                    </motion.div>
+                  )}
+                  {selected === 2 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-center"
+                    >
+                      <p className="text-gray-400 text-center max-w-xl mx-auto mt-4">
+                        {t('services.tabs.promote.desc')}
+                      </p>
+                      <motion.a
+                        href="/services#marketing"
+                        className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors group font-medium mt-4"
+                        whileHover={{ x: 5 }}
+                      >
+                        {t('services.tabs.promote.cta')}
+                        <motion.span
+                          className="inline-block"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.a>
+                    </motion.div>
+                  )}
+                  {selected === 3 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-center"
+                    >
+                      <p className="text-gray-400 text-center max-w-xl mx-auto mt-4">
+                        {t('services.tabs.manage.desc')}
+                      </p>
+                      <motion.a
+                        href="/services#social"
+                        className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors group font-medium mt-4"
+                        whileHover={{ x: 5 }}
+                      >
+                        {t('services.tabs.manage.cta')}
+                        <motion.span
+                          className="inline-block"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.a>
+                    </motion.div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </ScrollAnimation>
         </div>
-      </div>
-    </section>
+      </Section>
+    </motion.div>
   );
-};
-
-export default Services; 
+} 

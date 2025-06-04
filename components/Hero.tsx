@@ -1,62 +1,65 @@
 import React, { useEffect, useState } from "react";
 import EvaModel from "./EvaModel";
 import CardLoaderAnimation from "./CardLoaderAnimation";
+import { useTranslation } from 'next-i18next';
 
-const rotatingWords = [
-  "votre marque",
-  "votre croissance",
-  "votre notoriété",
-  "votre performance",
-  "votre visibilité"
-];
-
-function RotatingText() {
+function RotatingText({ rotatingWords }: { rotatingWords: string[] }) {
   const [index, setIndex] = useState(0);
+  const { t } = useTranslation('common');
   useEffect(() => {
     const interval = setInterval(() => setIndex(i => (i + 1) % rotatingWords.length), 1800);
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingWords.length]);
   return (
     <span className="rotating-text">{rotatingWords[index]}</span>
   );
 }
 
 export default function Hero() {
+  const { t } = useTranslation('common');
+  const rotatingWords = [
+    t('hero.rotating_word_1'),
+    t('hero.rotating_word_2'),
+    t('hero.rotating_word_3'),
+    t('hero.rotating_word_4'),
+    t('hero.rotating_word_5'),
+  ];
   return (
     <section className="hero-section">
       <div className="hero-content">
         <div className="hero-left">
           <div className="hero-badge">
-            <span role="img" aria-label="star">⭐️⭐️⭐️⭐️⭐️</span> Boostez votre visibilité avec Conecio Agency
-      </div>
+            <span role="img" aria-label="star">⭐️⭐️⭐️⭐️⭐️</span> {t('hero.boost_visibility')}
+          </div>
           <h1>
-            <span className="hero-title-main">Déployez la puissance digitale de </span><br />
+            <span className="hero-title-main">{t('hero.deploy_power')}</span><br />
             <span className="hero-title-rotating">
-              <RotatingText />
-              </span>
+              <RotatingText rotatingWords={rotatingWords} />
+            </span>
           </h1>
           <p className="hero-subtitle">
-            L'agence marketing qui allie données, créativité et performance pour propulser votre marque.
+            {t('hero.subtitle')}
           </p>
           <a href="/contact" className="btn-main btn-main--dark group">
-            <span>Démarrer un projet</span>
+            <span>{t('hero.start_project')}</span>
             <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
           </a>
-            </div>
+        </div>
         <div className="hero-right">
-          <div className="hero-right-flex">
-            <EvaModel />
-            <div className="cards-pile-group">
-              <div className="card card-loader-top-right">
-                <CardLoaderAnimation />
-              </div>
-              <div className="card card-qr-main">
-                <LoaderAnimation />
-              </div>
-              <div className="card card-loader-bottom-left">
-                <QrLoaderCard />
-              </div>
-            </div>
+          <div className="hero-right-flex" style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <img
+              src="/images/hero_landing.png"
+              alt="Hero Landing"
+              className="hero-landing-img"
+              style={{
+                background: 'transparent',
+                maxWidth: '100%',
+                minHeight: '320px',
+                width: '540px',
+                height: '410px',
+                objectFit: 'contain'
+              }}
+            />
           </div>
           <div className="hero-pattern" />
         </div>
@@ -105,7 +108,7 @@ export default function Hero() {
           color: #f3f4f6;
         }
         .hero-title-rotating {
-          color: #38bdf8;
+          color: #a855f7;
           font-weight: 800;
           font-size: 1.1em;
           letter-spacing: -1px;
@@ -229,6 +232,21 @@ export default function Hero() {
           margin: 0 auto;
           box-shadow: 0 2px 12px #0001;
           transition: background 0.2s, box-shadow 0.2s;
+        }
+        .hero-landing-img {
+          animation: heroFloatZoom 3.5s ease-in-out infinite alternate;
+          border-radius: 32px;
+        }
+        @keyframes heroFloatZoom {
+          0% {
+            transform: scale(1) translateY(0px);
+          }
+          50% {
+            transform: scale(1.07) translateY(-16px);
+          }
+          100% {
+            transform: scale(1) translateY(0px);
+          }
         }
       `}</style>
     </section>

@@ -4,6 +4,7 @@ import { AnimatedTitle } from './AnimatedTitle';
 import { FaChevronDown, FaInfoCircle, FaEuroSign, FaCogs, FaLifeRing, FaShieldAlt } from 'react-icons/fa';
 import { H4, H2 } from './Typography';
 import SectionTitle from './SectionTitle';
+import { useTranslation } from 'next-i18next';
 
 const categories = [
   { key: 'Général', label: 'Général', icon: <FaInfoCircle className="w-4 h-4 mr-2" /> },
@@ -113,6 +114,7 @@ const faqs = [
 ];
 
 const ContactFaqSection = () => {
+  const { t } = useTranslation('common');
   const [selectedCategory, setSelectedCategory] = useState('Général');
   const [mounted, setMounted] = useState(false);
   const filteredFaqs = faqs.filter(faq => faq.category === selectedCategory);
@@ -129,8 +131,8 @@ const ContactFaqSection = () => {
         </div>
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <div className="text-center mb-12">
-            <SectionTitle badge="FAQ">
-              Questions Fréquentes
+            <SectionTitle badge={t('faq.badge')}>
+              {t('faq.title')}
             </SectionTitle>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -138,7 +140,7 @@ const ContactFaqSection = () => {
               transition={{ duration: 0.5 }}
               className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
             >
-              Trouvez rapidement la réponse à vos questions selon la thématique.
+              {t('faq.subtitle')}
             </motion.p>
           </div>
         </div>
@@ -154,8 +156,8 @@ const ContactFaqSection = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10 font-inter">
         <div className="text-center mb-12">
-          <SectionTitle badge="FAQ">
-            Questions Fréquentes
+          <SectionTitle badge={t('faq.badge')}>
+            {t('faq.title')}
           </SectionTitle>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -163,7 +165,7 @@ const ContactFaqSection = () => {
             transition={{ duration: 0.5 }}
             className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
           >
-            Trouvez rapidement la réponse à vos questions selon la thématique.
+            {t('faq.subtitle')}
           </motion.p>
         </div>
 
@@ -184,7 +186,7 @@ const ContactFaqSection = () => {
                   `}
                 >
                   {cat.icon}
-                  {cat.label}
+                  {t(`faq.categories.${cat.key}`)}
                 </button>
               ))}
             </div>

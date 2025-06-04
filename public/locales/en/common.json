@@ -1,0 +1,430 @@
+{
+  "home": {
+    "seo": {
+      "title": "Conecio - Digital Marketing & Innovation Agency",
+      "description": "Conecio is an innovative digital marketing agency supporting your digital transformation with tailor-made solutions: SEO, web design, social media, content marketing and more.",
+      "keywords": "digital marketing agency, SEO, web design, social media, content marketing, digital transformation, digital innovation, digital strategy",
+      "og_image_alt": "Conecio - Digital Marketing Agency",
+      "structured_desc": "Innovative digital marketing agency specialized in digital transformation"
+    },
+    "parallax": {
+      "innovate": "INNOVATE.",
+      "impact": "IMPACT.",
+      "dare": "DARE.",
+      "strategy": "STRATEGY",
+      "digital": "DIGITAL.",
+      "creativity": "CREATIVITY.",
+      "results": "RESULTS.",
+      "agency_diff": "THE AGENCY THAT MAKES THE",
+      "difference": "DIFFERENCE"
+    },
+    "cta": {
+      "badge": "START A PROJECT",
+      "title": "Ready to bring your digital project to life?",
+      "desc": "Let's discuss your ideas and create a tailor-made, high-performing and creative solution.",
+      "button": "Contact us",
+      "img_alt": "Start a project"
+    }
+  },
+  "home": "Home",
+  "services": {
+    "section_title": "SERVICES",
+    "section_subtitle": "Our digital expertise",
+    "section_desc": "Tailor-made solutions to boost your business with a modern, technical and refined style.",
+    "slide_1_title": "Create",
+    "slide_1_desc": "Websites, landing pages, custom experience for your business.",
+    "slide_2_title": "Design",
+    "slide_2_desc": "Logos, brand guidelines, impactful visuals for your brand.",
+    "slide_3_title": "Promote",
+    "slide_3_desc": "Digital advertising (Meta Ads, Google Ads), boost your visibility.",
+    "slide_4_title": "Manage",
+    "slide_4_desc": "Project management, monitoring, reporting and continuous optimization.",
+    "seo_sem": {
+      "title": "SEO & SEM",
+      "description": "Optimize your visibility and reach the top of search results",
+      "features": [
+        "Full SEO Audit",
+        "Technical Optimization",
+        "Content Strategy",
+        "Performance Tracking"
+      ],
+      "detailedDescription": "Our SEO & SEM service combines organic optimization and paid advertising to maximize your online visibility. We thoroughly analyze your site, identify improvement opportunities, and implement personalized strategies to boost your search engine ranking. Our data-driven approach allows us to precisely measure the impact of our actions and continuously adjust our strategy for better results.",
+      "sectionTitle": "Digital Visibility Strategy",
+      "sectionDescription": "A comprehensive approach to dominate search results and maximize your online presence"
+    },
+    "web_design": {
+      "title": "Web Design",
+      "description": "Create a digital presence that captivates and converts",
+      "features": [
+        "Responsive Design",
+        "Conversion Optimization",
+        "User Experience",
+        "Technical Performance"
+      ],
+      "detailedDescription": "Our Web Design service goes beyond just building websites. We design immersive digital experiences that capture your visitors' attention and naturally guide them toward conversion. Every element is crafted to optimize the user experience, from subtle animations to intuitive navigation and clear, engaging content architecture.",
+      "sectionTitle": "Creative & Functional Web Design",
+      "sectionDescription": "Websites that combine aesthetics and performance for an optimal user experience"
+    },
+    "marketing_mobile": {
+      "title": "Mobile Marketing",
+      "description": "Connect with your audience wherever they are",
+      "features": [
+        "Tailored Strategies",
+        "User Experience",
+        "Mobile Analytics",
+        "Conversion Optimization"
+      ],
+      "detailedDescription": "In a world where mobile is the first point of contact with your clients, our Mobile Marketing service helps you reach your audience at the right time, in the right place. We develop mobile-first strategies, optimize your campaigns for mobile devices, and create seamless user experiences that convert.",
+      "sectionTitle": "Mobile-First Strategy",
+      "sectionDescription": "A mobile-centric approach to reach your audience everywhere"
+    },
+    "social_media": {
+      "title": "Social Media",
+      "description": "Engage your community on social networks",
+      "features": [
+        "Social Media Strategy",
+        "Content Creation",
+        "Community Management",
+        "Performance Analysis"
+      ],
+      "detailedDescription": "Our Social Media service turns your social networks into real growth drivers. We create and manage your presence on the most relevant platforms for your sector, develop engaging content that resonates with your audience, and build an active community around your brand. Our data-driven approach allows us to measure the impact of every action and continuously optimize your strategy.",
+      "sectionTitle": "Digital Community Management",
+      "sectionDescription": "A dynamic social presence that engages and retains your audience"
+    },
+    "content_creator": {
+      "title": "Content Creator",
+      "description": "Create engaging content for all your channels",
+      "features": [
+        "Blog Writing",
+        "Social Media Posts",
+        "Web Content",
+        "Editorial Strategy"
+      ],
+      "detailedDescription": "Our Content Creator service helps you tell your story in a captivating way across different formats and channels. We create content that not only informs and entertains your audience but also strengthens your position as an expert in your field. Our strategic approach ensures that every piece of content contributes to your business goals while engaging your audience.",
+      "sectionTitle": "Strategic Content Creation",
+      "sectionDescription": "Content that tells your story and strengthens your expert position"
+    },
+    "ux_ui_design": {
+      "title": "UX/UI Design",
+      "description": "Design intuitive and aesthetic interfaces",
+      "features": [
+        "Interface Design",
+        "User Experience",
+        "Prototyping",
+        "User Testing"
+      ],
+      "detailedDescription": "Our UX/UI Design service combines aesthetics and functionality to create interfaces that are not only visually pleasing but also intuitive and efficient. We put the user at the center of our design process, creating smooth and enjoyable experiences that facilitate navigation and increase engagement. Our iterative approach allows us to continuously refine the design based on user feedback.",
+      "sectionTitle": "User-Centered Design",
+      "sectionDescription": "Interfaces that combine beauty and functionality for an optimal user experience"
+    },
+    "innovation_digitale": {
+      "title": "Digital Innovation",
+      "description": "Stay ahead with the latest technologies",
+      "features": [
+        "Tech Watch",
+        "Innovative Solutions",
+        "Digital Transformation",
+        "Support"
+      ],
+      "detailedDescription": "Our Digital Innovation service helps you stay competitive in a constantly evolving world. We identify and integrate emerging technologies that can transform your business, from artificial intelligence to augmented reality. Our pragmatic approach allows us to implement innovative solutions that deliver tangible results while preparing your company for tomorrow's challenges.",
+      "sectionTitle": "Innovative Digital Solutions",
+      "sectionDescription": "Cutting-edge technologies to transform your business and stay competitive"
+    }
+  },
+  "pricing": "Pricing",
+  "blog": "Blog",
+  "contact": {
+    "section_title": "CONTACT",
+    "section_subtitle": "Contact us",
+    "section_desc": "Let's discuss your project and see how we can help you achieve your goals",
+    "specify_request": "Specify your request:",
+    "request_info": "Information request",
+    "request_quote": "Quote request",
+    "request_partnership": "Partnership request",
+    "request_other": "Other",
+    "error_select_request_type": "Please select a request type",
+    "full_name": "Full name*",
+    "error_name_required": "Name is required",
+    "sector": "Sector*",
+    "choose_sector": "Choose a sector",
+    "sector_it": "IT",
+    "sector_marketing": "Marketing",
+    "sector_health": "Health",
+    "sector_finance": "Finance",
+    "sector_education": "Education",
+    "sector_realestate": "Real estate",
+    "sector_commerce": "Commerce",
+    "sector_industry": "Industry",
+    "sector_tourism": "Tourism",
+    "sector_other": "Other",
+    "error_sector_required": "Sector is required",
+    "company_name": "Company name*",
+    "error_company_required": "Company name is required",
+    "phone_label": "Phone*",
+    "error_phone_required": "Phone is required",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "send_message": "Send message",
+    "sending": "Sending..."
+  },
+  "about": "About",
+  "start_project": "Start a project",
+  "agency": {
+    "section_title": "OUR AGENCY",
+    "give_life": "Bring Your Identity to Life",
+    "intro": "At Conecio, we believe every brand deserves a strong and memorable visual signature. Our agency specializes in creating graphic and audiovisual content that attracts, inspires, and engages.",
+    "creation_services": "Our creative services include:",
+    "service_1_title": "Logos and Brand Guidelines",
+    "service_1_desc": "Shape your visual identity.",
+    "service_1_point_1": "Custom logo creation tailored to your universe.",
+    "service_1_point_2": "Definition of a coherent and impactful brand guideline.",
+    "service_1_point_3": "Support to adapt your identity across all your media.",
+    "service_2_title": "Storyboards and Explainer Videos",
+    "service_2_desc": "Tell your story.",
+    "service_2_point_1": "Development of clear and creative storyboards.",
+    "service_2_point_2": "Production of engaging explainer videos.",
+    "service_2_point_3": "Enhancement of your message through animated visuals.",
+    "service_3_title": "Visuals for Social Media and Ad Campaigns",
+    "service_3_desc": "Impactful visuals.",
+    "service_3_point_1": "Creation of visuals adapted to each platform.",
+    "service_3_point_2": "Design of attractive advertising campaigns.",
+    "service_3_point_3": "Optimization of visual impact for your audience.",
+    "service_4_title": "Animations and Motion Design",
+    "service_4_desc": "Capture attention from the first seconds.",
+    "service_4_point_1": "Creation of dynamic and modern animations.",
+    "service_4_point_2": "Motion design to strengthen your identity.",
+    "service_4_point_3": "Animations adapted to all your digital media.",
+    "order_btn": "Place your order",
+    "slogan": "🎯 From idea to realization, we create coherent and engaging visual universes that leave a lasting impression.",
+    "digital_creative": "100% digital & creative agency"
+  },
+  "language": "Language",
+  "welcome": "Welcome to Conecio!",
+  "hero": {
+    "boost_visibility": "Boost your visibility with Conecio Agency",
+    "deploy_power": "Unleash the digital power of",
+    "subtitle": "The marketing agency that combines data, creativity, and performance to propel your brand.",
+    "start_project": "Start a project",
+    "rotating_word_1": "your brand",
+    "rotating_word_2": "your growth",
+    "rotating_word_3": "your notoriety",
+    "rotating_word_4": "your performance",
+    "rotating_word_5": "your visibility"
+  },
+  "expect": {
+    "stats_1": "Years of experience",
+    "stats_2": "Satisfied clients",
+    "stats_3": "Projects completed",
+    "stats_4": "Experts at your service",
+    "feature_1_title": "Content that Converts",
+    "feature_1_desc": "We produce visuals and videos designed to capture attention and drive real actions: clicks, sales, engagement.",
+    "feature_2_title": "Total Brand Consistency",
+    "feature_2_desc": "Every element – logo, video, website, post – is designed to reinforce a strong, memorable, and aligned identity.",
+    "feature_3_title": "Agility & Responsiveness",
+    "feature_3_desc": "Need a visual, a reel, or a change urgently? Our team responds quickly without sacrificing quality.",
+    "feature_4_title": "Results-Driven Culture",
+    "feature_4_desc": "Our creations are not just beautiful. They are designed to perform in the field: social media, ads, SEO, UX.",
+    "tools_title": "The right tool for every task",
+    "tools_badge": "Our Tools",
+    "tools": {
+      "content": {
+        "label": "Content",
+        "title": "Content",
+        "items": [
+          "SEO-optimized article writing",
+          "Engaging newsletter creation",
+          "Conversion-focused page optimization"
+        ],
+        "description": "Create engaging, optimized content for every digital channel. Our team writes, structures, and optimizes your content to maximize your visibility and impact.",
+        "button": "See pricing"
+      },
+      "ai": {
+        "label": "AI",
+        "title": "AI",
+        "items": [
+          "Automated market analysis",
+          "Generation of innovative ideas",
+          "Marketing task automation"
+        ],
+        "description": "Leverage AI to boost your strategy: analysis, content generation, automation, and trend anticipation.",
+        "button": "See pricing"
+      },
+      "social": {
+        "label": "Social",
+        "title": "Social",
+        "items": [
+          "Custom social media strategy",
+          "Creation of viral visuals and videos",
+          "Community management and influencer campaigns"
+        ],
+        "description": "Grow your social presence with creative content, proactive management, and influencer campaigns.",
+        "button": "See pricing"
+      },
+      "advertising": {
+        "label": "Advertising",
+        "title": "Advertising",
+        "items": [
+          "Google & Meta campaign creation",
+          "Ad budget optimization",
+          "Performance analysis and detailed reporting"
+        ],
+        "description": "Launch high-performing ad campaigns across all channels. From creation to optimization, we manage your campaigns to generate leads and sales.",
+        "button": "See pricing"
+      },
+      "traffic": {
+        "label": "Traffic & Market",
+        "title": "Traffic & Market",
+        "items": [
+          "Digital audience analysis",
+          "Advanced competitive intelligence",
+          "Identification of new growth opportunities"
+        ],
+        "description": "Analyze your audience, monitor competitors, and identify new growth levers for your business.",
+        "button": "See pricing"
+      },
+      "seo": {
+        "label": "SEO",
+        "title": "SEO",
+        "items": [
+          "Comprehensive technical site audit",
+          "Advanced keyword research",
+          "Content optimization and netlinking"
+        ],
+        "description": "Boost your Google visibility with audits, keyword strategy, and ongoing site optimization.",
+        "button": "See pricing"
+      },
+      "creation": {
+        "label": "Creation",
+        "title": "Creation",
+        "items": [
+          "Custom landing page and showcase site creation",
+          "Video integration to capture attention",
+          "Development or adaptation of your brand guidelines"
+        ],
+        "description": "We design immersive landing pages and websites: unique design, engaging animations, video integration, and respect for your visual identity. Our goal: turn your visitors into clients with a memorable digital experience.",
+        "button": "See pricing"
+      }
+    }
+  },
+  "process": {
+    "section_title": "OUR PROCESS",
+    "section_subtitle": "Innovation at the Heart of Your Growth",
+    "section_desc": "Our team supports you at every stage to boost your brand and achieve your business goals through digital.",
+    "cta_btn": "Start Now",
+    "step_1_title": "Analysis & Strategy",
+    "step_1_desc": "We analyze your needs and define a tailor-made digital strategy.",
+    "step_2_title": "Creation & Innovation",
+    "step_2_desc": "We design creative and innovative solutions for your brand.",
+    "step_3_title": "Growth & Monitoring",
+    "step_3_desc": "We propel your business and continuously optimize your results."
+  },
+  "footer": {
+    "about_title": "About",
+    "description": "Conecio is your digital partner for a successful digital transformation.",
+    "services_title": "Services",
+    "company_title": "Company",
+    "blog_title": "Blog",
+    "legal_title": "Legal",
+    "copyright": "Copyright © Conecio Agency. {{year}} - All Rights Reserved.",
+    "services": {
+      "seo": "SEO & SEM",
+      "web_design": "Web Design",
+      "marketing_mobile": "Mobile Marketing",
+      "social_media": "Social Media",
+      "content_marketing": "Content Marketing",
+      "analytics": "Analytics & Reporting",
+      "branding": "Branding & Identity"
+    },
+    "company": {
+      "about": "About",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "legal": {
+      "privacy": "Privacy Policy"
+    }
+  },
+  "blog": {
+    "badge": "BLOG",
+    "title": "Our Latest Articles",
+    "subtitle": "Dive into Conecio's world: tips, trends, and insights on digital, marketing, and innovation. Our experts share weekly articles to boost your strategy and creativity.",
+    "new": "New",
+    "read_time": "read",
+    "read": "Read",
+    "see_all": "See all articles"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quickly find answers to your questions by topic.",
+    "categories": {
+      "Général": "General",
+      "Tarifs": "Pricing",
+      "Services": "Services",
+      "Support": "Support",
+      "Sécurité": "Security"
+    }
+  },
+  "tabs": {
+    "create": {
+      "desc": "We create modern, high-performance websites with captivating video animations for a unique user experience.",
+      "cta": "Learn more"
+    },
+    "design": {
+      "desc": "We build a strong identity for your brand: logo, brand guidelines, visuals... as well as logo animations, animated storyboards, explainer videos, and motion design content.",
+      "cta": "Learn more"
+    },
+    "promote": {
+      "desc": "We create and manage your ad campaigns on Meta (Facebook/Instagram) and Google Ads, with visuals optimized for conversion. Every message is clear, targeted, and designed to maximize your results.",
+      "cta": "Learn more"
+    },
+    "manage": {
+      "desc": "From content creation to publishing schedules, we ensure smooth management of your social networks. We set up clear and effective dashboards to track your results and adjust your strategy in real time.",
+      "cta": "Learn more"
+    }
+  },
+  "process_steps": [
+    {
+      "title": "Analysis & Strategy",
+      "desc": "We analyze your needs and define a tailor-made digital strategy, adapted to your goals and market.",
+      "description": "We start by understanding your challenges, analyzing your market, and defining a personalized digital roadmap to maximize your impact."
+    },
+    {
+      "title": "Creation & Innovation",
+      "desc": "We design creative and innovative solutions for your brand: design, content, campaigns, digital tools.",
+      "description": "Our creative team imagines and delivers unique digital experiences, in line with the latest trends and technologies."
+    },
+    {
+      "title": "Growth & Monitoring",
+      "desc": "We propel your business and continuously optimize your results through data analysis and ongoing improvement.",
+      "description": "We measure, analyze, and optimize every action to ensure the sustainable growth of your brand online."
+    }
+  ],
+  "testimonials": {
+    "badge": "TESTIMONIALS",
+    "title": "What our clients say",
+    "subtitle": "Discover how we helped our clients succeed in their digital transformation.",
+    "0": {
+      "quote": "The Conecio team perfectly met our expectations. Our site is now much more efficient and our traffic keeps increasing.",
+      "name": "Hamza Semlali",
+      "position": "Marketing Director"
+    },
+    "1": {
+      "quote": "Our digital transformation with Conecio was a real success. Their technical expertise and client approach were decisive.",
+      "name": "Tariq Filali",
+      "position": "CEO & Founder"
+    },
+    "2": {
+      "quote": "Exemplary professionalism and responsiveness. Our application was delivered on time with exceptional quality.",
+      "name": "Boutaina Chahdi",
+      "position": "Operations Director"
+    },
+    "3": {
+      "quote": "Conecio totally transformed our online presence. Their UI/UX expertise greatly improved our users' experience.",
+      "name": "Youssef Boutaib",
+      "position": "Founder & CTO"
+    }
+  }
+} 

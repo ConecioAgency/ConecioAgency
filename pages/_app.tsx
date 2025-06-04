@@ -3,12 +3,12 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import CustomCursor from '../components/CustomCursor';
 import AnimatedBubbles from '../components/AnimatedBubbles';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import Script from 'next/script';
 import CookieConsent from 'react-cookie-consent';
 import { useEffect, useState } from 'react';
+import { appWithTranslation } from 'next-i18next';
 
 // Hook global pour animer tous les h2.h2-animated au scroll
 function useH2ScrollAnimation() {
@@ -27,7 +27,7 @@ function useH2ScrollAnimation() {
   }, []);
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   useH2ScrollAnimation();
   const [cookiesAccepted, setCookiesAccepted] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState({
@@ -89,7 +89,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CustomCursor />
       <Navbar />
       <AnimatedBubbles />
       <Component {...pageProps} />
@@ -286,4 +285,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       )}
     </>
   );
-} 
+}
+
+export default appWithTranslation(MyApp); 

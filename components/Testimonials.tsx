@@ -9,39 +9,10 @@ import 'swiper/css/pagination';
 import { FaQuoteRight, FaStar } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
 import { AnimatedTitle } from './AnimatedTitle';
-
-const testimonials = [
-  {
-    quote: "L'équipe de Conecio a su répondre parfaitement à nos attentes. Notre site est maintenant beaucoup plus performant et notre trafic ne cesse d'augmenter.",
-    name: "Marie Dupont",
-    position: "Directrice Marketing",
-    image: "/images/testimonials/client1.png",
-    rating: 5,
-  },
-  {
-    quote: "Notre transformation digitale avec Conecio a été un véritable succès. Leur expertise technique et leur approche client ont été déterminantes.",
-    name: "Thomas Laurent",
-    position: "CEO & Fondateur",
-    image: "/images/testimonials/client2.png",
-    rating: 5,
-  },
-  {
-    quote: "Professionnalisme et réactivité exemplaires. Notre application a été livrée dans les délais avec une qualité exceptionnelle.",
-    name: "Sophie Martin",
-    position: "Directrice des Opérations",
-    image: "/images/testimonials/client3.png",
-    rating: 5,
-  },
-  {
-    quote: "Conecio a totalement transformé notre présence en ligne. Leur expertise en UI/UX a considérablement amélioré l'expérience de nos utilisateurs.",
-    name: "Jean Dubois",
-    position: "Fondateur & CTO",
-    image: "/images/testimonials/client4.png",
-    rating: 5,
-  },
-];
+import { useTranslation } from 'next-i18next';
 
 const Testimonials = () => {
+  const { t } = useTranslation('common');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -50,18 +21,49 @@ const Testimonials = () => {
 
   if (!mounted) return null;
 
+  const testimonials = [
+    {
+      quote: t('testimonials.0.quote'),
+      name: t('testimonials.0.name'),
+      position: t('testimonials.0.position'),
+      image: "/images/testimonials/client1.png",
+      rating: 5,
+    },
+    {
+      quote: t('testimonials.1.quote'),
+      name: t('testimonials.1.name'),
+      position: t('testimonials.1.position'),
+      image: "/images/testimonials/client2.png",
+      rating: 5,
+    },
+    {
+      quote: t('testimonials.2.quote'),
+      name: t('testimonials.2.name'),
+      position: t('testimonials.2.position'),
+      image: "/images/testimonials/client3.png",
+      rating: 5,
+    },
+    {
+      quote: t('testimonials.3.quote'),
+      name: t('testimonials.3.name'),
+      position: t('testimonials.3.position'),
+      image: "/images/testimonials/client4.png",
+      rating: 5,
+    },
+  ];
+
   return (
     <section className="py-16 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="max-w-[1100px] mx-auto">
           <div className="flex flex-col items-center mb-4">
             <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">TÉMOIGNAGES</span>
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('testimonials.badge')}</span>
             </span>
           </div>
           <div className="flex flex-col items-center w-full">
             <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
-              Ce que disent nos clients
+              {t('testimonials.title')}
             </AnimatedTitle>
           </div>
           <motion.p
@@ -71,7 +73,7 @@ const Testimonials = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="body text-gray-700 dark:text-gray-300 text-center mb-10"
           >
-            Découvrez comment nous avons aidé nos clients à réussir leur transformation digitale.
+            {t('testimonials.subtitle')}
           </motion.p>
           
           <div className="relative">
