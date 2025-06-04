@@ -534,10 +534,11 @@ export default function Blog() {
                           <Link href={`/blog/${article.slug}`} className="block">
                             <Image
                               src={article.image}
-                              alt={article.title}
-                              width={600}
-                              height={340}
-                              className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+                              alt={article.altText}
+                              width={800}
+                              height={400}
+                              className="w-full h-48 object-cover rounded-t-lg"
+                              priority={index < 3}
                             />
                           </Link>
                           {/* Like/Share bar */}
@@ -626,7 +627,12 @@ export default function Blog() {
                         className="flex flex-row w-full bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-xl border border-white/30 dark:border-gray-800/40 hover:shadow-2xl transition-all duration-300 overflow-hidden group"
                       >
                         <div className="relative min-w-[120px] w-32 md:w-40 h-44 flex-shrink-0 rounded-l-2xl overflow-hidden shadow-lg border-r border-white/30 dark:border-gray-800/40 bg-gradient-to-br from-purple-500/10 to-pink-500/10">
-                          <Image src={article.image} alt={article.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                          <Image 
+                            src={article.image} 
+                            alt={article.altText} 
+                            fill 
+                            className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                          />
                         </div>
                         <div className="flex flex-col justify-between flex-1 p-6">
                           <div className="flex items-center gap-4 mb-2">

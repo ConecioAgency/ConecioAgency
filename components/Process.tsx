@@ -370,19 +370,19 @@ const processSteps = [
   {
     titleKey: 'process_steps.0.title',
     descKey: 'process_steps.0.desc',
-    image: "/images/character/analyse_strategie.png",
+    image: "/images/character/analyse_strategie.webp",
     descriptionKey: 'process_steps.0.description'
   },
   {
     titleKey: 'process_steps.1.title',
     descKey: 'process_steps.1.desc',
-    image: "/images/character/creation_innovation.png",
+    image: "/images/character/creation_innovation.webp",
     descriptionKey: 'process_steps.1.description'
   },
   {
     titleKey: 'process_steps.2.title',
     descKey: 'process_steps.2.desc',
-    image: "/images/character/croisse_suivi.png",
+    image: "/images/character/croisse_suivi.webp",
     descriptionKey: 'process_steps.2.description'
   },
 ];

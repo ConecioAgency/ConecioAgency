@@ -276,7 +276,14 @@ export default function BlogArticle({ article, prev, next }: BlogArticleProps) {
                   </div>
                 </div>
                 <div className="relative w-full h-64 mt-4 rounded-2xl overflow-hidden shadow-2xl border-2 border-indigo-100 dark:border-indigo-900">
-                  <Image src={article.image} alt={article.title} fill className="object-cover" priority />
+                  <Image
+                    src={article.image}
+                    alt={article.altText}
+                    width={1200}
+                    height={630}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                    priority
+                  />
                 </div>
               </div>
               {mounted && (

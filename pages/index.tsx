@@ -62,7 +62,7 @@ const ParallaxText = ({ children, baseVelocity = 100 }: ParallaxTextProps) => {
   });
 
   return (
-    <div className="relative overflow-hidden whitespace-nowrap flex flex-nowrap py-0">
+    <div className="relative overflow-hidden whitespace-nowrap flex flex-nowrap py-0" style={{ height: '64px' }}>
       {/* Fade à gauche */}
       <div
         className="pointer-events-none absolute left-0 top-0 h-full w-12 z-20"
@@ -93,12 +93,14 @@ const ParallaxText = ({ children, baseVelocity = 100 }: ParallaxTextProps) => {
           textTransform: 'uppercase',
           WebkitFontSmoothing: 'antialiased',
           color: 'var(--parallax-text-color, #18181b)',
+          willChange: 'transform',
+          contain: 'layout style paint'
         }}
       >
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap' }}>{children}</span>
+        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
+        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
+        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
+        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
       </motion.div>
       <style jsx global>{`
         :root {

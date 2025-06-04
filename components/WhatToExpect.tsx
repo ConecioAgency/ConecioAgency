@@ -73,27 +73,27 @@ export const WhatToExpect = () => {
 
   const features = [
     {
-      title: t('expect.feature_1_title'),
-      description: t('expect.feature_1_desc'),
-      image: "/images/character/astro1.png",
+      title: "Expertise Technique",
+      description: "Une équipe d'experts qualifiés à votre service.",
+      image: "/images/character/astro1.webp",
       gradient: "from-blue-500 to-purple-500"
     },
     {
-      title: t('expect.feature_2_title'),
-      description: t('expect.feature_2_desc'),
-      image: "/images/character/astro2.png",
+      title: "Innovation Continue",
+      description: "Des solutions toujours à la pointe de la technologie.",
+      image: "/images/character/astro2.webp",
       gradient: "from-purple-500 to-pink-500"
     },
     {
-      title: t('expect.feature_3_title'),
-      description: t('expect.feature_3_desc'),
-      image: "/images/character/astro3.png",
+      title: "Support Dédié",
+      description: "Un accompagnement personnalisé à chaque étape.",
+      image: "/images/character/astro3.webp",
       gradient: "from-pink-500 to-orange-500"
     },
     {
-      title: t('expect.feature_4_title'),
-      description: t('expect.feature_4_desc'),
-      image: "/images/character/astro2.png",
+      title: "Résultats Garantis",
+      description: "Des performances mesurables et des résultats concrets.",
+      image: "/images/character/astro2.webp",
       gradient: "from-orange-500 to-yellow-500"
     }
   ];

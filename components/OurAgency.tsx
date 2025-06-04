@@ -34,7 +34,7 @@ const OurAgency = () => {
       icon: "✒️",
       title: t('agency.service_1_title'),
       desc: t('agency.service_1_desc'),
-      image: "/images/character/a-creative-character--young-designer--sitting-at-a.png",
+      image: "/images/character/a-creative-character--young-designer--sitting-at-a.webp",
       points: [
         t('agency.service_1_point_1'),
         t('agency.service_1_point_2'),
@@ -45,7 +45,7 @@ const OurAgency = () => {
       icon: "🎬",
       title: t('agency.service_2_title'),
       desc: t('agency.service_2_desc'),
-      image: "/images/character/a-character--animator-or-storyteller--in-front-of-.png",
+      image: "/images/character/a-character--animator-or-storyteller--in-front-of-.webp",
       points: [
         t('agency.service_2_point_1'),
         t('agency.service_2_point_2'),
@@ -56,7 +56,7 @@ const OurAgency = () => {
       icon: "📱",
       title: t('agency.service_3_title'),
       desc: t('agency.service_3_desc'),
-      image: "/images/character/a-social-media-manager-character-creating-and-post.png",
+      image: "/images/character/a-social-media-manager-character-creating-and-post.webp",
       points: [
         t('agency.service_3_point_1'),
         t('agency.service_3_point_2'),
@@ -67,7 +67,7 @@ const OurAgency = () => {
       icon: "🖥️",
       title: t('agency.service_4_title'),
       desc: t('agency.service_4_desc'),
-      image: "/images/character/a-motion-designer-character-working-on-a-computer-.png",
+      image: "/images/character/a-motion-designer-character-working-on-a-computer-.webp",
       points: [
         t('agency.service_4_point_1'),
         t('agency.service_4_point_2'),

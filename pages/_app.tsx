@@ -1,210 +1,327 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import AnimatedBubbles from '../components/AnimatedBubbles';
-import ScrollToTopButton from '../components/ScrollToTopButton';
-import Script from 'next/script';
-import CookieConsent from 'react-cookie-consent';
-import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useState, useCallback, memo, useMemo, useRef, useTransition, Suspense } from 'react';
 import { appWithTranslation } from 'next-i18next';
+import Script from 'next/script';
+import Image from 'next/image';
 
-// Hook global pour animer tous les h2.h2-animated au scroll
+// Import dynamique des composants non critiques avec préchargement
+const Navbar = dynamic(() => import('../components/Navbar'), { 
+  ssr: true,
+  loading: () => <div className="h-16 bg-white dark:bg-gray-900 animate-pulse" />
+});
+
+const Footer = dynamic(() => import('../components/Footer'), { 
+  ssr: true,
+  loading: () => <div className="h-64 bg-white dark:bg-gray-900 animate-pulse" />
+});
+
+const AnimatedBubbles = dynamic(() => import('../components/AnimatedBubbles'), { 
+  ssr: false,
+  loading: () => null
+});
+
+const ScrollToTopButton = dynamic(() => import('../components/ScrollToTopButton'), { 
+  ssr: false,
+  loading: () => null
+});
+
+// Types optimisés avec des valeurs littérales et des unions discriminées
+type CookieType = 'essential' | 'performance' | 'chat' | 'functional' | 'analytics' | 'advertisement';
+type CookiePreferences = Readonly<Record<CookieType, boolean>>;
+
+// Constantes optimisées avec des valeurs littérales et des objets gelés
+const DEFAULT_COOKIE_PREFS = Object.freeze({
+  essential: true,
+  performance: false,
+  chat: false,
+  functional: false,
+  analytics: false,
+  advertisement: false
+} as const);
+
+const ACCEPTED_COOKIE_PREFS = Object.freeze({
+  essential: true,
+  performance: true,
+  chat: true,
+  functional: true,
+  analytics: true,
+  advertisement: true
+} as const);
+
+// Styles optimisés pour les polices avec preload et font-display
+const fontStyles = `
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+`;
+
+// Composants optimisés avec memo et types stricts
+const CookieBanner = memo(({ onAccept, onCustomize, onReject }: {
+  readonly onAccept: () => void;
+  readonly onCustomize: () => void;
+  readonly onReject: () => void;
+}) => {
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (bannerRef.current) {
+      observer.observe(bannerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div 
+      ref={bannerRef}
+      className="fixed bottom-0 left-0 w-full z-[9999] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-gray-900 dark:text-gray-100"
+      style={{ 
+        contain: 'layout style paint',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(100%)',
+        transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
+        willChange: 'opacity, transform'
+      }}
+    >
+      <div className="flex-1 min-w-0">
+        <div className="font-bold text-gray-900 dark:text-gray-100 text-base mb-1 md:mb-0">Nous respectons votre vie privée</div>
+        <div className="text-gray-700 dark:text-gray-200 text-sm md:inline-block md:ml-0">
+          Nous utilisons des cookies pour améliorer votre expérience de navigation, proposer des contenus ou publicités personnalisés et analyser notre trafic. En cliquant sur « Tout accepter », vous consentez à l'utilisation de ces cookies. <a href="/politique-confidentialite" className="text-blue-600 dark:text-blue-400 underline ml-1" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+        </div>
+      </div>
+      <div className="flex flex-shrink-0 gap-2 mt-2 md:mt-0">
+        <button
+          className="px-4 py-2 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded transition hover:bg-blue-50 dark:hover:bg-blue-900 text-sm font-medium"
+          onClick={onCustomize}
+          style={{ contain: 'layout style paint' }}
+        >
+          Personnaliser
+        </button>
+        <button
+          className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded transition hover:bg-blue-700 dark:hover:bg-blue-600 text-sm font-medium"
+          onClick={onReject}
+          style={{ contain: 'layout style paint' }}
+        >
+          Tout refuser
+        </button>
+        <button
+          className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded transition hover:bg-blue-700 dark:hover:bg-blue-600 text-sm font-medium"
+          onClick={onAccept}
+          style={{ contain: 'layout style paint' }}
+        >
+          Tout accepter
+        </button>
+      </div>
+    </div>
+  );
+});
+
+CookieBanner.displayName = 'CookieBanner';
+
+// Hook optimisé pour l'animation des h2 avec IntersectionObserver et RAF
 function useH2ScrollAnimation() {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const [isPending, startTransition] = useTransition();
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    
     const elements = document.querySelectorAll('h2.h2-animated');
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('h2-animated-visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    elements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+    if (!elements.length) return;
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        startTransition(() => {
+          requestAnimationFrame(() => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('h2-animated-visible');
+              }
+            });
+          });
+        });
+      },
+      { 
+        threshold: 0.2,
+        rootMargin: '50px'
+      }
+    );
+
+    elements.forEach(el => observerRef.current?.observe(el));
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
   }, []);
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
   useH2ScrollAnimation();
+  
+  // États optimisés avec des valeurs initiales
   const [cookiesAccepted, setCookiesAccepted] = useState(false);
-  const [cookiePreferences, setCookiePreferences] = useState({
-    essential: true,
-    performance: false,
-    chat: false,
-    functional: false,
-    analytics: false,
-    advertisement: false
-  });
+  const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>(DEFAULT_COOKIE_PREFS);
   const [showCookieBanner, setShowCookieBanner] = useState(true);
-  const [showCustomize, setShowCustomize] = useState(false);
-  const [showChatPopup, setShowChatPopup] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedPreferences = localStorage.getItem('cookiePreferences');
-      if (savedPreferences) {
-        setCookiePreferences(JSON.parse(savedPreferences));
-        setCookiesAccepted(true);
-      }
+  // Chargement initial des préférences avec useMemo et localStorage
+  const savedPreferences = useMemo(() => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const prefs = localStorage.getItem('cookiePreferences');
+      return prefs ? JSON.parse(prefs) : null;
+    } catch {
+      return null;
     }
   }, []);
 
-  const handleAcceptAll = () => {
-    const newPreferences = {
-      essential: true,
-      performance: true,
-      chat: true,
-      functional: true,
-      analytics: true,
-      advertisement: true
-    };
-    setCookiePreferences(newPreferences);
-    localStorage.setItem('cookiePreferences', JSON.stringify(newPreferences));
-    setCookiesAccepted(true);
-    setShowCookieBanner(false);
-  };
+  useEffect(() => {
+    if (savedPreferences) {
+      startTransition(() => {
+        setCookiePreferences(savedPreferences);
+        setCookiesAccepted(true);
+      });
+    }
+  }, [savedPreferences]);
 
-  const handleCustomize = () => {
-    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
-    setCookiesAccepted(cookiePreferences.essential);
-    setShowCookieBanner(false);
-  };
+  // Handlers optimisés avec useCallback et types stricts
+  const handleAcceptAll = useCallback(() => {
+    startTransition(() => {
+      setCookiePreferences(ACCEPTED_COOKIE_PREFS);
+      try {
+        localStorage.setItem('cookiePreferences', JSON.stringify(ACCEPTED_COOKIE_PREFS));
+      } catch {
+        // Gestion silencieuse des erreurs de stockage
+      }
+      setCookiesAccepted(true);
+      setShowCookieBanner(false);
+    });
+  }, []);
 
-  const toggleCookie = (type: keyof typeof cookiePreferences) => {
-    if (type === 'essential') return; // Ne peut pas être désactivé
-    setCookiePreferences(prev => ({
-      ...prev,
-      [type]: !prev[type]
-    }));
-  };
+  const handleRejectAll = useCallback(() => {
+    startTransition(() => {
+      setCookiePreferences(DEFAULT_COOKIE_PREFS);
+      try {
+        localStorage.setItem('cookiePreferences', JSON.stringify(DEFAULT_COOKIE_PREFS));
+      } catch {
+        // Gestion silencieuse des erreurs de stockage
+      }
+      setCookiesAccepted(true);
+      setShowCookieBanner(false);
+    });
+  }, []);
+
+  const handleCustomize = useCallback(() => {
+    startTransition(() => {
+      try {
+        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+      } catch {
+        // Gestion silencieuse des erreurs de stockage
+      }
+      setCookiesAccepted(cookiePreferences.essential);
+      setShowCookieBanner(false);
+    });
+  }, [cookiePreferences]);
+
+  const toggleCookie = useCallback((type: CookieType) => {
+    if (type === 'essential') return;
+    startTransition(() => {
+      setCookiePreferences(prev => ({ ...prev, [type]: !prev[type] }));
+    });
+  }, []);
 
   return (
     <>
       <Head>
         <title>Conecio - Agence Web Créative</title>
         <meta name="description" content="Conecio - Votre partenaire pour des solutions web innovantes et créatives" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
         <link rel="icon" type="image/png" href="/images/logo/conecio_logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        
+        {/* Préchargement des ressources critiques */}
+        <link rel="preload" href="/images/logo/conecio_logo.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/hero_landing.png" as="image" type="image/png" />
+        
+        {/* Optimisation des polices */}
+        <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Optimisation des métadonnées */}
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        
+        {/* Optimisation du cache */}
+        <meta httpEquiv="Cache-Control" content="public, max-age=31536000, immutable" />
+        
+        <style dangerouslySetInnerHTML={{ __html: fontStyles }} />
       </Head>
 
-      <Navbar />
-      <AnimatedBubbles />
-      <Component {...pageProps} />
-      <Footer />
-      <ScrollToTopButton />
+      <Suspense fallback={<div className="h-screen bg-white dark:bg-gray-900 animate-pulse" />}>
+        <Navbar />
+        <AnimatedBubbles />
+        <Component {...pageProps} />
+        <Footer />
+        <ScrollToTopButton />
+      </Suspense>
 
-      {/* Nouvelle bannière cookies inspirée de l'image */}
       {showCookieBanner && (
-        <div className="fixed bottom-0 left-0 w-full z-[9999] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-fade-in text-gray-900 dark:text-gray-100">
-          <div className="flex-1 min-w-0">
-            <div className="font-bold text-gray-900 dark:text-gray-100 text-base mb-1 md:mb-0">Nous respectons votre vie privée</div>
-            <div className="text-gray-700 dark:text-gray-200 text-sm md:inline-block md:ml-0">
-              Nous utilisons des cookies pour améliorer votre expérience de navigation, proposer des contenus ou publicités personnalisés et analyser notre trafic. En cliquant sur « Tout accepter », vous consentez à l'utilisation de ces cookies. <a href="/politique-confidentialite" className="text-blue-600 dark:text-blue-400 underline ml-1" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
-            </div>
-          </div>
-          <div className="flex flex-shrink-0 gap-2 mt-2 md:mt-0">
-            <button
-              className="px-4 py-2 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded transition hover:bg-blue-50 dark:hover:bg-blue-900 text-sm font-medium"
-              onClick={() => setShowCustomize(true)}
-            >
-              Personnaliser
-            </button>
-            <button
-              className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded transition hover:bg-blue-700 dark:hover:bg-blue-600 text-sm font-medium"
-              onClick={() => {
-                setCookiePreferences({ essential: true, performance: false, chat: false, functional: false, analytics: false, advertisement: false });
-                localStorage.setItem('cookiePreferences', JSON.stringify({ essential: true, performance: false, chat: false, functional: false, analytics: false, advertisement: false }));
-                setCookiesAccepted(true);
-                setShowCookieBanner(false);
-              }}
-            >
-              Tout refuser
-            </button>
-            <button
-              className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded transition hover:bg-blue-700 dark:hover:bg-blue-600 text-sm font-medium"
-              onClick={() => {
-                setCookiePreferences({ essential: true, performance: true, chat: true, functional: true, analytics: true, advertisement: true });
-                localStorage.setItem('cookiePreferences', JSON.stringify({ essential: true, performance: true, chat: true, functional: true, analytics: true, advertisement: true }));
-                setCookiesAccepted(true);
-                setShowCookieBanner(false);
-              }}
-            >
-              Tout accepter
-            </button>
-          </div>
-        </div>
+        <CookieBanner
+          onAccept={handleAcceptAll}
+          onCustomize={handleCustomize}
+          onReject={handleRejectAll}
+        />
       )}
 
-      {/* Optionnel : fenêtre de personnalisation */}
-      {showCustomize && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/40">
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto text-gray-800 dark:text-gray-100">
-            <div className="flex items-center justify-between mb-4">
-              <div className="font-bold text-xl">Préférences de consentement</div>
-              <button className="text-gray-400 hover:text-gray-700" onClick={() => setShowCustomize(false)}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="text-gray-700 text-sm mb-4">
-              Nous utilisons des cookies pour vous aider à naviguer efficacement et à exécuter certaines fonctions. Vous trouverez des informations détaillées sur tous les cookies sous chaque catégorie ci-dessous.<br />
-              Les cookies classés comme « Nécessaires » sont stockés sur votre navigateur car ils sont essentiels au fonctionnement de base du site.<br />
-            </div>
-            <div className="space-y-5 mb-6">
-              {/* Nécessaires */}
-              <div className="border-b pb-4">
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold">Nécessaires</div>
-                  <span className="text-green-600 font-semibold text-xs">Toujours activé</span>
-                </div>
-                <div className="text-gray-500 text-xs mt-1">Les cookies nécessaires sont requis pour activer les fonctionnalités de base du site, comme la connexion sécurisée ou l'ajustement de vos préférences de consentement. Ces cookies ne stockent aucune donnée personnelle identifiable.</div>
-              </div>
-              {/* Fonctionnels */}
-              <div className="border-b pb-4">
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold">Fonctionnels</div>
-                  <input type="checkbox" checked={cookiePreferences.functional || false} onChange={() => toggleCookie('functional')} className="accent-blue-600 w-5 h-5" />
-                </div>
-                <div className="text-gray-500 text-xs mt-1">Les cookies fonctionnels permettent d'activer certaines fonctionnalités comme le partage de contenu sur les réseaux sociaux, la collecte de feedback, et d'autres services tiers.</div>
-              </div>
-              {/* Analytics */}
-              <div className="border-b pb-4">
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold">Analytics</div>
-                  <input type="checkbox" checked={cookiePreferences.analytics || false} onChange={() => toggleCookie('analytics')} className="accent-blue-600 w-5 h-5" />
-                </div>
-                <div className="text-gray-500 text-xs mt-1">Les cookies analytics servent à comprendre comment les visiteurs interagissent avec le site. Ils fournissent des informations sur le nombre de visiteurs, le taux de rebond, la source du trafic, etc.</div>
-              </div>
-              {/* Performance */}
-              <div className="border-b pb-4">
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold">Performance</div>
-                  <input type="checkbox" checked={cookiePreferences.performance} onChange={() => toggleCookie('performance')} className="accent-blue-600 w-5 h-5" />
-                </div>
-                <div className="text-gray-500 text-xs mt-1">Les cookies de performance servent à analyser les indicateurs clés de performance du site afin d'offrir une meilleure expérience utilisateur.</div>
-              </div>
-              {/* Publicité */}
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold">Publicité</div>
-                  <input type="checkbox" checked={cookiePreferences.advertisement || false} onChange={() => toggleCookie('advertisement')} className="accent-blue-600 w-5 h-5" />
-                </div>
-                <div className="text-gray-500 text-xs mt-1">Les cookies publicitaires servent à fournir des publicités personnalisées et à mesurer l'efficacité des campagnes publicitaires.</div>
-              </div>
-            </div>
-            <div className="flex gap-2 justify-end mt-6">
-              <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm font-medium hover:bg-blue-700" onClick={() => { setCookiePreferences({ essential: true, performance: false, chat: false, functional: false, analytics: false, advertisement: false }); setShowCustomize(false); setShowCookieBanner(false); }}>Tout refuser</button>
-              <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded text-sm font-medium hover:bg-blue-50" onClick={() => { handleCustomize(); setShowCustomize(false); setShowCookieBanner(false); }}>Enregistrer mes préférences</button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm font-medium hover:bg-blue-700" onClick={() => { setCookiePreferences({ essential: true, performance: true, chat: true, functional: true, analytics: true, advertisement: true }); setShowCustomize(false); setShowCookieBanner(false); }}>Tout accepter</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Chat Crisp - ne se charge que si les cookies sont acceptés */}
       {cookiesAccepted && cookiePreferences.chat && (
         <Script id="crisp-chat" strategy="afterInteractive">
           {`
@@ -219,22 +336,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Script>
       )}
 
-      {/* Google Analytics - ne se charge que si cookies analytics acceptés */}
-      {cookiesAccepted && cookiePreferences.analytics && (
-        <Script id="ga4" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX'); // Remplace par ton ID GA4
-          `}
-        </Script>
-      )}
-
-      {/* Google Tag Manager - ne se charge que si cookies analytics acceptés */}
       {cookiesAccepted && cookiePreferences.analytics && (
         <>
-          {/* GTM Script dans le head */}
+          <Script id="ga4" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX');
+            `}
+          </Script>
           <Script id="gtm-head" strategy="afterInteractive">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -244,44 +355,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               })(window,document,'script','dataLayer','GTM-T3KPBWNC');
             `}
           </Script>
-          {/* GTM NoScript dans le body */}
           <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3KPBWNC" height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe>
           </noscript>
         </>
-      )}
-
-      {/* Rappel pour activer le chat si cookies de chat non acceptés - version icône bulle */}
-      {cookiesAccepted && !cookiePreferences.chat && !showCookieBanner && (
-        <button
-          className="fixed right-0 bottom-32 z-[9999] bg-indigo-600 text-white px-2 py-3 rounded-l-lg shadow-lg flex flex-col items-center cursor-pointer hover:bg-indigo-700 transition"
-          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', letterSpacing: '0.1em', fontSize: '0.85rem', fontWeight: 600 }}
-          onClick={() => setShowChatPopup(true)}
-          aria-label="Activer le chat en ligne"
-        >
-          accepte-moi !
-        </button>
-      )}
-
-      {/* Pop-up d'explication pour activer le chat */}
-      {showChatPopup && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/40">
-          <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-sm">
-            <div className="font-bold text-lg mb-2 text-indigo-700 flex items-center gap-2">
-              <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={2} stroke='currentColor' className='w-6 h-6 text-indigo-600'><path strokeLinecap='round' strokeLinejoin='round' d='M8.625 9.75a3.375 3.375 0 116.75 0c0 1.657-1.343 2.25-2.25 2.25-.907 0-2.25.593-2.25 2.25m2.25 3.75h.007v.008h-.007v-.008z' /></svg>
-              Activer le chat en ligne
-            </div>
-            <div className="text-gray-700 text-sm mb-4">Pour discuter avec le support en ligne, vous devez accepter les cookies de chat.</div>
-            <div className="flex gap-2 justify-end">
-              <button className="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-100 text-sm" onClick={() => setShowChatPopup(false)}>Fermer</button>
-              <button className="px-4 py-2 bg-indigo-600 text-white rounded text-sm font-medium hover:bg-indigo-700" onClick={() => {
-                setCookiePreferences(prev => ({ ...prev, chat: true }));
-                localStorage.setItem('cookiePreferences', JSON.stringify({ ...cookiePreferences, chat: true }));
-                setShowChatPopup(false);
-              }}>Accepter les cookies de chat</button>
-            </div>
-          </div>
-        </div>
       )}
     </>
   );

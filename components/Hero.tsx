@@ -55,12 +55,16 @@ export default function Hero() {
               width={540}
               height={410}
               priority
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, 540px"
               style={{
                 background: 'transparent',
                 maxWidth: '100%',
                 minHeight: '320px',
                 objectFit: 'contain',
                 borderRadius: '32px',
+                willChange: 'transform',
+                contain: 'layout style paint'
               }}
             />
           </div>
@@ -76,6 +80,7 @@ export default function Hero() {
           background: radial-gradient(ellipse at 70% 40%, #1e293b 0%, #0a0c12 100%);
           position: relative;
           overflow: hidden;
+          contain: layout style paint;
         }
         .hero-content {
           display: flex;
@@ -84,10 +89,12 @@ export default function Hero() {
           width: 100%;
           max-width: 1200px;
           padding: 60px 32px 40px 32px;
+          contain: layout style paint;
         }
         .hero-left {
           flex: 1;
           z-index: 2;
+          contain: layout style paint;
         }
         .hero-badge {
           background: #181c2a;
@@ -99,6 +106,7 @@ export default function Hero() {
           display: inline-block;
           font-weight: 500;
           box-shadow: 0 2px 12px #0002;
+          contain: layout style paint;
         }
         h1 {
           font-size: 3rem;
@@ -106,9 +114,11 @@ export default function Hero() {
           color: #f3f4f6;
           margin-bottom: 18px;
           line-height: 1.1;
+          contain: layout style paint;
         }
         .hero-title-main {
           color: #f3f4f6;
+          contain: layout style paint;
         }
         .hero-title-rotating {
           color: #a855f7;
@@ -117,10 +127,12 @@ export default function Hero() {
           letter-spacing: -1px;
           display: inline-block;
           min-height: 1.2em;
+          contain: layout style paint;
         }
         .rotating-text {
           display: inline-block;
           animation: fadeInUp 0.7s;
+          contain: layout style paint;
         }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px);}
@@ -131,6 +143,7 @@ export default function Hero() {
           font-size: 1.15rem;
           margin-bottom: 32px;
           max-width: 500px;
+          contain: layout style paint;
         }
         .hero-right {
           flex: 1;
@@ -140,6 +153,7 @@ export default function Hero() {
           justify-content: flex-end;
           min-width: 340px;
           min-height: 260px;
+          contain: layout style paint;
         }
         .hero-right-flex {
           display: flex;
@@ -148,6 +162,7 @@ export default function Hero() {
           gap: 3.5rem;
           position: relative;
           z-index: 2;
+          contain: layout style paint;
         }
         .cards-pile-group {
           position: relative;
@@ -212,6 +227,7 @@ export default function Hero() {
           opacity: 0.18;
           z-index: 1;
           border-radius: 32px 0 0 32px;
+          contain: layout style paint;
         }
         @media (max-width: 900px) {
           .hero-content { flex-direction: column; gap: 40px; }
@@ -235,10 +251,12 @@ export default function Hero() {
           margin: 0 auto;
           box-shadow: 0 2px 12px #0001;
           transition: background 0.2s, box-shadow 0.2s;
+          contain: layout style paint;
         }
         .hero-landing-img {
           animation: heroFloatZoom 3.5s ease-in-out infinite alternate;
           border-radius: 32px;
+          will-change: transform;
         }
         @keyframes heroFloatZoom {
           0% {

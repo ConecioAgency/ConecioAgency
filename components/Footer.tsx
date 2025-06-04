@@ -75,17 +75,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 min-h-[400px]">
       {/* Ligne de séparation dégradée */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-light via-secondary-light to-pink-400 opacity-60" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo et description */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <Image src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2 h-10 w-10 object-contain" priority />
+            <Link href="/" className="inline-block w-[40px] h-[40px]">
+              <Image 
+                src="/images/logo/conecio_logo.png" 
+                alt="Conecio Logo" 
+                width={40} 
+                height={40} 
+                className="w-full h-full object-contain" 
+                priority 
+                loading="eager"
+                sizes="40px"
+              />
             </Link>
-            <div className="mb-6">
+            <div className="mb-6 min-h-[100px]">
               <H6 className="mb-4">{t('footer.about_title')}</H6>
               <Body2 className="text-gray-600 dark:text-gray-400">
                 {t('footer.description')}
@@ -100,7 +109,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -2, boxShadow: '0 4px 16px #a21caf33' }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200 w-6 h-6"
                 >
                   {social.icon}
                 </motion.a>
@@ -109,15 +118,13 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="min-h-[200px]">
             <H6 className="mb-4">{t('footer.services_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="h-6">
                   <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors">
-                    <Link
-                      href={link.href}
-                    >
+                    <Link href={link.href}>
                       {link.name}
                     </Link>
                   </Body2>
@@ -127,15 +134,13 @@ const Footer = () => {
           </div>
 
           {/* Entreprise */}
-          <div>
+          <div className="min-h-[200px]">
             <H6 className="mb-4">{t('footer.company_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="h-6">
                   <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors">
-                    <Link
-                      href={link.href}
-                    >
+                    <Link href={link.href}>
                       {link.name}
                     </Link>
                   </Body2>
@@ -145,11 +150,11 @@ const Footer = () => {
           </div>
 
           {/* Blog */}
-          <div>
+          <div className="min-h-[200px]">
             <H6 className="mb-4">{t('footer.blog_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.blog.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="h-6">
                   <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors">
                     <Link href={link.href}>{link.name}</Link>
                   </Body2>
@@ -159,15 +164,13 @@ const Footer = () => {
           </div>
 
           {/* Légal */}
-          <div>
+          <div className="min-h-[200px]">
             <H6 className="mb-4">{t('footer.legal_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="h-6">
                   <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors">
-                    <Link
-                      href={link.href}
-                    >
+                    <Link href={link.href}>
                       {link.name}
                     </Link>
                   </Body2>

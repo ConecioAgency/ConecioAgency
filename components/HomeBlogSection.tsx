@@ -48,7 +48,7 @@ export default function HomeBlogSection() {
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2 w-full">
           {articles.slice(0, 6).map((article, i) => {
             const isNew = (Date.now() - new Date(article.date).getTime()) < 1000 * 60 * 60 * 24 * 15;
-            const authorAvatar = '/images/character/astro2.png';
+            const authorAvatar = '/images/character/astro2.webp';
             return (
               <div
                 key={article.slug}
