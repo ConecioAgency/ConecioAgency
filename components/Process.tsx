@@ -226,6 +226,7 @@ function TrustedCompaniesCarousel() {
     { src: '/images/logo/Messenger-Logo-1.png', alt: 'Messenger' },
     { src: '/images/logo/Duolingo-logo_2-1.png', alt: 'Duolingo' },
     { src: '/images/logo/slack_logo-1.png', alt: 'Slack' },
+    { src: '/images/logo/fb.png', alt: 'fb' },
   ];
 
   return (
