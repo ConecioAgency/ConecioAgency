@@ -3,12 +3,13 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Section from './Section';
 import ScrollAnimation from './ScrollAnimation';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 const slides = [
   {
     titleKey: 'services.slide_1_title',
     descriptionKey: 'services.slide_1_desc',
-    image: '/images/PSD/mockup_paper_out_of_screen_website_copy.png',
+    image: '/images/PSD/mockup_paper_out_of_screen_website.webp',
   },
   {
     titleKey: 'services.slide_2_title',
@@ -200,14 +201,21 @@ export default function Services() {
                             transition={{ duration: 0.5 }}
                             className="absolute inset-0 w-full h-full"
                           >
-                            <motion.img 
-                              src={slide.image} 
-                              alt={t(slide.titleKey)} 
-                              className="w-full h-full object-cover rounded-3xl"
+                            <motion.div
                               initial={{ scale: 1.1 }}
                               animate={{ scale: 1 }}
                               transition={{ duration: 0.8 }}
-                            />
+                              style={{ width: '100%', height: '100%' }}
+                            >
+                              <Image
+                                src={slide.image || ''}
+                                alt={t(slide.titleKey)}
+                                className="w-full h-full object-cover rounded-3xl"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 700px"
+                                priority={selected === i}
+                              />
+                            </motion.div>
                             {slide.titleKey !== 'services.slide_1_title' && (
                               <motion.div
                                 className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-3xl"

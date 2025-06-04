@@ -30,12 +30,59 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <!-- Ajoute ici les URLs de tes articles de blog, par exemple : -->
-  <!--
   <url>
-    <loc>https://www.conecio.com/blog/slug-de-l-article</loc>
+    <loc>https://www.conecio.com/blog/tendances-digital-marketing-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  -->
-</urlset> 
+  <url>
+    <loc>https://www.conecio.com/blog/astuces-seo-2024</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/strategie-contenu-efficace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/social-media-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/email-marketing-automation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/tendances-design-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/data-marketing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/influenceurs-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/video-marketing-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/futur-marketing-digital</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.conecio.com/blog/impact-ia-marketing-numerique</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

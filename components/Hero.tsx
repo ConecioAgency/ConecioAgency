@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EvaModel from "./EvaModel";
 import CardLoaderAnimation from "./CardLoaderAnimation";
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 function RotatingText({ rotatingWords }: { rotatingWords: string[] }) {
   const [index, setIndex] = useState(0);
@@ -47,17 +48,19 @@ export default function Hero() {
         </div>
         <div className="hero-right">
           <div className="hero-right-flex" style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <img
-              src="/images/hero_landing.png"
+            <Image
+              src="/images/hero_landing.webp"
               alt="Hero Landing"
               className="hero-landing-img"
+              width={540}
+              height={410}
+              priority
               style={{
                 background: 'transparent',
                 maxWidth: '100%',
                 minHeight: '320px',
-                width: '540px',
-                height: '410px',
-                objectFit: 'contain'
+                objectFit: 'contain',
+                borderRadius: '32px',
               }}
             />
           </div>
