@@ -188,7 +188,7 @@
     "specify_request": "Spécifiez votre demande :",
     "request_info": "Demande d'information",
     "request_quote": "Demande de devis",
-    "request_partnership": "Demande de partenariat",
+    "request_audit": "Auditez mon site gratuitement",
     "request_other": "Autre",
     "error_select_request_type": "Veuillez sélectionner un type de demande",
     "full_name": "Nom complet*",
@@ -216,7 +216,9 @@
     "send_message": "Envoyer le message",
     "sending": "Envoi en cours...",
     "message": "Message*",
-    "error_message_required": "Le message est requis"
+    "error_message_required": "Le message est requis",
+    "website": "Site web*",
+    "error_website_required": "Le site web est requis"
   },
   "about": "À propos",
   "start_project": "Démarrer un projet",
@@ -553,5 +555,10 @@
   },
   "tools": {
     "subtitle": "Découvrez notre gamme complète d'outils pour booster votre présence digitale"
+  },
+  "clients": {
+    "title": "Ils nous font confiance",
+    "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
+    "logoAlt": "Logo client {{number}}"
   }
 } 

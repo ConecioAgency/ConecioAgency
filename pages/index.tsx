@@ -20,117 +20,20 @@ import React from 'react';
 import OurAgency from '../components/OurAgency';
 import BrandIconsCarousel from 'src/components/BrandIconsCarousel';
 import SectionReveal from '../components/SectionReveal';
+import LogoCarousel from '../components/LogoCarousel';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 
-interface ParallaxTextProps {
-  children: React.ReactNode;
-  baseVelocity: number;
-}
-
-const VIOLET = '#a100ff';
-const TURQUOISE = '#00c3a5';
-const BLANC = '#fff';
-
-const ParallaxText = ({ children, baseVelocity = 100 }: ParallaxTextProps) => {
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  });
-
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
-
-  const directionFactor = useRef<number>(1);
-  useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
-
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
-    baseX.set(baseX.get() + moveBy);
-  });
-
-  return (
-    <div className="relative overflow-hidden whitespace-nowrap flex flex-nowrap py-0" style={{ height: '64px' }}>
-      {/* Fade à gauche */}
-      <div
-        className="pointer-events-none absolute left-0 top-0 h-full w-12 z-20"
-        style={{
-          background:
-            'linear-gradient(to right, var(--fade-bg, #fff) 0%, transparent 80%, transparent 100%)'
-        }}
-      />
-      {/* Fade à droite */}
-      <div
-        className="pointer-events-none absolute right-0 top-0 h-full w-12 z-20"
-        style={{
-          background:
-            'linear-gradient(to left, var(--fade-bg, #fff) 0%, transparent 80%, transparent 100%)'
-        }}
-      />
-      <motion.div
-        className="flex whitespace-nowrap flex-nowrap relative z-10"
-        style={{
-          x,
-          fontFamily: "'Plaster', sans-serif",
-          fontSize: '64px',
-          fontWeight: 600,
-          fontStyle: 'normal',
-          height: '51.2px',
-          letterSpacing: '-2px',
-          lineHeight: '51.2px',
-          textTransform: 'uppercase',
-          WebkitFontSmoothing: 'antialiased',
-          color: 'var(--parallax-text-color, #18181b)',
-          willChange: 'transform',
-          contain: 'layout style paint'
-        }}
-      >
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
-        <span style={{ display: 'block', marginRight: 30, whiteSpace: 'nowrap', contain: 'layout style paint' }}>{children}</span>
-      </motion.div>
-      <style jsx global>{`
-        :root {
-          --fade-bg: #fff;
-          --parallax-text-color: #18181b;
-        }
-        .dark {
-          --fade-bg: #18181b;
-          --parallax-text-color: #fff;
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export { ParallaxText };
-
 export default function Home() {
   const { t, i18n } = useTranslation('common');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     });
-    setMounted(true);
   }, []);
-
-  if (!mounted) return null;
 
   return (
     <>
@@ -202,64 +105,13 @@ export default function Home() {
         <Navbar />
         <main>
           <SectionReveal><Hero /></SectionReveal>
-          <ParallaxText baseVelocity={-2}>
-            <span style={{ color: VIOLET }}>{t('home.parallax.innovate')}</span>{' '}
-            <span style={{ color: TURQUOISE }}>{t('home.parallax.impact')}</span>{' '}
-            <span style={{ color: BLANC }}>{t('home.parallax.dare')}</span>
-          </ParallaxText>
-          <ParallaxText baseVelocity={2}>
-            <span style={{ color: TURQUOISE }}>{t('home.parallax.strategy')}</span>{' '}
-            <span style={{ color: VIOLET }}>{t('home.parallax.digital')}</span>{' '}
-            <span style={{ color: BLANC }}>{t('home.parallax.creativity')}</span>{' '}
-            <span style={{ color: TURQUOISE }}>{t('home.parallax.results')}</span>{' '}
-            {t('home.parallax.agency_diff')}{' '}
-            <span style={{ color: VIOLET }}>{t('home.parallax.difference')}</span>
-          </ParallaxText>
+          <LogoCarousel />
           <SectionReveal delay={0.1}><OurAgency /></SectionReveal>
-          <SectionReveal delay={0.15}><BrandIconsCarousel /></SectionReveal>
           <SectionReveal delay={0.2}><Services /></SectionReveal>
           <SectionReveal delay={0.25}><WhatToExpect /></SectionReveal>
           <SectionReveal delay={0.3}><Process /></SectionReveal>
           <SectionReveal delay={0.35}><Testimonials /></SectionReveal>
           <SectionReveal delay={0.4}><HomeBlogSection /></SectionReveal>
-          <section className="py-12 md:py-16 bg-white dark:bg-gray-800 relative overflow-hidden">
-            <div className="relative max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-center gap-6 px-4 sm:px-8 py-8 border border-zinc-100 dark:border-zinc-800 overflow-hidden">
-              {/* Pattern SVG discret en fond de la box */}
-              <div className="absolute inset-0 pointer-events-none z-0 dark:opacity-30">
-                <svg width="100%" height="100%" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <defs>
-                    <pattern id="dots-box" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                      <circle cx="2" cy="2" r="2" fill="#e0e7ef" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#dots-box)" />
-                  <circle cx="500" cy="60" r="60" fill="#a78bfa22" />
-                  <circle cx="80" cy="160" r="40" fill="#fbc2eb22" />
-                </svg>
-              </div>
-              {/* Texte */}
-              <div className="flex-1 flex flex-col items-start justify-center z-10">
-                <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold text-base tracking-widest mb-2 animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-                  <span className="mr-2">🚀</span>
-                  <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('home.cta.badge')}</span>
-                </span>
-                <h2 className="text-lg md:text-xl font-extrabold mb-1 text-zinc-900 dark:text-white leading-snug">
-                  {t('home.cta.title')}
-                </h2>
-                <p className="text-zinc-600 dark:text-zinc-300 text-sm md:text-base font-normal mb-4 max-w-xl leading-snug">
-                  {t('home.cta.desc')}
-                </p>
-                <a href="/contact" className="btn-main btn-main--dark group mt-1">
-                  <span>{t('home.cta.button')}</span>
-                  <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
-                </a>
-              </div>
-              {/* Illustration compacte à droite */}
-              <div className="flex-1 flex justify-center items-center z-10">
-                <img src="/images/04.png" alt={t('home.cta.img_alt')} className="w-[120px] h-[80px] sm:w-[160px] sm:h-[110px] md:w-[180px] md:h-[120px] lg:w-[200px] lg:h-[140px] xl:w-[220px] xl:h-[160px] object-contain" />
-              </div>
-            </div>
-          </section>
           <SectionReveal delay={0.45}><Contact /></SectionReveal>
         </main>
       </div>

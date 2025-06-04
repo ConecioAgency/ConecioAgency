@@ -160,7 +160,7 @@
     "specify_request": "Especifica tu solicitud:",
     "request_info": "Solicitud de información",
     "request_quote": "Solicitud de presupuesto",
-    "request_partnership": "Solicitud de colaboración",
+    "request_audit": "Audita mi sitio gratis",
     "request_other": "Otro",
     "error_select_request_type": "Por favor selecciona un tipo de solicitud",
     "full_name": "Nombre completo*",
@@ -186,7 +186,9 @@
     "phone": "Teléfono",
     "address": "Dirección",
     "send_message": "Enviar mensaje",
-    "sending": "Enviando..."
+    "sending": "Enviando...",
+    "website": "Sitio web*",
+    "error_website_required": "El sitio web es obligatorio"
   },
   "about": "Sobre nosotros",
   "start_project": "Iniciar un proyecto",

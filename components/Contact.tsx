@@ -10,13 +10,13 @@ const Contact = () => {
   const REQUEST_TYPES = [
     t('contact.request_info'),
     t('contact.request_quote'),
-    t('contact.request_partnership'),
+    t('contact.request_audit'),
     t('contact.request_other'),
   ];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [selectedType, setSelectedType] = useState(REQUEST_TYPES[0]);
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, setValue, clearErrors, trigger } = useForm();
 
   useEffect(() => {
     setMounted(true);
@@ -24,7 +24,12 @@ const Contact = () => {
 
   useEffect(() => {
     setValue('requestType', selectedType);
-  }, [selectedType, setValue]);
+    // Si on change de type, on revalide le champ website
+    trigger('website');
+    if (selectedType !== t('contact.request_audit')) {
+      clearErrors('website');
+    }
+  }, [selectedType, setValue, trigger, clearErrors, t]);
 
   if (!mounted) return null;
 
@@ -204,7 +209,7 @@ const Contact = () => {
                     <p className="mt-1 text-sm text-red-500">{t('contact.error_phone_required')}</p>
                   )}
                 </div>
-                <div className="md:col-span-2">
+                <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     {t('contact.email')}
                   </label>
@@ -219,6 +224,28 @@ const Contact = () => {
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-500">Un email valide est requis</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="website" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    {t('contact.website')}{selectedType === t('contact.request_audit') && <span className="text-red-500">*</span>}
+                  </label>
+                  <input
+                    type="url"
+                    id="website"
+                    autoComplete="url"
+                    placeholder="https://votre-site.com"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent"
+                    {...register('website', {
+                      required: selectedType === t('contact.request_audit') ? t('contact.error_website_required') : false,
+                      pattern: selectedType === t('contact.request_audit') ? {
+                        value: /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-./?%&=]*)?$/,
+                        message: t('contact.error_website_required')
+                      } : undefined
+                    })}
+                  />
+                  {errors.website && selectedType === t('contact.request_audit') && (
+                    <p className="mt-1 text-sm text-red-500">{errors.website.message as string}</p>
                   )}
                 </div>
               </div>
