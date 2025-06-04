@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const categories = [
   { id: 'all', name: 'Tous les services' },
@@ -433,4 +434,12 @@ export default function Pricing() {
 
     </div>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

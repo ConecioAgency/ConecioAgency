@@ -388,7 +388,87 @@
       "Services": "Services",
       "Support": "Support",
       "Sécurité": "Security"
-    }
+    },
+    "questions": [
+      {
+        "category": "Général",
+        "question": "How does Conecio stand out from other digital agencies?",
+        "answer": "Conecio stands out through its holistic and personalized approach. We combine technical expertise, creativity, and business strategy to create digital solutions that deliver real results. Our team of certified experts and proven methodology allow us to offer premium support and measurable outcomes."
+      },
+      {
+        "category": "Général",
+        "question": "What is your approach to developing a digital project?",
+        "answer": "Our methodology consists of 4 key phases: 1) In-depth analysis of your needs and business objectives, 2) Development of a tailor-made strategy, 3) Implementation of solutions, 4) Ongoing monitoring and optimization. Each phase is documented and validated with you to ensure perfect alignment with your goals."
+      },
+      {
+        "category": "Général",
+        "question": "How long does it take to create a website?",
+        "answer": "The duration depends on the type of site and the complexity of the project. A showcase site usually takes 4 to 6 weeks, while an e-commerce site may require 8 to 12 weeks. We provide you with a precise schedule from the start."
+      },
+      {
+        "category": "Tarifs",
+        "question": "What are your prices and payment methods?",
+        "answer": "Our prices are transparent and tailored to each project. We offer personalized quotes based on your specific needs. Payments are staggered according to project progress, with monthly or annual maintenance options. Contact us for a detailed quote tailored to your goals."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Do you offer solutions for small businesses?",
+        "answer": "Absolutely! We have developed solutions adapted to the budgets and needs of SMEs. Our flexible packages allow you to start with the essentials and gradually develop your digital presence. We believe every business deserves an effective digital strategy, whatever its size."
+      },
+      {
+        "category": "Tarifs",
+        "question": "What factors influence the price of a website?",
+        "answer": "The price depends on several criteria: type of site (showcase, e-commerce, custom), number of pages, specific features, custom design, third-party integrations, etc. We always provide a detailed and transparent quote."
+      },
+      {
+        "category": "Services",
+        "question": "What types of services do you offer?",
+        "answer": "We offer a full range of digital services: website creation, SEO, SEA, social media management, branding, analytics, advertising campaigns, and more. We tailor each service to your specific needs."
+      },
+      {
+        "category": "Services",
+        "question": "What are your average lead times for a website project?",
+        "answer": "Lead times vary depending on the complexity of the project. A showcase site usually takes 4-6 weeks, an e-commerce site 8-12 weeks. We establish a detailed schedule from the start and provide regular follow-up to meet deadlines."
+      },
+      {
+        "category": "Services",
+        "question": "Do you build high-performance e-commerce sites?",
+        "answer": "Yes, we design online stores optimized for conversion, security, and inventory management. We integrate the best payment solutions and offer scalable options to support your growth."
+      },
+      {
+        "category": "Services",
+        "question": "Do you offer custom design services?",
+        "answer": "Our design team creates unique, modern interfaces tailored to your brand image. We focus on user experience (UX) and aesthetics to maximize your site's impact."
+      },
+      {
+        "category": "Support",
+        "question": "What is your maintenance and support policy?",
+        "answer": "We provide responsive technical support 24/7, regular updates, automatic backups, and preventive maintenance. Our clients have access to a dedicated portal to track their project and submit requests."
+      },
+      {
+        "category": "Support",
+        "question": "How does project tracking work?",
+        "answer": "A dedicated project manager supports you at every stage. You receive regular updates, detailed reports, and can track progress in real time via our platform."
+      },
+      {
+        "category": "Services",
+        "question": "Do you offer SEO services to improve visibility?",
+        "answer": "Yes, we offer SEO audits, technical optimization, content writing, link building, and ranking monitoring. Our goal is to sustainably increase your qualified traffic."
+      },
+      {
+        "category": "Sécurité",
+        "question": "How do you ensure the security of my clients' data?",
+        "answer": "Security is at the heart of our concerns. We implement the latest security standards (GDPR, SSL, encryption), conduct regular audits, and train our clients in best practices. Our solutions are hosted on secure servers and we guarantee complete data confidentiality."
+      },
+      {
+        "category": "Sécurité",
+        "question": "Are you GDPR compliant?",
+        "answer": "Yes, all our solutions are designed to be GDPR compliant. We also support our clients in ensuring their own digital tools are compliant."
+      }
+    ],
+    "help_title": "Still have questions or need help?",
+    "help_commercial": "Write to us at <a href=\"mailto:conecioagency@gmail.com\" class=\"text-indigo-400 underline\">conecioagency@gmail.com</a> for any business inquiry.",
+    "help_tech": "For technical issues, please <a href=\"/contact\" class=\"text-indigo-400 underline\">contact support</a>. (If you need to share private information, you can also <a href=\"mailto:contact@conecio.com\" class=\"text-indigo-400 underline\">write to us here</a>.)"
   },
   "process_steps": [
     {

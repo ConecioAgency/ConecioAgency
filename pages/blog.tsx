@@ -10,6 +10,7 @@ import { H1, H2, Body1, Overline } from '../components/Typography';
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import AnimatedBubblesBackground from '../components/AnimatedBubblesBackground';
 import SectionTitle from '../components/SectionTitle';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // Types pour le tri
 type SortOption = 'date' | 'popularity' | 'title';
@@ -742,4 +743,12 @@ export default function Blog() {
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 } 

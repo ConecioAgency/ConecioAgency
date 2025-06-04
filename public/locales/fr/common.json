@@ -498,7 +498,10 @@
         "question": "Êtes-vous conforme au RGPD ?",
         "answer": "Oui, toutes nos solutions sont conçues pour être conformes au RGPD. Nous accompagnons également nos clients dans la mise en conformité de leurs propres outils digitaux."
       }
-    ]
+    ],
+    "help_title": "Vous avez encore des questions ou besoin d'aide ?",
+    "help_commercial": "Écrivez-nous à <a href=\"mailto:conecioagency@gmail.com\" class=\"text-indigo-400 underline\">conecioagency@gmail.com</a> pour toute question commerciale.",
+    "help_tech": "Pour un problème technique, veuillez <a href=\"/contact\" class=\"text-indigo-400 underline\">contacter le support</a>. (Si vous devez partager des informations privées, vous pouvez aussi <a href=\"mailto:contact@conecio.com\" class=\"text-indigo-400 underline\">nous écrire à contact@conecio.com</a>.)"
   },
   "process_steps": [
     {

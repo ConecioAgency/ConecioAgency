@@ -82,7 +82,14 @@ function CodeEditorDemo(): React.ReactElement {
     <div className="code-editor-demo">
       <div className="header">
         <span className="title">CSS</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon"><g strokeWidth="0" /><g strokeLinejoin="round" strokeLinecap="round" /><g> <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon">
+          <g strokeWidth="0" />
+          <g strokeLinejoin="round" strokeLinecap="round" />
+          <g>
+            <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M6 6L18 18" />
+            <path strokeLinecap="round" strokeWidth="2" stroke="#4C4F5A" d="M18 6L6 18" />
+          </g>
+        </svg>
       </div>
       <div className="editor-content">
         <pre className="code">
@@ -96,8 +103,8 @@ function CodeEditorDemo(): React.ReactElement {
             <span className="color-preview-1"></span><span>#1d1e22</span>;
           </span>
           <span className="property">
-            <span className="color-2"> box-shadow</span><span>:</span>
-            <span className="color-1">0px 4px 30px <span className="color-preview-2"></span><span className="color-3">rgba(</span>0, 0, 0, 0.5)</span>;</span>
+            <span className="color-2">box-shadow</span><span>:</span>
+            <span className="color-1">0px 4px 30px <span className="color-preview-2"></span><span className="color-3">rgba(</span>0, 0, 0, 0.5)</span>;
           </span>
           <span className="property">
             <span className="color-2">border-radius</span><span>:</span>
