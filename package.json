@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run optimize-images && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "optimize-images": "node scripts/optimize-images.js",
-    "analyze": "cross-env ANALYZE=true next build",
-    "postbuild": "npm run optimize-images"
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
