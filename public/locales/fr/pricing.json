@@ -1,0 +1,184 @@
+{
+  "title": "Plans Tarifaires",
+  "subtitle": "Choisissez le plan qui correspond à vos besoins",
+  "categories": {
+    "all": "Tous les Services",
+    "web": "Web & Design",
+    "marketing": "Marketing Digital",
+    "social": "Réseaux Sociaux",
+    "pack": "Packs Complets",
+    "onetime": "Services à la Demande",
+    "free": "Gratuit"
+  },
+  "currency": {
+    "EUR": "Euro",
+    "USD": "Dollar Américain",
+    "MAD": "Dirham Marocain"
+  },
+  "period": {
+    "monthly": "Mensuel",
+    "annual": "Annuel"
+  },
+  "offers": {
+    "booster": {
+      "name": "Pack Booster",
+      "description": "Solution complète pour démarrer votre présence digitale.",
+      "features": [
+        "Site Web (jusqu'à 5 pages)",
+        "Digital Marketing (1 campagne)",
+        "Réseaux sociaux (3 posts)",
+        "Vidéo (30s à 1mn)",
+        "Maintenance (1 mois)"
+      ],
+      "details": "Parfait pour les startups et petites entreprises qui veulent une présence digitale complète."
+    },
+    "premium": {
+      "name": "Pack Premium",
+      "description": "Solution avancée pour une croissance digitale rapide.",
+      "features": [
+        "Site Web (jusqu'à 10 pages)",
+        "Création de page site web",
+        "SEO technique de base",
+        "Digital Marketing (2 campagnes)",
+        "Réseaux sociaux (10 posts)",
+        "Vidéos (2 vidéos)",
+        "Maintenance (2 mois)"
+      ],
+      "details": "Pour les entreprises qui veulent une présence digitale professionnelle et sécurisée."
+    },
+    "ultimate": {
+      "name": "Pack Ultimate",
+      "description": "Solution complète pour une transformation digitale totale.",
+      "features": [
+        "Site Web (jusqu'à 15 pages)",
+        "Création de page site web",
+        "SEO avancé",
+        "Digital Marketing (3 campagnes)",
+        "Réseaux sociaux (20 posts)",
+        "Vidéos (3 vidéos)",
+        "Maintenance (3 mois)"
+      ],
+      "details": "Pour les entreprises ambitieuses qui veulent une présence digitale premium."
+    },
+    "web": {
+      "name": "Web & Design",
+      "description": "Créez une présence web professionnelle.",
+      "features": [
+        "Site web statique/dynamique",
+        "Design responsive",
+        "Optimisation SEO",
+        "Intégration CMS",
+        "Maintenance mensuelle"
+      ],
+      "details": "Pour ceux qui veulent un site web professionnel et performant."
+    },
+    "marketing": {
+      "name": "Marketing Digital",
+      "description": "Boostez votre visibilité en ligne.",
+      "features": [
+        "SEO & SEM",
+        "Campagnes publicitaires",
+        "Content Marketing",
+        "Email Marketing",
+        "Analytics & Reporting"
+      ],
+      "details": "Pour les entreprises qui veulent augmenter leur visibilité en ligne."
+    },
+    "social": {
+      "name": "Social Media Pro",
+      "description": "Gérez votre présence sur les réseaux sociaux.",
+      "features": [
+        "Gestion de 3 réseaux sociaux",
+        "Création de contenu",
+        "Community Management",
+        "Planning éditorial",
+        "Reporting mensuel"
+      ],
+      "details": "Pour les entreprises qui veulent une présence sociale professionnelle."
+    },
+    "custom": {
+      "name": "Sur-mesure",
+      "description": "Une solution personnalisée selon vos besoins.",
+      "features": [
+        "Audit personnalisé",
+        "Stratégie sur mesure",
+        "Accompagnement dédié",
+        "Support premium"
+      ],
+      "details": "Contactez-nous pour une solution 100% adaptée à vos objectifs."
+    },
+    "vitrine": {
+      "name": "Création site web vitrine",
+      "description": "Un site web professionnel livré clé en main.",
+      "features": [
+        "Jusqu'à 5 pages",
+        "Design personnalisé",
+        "Optimisation mobile",
+        "Livraison rapide"
+      ],
+      "details": "Idéal pour les indépendants et PME."
+    },
+    "pack10posts": {
+      "name": "Pack 10 posts Instagram/Facebook",
+      "description": "10 visuels professionnels pour vos réseaux sociaux.",
+      "features": [
+        "Design sur-mesure",
+        "Textes optimisés",
+        "Livraison en 72h"
+      ],
+      "details": "Pour booster votre communication ponctuelle."
+    },
+    "video": {
+      "name": "Vidéo promotionnelle unique",
+      "description": "Vidéo animée ou filmée pour promouvoir votre activité.",
+      "features": [
+        "Storyboard",
+        "Montage pro",
+        "Livraison HD"
+      ],
+      "details": "Pour une campagne ou un lancement."
+    },
+    "audit": {
+      "name": "Audit SEO unique",
+      "description": "Analyse complète de votre site pour le SEO.",
+      "features": [
+        "Rapport détaillé",
+        "Recommandations",
+        "Analyse technique"
+      ],
+      "details": "Pour améliorer votre référencement ponctuellement."
+    },
+    "logo": {
+      "name": "Design de logo",
+      "description": "Création d'un logo professionnel et unique pour votre marque.",
+      "features": [
+        "Design sur-mesure",
+        "3 propositions de logo",
+        "Livraison HD",
+        "Fichiers vectoriels"
+      ],
+      "details": "Idéal pour les entrepreneurs, startups et PME."
+    }
+  },
+  "cta": {
+    "contact": "Contactez-nous",
+    "learnMore": "En savoir plus"
+  },
+  "freeAudit": {
+    "name": "Audit Technique & SEO Gratuit",
+    "price": "0 €",
+    "features": [
+      "Analyse technique complète (Google PageSpeed, performance, accessibilité, mobile)",
+      "Audit SEO (balises title/meta, H1, robots.txt, sitemap.xml, mots-clés)",
+      "Vérification des réseaux sociaux (liens Instagram, Facebook, LinkedIn, TikTok)",
+      "Détection du tracking et publicité (Google Analytics, Tag Manager, Pixel Facebook)"
+    ],
+    "description": "Recevez un rapport PDF professionnel pour votre site web !",
+    "text": "Nous réalisons gratuitement un audit complet de votre site : technique, SEO, réseaux sociaux et tracking. Le rapport détaillé vous est envoyé par email sous 48h.",
+    "cta": "Auditez mon site gratuitement",
+    "details": "Le rapport PDF est envoyé à l'email fourni via ce formulaire. Service 100% gratuit et sans engagement.",
+    "title": "Audit Technique & SEO Gratuit",
+    "short": "Audit technique & SEO offert pour votre site web !",
+    "note": "Le rapport PDF sera envoyé à l'email fourni via notre formulaire."
+  }
+} 

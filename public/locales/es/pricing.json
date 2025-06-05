@@ -1,0 +1,166 @@
+{
+  "title": "Planes de Precios",
+  "subtitle": "Elige el plan que se adapte a tus necesidades",
+  "categories": {
+    "all": "Todos los Servicios",
+    "web": "Web y Diseño",
+    "marketing": "Marketing Digital",
+    "social": "Redes Sociales",
+    "pack": "Paquetes Completos",
+    "onetime": "Servicios Bajo Demanda"
+  },
+  "currency": {
+    "EUR": "Euro",
+    "USD": "Dólar Estadounidense",
+    "MAD": "Dirham Marroquí"
+  },
+  "period": {
+    "monthly": "Mensual",
+    "annual": "Anual"
+  },
+  "offers": {
+    "booster": {
+      "name": "Pack Booster",
+      "description": "Solución completa para iniciar tu presencia digital.",
+      "features": [
+        "Sitio web (hasta 5 páginas)",
+        "Marketing digital (1 campaña)",
+        "Redes sociales (3 publicaciones)",
+        "Vídeo (30s a 1min)",
+        "Mantenimiento (1 mes)"
+      ],
+      "details": "Perfecto para startups y pequeñas empresas que quieren una presencia digital completa."
+    },
+    "premium": {
+      "name": "Pack Premium",
+      "description": "Solución avanzada para un rápido crecimiento digital.",
+      "features": [
+        "Sitio web (hasta 10 páginas)",
+        "Creación de página web",
+        "SEO técnico básico",
+        "Marketing digital (2 campañas)",
+        "Redes sociales (10 publicaciones)",
+        "Vídeos (2 vídeos)",
+        "Mantenimiento (2 meses)"
+      ],
+      "details": "Para empresas que buscan una presencia digital profesional y segura."
+    },
+    "ultimate": {
+      "name": "Pack Ultimate",
+      "description": "Solución completa para una transformación digital total.",
+      "features": [
+        "Sitio web (hasta 15 páginas)",
+        "Creación de página web",
+        "SEO avanzado",
+        "Marketing digital (3 campañas)",
+        "Redes sociales (20 publicaciones)",
+        "Vídeos (3 vídeos)",
+        "Mantenimiento (3 meses)"
+      ],
+      "details": "Para empresas ambiciosas que buscan una presencia digital premium."
+    },
+    "web": {
+      "name": "Web y Diseño",
+      "description": "Crea una presencia web profesional.",
+      "features": [
+        "Sitio web estático/dinámico",
+        "Diseño responsivo",
+        "Optimización SEO",
+        "Integración CMS",
+        "Mantenimiento mensual"
+      ],
+      "details": "Para quienes quieren un sitio web profesional y eficiente."
+    },
+    "marketing": {
+      "name": "Marketing Digital",
+      "description": "Impulsa tu visibilidad en línea.",
+      "features": [
+        "SEO & SEM",
+        "Campañas publicitarias",
+        "Marketing de contenidos",
+        "Email Marketing",
+        "Analítica y Reportes"
+      ],
+      "details": "Para empresas que quieren aumentar su presencia en línea."
+    },
+    "social": {
+      "name": "Social Media Pro",
+      "description": "Gestiona tu presencia en redes sociales.",
+      "features": [
+        "Gestión de 3 redes sociales",
+        "Creación de contenido",
+        "Community Management",
+        "Planificación editorial",
+        "Reporte mensual"
+      ],
+      "details": "Para empresas que quieren una presencia social profesional."
+    },
+    "custom": {
+      "name": "A medida",
+      "description": "Una solución personalizada según tus necesidades.",
+      "features": [
+        "Auditoría personalizada",
+        "Estrategia a medida",
+        "Acompañamiento dedicado",
+        "Soporte premium"
+      ],
+      "details": "Contáctanos para una solución 100% adaptada a tus objetivos."
+    },
+    "vitrine": {
+      "name": "Creación de sitio web vitrina",
+      "description": "Un sitio web profesional entregado llave en mano.",
+      "features": [
+        "Hasta 5 páginas",
+        "Diseño personalizado",
+        "Optimización móvil",
+        "Entrega rápida"
+      ],
+      "details": "Ideal para autónomos y pymes."
+    },
+    "pack10posts": {
+      "name": "Pack 10 publicaciones Instagram/Facebook",
+      "description": "10 imágenes profesionales para tus redes sociales.",
+      "features": [
+        "Diseño a medida",
+        "Textos optimizados",
+        "Entrega en 72h"
+      ],
+      "details": "Para impulsar tu comunicación puntual."
+    },
+    "video": {
+      "name": "Vídeo promocional único",
+      "description": "Vídeo animado o filmado para promocionar tu actividad.",
+      "features": [
+        "Storyboard",
+        "Edición profesional",
+        "Entrega HD"
+      ],
+      "details": "Para una campaña o un lanzamiento."
+    },
+    "audit": {
+      "name": "Auditoría SEO única",
+      "description": "Análisis completo de tu sitio para SEO.",
+      "features": [
+        "Informe detallado",
+        "Recomendaciones",
+        "Análisis técnico"
+      ],
+      "details": "Para mejorar tu posicionamiento puntualmente."
+    },
+    "logo": {
+      "name": "Diseño de logo",
+      "description": "Creación de un logo profesional y único para tu marca.",
+      "features": [
+        "Diseño a medida",
+        "3 propuestas de logo",
+        "Entrega HD",
+        "Archivos vectoriales"
+      ],
+      "details": "Ideal para emprendedores, startups y pymes."
+    }
+  },
+  "cta": {
+    "contact": "Contáctanos",
+    "learnMore": "Saber más"
+  }
+} 

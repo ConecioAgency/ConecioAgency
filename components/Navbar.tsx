@@ -128,8 +128,14 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <Link href="/" className="flex items-center">
-              <img src="/images/logo/conecio_logo.png" alt="Conecio Logo" width={40} height={40} className="mr-2" />
-              <H6 className="font-bold text-white">Conecio</H6>
+              <img 
+                src="/images/logo/logo conecio.svg" 
+                alt="Conecio Logo" 
+                width={120} 
+                height={20} 
+                className="mr-2 w-[80px] h-auto sm:w-[100px] md:w-[120px]" 
+              />
+              <H6 className="font-bold text-white hidden sm:block">Conecio</H6>
             </Link>
           </motion.div>
 
@@ -260,18 +266,29 @@ const Navbar = () => {
             </div>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+          {/* Switch jour/nuit accessible */}
+          <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
+            aria-label={isDark ? "Activer le mode jour" : "Activer le mode nuit"}
+            className="flex items-center rounded-full px-2 py-1 bg-gray-100 dark:bg-gray-800 border border-gray-400 dark:border-gray-600 transition-colors p-2 ml-2"
           >
-            {isDark ? (
-              <SunIcon className="h-5 w-5 text-yellow-500" />
-            ) : (
-              <MoonIcon className="h-5 w-5 text-gray-700" />
-            )}
-          </motion.button>
+            {/* Soleil */}
+            <span className={`p-1 rounded-full ${!isDark ? 'bg-white' : ''}`}>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-yellow-400">
+                <circle cx="12" cy="12" r="5" strokeWidth="2" />
+                <path strokeWidth="2" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              </svg>
+              <span className="sr-only">Mode jour</span>
+            </span>
+            {/* Lune */}
+            <span className={`p-1 rounded-full ${isDark ? 'bg-white' : ''}`}>
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-gray-700 dark:text-gray-200">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21.75 15A9.72 9.72 0 0 1 18 15.75c-5.39 0-9.75-4.36-9.75-9.75 0-1.33.27-2.6.75-3.75A9.75 9.75 0 0 0 3 11.25C3 16.64 7.36 21 12.75 21a9.75 9.75 0 0 0 9-6z" />
+                <circle cx="18" cy="6" r="1" fill="currentColor"/>
+              </svg>
+              <span className="sr-only">Mode nuit</span>
+            </span>
+          </button>
         </div>
       </div>
     </motion.nav>

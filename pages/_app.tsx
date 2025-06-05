@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback, memo, useMemo, useRef, useTransition,
 import { appWithTranslation } from 'next-i18next';
 import Script from 'next/script';
 import Image from 'next/image';
+import { roboto } from '../lib/fonts';
 
 // Import dynamique des composants non critiques avec préchargement
 const Navbar = dynamic(() => import('../components/Navbar'), { 
@@ -50,42 +51,6 @@ const ACCEPTED_COOKIE_PREFS = Object.freeze({
   analytics: true,
   advertisement: true
 } as const);
-
-// Styles optimisés pour les polices avec preload et font-display
-const fontStyles = `
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-`;
 
 // Composants optimisés avec memo et types stricts
 const CookieBanner = memo(({ onAccept, onCustomize, onReject }: {
@@ -176,11 +141,11 @@ function useH2ScrollAnimation() {
       (entries) => {
         startTransition(() => {
           requestAnimationFrame(() => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('h2-animated-visible');
-              }
-            });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('h2-animated-visible');
+        }
+      });
           });
         });
       },
@@ -222,12 +187,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-    if (savedPreferences) {
+      if (savedPreferences) {
       startTransition(() => {
         setCookiePreferences(savedPreferences);
         setCookiesAccepted(true);
       });
-    }
+      }
   }, [savedPreferences]);
 
   // Handlers optimisés avec useCallback et types stricts
@@ -252,20 +217,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-      setCookiesAccepted(true);
-      setShowCookieBanner(false);
+    setCookiesAccepted(true);
+    setShowCookieBanner(false);
     });
   }, []);
 
   const handleCustomize = useCallback(() => {
     startTransition(() => {
       try {
-        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-      setCookiesAccepted(cookiePreferences.essential);
-      setShowCookieBanner(false);
+    setCookiesAccepted(cookiePreferences.essential);
+    setShowCookieBanner(false);
     });
   }, [cookiePreferences]);
 
@@ -279,86 +244,67 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Conecio - Agence Web Créative</title>
-        <meta name="description" content="Conecio - Votre partenaire pour des solutions web innovantes et créatives" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta httpEquiv="x-dns-prefetch-control" content="on" />
-        <link rel="icon" type="image/png" href="/images/logo/conecio_logo.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
         
         {/* Préchargement des ressources critiques */}
-        <link rel="preload" href="/images/logo/conecio_logo.png" as="image" type="image/png" />
-        <link rel="preload" href="/images/hero_landing.png" as="image" type="image/png" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         
-        {/* Optimisation des polices */}
-        <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        
-        {/* Optimisation des métadonnées */}
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        
-        {/* Optimisation du cache */}
-        <meta httpEquiv="Cache-Control" content="public, max-age=31536000, immutable" />
-        
-        <style dangerouslySetInnerHTML={{ __html: fontStyles }} />
+        {/* Préchargement des images critiques */}
+        <link
+          rel="preload"
+          href="/images/logo/logo conecio.svg"
+          as="image"
+          type="image/svg+xml"
+        />
       </Head>
 
-      <Suspense fallback={<div className="h-screen bg-white dark:bg-gray-900 animate-pulse" />}>
-        <Navbar />
-        <AnimatedBubbles />
-        <Component {...pageProps} />
-        <Footer />
-        <ScrollToTopButton />
-      </Suspense>
+      {/* Scripts optimisés */}
+      <Script
+        strategy="beforeInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+      />
+      
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `,
+        }}
+      />
 
+      <div className={`min-h-screen flex flex-col ${roboto.variable}`}>
+        <Navbar />
+        <main className="flex-grow">
+          <Suspense fallback={<div className="min-h-screen bg-white dark:bg-gray-900 animate-pulse" />}>
+            <Component {...pageProps} />
+          </Suspense>
+        </main>
+        <Footer />
+        <AnimatedBubbles />
+        <ScrollToTopButton />
+      </div>
+
+      {/* Cookie Banner */}
       {showCookieBanner && (
         <CookieBanner
           onAccept={handleAcceptAll}
           onCustomize={handleCustomize}
           onReject={handleRejectAll}
         />
-      )}
-
-      {cookiesAccepted && cookiePreferences.chat && (
-        <Script id="crisp-chat" strategy="afterInteractive">
-          {`
-            window.$crisp=[];
-            window.CRISP_WEBSITE_ID="3d7e2d27-df4c-464c-8d5e-00e4932cfa67";
-            (function(){
-              d=document;s=d.createElement("script");
-              s.src="https://client.crisp.chat/l.js";
-              s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
-            })();
-          `}
-        </Script>
-      )}
-
-      {cookiesAccepted && cookiePreferences.analytics && (
-        <>
-          <Script id="ga4" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `}
-          </Script>
-          <Script id="gtm-head" strategy="afterInteractive">
-            {`
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-T3KPBWNC');
-            `}
-          </Script>
-          <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3KPBWNC" height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe>
-          </noscript>
-        </>
       )}
     </>
   );

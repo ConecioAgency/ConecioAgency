@@ -19,22 +19,29 @@ const nextConfig = {
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    formats: ['image/webp'],
+    formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   i18n: {
-    locales: ['fr'],
+    locales: ['fr', 'en', 'es', 'ar'],
     defaultLocale: 'fr',
+    localeDetection: false,
   },
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', 'framer-motion'],
+    scrollRestoration: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  output: 'standalone',
+  poweredByHeader: false,
+  compress: true,
+  swcMinify: true,
   webpack: (config, { dev, isServer }) => {
-    // Optimisations pour la production
     if (!dev && !isServer) {
       config.optimization = {
         ...config.optimization,
@@ -62,7 +69,6 @@ const nextConfig = {
     }
     return config;
   },
-  // Optimisation des en-têtes HTTP
   async headers() {
     return [
       {
@@ -92,6 +98,14 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
           },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Accept-CH',
+            value: 'Sec-CH-Prefers-Color-Scheme, Sec-CH-Prefers-Reduced-Motion',
+          },
         ],
       },
       {
@@ -103,13 +117,26 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
 }
 
-const { i18n } = require('./next-i18next.config');
-
-module.exports = {
-  ...nextConfig,
-  i18n,
-} 
+module.exports = nextConfig; 

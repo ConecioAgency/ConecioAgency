@@ -1,0 +1,166 @@
+{
+  "title": "Pricing Plans",
+  "subtitle": "Choose the plan that fits your needs",
+  "categories": {
+    "all": "All Services",
+    "web": "Web & Design",
+    "marketing": "Digital Marketing",
+    "social": "Social Media",
+    "pack": "Complete Packages",
+    "onetime": "On-demand Services"
+  },
+  "currency": {
+    "EUR": "Euro",
+    "USD": "US Dollar",
+    "MAD": "Moroccan Dirham"
+  },
+  "period": {
+    "monthly": "Monthly",
+    "annual": "Annual"
+  },
+  "offers": {
+    "booster": {
+      "name": "Booster Pack",
+      "description": "Complete solution to launch your digital presence.",
+      "features": [
+        "Website (up to 5 pages)",
+        "Digital Marketing (1 campaign)",
+        "Social media (3 posts)",
+        "Video (30s to 1min)",
+        "Maintenance (1 month)"
+      ],
+      "details": "Perfect for startups and small businesses who want a complete digital presence."
+    },
+    "premium": {
+      "name": "Premium Pack",
+      "description": "Advanced solution for rapid digital growth.",
+      "features": [
+        "Website (up to 10 pages)",
+        "Website page creation",
+        "Basic technical SEO",
+        "Digital Marketing (2 campaigns)",
+        "Social media (10 posts)",
+        "Videos (2 videos)",
+        "Maintenance (2 months)"
+      ],
+      "details": "For businesses seeking a professional and secure digital presence."
+    },
+    "ultimate": {
+      "name": "Ultimate Pack",
+      "description": "Complete solution for total digital transformation.",
+      "features": [
+        "Website (up to 15 pages)",
+        "Website page creation",
+        "Advanced SEO",
+        "Digital Marketing (3 campaigns)",
+        "Social media (20 posts)",
+        "Videos (3 videos)",
+        "Maintenance (3 months)"
+      ],
+      "details": "For ambitious businesses seeking a premium digital presence."
+    },
+    "web": {
+      "name": "Web & Design",
+      "description": "Create a professional web presence.",
+      "features": [
+        "Static/dynamic website",
+        "Responsive design",
+        "SEO optimization",
+        "CMS integration",
+        "Monthly maintenance"
+      ],
+      "details": "For those who want a professional and efficient website."
+    },
+    "marketing": {
+      "name": "Digital Marketing",
+      "description": "Boost your online visibility.",
+      "features": [
+        "SEO & SEM",
+        "Advertising campaigns",
+        "Content Marketing",
+        "Email Marketing",
+        "Analytics & Reporting"
+      ],
+      "details": "For businesses that want to increase their online presence."
+    },
+    "social": {
+      "name": "Social Media Pro",
+      "description": "Manage your social media presence.",
+      "features": [
+        "Management of 3 social networks",
+        "Content creation",
+        "Community Management",
+        "Editorial planning",
+        "Monthly reporting"
+      ],
+      "details": "For businesses that want a professional social presence."
+    },
+    "custom": {
+      "name": "Custom",
+      "description": "A personalized solution according to your needs.",
+      "features": [
+        "Personalized audit",
+        "Tailor-made strategy",
+        "Dedicated support",
+        "Premium support"
+      ],
+      "details": "Contact us for a 100% tailored solution."
+    },
+    "vitrine": {
+      "name": "Showcase Website Creation",
+      "description": "A professional website delivered turnkey.",
+      "features": [
+        "Up to 5 pages",
+        "Custom design",
+        "Mobile optimization",
+        "Fast delivery"
+      ],
+      "details": "Ideal for freelancers and SMEs."
+    },
+    "pack10posts": {
+      "name": "Pack 10 Instagram/Facebook posts",
+      "description": "10 professional visuals for your social networks.",
+      "features": [
+        "Custom design",
+        "Optimized texts",
+        "Delivery in 72h"
+      ],
+      "details": "To boost your one-off communication."
+    },
+    "video": {
+      "name": "Unique promotional video",
+      "description": "Animated or filmed video to promote your business.",
+      "features": [
+        "Storyboard",
+        "Pro editing",
+        "HD delivery"
+      ],
+      "details": "For a campaign or a launch."
+    },
+    "audit": {
+      "name": "Unique SEO audit",
+      "description": "Complete analysis of your site for SEO.",
+      "features": [
+        "Detailed report",
+        "Recommendations",
+        "Technical analysis"
+      ],
+      "details": "To improve your SEO occasionally."
+    },
+    "logo": {
+      "name": "Logo design",
+      "description": "Creation of a professional and unique logo for your brand.",
+      "features": [
+        "Custom design",
+        "3 logo proposals",
+        "HD delivery",
+        "Vector files"
+      ],
+      "details": "Ideal for entrepreneurs, startups and SMEs."
+    }
+  },
+  "cta": {
+    "contact": "Contact Us",
+    "learnMore": "Learn More"
+  }
+} 

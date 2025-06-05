@@ -124,20 +124,24 @@ const OurAgency = () => {
                 )}
                 {isActive ? (
                   // Layout : image à gauche, texte à droite, texte centré verticalement et horizontalement
-                  <div className="flex flex-col md:flex-row items-center justify-center w-full h-full gap-6 md:gap-10 py-4 md:py-0 z-10">
-                    <motion.img
-                      src={service.image}
-                      alt={service.title}
-                      layoutId={`service-image-${serviceIdx}`}
-                      className="w-40 h-40 md:w-64 md:h-64 object-contain flex-shrink-0 p-2 md:ml-4"
-                    />
-                    <div className="flex flex-col justify-center items-center flex-1 h-full text-center">
+                  <div className="flex flex-col md:flex-row items-center justify-center w-full h-full gap-4 md:gap-10 py-4 md:py-0 z-10">
+                    {/* Image principale centrée, fond doux, padding */}
+                    <div className="flex items-center justify-center w-32 h-32 md:w-64 md:h-64 bg-gray-50 dark:bg-gray-800 rounded-lg p-2 mb-4 md:mb-0 md:ml-4">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="object-contain w-full h-full"
+                        style={{ maxHeight: '100%', maxWidth: '100%' }}
+                      />
+                    </div>
+                    {/* Texte */}
+                    <div className="flex flex-col justify-center items-center md:items-start flex-1 h-full text-center md:text-left">
                       <span className="text-3xl mb-2">{service.icon}</span>
                       <h3 className="text-2xl md:text-3xl font-extrabold mb-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(99,102,241,0.15)]">{service.title}</h3>
                       <p className="text-lg md:text-xl font-medium mb-2 text-gray-800 dark:text-gray-100 drop-shadow-[0_1px_4px_rgba(99,102,241,0.10)]">{service.desc}</p>
-                      <ul className="mt-2 space-y-1 text-sm md:text-base text-gray-700 dark:text-gray-200 max-w-xs mx-auto">
+                      <ul className="mt-2 space-y-1 text-sm md:text-base text-gray-700 dark:text-gray-200 max-w-xs mx-auto md:mx-0">
                         {service.points.map((pt, i) => (
-                          <li key={i} className="flex items-start gap-2 justify-center"><span className="mt-1 text-indigo-400">-</span> <span>{pt}</span></li>
+                          <li key={i} className="flex items-start gap-2 justify-center md:justify-start"><span className="mt-1 text-indigo-400">-</span> <span>{pt}</span></li>
                         ))}
                       </ul>
                     </div>

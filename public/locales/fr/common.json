@@ -19,12 +19,12 @@
       "difference": "DIFFÉRENCE"
     },
     "cta": {
-      "badge": "DÉMARRER UN PROJET",
+      "badge": "AUDITEZ VOTRE SITE GRATUITEMENT",
       "title": "Prêt à concrétiser votre projet digital ?",
       "desc": "Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.",
       "button": "Contactez-nous",
-      "img_alt": "Démarrer un projet",
-      "startProject": "Démarrer un projet",
+      "img_alt": "Auditez votre site gratuitement",
+      "startProject": "Auditez votre site gratuitement",
       "discoverAgency": "Découvrir l'agence"
     }
   },
@@ -48,12 +48,12 @@
       "difference": "DIFFÉRENCE"
     },
     "cta": {
-      "badge": "DÉMARRER UN PROJET",
+      "badge": "AUDITEZ VOTRE SITE GRATUITEMENT",
       "title": "Prêt à concrétiser votre projet digital ?",
       "desc": "Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.",
       "button": "Contactez-nous",
-      "img_alt": "Démarrer un projet",
-      "startProject": "Démarrer un projet",
+      "img_alt": "Auditez votre site gratuitement",
+      "startProject": "Auditez votre site gratuitement",
       "discoverAgency": "Découvrir l'agence"
     }
   },
@@ -179,7 +179,54 @@
       }
     }
   },
-  "pricing": "Tarifs",
+  "pricing": {
+    "title": "Nos Tarifs",
+    "subtitle": "Choisissez le plan qui correspond à vos besoins",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "save": "Économisez",
+    "features": "Fonctionnalités",
+    "basic": {
+      "name": "Basique",
+      "price": "49",
+      "description": "Parfait pour les petites entreprises",
+      "features": [
+        "Audit de site web complet",
+        "Rapport détaillé",
+        "Recommandations d'optimisation",
+        "Support par email"
+      ]
+    },
+    "pro": {
+      "name": "Professionnel",
+      "price": "99",
+      "description": "Idéal pour les entreprises en croissance",
+      "features": [
+        "Tout du plan Basique",
+        "Analyse de la concurrence",
+        "Plan d'action personnalisé",
+        "Support prioritaire",
+        "Consultation téléphonique"
+      ]
+    },
+    "enterprise": {
+      "name": "Entreprise",
+      "price": "199",
+      "description": "Solution complète pour les grandes entreprises",
+      "features": [
+        "Tout du plan Professionnel",
+        "Audit SEO avancé",
+        "Analyse UX/UI",
+        "Support 24/7",
+        "Consultations mensuelles",
+        "Rapports personnalisés"
+      ]
+    },
+    "cta": {
+      "start": "Commencer",
+      "contact": "Contactez-nous"
+    }
+  },
   "blog": "Blog",
   "contact": {
     "section_title": "CONTACT",
@@ -257,7 +304,7 @@
     "boost_visibility": "Boostez votre visibilité avec Conecio Agency",
     "deploy_power": "Déployez la puissance digitale de",
     "subtitle": "L'agence marketing qui allie données, créativité et performance pour propulser votre marque.",
-    "start_project": "Démarrer un projet",
+    "start_project": "Auditez votre site gratuitement",
     "rotating_word_1": "votre marque",
     "rotating_word_2": "votre croissance",
     "rotating_word_3": "votre notoriété",

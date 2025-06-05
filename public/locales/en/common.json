@@ -151,7 +151,54 @@
       }
     }
   },
-  "pricing": "Pricing",
+  "pricing": {
+    "title": "Our Pricing",
+    "subtitle": "Choose the plan that fits your needs",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save",
+    "features": "Features",
+    "basic": {
+      "name": "Basic",
+      "price": "49",
+      "description": "Perfect for small businesses",
+      "features": [
+        "Complete website audit",
+        "Detailed report",
+        "Optimization recommendations",
+        "Email support"
+      ]
+    },
+    "pro": {
+      "name": "Professional",
+      "price": "99",
+      "description": "Ideal for growing businesses",
+      "features": [
+        "Everything in Basic",
+        "Competitor analysis",
+        "Custom action plan",
+        "Priority support",
+        "Phone consultation"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "199",
+      "description": "Complete solution for large businesses",
+      "features": [
+        "Everything in Professional",
+        "Advanced SEO audit",
+        "UX/UI analysis",
+        "24/7 support",
+        "Monthly consultations",
+        "Custom reports"
+      ]
+    },
+    "cta": {
+      "start": "Get Started",
+      "contact": "Contact Us"
+    }
+  },
   "blog": "Blog",
   "contact": {
     "section_title": "CONTACT",
@@ -160,7 +207,7 @@
     "specify_request": "Specify your request:",
     "request_info": "Information request",
     "request_quote": "Quote request",
-    "request_audit": "Audit my website for free",
+    "request_audit": "Audit your website for free",
     "request_other": "Other",
     "error_select_request_type": "Please select a request type",
     "full_name": "Full name*",
@@ -229,7 +276,7 @@
     "boost_visibility": "Boost your visibility with Conecio Agency",
     "deploy_power": "Unleash the digital power of",
     "subtitle": "The marketing agency that combines data, creativity, and performance to propel your brand.",
-    "start_project": "Start a project",
+    "start_project": "Audit your website for free",
     "rotating_word_1": "your brand",
     "rotating_word_2": "your growth",
     "rotating_word_3": "your notoriety",

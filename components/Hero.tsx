@@ -17,7 +17,8 @@ function RotatingText({ rotatingWords }: { rotatingWords: string[] }) {
 }
 
 export default function Hero() {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const isArabic = i18n.language === 'ar';
   const rotatingWords = [
     t('hero.rotating_word_1'),
     t('hero.rotating_word_2'),
@@ -25,32 +26,38 @@ export default function Hero() {
     t('hero.rotating_word_4'),
     t('hero.rotating_word_5'),
   ];
+  // Texte alternatif pour l'arabe si besoin
+  const badgeText = isArabic ? '⭐️⭐️⭐️⭐️⭐️ عزز ظهورك الرقمي' : (<><span role="img" aria-label="star">⭐️⭐️⭐️⭐️⭐️</span> {t('hero.boost_visibility')}</>);
+  const mainTitle = isArabic ? 'أطلق العنان لقوة التسويق الرقمي' : t('hero.deploy_power');
+  const subtitle = isArabic ? 'حلول رقمية متكاملة لزيادة عملائك وتعزيز علامتك التجارية.' : t('hero.subtitle');
+  const ctaText = isArabic ? 'ابدأ مشروعك الآن' : t('hero.start_project');
+
   return (
     <section className="hero-section">
-      <div className="hero-content">
-        <div className="hero-left">
+      <div className={`hero-content${isArabic ? ' flex-row-reverse' : ''}`}> {/* Inverse l'ordre en arabe */}
+        <div className={`hero-left${isArabic ? ' text-right' : ''}`}> {/* Aligne à droite en arabe */}
           <div className="hero-badge">
-            <span role="img" aria-label="star">⭐️⭐️⭐️⭐️⭐️</span> {t('hero.boost_visibility')}
+            {badgeText}
           </div>
           <h1>
-            <span className="hero-title-main">{t('hero.deploy_power')}</span><br />
+            <span className="hero-title-main">{mainTitle}</span><br />
             <span className="hero-title-rotating">
               <RotatingText rotatingWords={rotatingWords} />
             </span>
           </h1>
           <p className="hero-subtitle">
-            {t('hero.subtitle')}
+            {subtitle}
           </p>
           <a href="/contact" className="btn-main btn-main--dark group">
-            <span>{t('hero.start_project')}</span>
+            <span>{ctaText}</span>
             <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
           </a>
         </div>
         <div className="hero-right">
           <div className="hero-right-flex" style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Image
-              src="/images/hero_landing.webp"
-              alt="Hero Landing"
+              src="/images/PSD/mockup_paper_out_of_screen_website.webp"
+              alt={isArabic ? "صورة بطل الصفحة" : "Hero Landing"}
               className="hero-landing-img"
               width={540}
               height={410}
@@ -91,10 +98,16 @@ export default function Hero() {
           padding: 60px 32px 40px 32px;
           contain: layout style paint;
         }
+        .hero-content.flex-row-reverse {
+          flex-direction: row-reverse;
+        }
         .hero-left {
           flex: 1;
           z-index: 2;
           contain: layout style paint;
+        }
+        .hero-left.text-right {
+          text-align: right;
         }
         .hero-badge {
           background: #181c2a;
@@ -230,7 +243,7 @@ export default function Hero() {
           contain: layout style paint;
         }
         @media (max-width: 900px) {
-          .hero-content { flex-direction: column; gap: 40px; }
+          .hero-content { flex-direction: column${isArabic ? '-reverse' : ''}; gap: 40px; }
           .hero-right-flex { flex-direction: column; align-items: center; gap: 1.5rem; }
           .hero-right { min-width: 220px; }
           .cards-pile-group {

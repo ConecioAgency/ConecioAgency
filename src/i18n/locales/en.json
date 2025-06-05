@@ -1,0 +1,49 @@
+{
+  "pricing": {
+    "title": "Our Pricing",
+    "subtitle": "Choose the plan that fits your needs",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save",
+    "basic": {
+      "name": "Basic",
+      "price": "49",
+      "description": "Perfect for small businesses",
+      "features": [
+        "Complete website audit",
+        "Detailed report",
+        "Optimization recommendations",
+        "Email support"
+      ]
+    },
+    "pro": {
+      "name": "Professional",
+      "price": "99",
+      "description": "Ideal for growing businesses",
+      "features": [
+        "Everything in Basic",
+        "Competitor analysis",
+        "Custom action plan",
+        "Priority support",
+        "Phone consultation"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "199",
+      "description": "Complete solution for large businesses",
+      "features": [
+        "Everything in Professional",
+        "Advanced SEO audit",
+        "UX/UI analysis",
+        "24/7 support",
+        "Monthly consultations",
+        "Custom reports"
+      ]
+    },
+    "cta": {
+      "start": "Get Started",
+      "contact": "Contact Us"
+    }
+  }
+} 

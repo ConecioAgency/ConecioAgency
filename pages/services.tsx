@@ -2540,7 +2540,7 @@ export default function ServicesPage() {
                         ))}
                       </div>
                       <div className="flex justify-center">
-                        <a href="/contact" className="btn-premium">Démarrer un projet</a>
+                        <a href="/contact#devis-gratuit" className="btn-premium">Auditez votre site gratuitement</a>
                       </div>
                     </motion.div>
                   );

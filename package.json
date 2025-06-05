@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-sitemap",
+    "build": "npm run optimize-images && next build",
     "start": "next start",
     "lint": "next lint",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "analyze": "cross-env ANALYZE=true next build",
+    "postbuild": "npm run optimize-images"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -31,17 +33,20 @@
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.29",
     "@types/aos": "^3.0.7",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
     "critters": "^0.0.23",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
+    "glob": "^10.3.10",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.4.33",
-    "sharp": "^0.34.2",
+    "sharp": "^0.32.6",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }

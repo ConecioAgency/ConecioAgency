@@ -330,7 +330,9 @@ export const WhatToExpect = () => {
                 tabIndex={0}
                 onClick={() => {
                   setActiveIndex(i);
-                  swiperRef.current?.slideToLoop(i);
+                  if (swiperRef.current) {
+                    swiperRef.current.slideToLoop(i, 600); // 600ms pour une animation fluide
+                  }
                 }}
               >
                 {activeIndex === i && (
@@ -341,7 +343,7 @@ export const WhatToExpect = () => {
             ))}
           </div>
         </div>
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center w-full" dir={isArabic ? 'rtl' : 'ltr'} style={{ minWidth: 0 }}>
           {/* Flèche gauche */}
           <button
             className={`absolute left-0 z-20 top-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-full shadow p-2 transition-all ${activeIndex === 0 ? 'opacity-30 pointer-events-none' : 'hover:bg-indigo-100 dark:hover:bg-indigo-900'}`}
@@ -350,25 +352,38 @@ export const WhatToExpect = () => {
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
           </button>
-          {/* Swiper carousel avec effet coverflow */}
+          {/* Swiper carousel avec effet coverflow et RTL si arabe */}
           <Swiper
             modules={[Navigation, EffectCoverflow]}
             effect="coverflow"
-            centeredSlides
+            centeredSlides={true}
             slidesPerView="auto"
-            loop
+            loop={true}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 180, modifier: 1.8, slideShadows: false }}
             onSwiper={swiper => { swiperRef.current = swiper; }}
             onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
-            className="w-full max-w-5xl px-0 md:px-12"
+            className={`w-full max-w-6xl px-0 md:px-12${isArabic ? ' swiper-rtl' : ''}`}
             navigation={false}
             allowTouchMove={false}
+            dir={isArabic ? 'rtl' : 'ltr'}
+            style={{ minWidth: 0 }}
           >
             {tools.map((tool, i) => (
               <SwiperSlide key={tool.id} style={{ width: 370, maxWidth: 370 }}>
                 {({ isActive }) => (
                   <div
-                    className={`relative flex flex-col justify-between items-stretch bg-white rounded-[28px] shadow-xl transition-all duration-500 overflow-hidden h-[420px] mx-auto ${isActive ? 'scale-100 z-20 border-2 border-indigo-400' : 'scale-95 z-10 opacity-90'} `}
+                    className={`relative flex flex-col justify-between items-stretch bg-white rounded-[28px] shadow-xl transition-all duration-500 overflow-hidden h-[420px] mx-auto pointer-events-auto
+                      ${isActive ? 'scale-100 z-20 border-2 border-indigo-400' : 'scale-95 z-10 opacity-90 hover:scale-105 hover:shadow-2xl cursor-pointer'}
+                      ${isArabic ? 'text-right' : ''}`}
+                    onClick={() => {
+                      if (!isActive && swiperRef.current) {
+                        swiperRef.current.slideToLoop(i, 600);
+                      }
+                    }}
+                    style={{ cursor: isActive ? 'default' : 'pointer' }}
+                    tabIndex={isActive ? -1 : 0}
+                    aria-label={tool.title}
+                    role="button"
                   >
                     <div className="flex items-start gap-3 px-6 pt-6 pb-2">
                       <div className={cn('w-10 h-10 rounded-lg flex items-center justify-center', tool.color)}>

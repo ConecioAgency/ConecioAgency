@@ -151,7 +151,54 @@
       "sectionDescription": "Tecnologías de vanguardia para transformar tu negocio y mantenerte competitivo"
     }
   },
-  "pricing": "Precios",
+  "pricing": {
+    "title": "Nuestros Precios",
+    "subtitle": "Elige el plan que se adapte a tus necesidades",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "save": "Ahorra",
+    "features": "Características",
+    "basic": {
+      "name": "Básico",
+      "price": "49",
+      "description": "Perfecto para pequeñas empresas",
+      "features": [
+        "Auditoría completa del sitio web",
+        "Informe detallado",
+        "Recomendaciones de optimización",
+        "Soporte por correo electrónico"
+      ]
+    },
+    "pro": {
+      "name": "Profesional",
+      "price": "99",
+      "description": "Ideal para empresas en crecimiento",
+      "features": [
+        "Todo lo del plan Básico",
+        "Análisis de competencia",
+        "Plan de acción personalizado",
+        "Soporte prioritario",
+        "Consulta telefónica"
+      ]
+    },
+    "enterprise": {
+      "name": "Empresarial",
+      "price": "199",
+      "description": "Solución completa para grandes empresas",
+      "features": [
+        "Todo lo del plan Profesional",
+        "Auditoría SEO avanzada",
+        "Análisis UX/UI",
+        "Soporte 24/7",
+        "Consultas mensuales",
+        "Informes personalizados"
+      ]
+    },
+    "cta": {
+      "start": "Comenzar",
+      "contact": "Contáctanos"
+    }
+  },
   "blog": "Blog",
   "contact": {
     "section_title": "CONTACTO",
@@ -227,7 +274,7 @@
     "boost_visibility": "Impulsa tu visibilidad con Conecio Agency",
     "deploy_power": "Despliega el poder digital de",
     "subtitle": "La agencia de marketing que combina datos, creatividad y rendimiento para impulsar tu marca.",
-    "start_project": "Iniciar un proyecto",
+    "start_project": "Audita tu sitio gratis",
     "rotating_word_1": "tu marca",
     "rotating_word_2": "tu crecimiento",
     "rotating_word_3": "tu notoriedad",

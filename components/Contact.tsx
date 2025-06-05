@@ -112,6 +112,7 @@ const Contact = () => {
                     <button
                       key={type}
                       type="button"
+                      id={type === t('contact.request_audit') ? 'devis-gratuit' : undefined}
                       className={`px-3 py-1.5 text-xs rounded-full font-semibold transition-all duration-200
                         ${selectedType === type
                           ? 'bg-white/10 text-white shadow-inner font-bold'
@@ -323,9 +324,10 @@ const Contact = () => {
               className="h-64 rounded-xl overflow-hidden shadow-lg"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615509614!3d48.85837007928757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647874586701!5m2!1sfr!2sfr"
+                src="https://www.google.com/maps?q=5+Rue+Aquitaine,+Casablanca&output=embed"
                 width="100%"
                 height="100%"
+                title="Localisation : 5 Rue Aquitaine, Casablanca"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"

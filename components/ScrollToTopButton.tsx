@@ -17,28 +17,28 @@ const ProgressCircle = memo(({ progress }: { progress: number }) => (
       perspective: '1000px'
     }}
   >
-    <path
-      d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-      fill="none"
-      stroke="#fff"
-      strokeOpacity="0.2"
-      strokeWidth="3"
-    />
-    <path
-      d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-      fill="none"
-      stroke="#fff"
-      strokeWidth="3.5"
-      strokeDasharray={CIRCUMFERENCE}
-      strokeDashoffset={CIRCUMFERENCE - progress * CIRCUMFERENCE}
+          <path
+            d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+            fill="none"
+            stroke="#fff"
+            strokeOpacity="0.2"
+            strokeWidth="3"
+          />
+          <path
+            d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="3.5"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={CIRCUMFERENCE - progress * CIRCUMFERENCE}
       style={{ 
         transition: 'stroke-dashoffset 300ms linear',
         transform: 'translateZ(0)',
         backfaceVisibility: 'hidden',
         perspective: '1000px'
       }}
-    />
-  </svg>
+          />
+        </svg>
 ));
 
 ProgressCircle.displayName = 'ProgressCircle';
@@ -58,9 +58,9 @@ const ArrowIcon = memo(() => (
       perspective: '1000px'
     }}
   >
-    <path d="M12 17V7" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M7 12l5-5 5 5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+            <path d="M12 17V7" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7 12l5-5 5 5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
 ));
 
 ArrowIcon.displayName = 'ArrowIcon';

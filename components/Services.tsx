@@ -9,7 +9,7 @@ const slides = [
   {
     titleKey: 'services.slide_1_title',
     descriptionKey: 'services.slide_1_desc',
-    image: '/images/PSD/mockup_paper_out_of_screen_website.webp',
+    image: '/images/hero_landing.webp',
   },
   {
     titleKey: 'services.slide_2_title',
@@ -151,7 +151,15 @@ export default function Services() {
                               muted
                               autoPlay
                               playsInline
-                            />
+                            >
+                              <track
+                                kind="captions"
+                                src="/videos/design.vtt"
+                                srcLang="fr"
+                                label="Français"
+                                default
+                              />
+                            </video>
                             <motion.h3 
                               className="absolute bottom-8 left-8 text-3xl font-bold text-white"
                               initial={{ opacity: 0, y: 20 }}
@@ -173,7 +181,15 @@ export default function Services() {
                               playsInline
                               onPlay={() => setIsPlaying(true)}
                               onPause={() => setIsPlaying(false)}
-                            />
+                            >
+                              <track
+                                kind="captions"
+                                src="/videos/Gerer-Service.vtt"
+                                srcLang="fr"
+                                label="Français"
+                                default
+                              />
+                            </video>
                             <motion.button
                               onClick={handlePlayPause}
                               className="absolute bottom-4 right-4 bg-white/80 dark:bg-gray-800/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-gray-700 transition"

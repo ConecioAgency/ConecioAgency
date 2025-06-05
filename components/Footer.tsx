@@ -46,7 +46,7 @@ const Footer = () => {
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com',
+      href: 'https://x.com/ConecioAgency',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
@@ -55,7 +55,7 @@ const Footer = () => {
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/in/conecio-agency-999a20369/',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -82,20 +82,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo et description */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block w-[40px] h-[40px]">
+            <Link href="/" className="inline-block w-[80px] sm:w-[100px] md:w-[120px] h-auto">
               <Image 
-                src="/images/logo/conecio_logo.png" 
+                src="/images/logo/logo conecio.svg" 
                 alt="Conecio Logo" 
-                width={40} 
-                height={40} 
+                width={120} 
+                height={20} 
                 className="w-full h-full object-contain" 
                 priority 
                 loading="eager"
-                sizes="40px"
+                sizes="(max-width: 640px) 80px, (max-width: 768px) 100px, 120px"
               />
             </Link>
             <div className="mb-6 min-h-[100px]">
-              <H6 className="mb-4">{t('footer.about_title')}</H6>
+              <H6 className="mb-4 text-center">{t('footer.about_title')}</H6>
               <Body2 className="text-gray-600 dark:text-gray-400">
                 {t('footer.description')}
               </Body2>
@@ -109,9 +109,10 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -2, boxShadow: '0 4px 16px #a21caf33' }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200 w-6 h-6"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200 w-6 h-6 flex items-center justify-center"
                 >
                   {social.icon}
+                  <span className="sr-only">{social.name}</span>
                 </motion.a>
               ))}
             </div>
@@ -119,7 +120,7 @@ const Footer = () => {
 
           {/* Services */}
           <div className="min-h-[200px]">
-            <H6 className="mb-4">{t('footer.services_title')}</H6>
+            <H6 className="mb-4 text-center">{t('footer.services_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name} className="h-6">
@@ -135,7 +136,7 @@ const Footer = () => {
 
           {/* Entreprise */}
           <div className="min-h-[200px]">
-            <H6 className="mb-4">{t('footer.company_title')}</H6>
+            <H6 className="mb-4 text-center">{t('footer.company_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name} className="h-6">
@@ -150,12 +151,12 @@ const Footer = () => {
           </div>
 
           {/* Blog */}
-          <div className="min-h-[200px]">
-            <H6 className="mb-4">{t('footer.blog_title')}</H6>
+          <div className="min-h-[200px] max-w-xs">
+            <H6 className="mb-4 text-center">{t('footer.blog_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.blog.map((link) => (
-                <li key={link.name} className="h-6">
-                  <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors">
+                <li key={link.name}>
+                  <Body2 className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors break-words text-left">
                     <Link href={link.href}>{link.name}</Link>
                   </Body2>
                 </li>
@@ -165,7 +166,7 @@ const Footer = () => {
 
           {/* Légal */}
           <div className="min-h-[200px]">
-            <H6 className="mb-4">{t('footer.legal_title')}</H6>
+            <H6 className="mb-4 text-center">{t('footer.legal_title')}</H6>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name} className="h-6">
