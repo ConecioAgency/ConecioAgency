@@ -25,11 +25,8 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', 'framer-motion'],
     scrollRestoration: true,
-    serverActions: true,
     serverComponentsExternalPackages: [],
-    optimizeServerReact: true,
-    optimizeImages: true,
-    optimizeFonts: true,
+    optimizeServerReact: true
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -64,6 +61,20 @@ const nextConfig = {
               priority: -20,
               reuseExistingChunk: true,
             },
+            // Optimisation pour Google Tag Manager
+            gtm: {
+              test: /[\\/]node_modules[\\/]@gtm[\\/]/,
+              name: 'gtm',
+              priority: 20,
+              chunks: 'all',
+            },
+            // Optimisation pour les composants de blog
+            blog: {
+              test: /[\\/]pages[\\/]blog/,
+              name: 'blog',
+              priority: 10,
+              chunks: 'all',
+            },
           },
         },
         minimize: true,
@@ -76,6 +87,8 @@ const nextConfig = {
                 drop_debugger: true,
                 pure_funcs: ['console.log', 'console.info', 'console.debug'],
                 passes: 3,
+                dead_code: true,
+                unused: true,
               },
               mangle: true,
               format: {
