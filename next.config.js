@@ -40,7 +40,6 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   compress: true,
-  swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       config.optimization = {
