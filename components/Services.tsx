@@ -71,7 +71,7 @@ export default function Services() {
           <ScrollAnimation direction="up" delay={0.4}>
             <div className="flex flex-col items-center mb-12">
               <ScrollAnimation direction="up" delay={0.5}>
-                <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest mb-4" style={{letterSpacing: '0.08em'}}>
+                <span className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold subtitle tracking-widest mb-4" style={{letterSpacing: '0.08em'}}>
                   <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('services.section_title')}</span>
                 </span>
               </ScrollAnimation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="500" fill="#c60b1e"/>
+  <rect y="125" width="750" height="250" fill="#ffc400"/>
+  <g transform="translate(375,250)" fill="#aa151b">
+    <g transform="scale(0.6)">
+      <path d="M0,0 v125 h62.5 v-125 z M0,125 v125 h62.5 v-125 z M0,250 v125 h62.5 v-125 z M0,375 v125 h62.5 v-125 z M62.5,0 v125 h62.5 v-125 z M62.5,125 v125 h62.5 v-125 z M62.5,250 v125 h62.5 v-125 z M62.5,375 v125 h62.5 v-125 z M125,0 v125 h62.5 v-125 z M125,125 v125 h62.5 v-125 z M125,250 v125 h62.5 v-125 z M125,375 v125 h62.5 v-125 z M187.5,0 v125 h62.5 v-125 z M187.5,125 v125 h62.5 v-125 z M187.5,250 v125 h62.5 v-125 z M187.5,375 v125 h62.5 v-125 z"/>
+    </g>
+  </g>
+</svg> 

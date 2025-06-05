@@ -53,19 +53,24 @@ const ContactFaqSection = () => {
           <div className="absolute inset-0 bg-[url('/images/withdraw-bg.png')] bg-center bg-no-repeat bg-cover" />
         </div>
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
-          <div className="text-center mb-12">
-            <SectionTitle badge={t('faq.badge')}>
-              {t('faq.title')}
-            </SectionTitle>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
-            >
-              {t('faq.subtitle')}
-            </motion.p>
+          <div className="flex flex-col items-center mb-4">
+            <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('faq.badge')}</span>
+            </span>
           </div>
+          <div className="flex flex-col items-center w-full">
+            <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
+              {t('faq.title')}
+            </AnimatedTitle>
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
+          >
+            {t('faq.subtitle')}
+          </motion.p>
         </div>
       </section>
     );
@@ -79,9 +84,16 @@ const ContactFaqSection = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10 font-inter">
         <div className="text-center mb-12">
-          <SectionTitle badge={t('faq.badge')}>
-            {t('faq.title')}
-          </SectionTitle>
+          <div className="flex flex-col items-center mb-4">
+            <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('faq.badge')}</span>
+            </span>
+          </div>
+          <div className="flex flex-col items-center w-full">
+            <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
+              {t('faq.title')}
+            </AnimatedTitle>
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

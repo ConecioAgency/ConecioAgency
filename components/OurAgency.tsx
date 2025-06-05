@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useTransition } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 const gridClasses = [
   // Grande card (gauche, hauteur égale à la colonne de droite)
@@ -22,9 +23,19 @@ const bentoGrid = [
   [3, 0, 1, 2],
 ];
 
+const logos = [
+  '/images/clients/client1.svg',
+  '/images/clients/client2.svg',
+  '/images/clients/client3.svg',
+  '/images/clients/client4.svg',
+  '/images/clients/client5.svg',
+  '/images/clients/client6.svg',
+];
+
 const OurAgency = () => {
   const { t } = useTranslation('common');
   const [selected, setSelected] = useState(0);
+  const [isPending, startTransition] = useTransition();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const order = bentoGrid[selected];
@@ -82,11 +93,17 @@ const OurAgency = () => {
     "Accompagnement pour décliner votre identité sur tous vos supports."
   ];
 
+  const handleServiceSelect = (serviceIdx: number) => {
+    startTransition(() => {
+      setSelected(serviceIdx);
+    });
+  };
+
   return (
     <section ref={ref} className="relative py-16 bg-white dark:bg-gray-800 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center mb-4">
-          <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{ letterSpacing: '0.08em' }}>
+          <span className="inline-block bg-blue-50 dark:bg-gray-800 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{ letterSpacing: '0.08em' }}>
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('agency.section_title')}</span>
           </span>
         </div>
@@ -110,7 +127,7 @@ const OurAgency = () => {
                 key={serviceIdx}
                 layout
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                onClick={() => setSelected(serviceIdx)}
+                onClick={() => handleServiceSelect(serviceIdx)}
                 className={`cursor-pointer group relative flex flex-col items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-900 transition-all duration-300 overflow-hidden ${gridClasses[gridIdx]} ${isActive ? 'z-10 scale-105 md:scale-110 ring-2 ring-indigo-400/40' : 'opacity-80'}`}
                 style={{ minWidth: 0 }}
               >
@@ -185,9 +202,102 @@ const OurAgency = () => {
         >
           {t('agency.digital_creative')}
         </motion.div>
+
+        {/* Section "Ils nous font confiance" */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <div className="flex flex-col items-center mb-8">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold text-base tracking-widest mb-4" style={{letterSpacing: '0.08em'}}
+            >
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                NOS CLIENTS
+              </span>
+            </motion.span>
+          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-extrabold font-heading mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            Ils nous font confiance
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="body text-gray-700 text-base md:text-lg text-center dark:text-gray-300 max-w-2xl mx-auto mb-12"
+          >
+            Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.
+          </motion.p>
+
+          <div className="relative overflow-hidden mt-16">
+            <div className="flex animate-scroll">
+              <div className="flex space-x-24 items-center">
+                {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((num) => (
+                  <div key={num} className="flex-shrink-0 w-32 h-16 relative">
+                    <div className="relative w-full h-full p-4">
+                      <Image
+                        src={`/images/logo/SVG_Logo/Fichier ${num}.svg`}
+                        alt={`Logo client ${num}`}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex space-x-24 items-center">
+                {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((num) => (
+                  <div key={`duplicate-${num}`} className="flex-shrink-0 w-32 h-16 relative">
+                    <div className="relative w-full h-full p-4">
+                      <Image
+                        src={`/images/logo/SVG_Logo/Fichier ${num}.svg`}
+                        alt={`Logo client ${num}`}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
+
+const styles = `
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+`;
 
 export default OurAgency;

@@ -569,5 +569,54 @@
   },
   "tools": {
     "subtitle": "Discover our full range of tools to boost your digital presence"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "about": "About Us",
+    "audit": "Audit Your Site Free"
+  },
+  "seo_process": {
+    "section_title": "Search Engine Marketing (SEM)",
+    "section_subtitle": "Integrating SEO, SEA, and SMO for maximum digital visibility",
+    "section_desc": "A comprehensive approach to maximize your online visibility",
+    "seo": {
+      "title": "SEO",
+      "description": "Search Engine Optimization",
+      "details": [
+        "Technical site optimization",
+        "Keyword research and analysis",
+        "Content optimization",
+        "Netlinking and backlinks"
+      ]
+    },
+    "sea": {
+      "title": "SEA",
+      "description": "Search Engine Advertising",
+      "details": [
+        "Google Ads campaign creation",
+        "Bid optimization",
+        "Performance tracking",
+        "Ad A/B testing"
+      ]
+    },
+    "smo": {
+      "title": "SMO",
+      "description": "Social Media Optimization",
+      "details": [
+        "Social content strategy",
+        "Profile optimization",
+        "Community engagement",
+        "Performance analysis"
+      ]
+    }
+  },
+  "blog_suggestion": {
+    "title": "Have an article idea?",
+    "description": "Share your inspiration with us, it could become our next article!",
+    "button": "Suggest a topic"
   }
 } 

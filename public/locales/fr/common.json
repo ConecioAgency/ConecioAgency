@@ -58,7 +58,7 @@
     }
   },
   "services": {
-    "section_title": "SERVICES",
+    "section_title": "NOS SERVICES",
     "section_subtitle": "Nos expertises digitales",
     "section_desc": "Des solutions sur-mesure pour propulser votre business avec un style moderne, technique et épuré.",
     "slide_1_title": "Créer",
@@ -607,5 +607,56 @@
     "title": "Ils nous font confiance",
     "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
     "logoAlt": "Logo client {{number}}"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "contact": "Contact",
+    "about": "À propos de nous",
+    "audit": "Auditez votre site gratuitement"
+  },
+  "seo_process": {
+    "section_title": "Marketing sur les moteurs de recherche (SEM)",
+    "section_subtitle": "Intégration du SEO, SEA et SMO pour une visibilité digitale maximale",
+    "section_desc": "Découvrez notre méthodologie SEM : SEO, SEA et SMO, pour maximiser la visibilité de votre marque sur tous les leviers du web.",
+    "seo": {
+      "title": "SEO",
+      "description": "Le SEO (Search Engine Optimization) regroupe toutes les techniques visant à améliorer le positionnement d'un site dans les résultats naturels des moteurs de recherche. Il repose sur trois piliers : la technique, le contenu et la popularité.",
+      "details": [
+        "Optimisation technique du site (arborescence, balisage, responsive, UX…)" ,
+        "Création de contenus riches, uniques et pertinents",
+        "Stratégie de mots-clés et cocon sémantique",
+        "Développement de la popularité (backlinks, partages, notoriété)",
+        "Suivi des performances et adaptation continue"
+      ]
+    },
+    "sea": {
+      "title": "SEA",
+      "description": "Le SEA (Search Engine Advertising) désigne la publicité sur les moteurs de recherche, comme Google Ads. Il permet d'obtenir une visibilité immédiate grâce à l'achat de mots-clés et d'emplacements sponsorisés.",
+      "details": [
+        "Création et gestion de campagnes Google Ads",
+        "Achat de mots-clés stratégiques aux enchères",
+        "Rédaction d'annonces percutantes et ciblées",
+        "Analyse du retour sur investissement (ROI)",
+        "Optimisation continue des campagnes"
+      ]
+    },
+    "smo": {
+      "title": "SMO",
+      "description": "Le SMO (Social Media Optimization) vise à développer la visibilité d'une entreprise via les réseaux sociaux. Il s'agit d'optimiser la présence, l'engagement et le partage sur les plateformes sociales.",
+      "details": [
+        "Définition d'une stratégie social media adaptée",
+        "Création de contenus engageants pour chaque réseau",
+        "Animation et gestion de communauté",
+        "Veille et analyse des performances sociales",
+        "Amplification de la notoriété via le partage et l'influence"
+      ]
+    }
+  },
+  "blog_suggestion": {
+    "title": "Une idée d'article ?",
+    "description": "Partagez votre inspiration avec nous, elle pourrait devenir notre prochain article !",
   }
 } 

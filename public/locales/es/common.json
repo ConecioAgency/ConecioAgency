@@ -483,5 +483,49 @@
     "subtitle": "Descubre todas nuestras experticias digitales para impulsar tu marca.",
     "agencyTitle": "Agencia Conecio",
     "agencyIntro": "Nuestro equipo te acompaña en todos tus proyectos digitales, desde la estrategia hasta la realización, con creatividad y rendimiento."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "about": "Sobre Nosotros",
+    "audit": "Audita tu Sitio Gratis"
+  },
+  "seo_process": {
+    "section_title": "SEM",
+    "section_subtitle": "SEO + SEA + SMO",
+    "section_desc": "Un enfoque integral para maximizar tu visibilidad online",
+    "seo": {
+      "title": "SEO",
+      "description": "Optimización para motores de búsqueda",
+      "details": [
+        "Optimización técnica del sitio",
+        "Investigación y análisis de palabras clave",
+        "Optimización de contenido",
+        "Netlinking y backlinks"
+      ]
+    },
+    "sea": {
+      "title": "SEA",
+      "description": "Publicidad en motores de búsqueda",
+      "details": [
+        "Creación de campañas Google Ads",
+        "Optimización de pujas",
+        "Seguimiento de rendimiento",
+        "Pruebas A/B de anuncios"
+      ]
+    },
+    "smo": {
+      "title": "SMO",
+      "description": "Optimización de redes sociales",
+      "details": [
+        "Estrategia de contenido social",
+        "Optimización de perfiles",
+        "Compromiso comunitario",
+        "Análisis de rendimiento"
+      ]
+    }
   }
 } 

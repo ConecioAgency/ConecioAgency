@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import WhatToExpect from '../components/WhatToExpect';
 import Process from '../components/Process';
+import SEOProcess from '../components/SEOProcess';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import AOS from 'aos';
@@ -105,14 +106,15 @@ export default function Home() {
         <Navbar />
         <main>
           <SectionReveal><Hero /></SectionReveal>
-          <LogoCarousel />
+          <BrandIconsCarousel />
+          <SectionReveal delay={0.05}><Services /></SectionReveal>
           <SectionReveal delay={0.1}><OurAgency /></SectionReveal>
-          <SectionReveal delay={0.2}><Services /></SectionReveal>
-          <SectionReveal delay={0.25}><WhatToExpect /></SectionReveal>
-          <SectionReveal delay={0.3}><Process /></SectionReveal>
-          <SectionReveal delay={0.35}><Testimonials /></SectionReveal>
-          <SectionReveal delay={0.4}><HomeBlogSection /></SectionReveal>
-          <SectionReveal delay={0.45}><Contact /></SectionReveal>
+          <SectionReveal delay={0.15}><WhatToExpect /></SectionReveal>
+          <SectionReveal delay={0.2}><Process /></SectionReveal>
+          <SectionReveal delay={0.25}><SEOProcess /></SectionReveal>
+          <SectionReveal delay={0.3}><Testimonials /></SectionReveal>
+          <SectionReveal delay={0.35}><HomeBlogSection /></SectionReveal>
+          <SectionReveal delay={0.4}><Contact /></SectionReveal>
         </main>
       </div>
     </>

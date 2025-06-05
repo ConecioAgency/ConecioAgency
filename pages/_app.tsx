@@ -7,6 +7,9 @@ import { appWithTranslation } from 'next-i18next';
 import Script from 'next/script';
 import Image from 'next/image';
 import { roboto } from '../lib/fonts';
+import { ThemeProvider } from 'next-themes';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Import dynamique des composants non critiques avec préchargement
 const Navbar = dynamic(() => import('../components/Navbar'), { 
@@ -241,8 +244,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
   return (
-    <>
+    <ThemeProvider attribute="class">
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -306,7 +316,26 @@ function MyApp({ Component, pageProps }: AppProps) {
           onReject={handleRejectAll}
         />
       )}
-    </>
+
+      <style jsx global>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 40s linear infinite;
+          display: flex;
+          width: max-content;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </ThemeProvider>
   );
 }
 

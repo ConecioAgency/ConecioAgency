@@ -297,16 +297,16 @@ export const WhatToExpect = () => {
   return (
     <section className="py-24 relative bg-transparent overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="mb-8 flex flex-col items-center">
+        <div className="flex flex-col items-center mb-8">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block bg-blue-50 dark:bg-blue-900/40 px-4 py-1 rounded-full text-sm font-medium tracking-wider mb-3"
+            className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold text-base tracking-widest mb-4" style={{letterSpacing: '0.08em'}}
           >
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              {t('expect.tools_badge')}
+              NOS OUTILS
             </span>
           </motion.span>
           <motion.h2
@@ -314,7 +314,7 @@ export const WhatToExpect = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-4xl font-bold text-center mb-4"
+            className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
           >
             {t('expect.tools_title')}
           </motion.h2>

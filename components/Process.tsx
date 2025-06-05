@@ -79,7 +79,7 @@ function PourquoiNousChoisirSection() {
   // On ne garde que 3 services
   const displayedServices = marketingServices.slice(0, 3);
   return (
-    <section className="py-20 bg-white dark:bg-gray-800 w-full">
+    <section className="py-4 bg-white dark:bg-gray-800 w-full mb-0">
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Image à gauche dans une forme arrondie moderne, agrandie et animée */}
         {/* <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
@@ -88,7 +88,7 @@ function PourquoiNousChoisirSection() {
         {/* Contenu à droite */}
         <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
           <div className="flex flex-col items-center mb-4">
-            <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
+            <span className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
               <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('process.section_title')}</span>
             </span>
           </div>
@@ -144,7 +144,7 @@ const BizkarProcess = () => {
         </motion.div>
         {/* Badge, titre, texte, services, bouton, slogan */}
         <div className="flex flex-col items-center mb-4">
-          <span className="inline-block bg-blue-50 dark:bg-blue-900/60 px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
+          <span className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold subtitle tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">NOTRE AGENCE</span>
           </span>
         </div>
@@ -430,7 +430,7 @@ export default function ProcessShowcaseSection() {
         <div className="flex-1 flex items-center justify-center py-8 px-2 md:px-8">
           <div className="relative flex items-center justify-center w-full max-w-lg min-h-[420px]">
             {/* Glow effet */}
-            <div className="absolute inset-0 rounded-[2.5rem] blur-2xl pointer-events-none" style={{boxShadow: '0 0 120px 24px #a855f7cc, 0 0 80px 16px #38bdf8cc'}} />
+            <div className="absolute inset-0 rounded-[2.5rem] blur-2xl pointer-events-none" style={{boxShadow: '0 0 40px 8px #a855f755, 0 0 24px 4px #38bdf855'}} />
             <div className="relative bg-[#23232b] rounded-[2.5rem] p-8 shadow-2xl w-full min-h-[420px] flex items-center justify-center">
               <img
                 src={processSteps[selected].image}
