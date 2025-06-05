@@ -50,15 +50,10 @@ const Navbar = () => {
     { name: t('navigation.contact'), href: '/contact' },
   ];
   const aboutDropdown = [
-    { name: t('menu.dropdown.about'), href: '/about' },
     { name: t('menu.dropdown.services'), href: '/services' },
-    { name: t('menu.dropdown.portfolio'), href: '/portfolio' },
     { name: t('menu.dropdown.blog'), href: '/blog' },
     { name: t('menu.dropdown.contact'), href: '/contact' },
-    { name: t('menu.dropdown.careers'), href: '/careers' },
     { name: t('menu.dropdown.faq'), href: '/faq' },
-    { name: t('menu.dropdown.privacy'), href: '/privacy' },
-    { name: t('menu.dropdown.terms'), href: '/terms' },
   ];
 
   const serviceMenu = [
@@ -274,7 +269,7 @@ const Navbar = () => {
                 >
                   <img
                     src={`/images/flags/${i18n.language}.svg`}
-                    alt={i18n.language.toUpperCase()}
+                    alt={(i18n.language || 'fr').toUpperCase()}
                     className="w-5 h-5 rounded-sm shadow-sm"
                   />
                   <span className="uppercase">{i18n.language}</span>

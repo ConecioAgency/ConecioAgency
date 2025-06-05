@@ -11,7 +11,7 @@ import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import AnimatedBubblesBackground from '../components/AnimatedBubblesBackground';
 import SectionTitle from '../components/SectionTitle';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 // Types pour le tri
 type SortOption = 'date' | 'popularity' | 'title';

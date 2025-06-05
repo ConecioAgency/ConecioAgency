@@ -63,14 +63,14 @@ const ContactFaqSection = () => {
               {t('faq.title')}
             </AnimatedTitle>
           </div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
-          >
-            {t('faq.subtitle')}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-base text-gray-500 dark:text-gray-300 font-normal max-w-2xl mx-auto text-center mb-2"
+            >
+              {t('faq.subtitle')}
+            </motion.p>
         </div>
       </section>
     );
@@ -91,7 +91,7 @@ const ContactFaqSection = () => {
           </div>
           <div className="flex flex-col items-center w-full">
             <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
-              {t('faq.title')}
+            {t('faq.title')}
             </AnimatedTitle>
           </div>
           <motion.p
