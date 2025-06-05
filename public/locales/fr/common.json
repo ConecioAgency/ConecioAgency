@@ -655,8 +655,18 @@
       ]
     }
   },
-  "blog_suggestion": {
-    "title": "Une idée d'article ?",
-    "description": "Partagez votre inspiration avec nous, elle pourrait devenir notre prochain article !",
+  "menu": {
+    "more_info": "Plus d'infos",
+    "dropdown": {
+      "about": "À propos",
+      "services": "Nos services",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Contact",
+      "careers": "Carrières",
+      "faq": "FAQ",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation"
+    }
   }
 } 

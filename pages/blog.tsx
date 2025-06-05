@@ -11,6 +11,7 @@ import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import AnimatedBubblesBackground from '../components/AnimatedBubblesBackground';
 import SectionTitle from '../components/SectionTitle';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'react-i18next';
 
 // Types pour le tri
 type SortOption = 'date' | 'popularity' | 'title';
@@ -32,6 +33,8 @@ function BlogDate({ date, format = 'monthYear' }: { date: string, format?: 'mont
 
 export default function Blog() {
   const [mounted, setMounted] = useState(false);
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language;
   useEffect(() => { setMounted(true); }, []);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -720,7 +723,7 @@ export default function Blog() {
           <div className="absolute inset-0 opacity-5 dark:opacity-10">
             <div className="absolute inset-0 bg-[url('/images/withdraw-bg.png')] bg-center bg-no-repeat bg-cover" />
           </div>
-          <div className="flex flex-col items-center gap-4 max-w-4xl w-full mx-auto rounded-2xl shadow-xl bg-gradient-to-br from-white/90 via-indigo-50/90 to-pink-50/90 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 border border-white/20 dark:border-gray-700/20 p-8 sm:p-12 backdrop-blur-xl relative overflow-hidden">
+          <div className="flex flex-col items-center gap-4 max-w-5xl w-full mx-auto rounded-2xl shadow-xl bg-gradient-to-br from-white/90 via-indigo-50/90 to-pink-50/90 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 border border-white/20 dark:border-gray-700/20 p-8 sm:p-12 backdrop-blur-xl relative overflow-hidden">
             {/* Pattern Overlay */}
             <div className="absolute inset-0 opacity-10 dark:opacity-20">
               <div className="absolute inset-0 bg-[url('/images/pattern.png')] bg-center bg-repeat opacity-50" />
@@ -732,25 +735,33 @@ export default function Blog() {
                 <img
                   src="/images/contact-img.d79dd481a5afbe1ed64a.webp"
                   alt="Contact illustration"
-                  width={80}
-                  height={80}
+                  width={96}
+                  height={96}
                   className="rounded-2xl shadow-lg border-2 border-white/20 dark:border-gray-700/20 bg-white/50 dark:bg-gray-800/50 mx-auto"
                   style={{ boxShadow: '0 0 0 4px rgba(255,255,255,0.1), 0 4px 24px 0 rgba(99,102,241,0.15)' }}
                 />
               </div>
               {/* AnimatedTitle en gradient */}
               <h2 className="text-3xl sm:text-4xl font-extrabold text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2 font-[Poppins] tracking-tight animate__animated animate__fadeInDown">
-                Une idée d'article ?
+                {locale === 'fr' && "Une idée d'article ?"}
+                {locale === 'en' && "Got an Article Idea?"}
+                {locale === 'ar' && "هل لديك فكرة لمقال؟"}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 text-center mb-4 font-[Inter] max-w-2xl animate__animated animate__fadeInUp leading-relaxed">
-                Partagez votre inspiration avec nous, elle pourrait devenir notre prochain article !
+                {locale === 'fr' && "Partagez votre inspiration avec nous, elle pourrait devenir notre prochain article ! Votre vision compte."}
+                {locale === 'en' && "Share your inspiration with us, it could become our next article! Your vision matters."}
+                {locale === 'ar' && "شارك إلهامك معنا، قد يصبح مقالنا القادم! رؤيتك مهمة."}
               </p>
               <a
                 href="/contact"
                 className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200 flex items-center gap-2 text-base mt-2 animate__animated animate__fadeInUp"
                 style={{ boxShadow: '0 4px 14px 0 rgba(99,102,241,0.25)' }}
               >
-                <span>Proposer un sujet</span>
+                <span>
+                  {locale === 'fr' && "Proposer un sujet"}
+                  {locale === 'en' && "Suggest a Topic"}
+                  {locale === 'ar' && "اقترح موضوعاً"}
+                </span>
                 <span className="text-white group-hover:translate-x-1 transition-transform duration-200">→</span>
               </a>
             </div>

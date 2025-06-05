@@ -614,9 +614,18 @@
       ]
     }
   },
-  "blog_suggestion": {
-    "title": "Have an article idea?",
-    "description": "Share your inspiration with us, it could become our next article!",
-    "button": "Suggest a topic"
+  "menu": {
+    "more_info": "More Info",
+    "dropdown": {
+      "about": "About",
+      "services": "Our Services",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Contact",
+      "careers": "Careers",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
   }
 } 

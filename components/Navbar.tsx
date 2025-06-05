@@ -18,6 +18,7 @@ const Navbar = () => {
 
   const router = useRouter();
   const { i18n, t } = useTranslation('common');
+  const locale = i18n.language;
 
   useEffect(() => {
     const darkMode = localStorage.getItem('darkMode') === 'true';
@@ -49,9 +50,15 @@ const Navbar = () => {
     { name: t('navigation.contact'), href: '/contact' },
   ];
   const aboutDropdown = [
-    { name: 'À propos de nous', href: '/about' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Témoignages', href: '/#testimonials' },
+    { name: t('menu.dropdown.about'), href: '/about' },
+    { name: t('menu.dropdown.services'), href: '/services' },
+    { name: t('menu.dropdown.portfolio'), href: '/portfolio' },
+    { name: t('menu.dropdown.blog'), href: '/blog' },
+    { name: t('menu.dropdown.contact'), href: '/contact' },
+    { name: t('menu.dropdown.careers'), href: '/careers' },
+    { name: t('menu.dropdown.faq'), href: '/faq' },
+    { name: t('menu.dropdown.privacy'), href: '/privacy' },
+    { name: t('menu.dropdown.terms'), href: '/terms' },
   ];
 
   const serviceMenu = [
@@ -220,7 +227,7 @@ const Navbar = () => {
                   onFocus={handleAboutEnter}
                   onBlur={handleAboutLeave}
                 >
-                  <span className="relative z-10">Plus d'infos</span>
+                  <span className="relative z-10">{t('menu.more_info')}</span>
                   <svg className={`w-3 h-3 ml-1 transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 <AnimatePresence>
