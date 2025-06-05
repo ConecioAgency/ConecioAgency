@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import OptimizedImage from './OptimizedImage';
 
 const gridClasses = [
   // Grande card (gauche, hauteur égale à la colonne de droite)
@@ -149,10 +150,11 @@ const OurAgency = () => {
                 ) : (
                   <>
                     {/* Image en fond avec opacité plus forte en light, faible en dark */}
-                    <img
+                    <OptimizedImage
                       src={service.image}
                       alt={service.title}
-                      className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-30 dark:opacity-10"
+                      className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                      quality={75}
                     />
                     <span className={`text-2xl mb-1 z-10 ${isActive ? '' : 'opacity-60'}`}>{service.icon}</span>
                     <h3 className="text-base md:text-lg font-bold text-center mb-1 z-10 text-indigo-600 dark:text-pink-400">{service.title}</h3>

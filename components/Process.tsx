@@ -13,6 +13,7 @@ import { AnimatedTitle } from './AnimatedTitle';
 import GooeyButton from './GooeyButton';
 import BrandIconsCarousel from 'src/components/BrandIconsCarousel';
 import { useTranslation } from 'next-i18next';
+import OptimizedImage from './OptimizedImage';
 
 // Nouvelle section : Pourquoi nous choisir (thème du site)
 const marketingServices = [
@@ -313,7 +314,52 @@ function TrustedCompaniesCarousel() {
 }
 
 const Process = () => {
-  return <ProcessShowcaseSection />;
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Notre Processus</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Une approche méthodique pour atteindre vos objectifs marketing
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {marketingServices.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
+              <div className="relative h-48">
+                <OptimizedImage
+                  src={service.icon}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                  quality={85}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-gray-600">{service.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 // Composant pour le trait animé avec adaptation dark mode et shimmer
@@ -432,11 +478,12 @@ export default function ProcessShowcaseSection() {
             {/* Glow effet */}
             <div className="absolute inset-0 rounded-[2.5rem] blur-2xl pointer-events-none" style={{boxShadow: '0 0 120px 24px #a855f7cc, 0 0 80px 16px #38bdf8cc'}} />
             <div className="relative bg-[#23232b] rounded-[2.5rem] p-8 shadow-2xl w-full min-h-[420px] flex items-center justify-center">
-              <img
+              <OptimizedImage
                 src={processSteps[selected].image}
                 alt={t(processSteps[selected].titleKey)}
-                className="w-full h-full max-h-[340px] object-contain drop-shadow-2xl animate-zoom-in"
-                style={{ transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', transform: 'scale(1.08)' }}
+                className="w-full h-full max-h-[340px] object-contain drop-shadow-2xl"
+                priority={selected === 0}
+                quality={75}
               />
             </div>
           </div>

@@ -1,0 +1,35 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "not dead",
+              "> 0.5%",
+              "not IE 11"
+            ]
+          },
+          "useBuiltIns": "usage",
+          "corejs": 3,
+          "modules": false,
+          "loose": true,
+          "shippedProposals": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "corejs": 3,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": true
+    }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
+    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+  ]
+} 

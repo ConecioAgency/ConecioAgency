@@ -2,27 +2,19 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'raw.githubusercontent.com', 'github.com','**'],
+    domains: ['images.unsplash.com', 'raw.githubusercontent.com', 'github.com'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'github.com',
-      },
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   i18n: {
     locales: ['fr', 'en', 'es', 'ar'],
@@ -33,6 +25,11 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', 'framer-motion'],
     scrollRestoration: true,
+    serverActions: true,
+    serverComponentsExternalPackages: [],
+    optimizeServerReact: true,
+    optimizeImages: true,
+    optimizeFonts: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -41,6 +38,10 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   swcMinify: true,
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 5,
+  },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       config.optimization = {
@@ -65,6 +66,42 @@ const nextConfig = {
             },
           },
         },
+        minimize: true,
+        minimizer: [
+          '...',
+          new (require('terser-webpack-plugin'))({
+            terserOptions: {
+              compress: {
+                drop_console: true,
+                drop_debugger: true,
+                pure_funcs: ['console.log', 'console.info', 'console.debug'],
+                passes: 3,
+              },
+              mangle: true,
+              format: {
+                comments: false,
+                ecma: 2020,
+              },
+              ecma: 2020,
+              module: true,
+              toplevel: true,
+            },
+          }),
+        ],
+      };
+
+      // Optimisation des polyfills
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        // Suppression des polyfills inutiles
+        crypto: false,
+        stream: false,
+        path: false,
+        fs: false,
+        os: false,
+        util: false,
+        buffer: false,
+        process: false,
       };
     }
     return config;
