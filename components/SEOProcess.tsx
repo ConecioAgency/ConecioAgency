@@ -29,7 +29,9 @@ export default function SEOProcess() {
 
   const getDetails = (key: string): string[] => {
     const details = t(key, { returnObjects: true });
-    return Array.isArray(details) ? details.filter((d): d is string => typeof d === 'string') : [];
+    return Array.isArray(details)
+      ? details.filter((item): item is string => typeof item === "string")
+      : [];
   };
 
   return (
