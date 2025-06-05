@@ -720,13 +720,11 @@ export default function Blog() {
         {/* --- SECTION CONTACT / PROPOSER UN SUJET --- */}
         <section className="py-8 flex justify-center items-center bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative">
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5 dark:opacity-10">
-            <div className="absolute inset-0 bg-[url('/images/withdraw-bg.png')] bg-center bg-no-repeat bg-cover" />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 opacity-50" />
           <div className="flex flex-col items-center gap-4 max-w-5xl w-full mx-auto rounded-2xl shadow-xl bg-gradient-to-br from-white/90 via-indigo-50/90 to-pink-50/90 dark:from-gray-900/90 dark:via-gray-800/90 dark:to-gray-900/90 border border-white/20 dark:border-gray-700/20 p-8 sm:p-12 backdrop-blur-xl relative overflow-hidden">
             {/* Pattern Overlay */}
             <div className="absolute inset-0 opacity-10 dark:opacity-20">
-              <div className="absolute inset-0 bg-[url('/images/pattern.png')] bg-center bg-repeat opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
             </div>
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center gap-4">

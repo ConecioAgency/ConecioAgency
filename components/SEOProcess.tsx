@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
@@ -25,7 +25,13 @@ const seoSteps = [
 
 export default function SEOProcess() {
   const [selected, setSelected] = useState(0);
+  const [isPending, startTransition] = useTransition();
+  const [isMounted, setIsMounted] = useState(false);
   const { t } = useTranslation('common');
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const getDetails = (key: string): string[] => {
     const details = t(key, { returnObjects: true });
@@ -33,6 +39,16 @@ export default function SEOProcess() {
       ? details.filter((item): item is string => typeof item === "string")
       : [];
   };
+
+  const handleStepChange = (idx: number) => {
+    startTransition(() => {
+      setSelected(idx);
+    });
+  };
+
+  if (!isMounted) {
+    return null; // or a loading skeleton
+  }
 
   return (
     <section className="w-full min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-800 relative overflow-hidden py-2 mb-0 mt-0 px-2 md:px-8">
@@ -47,7 +63,14 @@ export default function SEOProcess() {
                 src={seoSteps[selected].image}
                 alt={t(seoSteps[selected].titleKey)}
                 className="w-full h-full max-h-[340px] object-contain drop-shadow-2xl animate-zoom-in"
-                style={{ transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', transform: 'scale(1.08)' }}
+                style={{ 
+                  transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', 
+                  transform: 'scale(1.08)',
+                  width: '100%',
+                  height: 'auto',
+                  maxWidth: '100%'
+                }}
+                loading="lazy"
               />
             </div>
           </div>
@@ -86,7 +109,7 @@ export default function SEOProcess() {
                 return (
                   <div key={step.titleKey} className="py-1">
                     <button
-                      onClick={() => setSelected(idx)}
+                      onClick={() => handleStepChange(idx)}
                       className={`w-full flex flex-col items-start text-left transition-colors group focus:outline-none py-3 px-2 md:px-4 ${isOpen ? 'bg-gray-100 dark:bg-[#23232b]' : 'hover:bg-gray-100/60 dark:hover:bg-[#23232b]/60'}`}
                     >
                       <div className="flex items-center justify-between w-full">
