@@ -36,7 +36,7 @@ export default function Hero() {
 
   useEffect(() => {
     // Préchargement de l'image hero
-    const img = new Image();
+    const img = new window.Image();
     img.src = '/images/PSD/mockup_paper_out_of_screen_website.webp';
     img.onload = () => setIsLoaded(true);
   }, []);

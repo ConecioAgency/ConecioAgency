@@ -20,37 +20,37 @@ const marketingServices = [
   {
     title: "Stratégie Digitale",
     desc: "Nous élaborons des stratégies sur-mesure pour booster votre visibilité et votre ROI.",
-    icon: <FaCloud className="w-6 h-6" />,
+    icon: '/images/icons/marketing/cloud.png',
     color: "from-indigo-500 to-pink-500",
   },
   {
     title: "Réseaux Sociaux",
     desc: "Nous animons et développons vos communautés pour créer un engagement durable.",
-    icon: <FaChartBar className="w-6 h-6" />,
+    icon: '/images/icons/marketing/chart-bar.png',
     color: "from-blue-400 to-blue-600",
   },
   {
     title: "Création de Contenu",
     desc: "Des contenus créatifs et engageants pour attirer et fidéliser votre audience.",
-    icon: <FaLightbulb className="w-6 h-6" />,
+    icon: '/images/icons/marketing/lightbulb.png',
     color: "from-teal-400 to-teal-600",
   },
   {
     title: "SEO & SEA",
     desc: "Optimisez votre positionnement sur Google grâce à nos experts en référencement.",
-    icon: <FaSearch className="w-6 h-6" />,
+    icon: '/images/icons/marketing/search.png',
     color: "from-purple-400 to-purple-600",
   },
   {
     title: "Email Marketing",
     desc: "Des campagnes email ciblées et performantes pour convertir et fidéliser vos clients.",
-    icon: <FaEnvelope className="w-6 h-6" />,
+    icon: '/images/icons/marketing/envelope.png',
     color: "from-pink-400 to-pink-600",
   },
   {
     title: "Web Design",
     desc: "Création de sites web modernes, performants et adaptés à vos objectifs business.",
-    icon: <FaDesktop className="w-6 h-6" />,
+    icon: '/images/icons/marketing/desktop.png',
     color: "from-orange-400 to-orange-600",
   },
 ];
@@ -344,7 +344,6 @@ const Process = () => {
                 <OptimizedImage
                   src={service.icon}
                   alt={service.title}
-                  fill
                   className="object-cover"
                   priority={index === 0}
                   quality={85}
