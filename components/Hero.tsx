@@ -3,7 +3,6 @@ import EvaModel from "./EvaModel";
 import CardLoaderAnimation from "./CardLoaderAnimation";
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 function RotatingText({ rotatingWords }: { rotatingWords: string[] }) {
   const [index, setIndex] = useState(0);
@@ -32,74 +31,258 @@ export default function Hero() {
   const mainTitle = isArabic ? 'أطلق العنان لقوة التسويق الرقمي' : t('hero.deploy_power');
   const subtitle = isArabic ? 'حلول رقمية متكاملة لزيادة عملائك وتعزيز علامتك التجارية.' : t('hero.subtitle');
   const ctaText = isArabic ? 'ابدأ مشروعك الآن' : t('hero.start_project');
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Préchargement de l'image hero
-    const img = new window.Image();
-    img.src = '/images/PSD/mockup_paper_out_of_screen_website.webp';
-    img.onload = () => setIsLoaded(true);
-  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 mix-blend-multiply" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Transformez votre présence digitale
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Nous créons des expériences web exceptionnelles qui captent l'attention et convertissent vos visiteurs en clients.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
-              >
-                Démarrer un projet
-              </a>
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              >
-                Nos services
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.95 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full aspect-[4/3] max-w-xl mx-auto"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl blur-2xl" />
+    <section className="hero-section">
+      <div className={`hero-content${isArabic ? ' flex-row-reverse' : ''}`}> {/* Inverse l'ordre en arabe */}
+        <div className={`hero-left${isArabic ? ' text-right' : ''}`}> {/* Aligne à droite en arabe */}
+          <div className="hero-badge">
+            {badgeText}
+          </div>
+          <h1>
+            <span className="hero-title-main">{mainTitle}</span><br />
+            <span className="hero-title-rotating">
+              <RotatingText rotatingWords={rotatingWords} />
+            </span>
+          </h1>
+          <p className="hero-subtitle">
+            {subtitle}
+          </p>
+          <a href="/contact" className="btn-main btn-main--dark group">
+            <span>{ctaText}</span>
+            <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
+          </a>
+        </div>
+        <div className="hero-right">
+          <div className="hero-right-flex" style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Image
               src="/images/PSD/mockup_paper_out_of_screen_website.webp"
-              alt="Hero Landing"
-              fill
+              alt={isArabic ? "صورة بطل الصفحة" : "Hero Landing"}
+              className="hero-landing-img"
+              width={540}
+              height={410}
               priority
-              quality={85}
+              loading="eager"
               sizes="(max-width: 768px) 100vw, 540px"
-              className="object-contain drop-shadow-2xl"
               style={{
-                opacity: isLoaded ? 1 : 0,
-                transition: 'opacity 0.5s ease-in-out',
+                background: 'transparent',
+                maxWidth: '100%',
+                minHeight: '320px',
+                objectFit: 'contain',
+                borderRadius: '32px',
+                willChange: 'transform',
+                contain: 'layout style paint'
               }}
             />
-          </motion.div>
+          </div>
+          <div className="hero-pattern" />
         </div>
       </div>
+      <style jsx>{`
+        .hero-section {
+          min-height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: radial-gradient(ellipse at 70% 40%, #1e293b 0%, #0a0c12 100%);
+          position: relative;
+          overflow: hidden;
+          contain: layout style paint;
+        }
+        .hero-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          max-width: 1200px;
+          padding: 60px 32px 40px 32px;
+          contain: layout style paint;
+        }
+        .hero-content.flex-row-reverse {
+          flex-direction: row-reverse;
+        }
+        .hero-left {
+          flex: 1;
+          z-index: 2;
+          contain: layout style paint;
+        }
+        .hero-left.text-right {
+          text-align: right;
+        }
+        .hero-badge {
+          background: #181c2a;
+          color: #fff;
+          font-size: 1rem;
+          border-radius: 8px;
+          padding: 8px 18px;
+          margin-bottom: 24px;
+          display: inline-block;
+          font-weight: 500;
+          box-shadow: 0 2px 12px #0002;
+          contain: layout style paint;
+        }
+        h1 {
+          font-size: 3rem;
+          font-weight: 800;
+          color: #f3f4f6;
+          margin-bottom: 18px;
+          line-height: 1.1;
+          contain: layout style paint;
+        }
+        .hero-title-main {
+          color: #f3f4f6;
+          contain: layout style paint;
+        }
+        .hero-title-rotating {
+          color: #a855f7;
+          font-weight: 800;
+          font-size: 1.1em;
+          letter-spacing: -1px;
+          display: inline-block;
+          min-height: 1.2em;
+          contain: layout style paint;
+        }
+        .rotating-text {
+          display: inline-block;
+          animation: fadeInUp 0.7s;
+          contain: layout style paint;
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px);}
+          to { opacity: 1; transform: translateY(0);}
+        }
+        .hero-subtitle {
+          color: #b3b8c5;
+          font-size: 1.15rem;
+          margin-bottom: 32px;
+          max-width: 500px;
+          contain: layout style paint;
+        }
+        .hero-right {
+          flex: 1;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          min-width: 340px;
+          min-height: 260px;
+          contain: layout style paint;
+        }
+        .hero-right-flex {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 3.5rem;
+          position: relative;
+          z-index: 2;
+          contain: layout style paint;
+        }
+        .cards-pile-group {
+          position: relative;
+          width: 340px;
+          height: 260px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: 30px;
+        }
+        .card {
+          position: absolute;
+          border-radius: 18px;
+          box-shadow: 0 8px 32px #0003, 0 2px 8px #6366f133;
+          background: rgba(255,255,255,0.85);
+          backdrop-filter: blur(6px);
+          transition: box-shadow 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .card-qr-main {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 3;
+        }
+        .card-loader-top-right {
+          left: 62%;
+          top: -24px;
+          z-index: 2;
+          opacity: 0.95;
+        }
+        .card-loader-bottom-left {
+          left: 6%;
+          top: calc(62% - 8px);
+          z-index: 2;
+          opacity: 0.95;
+        }
+        .hero-pattern {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          max-width: 520px;
+          background: 
+            repeating-linear-gradient(
+              to bottom right,
+              #334155 0px,
+              #334155 1px,
+              transparent 1px,
+              transparent 40px
+            ),
+            repeating-linear-gradient(
+              to top right,
+              #334155 0px,
+              #334155 1px,
+              transparent 1px,
+              transparent 40px
+            );
+          opacity: 0.18;
+          z-index: 1;
+          border-radius: 32px 0 0 32px;
+          contain: layout style paint;
+        }
+        @media (max-width: 900px) {
+          .hero-content { flex-direction: column${isArabic ? '-reverse' : ''}; gap: 40px; }
+          .hero-right-flex { flex-direction: column; align-items: center; gap: 1.5rem; }
+          .hero-right { min-width: 220px; }
+          .cards-pile-group {
+            width: 220px;
+            height: 340px;
+          }
+        }
+        .btn-main {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: unset;
+          width: auto;
+          padding: 0.75rem 1.5rem;
+          font-size: 1.08rem;
+          font-weight: 600;
+          border-radius: 0.75rem;
+          margin: 0 auto;
+          box-shadow: 0 2px 12px #0001;
+          transition: background 0.2s, box-shadow 0.2s;
+          contain: layout style paint;
+        }
+        .hero-landing-img {
+          animation: heroFloatZoom 3.5s ease-in-out infinite alternate;
+          border-radius: 32px;
+          will-change: transform;
+        }
+        @keyframes heroFloatZoom {
+          0% {
+            transform: scale(1) translateY(0px);
+          }
+          50% {
+            transform: scale(1.07) translateY(-16px);
+          }
+          100% {
+            transform: scale(1) translateY(0px);
+          }
+        }
+      `}</style>
     </section>
   );
 }
