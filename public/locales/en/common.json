@@ -627,5 +627,11 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"
     }
+  },
+  "clients": {
+    "title": "They trust us",
+    "subtitle": "OUR CLIENTS",
+    "description": "Discover the companies that trust us for their digital transformation. Our expertise and innovative approach have enabled these organizations to stand out in their sector.",
+    "logoAlt": "Client logo {{number}}"
   }
 } 

@@ -605,6 +605,7 @@
   },
   "clients": {
     "title": "Ils nous font confiance",
+    "subtitle": "NOS CLIENTS",
     "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
     "logoAlt": "Logo client {{number}}"
   },
