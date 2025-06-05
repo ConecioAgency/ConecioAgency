@@ -35,9 +35,16 @@ export default function SEOProcess() {
 
   const getDetails = (key: string): string[] => {
     const details = t(key, { returnObjects: true });
-    return Array.isArray(details)
-      ? details.filter((item): item is string => typeof item === "string")
-      : [];
+    if (!Array.isArray(details)) return [];
+    
+    return details.map(item => {
+      if (typeof item === 'string') return item;
+      if (typeof item === 'object' && item !== null) {
+        // Si c'est un objet, on essaie d'extraire une propriété text ou content
+        return (item as any).text || (item as any).content || JSON.stringify(item);
+      }
+      return String(item);
+    });
   };
 
   const handleStepChange = (idx: number) => {
