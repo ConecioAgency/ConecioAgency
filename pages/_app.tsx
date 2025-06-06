@@ -279,7 +279,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* Scripts optimisés */}
       <Script
         strategy="beforeInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        src="https://www.googletagmanager.com/gtag/js?id=G-H6W321C56C"
       />
       
       <Script
@@ -290,7 +290,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-H6W321C56C');
           `,
         }}
       />
