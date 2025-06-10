@@ -169,10 +169,17 @@ function useH2ScrollAnimation() {
   }, []);
 }
 
+// Types pour Google Analytics
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   useH2ScrollAnimation();
   
-  // États optimisés avec des valeurs initiales
   const [cookiesAccepted, setCookiesAccepted] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>(DEFAULT_COOKIE_PREFS);
   const [showCookieBanner, setShowCookieBanner] = useState(true);
@@ -190,12 +197,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-      if (savedPreferences) {
+    if (savedPreferences) {
       startTransition(() => {
         setCookiePreferences(savedPreferences);
         setCookiesAccepted(true);
       });
-      }
+    }
   }, [savedPreferences]);
 
   // Handlers optimisés avec useCallback et types stricts
@@ -220,20 +227,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-    setCookiesAccepted(true);
-    setShowCookieBanner(false);
+      setCookiesAccepted(true);
+      setShowCookieBanner(false);
     });
   }, []);
 
   const handleCustomize = useCallback(() => {
     startTransition(() => {
       try {
-    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-    setCookiesAccepted(cookiePreferences.essential);
-    setShowCookieBanner(false);
+      setCookiesAccepted(cookiePreferences.essential);
+      setShowCookieBanner(false);
     });
   }, [cookiePreferences]);
 
@@ -244,6 +251,25 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
 
+  // Gestion de Google Analytics en fonction des préférences de cookies
+  useEffect(() => {
+    if (cookiePreferences.analytics && typeof window !== 'undefined') {
+      window.dataLayer = window.dataLayer || [];
+      const gtag = (...args: any[]) => {
+        window.dataLayer.push(args);
+      };
+      gtag('js', new Date());
+      gtag('config', 'G-H6W321C56C', {
+        'cookie_flags': 'SameSite=None;Secure',
+        'cookie_domain': 'auto',
+        'cookie_expires': 28 * 24 * 60 * 60, // 28 jours
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false
+      });
+    }
+  }, [cookiePreferences.analytics]);
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -252,11 +278,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         
@@ -276,38 +302,44 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      {/* Scripts optimisés de GoogletagManager*/}
-      <Script
-        strategy="beforeInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-H6W321C56C"
-      />
-      
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-H6W321C56C');
-          `,
-        }}
-      />
-
-      <div className={`min-h-screen flex flex-col ${roboto.variable}`}>
+      <main className={`${roboto.className} min-h-screen bg-white dark:bg-gray-900`}>
         <Navbar />
-        <main className="flex-grow">
-          <Suspense fallback={<div className="min-h-screen bg-white dark:bg-gray-900 animate-pulse" />}>
-            <Component {...pageProps} />
-          </Suspense>
-        </main>
+        <Component {...pageProps} />
         <Footer />
-        <AnimatedBubbles />
         <ScrollToTopButton />
-      </div>
+        <AnimatedBubbles />
+      </main>
 
-      {/* Cookie Banner */}
+      {/* Google Analytics - Chargé uniquement si les cookies analytics sont acceptés */}
+      {cookiePreferences.analytics && (
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-H6W321C56C"
+            strategy="afterInteractive"
+            onLoad={() => {
+              console.log('Google Analytics chargé avec succès');
+            }}
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              const gtag = (...args) => {
+                window.dataLayer.push(args);
+              };
+              gtag('js', new Date());
+              gtag('config', 'G-H6W321C56C', {
+                'cookie_flags': 'SameSite=None;Secure',
+                'cookie_domain': 'auto',
+                'cookie_expires': 28 * 24 * 60 * 60,
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false
+              });
+            `}
+          </Script>
+        </>
+      )}
+
       {showCookieBanner && (
         <CookieBanner
           onAccept={handleAcceptAll}

@@ -1,53 +1,34 @@
-import { useEffect, useState, useRef } from 'react';
+import { Suspense, lazy } from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import type { GetStaticPropsContext } from 'next';
+
+// Composants critiques chargés immédiatement
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Services from '../components/Services';
-import WhatToExpect from '../components/WhatToExpect';
-import Process from '../components/Process';
-import SEOProcess from '../components/SEOProcess';
-import Testimonials from '../components/Testimonials';
-import Contact from '../components/Contact';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import HomeBlogSection from '../components/HomeBlogSection';
-import DevisPopup from '../components/DevisPopup';
-import { AnimatedTitle } from '../components/AnimatedTitle';
-import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from 'framer-motion';
-import { H1, H2, H3, Body1, Body2, Overline, Button } from '../components/Typography';
-import { AnimatedPremiumTitle } from '../components/AnimatedPremiumTitle';
-import { wrap } from '@motionone/utils';
-import React from 'react';
-import OurAgency from '../components/OurAgency';
-import BrandIconsCarousel from 'src/components/BrandIconsCarousel';
-import SectionReveal from '../components/SectionReveal';
-import LogoCarousel from '../components/LogoCarousel';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-import { GetStaticPropsContext } from 'next';
 import WhatsAppButton from '../components/WhatsAppButton';
 
-// Chargement dynamique des composants non critiques
-const DynamicTestimonials = dynamic(() => import('../components/Testimonials'), {
-  loading: () => <div className="h-96 flex items-center justify-center">Chargement...</div>,
-  ssr: false
-});
+// Lazy loading des composants non critiques avec préchargement
+const Services = lazy(() => import('../components/Services'));
+const WhatToExpect = lazy(() => import('../components/WhatToExpect'));
+const Process = lazy(() => import('../components/Process'));
+const SEOProcess = lazy(() => import('../components/SEOProcess'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const Contact = lazy(() => import('../components/Contact'));
+const HomeBlogSection = lazy(() => import('../components/HomeBlogSection'));
+const OurAgency = lazy(() => import('../components/OurAgency'));
+const BrandIconsCarousel = lazy(() => import('src/components/BrandIconsCarousel'));
 
-const DynamicHomeBlogSection = dynamic(() => import('../components/HomeBlogSection'), {
-  loading: () => <div className="h-96 flex items-center justify-center">Chargement...</div>,
-  ssr: false
-});
+// Composant de chargement optimisé
+const LoadingFallback = () => (
+  <div className="h-96 flex items-center justify-center">
+    <div className="animate-pulse bg-gray-200 dark:bg-gray-700 rounded-lg w-32 h-32"></div>
+  </div>
+);
 
 export default function Home() {
   const { t, i18n } = useTranslation('common');
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   return (
     <>
@@ -60,7 +41,7 @@ export default function Home() {
         
         {/* Preload des ressources critiques */}
         <link rel="preload" href="/images/logo/conecio_logo.png" as="image" />
-        <link rel="preload" href="/images/hero/hero-bg.jpg" as="image" />
+        <link rel="preload" href="/images/hero_landing.webp" as="image" />
         
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -119,16 +100,36 @@ export default function Home() {
       <div className="min-h-screen bg-white dark:bg-gray-800">
         <Navbar />
         <main>
-          <SectionReveal><Hero /></SectionReveal>
-          <BrandIconsCarousel />
-          <SectionReveal delay={0.05}><Services /></SectionReveal>
-          <SectionReveal delay={0.1}><OurAgency /></SectionReveal>
-          <SectionReveal delay={0.15}><WhatToExpect /></SectionReveal>
-          <SectionReveal delay={0.2}><Process /></SectionReveal>
-          <SectionReveal delay={0.25}><SEOProcess /></SectionReveal>
-          <SectionReveal delay={0.3}><DynamicTestimonials /></SectionReveal>
-          <SectionReveal delay={0.35}><DynamicHomeBlogSection /></SectionReveal>
-          <SectionReveal delay={0.4}><Contact /></SectionReveal>
+          <Suspense fallback={<LoadingFallback />}>
+            <Hero />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <BrandIconsCarousel />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <Services />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <OurAgency />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <WhatToExpect />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <Process />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <SEOProcess />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <Testimonials />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <HomeBlogSection />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <Contact />
+          </Suspense>
         </main>
       </div>
       <WhatsAppButton />
@@ -136,7 +137,7 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getStaticProps({ locale = 'fr' }: GetStaticPropsContext) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
