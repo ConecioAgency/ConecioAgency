@@ -127,14 +127,20 @@ const ContactFaqSection = () => {
             </div>
 
             {/* Liste des questions filtrées */}
-            <AnimatePresence mode="wait">
-              <div className="space-y-5">
+            <AnimatePresence>
+              <motion.div
+                key={selectedCategory}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-5"
+              >
                 {filteredFaqs.map((faq, idx) => (
                   <motion.div
                     key={faq.question}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                   >
                     <details className="group">
@@ -155,7 +161,7 @@ const ContactFaqSection = () => {
                     </details>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </AnimatePresence>
           </div>
 

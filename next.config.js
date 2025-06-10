@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,6 +21,7 @@ const nextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', 'framer-motion'],
     scrollRestoration: true,
+    images: { layoutRaw: true }
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

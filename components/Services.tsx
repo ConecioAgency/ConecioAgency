@@ -125,7 +125,7 @@ export default function Services() {
                   <div className="absolute inset-0 block dark:hidden" style={{background: 'rgba(255,255,255,0.5)'}} />
                 </div>
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence>
                     {slides.map((slide, i) => (
                       <motion.div
                         key={slide.titleKey}

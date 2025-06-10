@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -27,6 +28,17 @@ import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
 import WhatsAppButton from '../components/WhatsAppButton';
 
+// Chargement dynamique des composants non critiques
+const DynamicTestimonials = dynamic(() => import('../components/Testimonials'), {
+  loading: () => <div className="h-96 flex items-center justify-center">Chargement...</div>,
+  ssr: false
+});
+
+const DynamicHomeBlogSection = dynamic(() => import('../components/HomeBlogSection'), {
+  loading: () => <div className="h-96 flex items-center justify-center">Chargement...</div>,
+  ssr: false
+});
+
 export default function Home() {
   const { t, i18n } = useTranslation('common');
 
@@ -45,6 +57,10 @@ export default function Home() {
         <meta name="keywords" content={t('home.seo.keywords')} />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.conecio.com" />
+        
+        {/* Preload des ressources critiques */}
+        <link rel="preload" href="/images/logo/conecio_logo.png" as="image" />
+        <link rel="preload" href="/images/hero/hero-bg.jpg" as="image" />
         
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -110,8 +126,8 @@ export default function Home() {
           <SectionReveal delay={0.15}><WhatToExpect /></SectionReveal>
           <SectionReveal delay={0.2}><Process /></SectionReveal>
           <SectionReveal delay={0.25}><SEOProcess /></SectionReveal>
-          <SectionReveal delay={0.3}><Testimonials /></SectionReveal>
-          <SectionReveal delay={0.35}><HomeBlogSection /></SectionReveal>
+          <SectionReveal delay={0.3}><DynamicTestimonials /></SectionReveal>
+          <SectionReveal delay={0.35}><DynamicHomeBlogSection /></SectionReveal>
           <SectionReveal delay={0.4}><Contact /></SectionReveal>
         </main>
       </div>
@@ -120,7 +136,7 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
+export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
