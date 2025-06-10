@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from "react";
-import EvaModel from "./EvaModel";
-import CardLoaderAnimation from "./CardLoaderAnimation";
+import React, { useEffect, useState, Suspense } from "react";
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+// Chargement dynamique des composants non critiques
+const EvaModel = dynamic(() => import("./EvaModel"), {
+  loading: () => <div className="w-full h-64 flex items-center justify-center">Chargement...</div>,
+  ssr: false
+});
+
+const CardLoaderAnimation = dynamic(() => import("./CardLoaderAnimation"), {
+  loading: () => <div className="w-full h-64 flex items-center justify-center">Chargement...</div>,
+  ssr: false
+});
 
 function RotatingText({ rotatingWords }: { rotatingWords: string[] }) {
   const [index, setIndex] = useState(0);
   const { t } = useTranslation('common');
+  
   useEffect(() => {
     const interval = setInterval(() => setIndex(i => (i + 1) % rotatingWords.length), 1800);
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
+  
   return (
     <span className="rotating-text">{rotatingWords[index]}</span>
   );
@@ -26,7 +38,7 @@ export default function Hero() {
     t('hero.rotating_word_4'),
     t('hero.rotating_word_5'),
   ];
-  // Texte alternatif pour l'arabe si besoin
+  
   const badgeText = isArabic ? '⭐️⭐️⭐️⭐️⭐️ عزز ظهورك الرقمي' : (<><span role="img" aria-label="star">⭐️⭐️⭐️⭐️⭐️</span> {t('hero.boost_visibility')}</>);
   const mainTitle = isArabic ? 'أطلق العنان لقوة التسويق الرقمي' : t('hero.deploy_power');
   const subtitle = isArabic ? 'حلول رقمية متكاملة لزيادة عملائك وتعزيز علامتك التجارية.' : t('hero.subtitle');
@@ -34,8 +46,8 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      <div className={`hero-content${isArabic ? ' flex-row-reverse' : ''}`}> {/* Inverse l'ordre en arabe */}
-        <div className={`hero-left${isArabic ? ' text-right' : ''}`}> {/* Aligne à droite en arabe */}
+      <div className={`hero-content${isArabic ? ' flex-row-reverse' : ''}`}>
+        <div className={`hero-left${isArabic ? ' text-right' : ''}`}>
           <div className="hero-badge">
             {badgeText}
           </div>
@@ -54,7 +66,7 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-right">
-          <div className="hero-right-flex" style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="hero-right-flex">
             <Image
               src="/images/PSD/mockup_paper_out_of_screen_website.webp"
               alt={isArabic ? "صورة بطل الصفحة" : "Hero Landing"}
@@ -88,6 +100,7 @@ export default function Hero() {
           position: relative;
           overflow: hidden;
           contain: layout style paint;
+          content-visibility: auto;
         }
         .hero-content {
           display: flex;
@@ -128,6 +141,7 @@ export default function Hero() {
           margin-bottom: 18px;
           line-height: 1.1;
           contain: layout style paint;
+          content-visibility: auto;
         }
         .hero-title-main {
           color: #f3f4f6;
@@ -177,109 +191,25 @@ export default function Hero() {
           z-index: 2;
           contain: layout style paint;
         }
-        .cards-pile-group {
-          position: relative;
-          width: 340px;
-          height: 260px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding-top: 30px;
-        }
-        .card {
-          position: absolute;
-          border-radius: 18px;
-          box-shadow: 0 8px 32px #0003, 0 2px 8px #6366f133;
-          background: rgba(255,255,255,0.85);
-          backdrop-filter: blur(6px);
-          transition: box-shadow 0.2s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .card-qr-main {
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 3;
-        }
-        .card-loader-top-right {
-          left: 62%;
-          top: -24px;
-          z-index: 2;
-          opacity: 0.95;
-        }
-        .card-loader-bottom-left {
-          left: 6%;
-          top: calc(62% - 8px);
-          z-index: 2;
-          opacity: 0.95;
-        }
-        .hero-pattern {
-          position: absolute;
-          right: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          max-width: 520px;
-          background: 
-            repeating-linear-gradient(
-              to bottom right,
-              #334155 0px,
-              #334155 1px,
-              transparent 1px,
-              transparent 40px
-            ),
-            repeating-linear-gradient(
-              to top right,
-              #334155 0px,
-              #334155 1px,
-              transparent 1px,
-              transparent 40px
-            );
-          opacity: 0.18;
-          z-index: 1;
-          border-radius: 32px 0 0 32px;
-          contain: layout style paint;
-        }
-        @media (max-width: 900px) {
-          .hero-content { flex-direction: column${isArabic ? '-reverse' : ''}; gap: 40px; }
-          .hero-right-flex { flex-direction: column; align-items: center; gap: 1.5rem; }
-          .hero-right { min-width: 220px; }
-          .cards-pile-group {
-            width: 220px;
-            height: 340px;
-          }
-        }
-        .btn-main {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-width: unset;
-          width: auto;
-          padding: 0.75rem 1.5rem;
-          font-size: 1.08rem;
-          font-weight: 600;
-          border-radius: 0.75rem;
-          margin: 0 auto;
-          box-shadow: 0 2px 12px #0001;
-          transition: background 0.2s, box-shadow 0.2s;
-          contain: layout style paint;
-        }
         .hero-landing-img {
-          animation: heroFloatZoom 3.5s ease-in-out infinite alternate;
-          border-radius: 32px;
-          will-change: transform;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          perspective: 1000px;
         }
-        @keyframes heroFloatZoom {
-          0% {
-            transform: scale(1) translateY(0px);
+        @media (max-width: 768px) {
+          .hero-content {
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 20px;
           }
-          50% {
-            transform: scale(1.07) translateY(-16px);
+          .hero-left {
+            margin-bottom: 40px;
           }
-          100% {
-            transform: scale(1) translateY(0px);
+          h1 {
+            font-size: 2.5rem;
+          }
+          .hero-right {
+            min-width: 280px;
           }
         }
       `}</style>
