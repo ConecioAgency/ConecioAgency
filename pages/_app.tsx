@@ -276,7 +276,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      {/* Scripts optimisés */}
+      {/* Scripts optimisés de GoogletagManager*/}
       <Script
         strategy="beforeInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-H6W321C56C"

@@ -25,6 +25,7 @@ import LogoCarousel from '../components/LogoCarousel';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticPropsContext } from 'next';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function Home() {
   const { t, i18n } = useTranslation('common');
@@ -96,7 +97,7 @@ export default function Home() {
           })}
         </script>
         
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/images/logo/logo conecio SVG/SVG/logo horizantal gradient.svg" />
       </Head>
 
       <div className="min-h-screen bg-white dark:bg-gray-800">
@@ -114,6 +115,7 @@ export default function Home() {
           <SectionReveal delay={0.4}><Contact /></SectionReveal>
         </main>
       </div>
+      <WhatsAppButton />
     </>
   );
 }
