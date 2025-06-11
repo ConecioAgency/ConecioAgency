@@ -35,6 +35,10 @@ const Contact = () => {
 
   const onSubmit = async (data: any) => {
     setIsSubmitting(true);
+    // Préfixe https:// si ce n'est pas déjà présent
+    if (data.website && !/^https?:\/\//i.test(data.website)) {
+      data.website = 'https://' + data.website;
+    }
     // Simuler l'envoi du formulaire
     await new Promise(resolve => setTimeout(resolve, 1500));
     console.log(data);
@@ -231,20 +235,23 @@ const Contact = () => {
                   <label htmlFor="website" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     {t('contact.website')}{selectedType === t('contact.request_audit') && <span className="text-red-500">*</span>}
                   </label>
-                  <input
-                    type="url"
-                    id="website"
-                    autoComplete="url"
-                    placeholder="https://votre-site.com"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent"
-                    {...register('website', {
-                      required: selectedType === t('contact.request_audit') ? t('contact.error_website_required') : false,
-                      pattern: selectedType === t('contact.request_audit') ? {
-                        value: /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-./?%&=]*)?$/,
-                        message: t('contact.error_website_required')
-                      } : undefined
-                    })}
-                  />
+                  <div className="relative flex items-center">
+                    <span className="absolute left-3 text-gray-400 select-none">https://</span>
+                    <input
+                      type="text"
+                      id="website"
+                      autoComplete="url"
+                      placeholder="votre-site.com"
+                      className="pl-20 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent w-full"
+                      {...register('website', {
+                        required: selectedType === t('contact.request_audit') ? t('contact.error_website_required') : false,
+                        pattern: selectedType === t('contact.request_audit') ? {
+                          value: /^([\w\-]+\.)+[\w\-]+(\/.*)?$/,
+                          message: t('contact.error_website_required')
+                        } : undefined
+                      })}
+                    />
+                  </div>
                   {errors.website && selectedType === t('contact.request_audit') && (
                     <p className="mt-1 text-sm text-red-500">{errors.website.message as string}</p>
                   )}

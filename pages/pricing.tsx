@@ -40,6 +40,7 @@ const offers: Offer[] = [
   { id: 'video', category: 'onetime', price: { EUR: 350, USD: 390, MAD: 3900 } },
   { id: 'audit', category: 'onetime', price: { EUR: 220, USD: 240, MAD: 2400 } },
   { id: 'logo', category: 'onetime', price: { EUR: 120, USD: 130, MAD: 1300 } },
+  { id: 'cvpromo', category: 'onetime', price: { EUR: 50, USD: 50, MAD: 500 }, popular: false },
 ];
 
 // TypeScript helper pour différencier les prix à la demande et récurrents
@@ -191,6 +192,44 @@ export default function Pricing() {
       {/* Pricing grid */}
       <section id="pricing" className="py-8">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-5">
+          {/* Card promotionnelle CV Portfolio */}
+          <div className="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 dark:from-purple-600 dark:via-pink-600 dark:to-red-600 rounded-2xl shadow-xl border border-purple-300 dark:border-purple-700 p-6 flex flex-col relative max-w-xs w-full transition-all duration-200 transform hover:scale-105">
+            {/* Badge Promotion */}
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 text-purple-600 dark:text-purple-400 px-4 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
+              PROMOTION
+            </div>
+            {/* Titre */}
+            <h2 className="text-xl font-bold mb-2 text-white tracking-tight">{t('offers.cvpromo.name')}</h2>
+            {/* Prix */}
+            <div className="flex items-end gap-2 mb-2">
+              <span className="font-extrabold text-4xl text-white">
+                {formatPrice(selectedCurrency, 50)}
+              </span>
+            </div>
+            {/* Description principale */}
+            <div className="font-semibold text-white mb-1">
+              {t('offers.cvpromo.description')}
+            </div>
+            {/* Features */}
+            <ul className="mb-5 space-y-2 text-left text-[0.98em] text-white">
+              {(() => {
+                const features = t('offers.cvpromo.features', { returnObjects: true }) as string[];
+                return features.map((f: string, i: number) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <span className="text-lg">✨</span>
+                    <span>{f}</span>
+                  </li>
+                ));
+              })()}
+            </ul>
+            <Link href="/contact" className="mt-auto px-4 py-2 rounded-md bg-white text-purple-600 font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 group flex items-center gap-2 justify-center text-sm w-fit mx-auto">
+              <span>{t('cta.contact')}</span>
+              <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+            </Link>
+            {/* Détails */}
+            <div className="mt-3 text-xs text-white/80 text-center">{t('offers.cvpromo.details')}</div>
+          </div>
+
           {/* Card spéciale pour l'audit gratuit */}
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-green-300 dark:border-green-700 p-6 flex flex-col relative max-w-xs w-full transition-all duration-200">
             {/* Petit badge gratuit en haut à gauche */}
@@ -247,6 +286,12 @@ export default function Pricing() {
                   MOST POPULAR
                 </div>
               )}
+              {/* Badge Promotion */}
+              {offer.id === 'cvpromo' && (
+                <div className="absolute top-5 left-5 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm animate-bounce">
+                  PROMOTION
+                </div>
+              )}
               {/* Titre */}
                 <h2 className="text-base font-semibold mb-2 text-gray-800 dark:text-gray-100 tracking-tight">{offerT('name')}</h2>
               {/* Prix */}
@@ -281,7 +326,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" className="mt-auto px-4 py-2 rounded-md bg-gray-800 dark:bg-white border border-gray-700 dark:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 group flex items-center gap-2 justify-center text-sm">
+              <Link href="/contact" className="mt-auto px-4 py-2 rounded-md bg-gray-800 dark:bg-white border border-gray-700 dark:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 group flex items-center gap-2 justify-center text-sm w-fit mx-auto">
                   <span className="text-gray-200 dark:text-gray-700 font-medium">{t('cta.contact')}</span>
                 <span className="text-indigo-400 dark:text-indigo-500 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </Link>

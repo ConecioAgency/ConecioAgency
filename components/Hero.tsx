@@ -60,7 +60,7 @@ export default function Hero() {
           <p className="hero-subtitle">
             {subtitle}
           </p>
-          <a href="/contact" className="btn-main btn-main--dark group">
+          <a href="/contact" className="inline-flex items-center px-5 py-2 rounded-md bg-white text-purple-700 font-semibold shadow-lg hover:bg-gray-100 transition-all duration-300 group text-base">
             <span>{ctaText}</span>
             <span className="arrow group-hover:translate-x-1 transition-transform ml-2">→</span>
           </a>

@@ -157,6 +157,18 @@
         "Vector files"
       ],
       "details": "Ideal for entrepreneurs, startups and SMEs."
+    },
+    "cvpromo": {
+      "name": "Premium Professional Portfolio",
+      "description": "An exceptional digital showcase to highlight your professional journey",
+      "features": [
+        "Modern and elegant React design",
+        "Showcase your career path and skills",
+        "Integration of your professional social networks",
+        "Projects and achievements section",
+        "Optimized for all devices"
+      ],
+      "details": "Limited offer: Create your premium professional presence for only $50"
     }
   },
   "cta": {

@@ -197,12 +197,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-    if (savedPreferences) {
+      if (savedPreferences) {
       startTransition(() => {
         setCookiePreferences(savedPreferences);
         setCookiesAccepted(true);
       });
-    }
+      }
   }, [savedPreferences]);
 
   // Handlers optimisés avec useCallback et types stricts
@@ -227,20 +227,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-      setCookiesAccepted(true);
-      setShowCookieBanner(false);
+    setCookiesAccepted(true);
+    setShowCookieBanner(false);
     });
   }, []);
 
   const handleCustomize = useCallback(() => {
     startTransition(() => {
       try {
-        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
       } catch {
         // Gestion silencieuse des erreurs de stockage
       }
-      setCookiesAccepted(cookiePreferences.essential);
-      setShowCookieBanner(false);
+    setCookiesAccepted(cookiePreferences.essential);
+    setShowCookieBanner(false);
     });
   }, [cookiePreferences]);
 
@@ -304,7 +304,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <main className={`${roboto.className} min-h-screen bg-white dark:bg-gray-900`}>
         <Navbar />
-        <Component {...pageProps} />
+            <Component {...pageProps} />
         <Footer />
         <ScrollToTopButton />
         <AnimatedBubbles />

@@ -104,7 +104,7 @@ export default function Home() {
             <Hero />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
-            <BrandIconsCarousel />
+          <BrandIconsCarousel />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <Services />
