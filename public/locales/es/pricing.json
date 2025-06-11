@@ -157,6 +157,18 @@
         "Archivos vectoriales"
       ],
       "details": "Ideal para emprendedores, startups y pymes."
+    },
+    "cvpromo": {
+      "name": "Portfolio Profesional Premium",
+      "description": "Una vitrina digital excepcional para destacar tu trayectoria profesional",
+      "features": [
+        "Diseño moderno y elegante en React",
+        "Destaca tu trayectoria y habilidades",
+        "Integración de tus redes sociales profesionales",
+        "Sección de proyectos y logros",
+        "Optimizado para todos los dispositivos"
+      ],
+      "details": "Oferta limitada: Crea tu presencia profesional premium por solo 50€"
     }
   },
   "cta": {
