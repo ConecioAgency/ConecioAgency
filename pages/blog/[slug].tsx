@@ -6,6 +6,7 @@ import { blogArticles } from '../../data/blogArticles';
 import type { BlogArticle } from '../../data/blogArticles';
 import CommentsSection from '../../components/CommentsSection';
 import { useEffect, useRef, useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export async function getStaticPaths() {
   return {
@@ -14,12 +15,20 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) {
   const article = blogArticles.find(a => a.slug === params.slug);
   const index = blogArticles.findIndex(a => a.slug === params.slug);
   const prev = index > 0 ? blogArticles[index - 1] : null;
   const next = index < blogArticles.length - 1 ? blogArticles[index + 1] : null;
-  return { props: { article, prev, next } };
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      article,
+      prev,
+      next,
+    },
+  };
 }
 
 type ArticleType = typeof blogArticles[0];
@@ -34,7 +43,7 @@ function TableOfContents() {
   const [mounted, setMounted] = useState(false);
   const [headings, setHeadings] = useState<{id: string, text: string, level: number, index: number}[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [position, setPosition] = useState(0);
+  const [maxHeight, setMaxHeight] = useState('calc(100vh - 200px)');
 
   useEffect(() => {
     setMounted(true);
@@ -53,7 +62,6 @@ function TableOfContents() {
     }));
     setHeadings(hs);
 
-    // Ajouter id si manquant
     hs.forEach(h => {
       const el = document.getElementById(h.id);
       if (!el) {
@@ -62,51 +70,30 @@ function TableOfContents() {
       }
     });
 
-    // Fonction de suivi du scroll
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const headerOffset = 150;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      
-      // Calculer la position du sommaire
-      const tocPosition = Math.min(
-        Math.max(0, scrollPosition - 150),
-        maxScroll - 200
-      );
-      setPosition(tocPosition);
-
-      // Trouver le heading actif
-      for (let i = hs.length - 1; i >= 0; i--) {
-        const el = document.getElementById(hs[i].id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          const elementTop = rect.top + scrollPosition;
-          
-          if (elementTop <= scrollPosition + headerOffset) {
-            setActiveId(hs[i].id);
-            break;
-          }
+    // Fonction de suivi du scroll/resize pour limiter le sommaire au footer
+    const handleScrollOrResize = () => {
+      const footer = document.querySelector('footer');
+      const nav = document.querySelector('.toc-nav');
+      if (footer && nav) {
+        const footerRect = footer.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Si le bas du sommaire va dépasser le haut du footer
+        if (footerRect.top < navRect.bottom + 32) {
+          setMaxHeight(`${footerRect.top - navRect.top - 32}px`);
+        } else {
+          setMaxHeight('calc(100vh - 200px)');
         }
+      } else {
+        setMaxHeight('calc(100vh - 200px)');
       }
     };
-
-    // Ajouter l'écouteur de scroll avec throttling
-    let ticking = false;
-    const scrollListener = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', scrollListener);
-    handleScroll(); // Appel initial
-
+    window.addEventListener('scroll', handleScrollOrResize);
+    window.addEventListener('resize', handleScrollOrResize);
+    handleScrollOrResize();
     return () => {
-      window.removeEventListener('scroll', scrollListener);
+      window.removeEventListener('scroll', handleScrollOrResize);
+      window.removeEventListener('resize', handleScrollOrResize);
     };
   }, [mounted]);
 
@@ -114,12 +101,12 @@ function TableOfContents() {
 
   return (
     <nav 
-      className="w-64 bg-white/95 dark:bg-gray-900/95 rounded-2xl shadow-2xl border border-white/40 dark:border-gray-800/40 p-6 font-[Inter] z-50 backdrop-blur-md"
+      className="toc-nav w-64 bg-white/95 dark:bg-gray-900/95 rounded-2xl shadow-2xl border border-white/40 dark:border-gray-800/40 p-6 font-[Inter] z-50 backdrop-blur-md"
       style={{
         position: 'fixed',
         top: '150px',
         left: 'calc((100% - 1280px) / 2 + 32px)',
-        maxHeight: 'calc(100vh - 200px)',
+        maxHeight: maxHeight,
         overflowY: 'auto'
       }}
     >
