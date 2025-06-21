@@ -26,7 +26,7 @@ export default function BlogArticleCard({ article, delay = 0 }: BlogArticleCardP
   return (
     <div className="blog-card-uiverse relative flex flex-col rounded-3xl overflow-hidden w-full">
       {/* Halo animé et contenu de la carte */}
-      <div className="relative flex flex-col flex-1 w-full h-full z-10 p-4">
+      <div className="relative flex flex-col flex-1 w-full h-full z-10 p-4 transition-all duration-300 hover:bg-gradient-to-br hover:from-pink-50/20 hover:via-pink-100/20 hover:to-purple-100/20 dark:hover:from-pink-900/20 dark:hover:via-pink-800/20 dark:hover:to-purple-900/20">
       {/* Image de couverture */}
       <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-4">
           <Image 

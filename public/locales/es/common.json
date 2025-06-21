@@ -527,5 +527,13 @@
         "Análisis de rendimiento"
       ]
     }
+  },
+  "portfolio": {
+    "section_title": "Portafolio",
+    "section_desc": "Descubre algunos sitios web creados por la agencia. ¡Haz clic en un proyecto para ver la demo en vivo!",
+    "see_site": "Ver sitio",
+    "badge": "PORTAFOLIO",
+    "title": "Ejemplos de Logros",
+    "subtitle": "Descubra algunos de los sitios web creados por la agencia. ¡Haga clic en un proyecto para ver la demostración en vivo!"
   }
 } 

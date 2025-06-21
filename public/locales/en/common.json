@@ -633,5 +633,13 @@
     "subtitle": "OUR CLIENTS",
     "description": "Discover the companies that trust us for their digital transformation. Our expertise and innovative approach have enabled these organizations to stand out in their sector.",
     "logoAlt": "Client logo {{number}}"
+  },
+  "portfolio": {
+    "section_title": "Portfolio",
+    "section_desc": "Discover some websites created by the agency. Click on a project to see the live demo!",
+    "see_site": "View site",
+    "badge": "PORTFOLIO",
+    "title": "Examples of Achievements",
+    "subtitle": "Discover some of the websites created by the agency. Click on a project to see the live demo!"
   }
 } 

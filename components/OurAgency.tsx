@@ -220,7 +220,7 @@ const OurAgency = () => {
               className="inline-block bg-white dark:bg-white px-6 py-1 rounded-xl font-bold text-base tracking-widest mb-4" style={{letterSpacing: '0.08em'}}
             >
               <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                NOS CLIENTS
+                {t('clients.subtitle')}
               </span>
             </motion.span>
           </div>
@@ -231,7 +231,7 @@ const OurAgency = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-extrabold font-heading mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
           >
-            Ils nous font confiance
+            {t('clients.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -240,7 +240,7 @@ const OurAgency = () => {
             viewport={{ once: true }}
             className="body text-gray-700 text-base md:text-lg text-center dark:text-gray-300 max-w-2xl mx-auto mb-12"
           >
-            Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.
+            {t('clients.description')}
           </motion.p>
 
           <div className="relative overflow-hidden mt-16">

@@ -40,7 +40,7 @@ const offers: Offer[] = [
   { id: 'video', category: 'onetime', price: { EUR: 350, USD: 390, MAD: 3900 } },
   { id: 'audit', category: 'onetime', price: { EUR: 220, USD: 240, MAD: 2400 } },
   { id: 'logo', category: 'onetime', price: { EUR: 120, USD: 130, MAD: 1300 } },
-  { id: 'cvpromo', category: 'onetime', price: { EUR: 50, USD: 50, MAD: 500 }, popular: false },
+  { id: 'cvpromo', category: 'onetime', price: { EUR: 80, USD: 80, MAD: 800 }, popular: false },
 ];
 
 // TypeScript helper pour différencier les prix à la demande et récurrents
@@ -203,7 +203,14 @@ export default function Pricing() {
             {/* Prix */}
             <div className="flex items-end gap-2 mb-2">
               <span className="font-extrabold text-4xl text-white">
-                {formatPrice(selectedCurrency, 50)}
+                {(() => {
+                  const cvpromo = offers.find(o => o.id === 'cvpromo');
+                  if (cvpromo && typeof cvpromo.price === 'object' && 'EUR' in cvpromo.price) {
+                    // @ts-ignore
+                    return formatPrice(selectedCurrency, cvpromo.price[selectedCurrency]);
+                  }
+                  return formatPrice(selectedCurrency, 80);
+                })()}
               </span>
             </div>
             {/* Description principale */}

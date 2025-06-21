@@ -307,7 +307,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all hover:bg-gradient-to-br hover:from-pink-50/20 hover:via-pink-100/20 hover:to-purple-100/20 dark:hover:from-pink-900/20 dark:hover:via-pink-800/20 dark:hover:to-purple-900/20"
               >
                 <div className="w-12 h-12 bg-primary-light/10 dark:bg-primary-dark/10 rounded-lg flex items-center justify-center mr-4">
                   <info.icon className="w-6 h-6 text-primary-light dark:text-primary-dark" />

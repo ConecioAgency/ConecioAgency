@@ -19,6 +19,7 @@ const Contact = lazy(() => import('../components/Contact'));
 const HomeBlogSection = lazy(() => import('../components/HomeBlogSection'));
 const OurAgency = lazy(() => import('../components/OurAgency'));
 const BrandIconsCarousel = lazy(() => import('src/components/BrandIconsCarousel'));
+const PortfolioSection = lazy(() => import('../components/PortfolioSection'));
 
 // Composant de chargement optimisé
 const LoadingFallback = () => (
@@ -123,6 +124,9 @@ export default function Home() {
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <Testimonials />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <PortfolioSection />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <HomeBlogSection />

@@ -19,11 +19,11 @@
       "difference": "DIFFÉRENCE"
     },
     "cta": {
-      "badge": "AUDITEZ VOTRE SITE GRATUITEMENT",
-      "title": "Prêt à concrétiser votre projet digital ?",
-      "desc": "Discutons ensemble de vos idées et donnons vie à une solution sur-mesure, performante et créative.",
+      "badge": "Prêt à commencer ?",
+      "title": "Un projet en tête ?",
+      "desc": "Discutons-en ! Nous sommes prêts à vous aider à concrétiser votre vision.",
       "button": "Contactez-nous",
-      "img_alt": "Auditez votre site gratuitement",
+      "img_alt": "Illustration d'une fusée pour l'appel à l'action",
       "startProject": "Auditez votre site gratuitement",
       "discoverAgency": "Découvrir l'agence"
     }
@@ -607,7 +607,7 @@
     "title": "Ils nous font confiance",
     "subtitle": "NOS CLIENTS",
     "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
-    "logoAlt": "Logo client {{number}}"
+    "logoAlt": "Logo du client {{number}}"
   },
   "navigation": {
     "home": "Accueil",
@@ -669,5 +669,10 @@
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation"
     }
+  },
+  "portfolio": {
+    "badge": "PORTFOLIO",
+    "title": "Exemples de Réalisations",
+    "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !"
   }
 } 
