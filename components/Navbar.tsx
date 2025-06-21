@@ -124,26 +124,22 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex-shrink-0"
-          >
-            <Link href="/" className="flex items-center group">
-              <img 
-                src="/images/logo/logo conecio.svg" 
-                alt="Conecio Logo" 
-                width={120} 
-                height={20} 
-                className="w-[80px] h-auto sm:w-[100px] md:w-[120px] transition-transform duration-300 group-hover:scale-105" 
-              />
+        <div className="flex items-center justify-between h-20">
+          <div className="flex-shrink-0">
+            <Link href="/" legacyBehavior>
+              <a>
+                <Image
+                  src="/images/logo/logo conecio SVG/SVG/icone gradient.svg"
+                  alt="Conecio Logo"
+                  width={50}
+                  height={50}
+                  className="h-12 w-auto"
+                />
+              </a>
             </Link>
-          </motion.div>
-
-          <div className="hidden md:flex items-center gap-4">
-            <div className="ml-6 flex items-baseline space-x-3">
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item, index) => (
                 item.name === t('navigation.services') ? (
                   <div
