@@ -1,57 +1,550 @@
 {
-  "home": {
-    "seo": {
-      "title": "Conecio - Agencia de Marketing Digital e Innovación",
-      "description": "Conecio es una agencia de marketing digital innovadora que le acompaña en su transformación digital con soluciones a medida: SEO, diseño web, redes sociales, marketing de contenidos y mucho más.",
-      "keywords": "agencia de marketing digital, SEO, diseño web, redes sociales, marketing de contenidos, transformación digital, innovación digital, estrategia digital",
-      "og_image_alt": "Conecio - Agencia de Marketing Digital",
-      "structured_desc": "Agencia de marketing digital innovadora especializada en la transformación digital"
+  "common": {
+    "home": {
+      "seo": {
+        "title": "Conecio - Agencia de Marketing Digital e Innovación",
+        "description": "Conecio es una agencia de marketing digital innovadora que te acompaña en tu transformación digital con soluciones a medida: SEO, diseño web, redes sociales, marketing de contenidos y más.",
+        "keywords": "agencia marketing digital, SEO, diseño web, redes sociales, marketing de contenidos, transformación digital, innovación digital, estrategia digital",
+        "og_image_alt": "Conecio - Agencia de Marketing Digital",
+        "structured_desc": "Agencia de marketing digital innovadora especializada en transformación digital"
+      },
+      "parallax": {
+        "innovate": "INNOVA.",
+        "impact": "IMPACTA.",
+        "dare": "ATRÉVETE.",
+        "strategy": "ESTRATEGIA",
+        "digital": "DIGITAL.",
+        "creativity": "CREATIVIDAD.",
+        "results": "RESULTADOS.",
+        "agency_diff": "LA AGENCIA QUE MARCA LA",
+        "difference": "DIFERENCIA"
+      },
+      "cta": {
+        "badge": "INICIAR UN PROYECTO",
+        "title": "¿Listo para concretar tu proyecto digital?",
+        "desc": "Hablemos de tus ideas y demos vida a una solución a medida, creativa y de alto rendimiento.",
+        "button": "Contáctanos",
+        "img_alt": "Iniciar un proyecto",
+        "startProject": "Iniciar un proyecto",
+        "discoverAgency": "Descubrir la agencia"
+      }
     },
-    "parallax": {
-      "innovate": "INNOVA.",
-      "impact": "IMPACTA.",
-      "dare": "ATRÉVETE.",
-      "strategy": "ESTRATEGIA.",
-      "digital": "DIGITAL.",
-      "creativity": "CREATIVIDAD.",
-      "results": "RESULTADOS.",
-      "agency_diff": "LA AGENCIA QUE MARCA LA",
-      "difference": "DIFERENCIA"
+    "home": "Inicio",
+    "services": {
+      "section_title": "SERVICIOS",
+      "section_subtitle": "Nuestras experticias digitales",
+      "section_desc": "Soluciones a medida para impulsar tu negocio con un estilo moderno, técnico y depurado.",
+      "slide_1_title": "Crear",
+      "slide_1_desc": "Sitios web, landing pages, experiencia personalizada para tu negocio.",
+      "slide_2_title": "Diseñar",
+      "slide_2_desc": "Logotipos, manuales de marca, visuales impactantes para tu marca.",
+      "slide_3_title": "Promocionar",
+      "slide_3_desc": "Publicidad digital (Meta Ads, Google Ads), impulsa tu visibilidad.",
+      "slide_4_title": "Gestionar",
+      "slide_4_desc": "Gestión de proyectos, seguimiento, informes y optimización continua.",
+      "tabs": {
+        "create": {
+          "desc": "Creamos sitios web modernos y de alto rendimiento, con animaciones de video cautivadoras para una experiencia de usuario única.",
+          "cta": "Saber más"
+        },
+        "design": {
+          "desc": "Construimos una identidad fuerte para tu marca: logotipo, manual de marca, visuales... así como animaciones de logotipo, storyboards animados, videos explicativos y contenidos de motion design.",
+          "cta": "Saber más"
+        },
+        "promote": {
+          "desc": "Creamos y gestionamos tus campañas publicitarias en Meta (Facebook/Instagram) y Google Ads, con visuales optimizados para la conversión. Cada mensaje es claro, dirigido y pensado para maximizar tus resultados.",
+          "cta": "Saber más"
+        },
+        "manage": {
+          "desc": "Desde la creación de contenido hasta la planificación de publicaciones, aseguramos una gestión fluida de tus redes sociales. Implementamos dashboards claros y efectivos para seguir tus resultados y ajustar tu estrategia en tiempo real.",
+          "cta": "Saber más"
+        }
+      },
+      "seo_sem": {
+        "title": "SEO & SEM",
+        "description": "Optimiza tu visibilidad y alcanza la cima de los resultados de búsqueda",
+        "features": [
+          "Auditoría SEO completa",
+          "Optimización técnica",
+          "Estrategia de contenido",
+          "Seguimiento del rendimiento"
+        ],
+        "detailedDescription": "Nuestro servicio de SEO & SEM combina la optimización orgánica y la publicidad pagada para maximizar tu visibilidad online. Analizamos a fondo tu sitio, identificamos oportunidades de mejora y aplicamos estrategias personalizadas para aumentar tu posicionamiento en los motores de búsqueda. Nuestro enfoque basado en datos nos permite medir con precisión el impacto de nuestras acciones y ajustar continuamente nuestra estrategia para obtener mejores resultados.",
+        "sectionTitle": "Estrategia de Visibilidad Digital",
+        "sectionDescription": "Un enfoque integral para dominar los resultados de búsqueda y maximizar tu presencia online"
+      },
+      "web_design": {
+        "title": "Diseño Web",
+        "description": "Crea una presencia digital que cautive y convierta",
+        "features": [
+          "Diseño Responsivo",
+          "Optimización de Conversión",
+          "Experiencia de Usuario",
+          "Rendimiento Técnico"
+        ],
+        "detailedDescription": "Nuestro servicio de Diseño Web va más allá de la simple creación de sitios web. Diseñamos experiencias digitales inmersivas que captan la atención de tus visitantes y los guían naturalmente hacia la conversión. Cada elemento está pensado para optimizar la experiencia del usuario, desde animaciones sutiles hasta una navegación intuitiva y una arquitectura de contenido clara y atractiva.",
+        "sectionTitle": "Diseño Web Creativo y Funcional",
+        "sectionDescription": "Sitios web que combinan estética y rendimiento para una experiencia de usuario óptima"
+      },
+      "marketing_mobile": {
+        "title": "Marketing Móvil",
+        "description": "Conéctate con tu audiencia donde sea que esté",
+        "features": [
+          "Estrategias Adaptadas",
+          "Experiencia de Usuario",
+          "Análisis Móvil",
+          "Optimización de Conversión"
+        ],
+        "detailedDescription": "En un mundo donde el móvil se ha convertido en el primer punto de contacto con tus clientes, nuestro servicio de Marketing Móvil te permite alcanzar a tu audiencia en el momento y lugar adecuados. Desarrollamos estrategias mobile-first, optimizamos tus campañas para dispositivos móviles y creamos experiencias de usuario fluidas que convierten.",
+        "sectionTitle": "Estrategia Mobile-First",
+        "sectionDescription": "Un enfoque centrado en la experiencia móvil para llegar a tu audiencia en todas partes"
+      },
+      "social_media": {
+        "title": "Redes Sociales",
+        "description": "Involucra a tu comunidad en las redes sociales",
+        "features": [
+          "Estrategia Social Media",
+          "Creación de Contenido",
+          "Gestión de Comunidad",
+          "Análisis de Rendimiento"
+        ],
+        "detailedDescription": "Nuestro servicio de Redes Sociales transforma tus redes en verdaderos motores de crecimiento. Creamos y gestionamos tu presencia en las plataformas más relevantes para tu sector, desarrollamos contenidos atractivos que resuenan con tu audiencia y construimos una comunidad activa en torno a tu marca. Nuestro enfoque basado en datos nos permite medir el impacto de cada acción y optimizar continuamente tu estrategia.",
+        "sectionTitle": "Gestión de Comunidad Digital",
+        "sectionDescription": "Una presencia social dinámica que involucra y fideliza a tu audiencia"
+      },
+      "content_creator": {
+        "title": "Content Creator",
+        "description": "Crea contenido atractivo para todos tus canales",
+        "features": [
+          "Redacción de Blogs",
+          "Publicaciones en Redes Sociales",
+          "Contenido Web",
+          "Estrategia Editorial"
+        ],
+        "detailedDescription": "Nuestro servicio Content Creator te ayuda a contar tu historia de manera cautivadora a través de diferentes formatos y canales. Creamos contenidos que no solo informan y entretienen a tu audiencia, sino que también refuerzan tu posición como experto en tu campo. Nuestro enfoque estratégico asegura que cada contenido contribuya a tus objetivos comerciales mientras involucra a tu audiencia.",
+        "sectionTitle": "Creación de Contenido Estratégico",
+        "sectionDescription": "Contenidos que cuentan tu historia y refuerzan tu posición de experto"
+      },
+      "ux_ui_design": {
+        "title": "UX/UI Design",
+        "description": "Diseña interfaces intuitivas y estéticas",
+        "features": [
+          "Diseño de Interfaz",
+          "Experiencia de Usuario",
+          "Prototipado",
+          "Pruebas de Usuario"
+        ],
+        "detailedDescription": "Nuestro servicio de UX/UI Design combina estética y funcionalidad para crear interfaces que no solo son agradables a la vista, sino también intuitivas y eficientes. Ponemos al usuario en el centro de nuestro proceso de diseño, creando experiencias fluidas y agradables que facilitan la navegación y aumentan el engagement. Nuestro enfoque iterativo nos permite refinar continuamente el diseño según los comentarios de los usuarios.",
+        "sectionTitle": "Diseño Centrado en el Usuario",
+        "sectionDescription": "Interfaces que combinan belleza y funcionalidad para una experiencia de usuario óptima"
+      },
+      "innovation_digitale": {
+        "title": "Innovación Digital",
+        "description": "Mantente a la vanguardia con las últimas tecnologías",
+        "features": [
+          "Vigilancia Tecnológica",
+          "Soluciones Innovadoras",
+          "Transformación Digital",
+          "Acompañamiento"
+        ],
+        "detailedDescription": "Nuestro servicio de Innovación Digital te ayuda a mantenerte competitivo en un mundo en constante evolución. Identificamos e integramos tecnologías emergentes que pueden transformar tu negocio, desde inteligencia artificial hasta realidad aumentada. Nuestro enfoque pragmático nos permite implementar soluciones innovadoras que generan resultados concretos y preparan tu empresa para los desafíos del mañana.",
+        "sectionTitle": "Soluciones Digitales Innovadoras",
+        "sectionDescription": "Tecnologías de vanguardia para transformar tu negocio y mantenerte competitivo"
+      }
     },
-    "cta": {
-      "badge": "¿Listo para empezar?",
-      "title": "¿Tienes un proyecto en mente?",
-      "desc": "¡Hablemos de ello! Estamos listos para ayudarte a hacer realidad tu visión.",
-      "button": "Contáctanos",
-      "img_alt": "Ilustración de un cohete para la llamada a la acción",
-      "startProject": "Audita tu sitio gratis",
-      "discoverAgency": "Descubrir la agencia"
+    "pricing": {
+      "title": "Nuestros Precios",
+      "subtitle": "Elige el plan que se adapte a tus necesidades",
+      "monthly": "Mensual",
+      "yearly": "Anual",
+      "save": "Ahorra",
+      "features": "Características",
+      "basic": {
+        "name": "Básico",
+        "price": "49",
+        "description": "Perfecto para pequeñas empresas",
+        "features": [
+          "Auditoría completa del sitio web",
+          "Informe detallado",
+          "Recomendaciones de optimización",
+          "Soporte por correo electrónico"
+        ]
+      },
+      "pro": {
+        "name": "Profesional",
+        "price": "99",
+        "description": "Ideal para empresas en crecimiento",
+        "features": [
+          "Todo lo del plan Básico",
+          "Análisis de competencia",
+          "Plan de acción personalizado",
+          "Soporte prioritario",
+          "Consulta telefónica"
+        ]
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "price": "199",
+        "description": "Solución completa para grandes empresas",
+        "features": [
+          "Todo lo del plan Profesional",
+          "Auditoría SEO avanzada",
+          "Análisis UX/UI",
+          "Soporte 24/7",
+          "Consultas mensuales",
+          "Informes personalizados"
+        ]
+      },
+      "cta": {
+        "start": "Comenzar",
+        "contact": "Contáctanos"
+      }
+    },
+    "blog": "Blog",
+    "contact": {
+      "section_title": "CONTACTO",
+      "section_subtitle": "Contáctanos",
+      "section_desc": "Hablemos de tu proyecto y veamos cómo podemos ayudarte a alcanzar tus objetivos",
+      "specify_request": "Especifica tu solicitud:",
+      "request_info": "Solicitud de información",
+      "request_quote": "Solicitud de presupuesto",
+      "request_audit": "Audita mi sitio gratis",
+      "request_other": "Otro",
+      "error_select_request_type": "Por favor selecciona un tipo de solicitud",
+      "full_name": "Nombre completo*",
+      "error_name_required": "El nombre es obligatorio",
+      "sector": "Sector*",
+      "choose_sector": "Elige un sector",
+      "sector_it": "Informática",
+      "sector_marketing": "Marketing",
+      "sector_health": "Salud",
+      "sector_finance": "Finanzas",
+      "sector_education": "Educación",
+      "sector_realestate": "Inmobiliario",
+      "sector_commerce": "Comercio",
+      "sector_industry": "Industria",
+      "sector_tourism": "Turismo",
+      "sector_other": "Otro",
+      "error_sector_required": "El sector es obligatorio",
+      "company_name": "Nombre de la empresa*",
+      "error_company_required": "El nombre de la empresa es obligatorio",
+      "phone_label": "Teléfono*",
+      "error_phone_required": "El teléfono es obligatorio",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "send_message": "Enviar mensaje",
+      "sending": "Enviando...",
+      "website": "Sitio web*",
+      "error_website_required": "El sitio web es obligatorio"
+    },
+    "about": "Sobre nosotros",
+    "start_project": "Iniciar un proyecto",
+    "agency": {
+      "section_title": "NUESTRA AGENCIA",
+      "give_life": "Da vida a tu identidad",
+      "intro": "En Conecio, creemos que cada marca merece una firma visual fuerte y memorable. Nuestra agencia está especializada en la creación de contenido gráfico y audiovisual que atrae, inspira y engancha.",
+      "creation_services": "Nuestros servicios creativos incluyen:",
+      "service_1_title": "Logotipos y manuales de marca",
+      "service_1_desc": "Forja tu identidad visual.",
+      "service_1_point_1": "Creación de logotipos a medida adaptados a tu universo.",
+      "service_1_point_2": "Definición de una guía de marca coherente e impactante.",
+      "service_1_point_3": "Acompañamiento para adaptar tu identidad en todos tus soportes.",
+      "service_2_title": "Storyboards y vídeos explicativos",
+      "service_2_desc": "Cuenta tu historia.",
+      "service_2_point_1": "Elaboración de storyboards claros y creativos.",
+      "service_2_point_2": "Producción de vídeos explicativos atractivos.",
+      "service_2_point_3": "Valorización de tu mensaje mediante imágenes animadas.",
+      "service_3_title": "Visuales para redes sociales y campañas publicitarias",
+      "service_3_desc": "Visuales impactantes.",
+      "service_3_point_1": "Creación de visuales adaptados a cada plataforma.",
+      "service_3_point_2": "Diseño de campañas publicitarias atractivas.",
+      "service_3_point_3": "Optimización del impacto visual para tu audiencia.",
+      "service_4_title": "Animaciones y motion design",
+      "service_4_desc": "Captar la atención desde los primeros segundos.",
+      "service_4_point_1": "Realización de animaciones dinámicas y modernas.",
+      "service_4_point_2": "Motion design para reforzar tu identidad.",
+      "service_4_point_3": "Animaciones adaptadas a todos tus soportes digitales.",
+      "order_btn": "Haz tu pedido",
+      "slogan": "🎯 De la idea a la realización, creamos universos visuales coherentes y atractivos que dejan una huella duradera.",
+      "digital_creative": "Agencia 100% digital y creativa"
+    },
+    "language": "Idioma",
+    "welcome": "¡Bienvenido a Conecio!",
+    "hero": {
+      "boost_visibility": "Impulsa tu visibilidad con Conecio Agency",
+      "deploy_power": "Despliega el poder digital de",
+      "subtitle": "La agencia de marketing que combina datos, creatividad y rendimiento para impulsar tu marca.",
+      "start_project": "Audita tu sitio gratis",
+      "rotating_word_1": "tu marca",
+      "rotating_word_2": "tu crecimiento",
+      "rotating_word_3": "tu notoriedad",
+      "rotating_word_4": "tu rendimiento",
+      "rotating_word_5": "tu visibilidad"
+    },
+    "expect": {
+      "stats_1": "Años de experiencia",
+      "stats_2": "Clientes satisfechos",
+      "stats_3": "Proyectos realizados",
+      "stats_4": "Expertos a tu servicio",
+      "feature_1_title": "Contenido que Convierte",
+      "feature_1_desc": "Producimos visuales y vídeos pensados para captar la atención y generar acciones reales: clics, ventas, engagement.",
+      "feature_2_title": "Coherencia Total de Marca",
+      "feature_2_desc": "Cada elemento – logo, vídeo, sitio, post – está pensado para reforzar una identidad fuerte, memorable y alineada.",
+      "feature_3_title": "Agilidad y Reacción",
+      "feature_3_desc": "¿Necesitas un visual, un reel o un cambio urgente? Nuestro equipo responde rápido, sin sacrificar calidad.",
+      "feature_4_title": "Cultura del Resultado",
+      "feature_4_desc": "Nuestras creaciones no solo son bonitas. Están diseñadas para rendir en el terreno: redes sociales, anuncios, SEO, UX.",
+      "tools_title": "Cada tarea tiene su propia caja de herramientas",
+      "tools_badge": "Nuestras herramientas",
+      "tools": {
+        "content": {
+          "label": "Contenido",
+          "title": "Contenido",
+          "items": [
+            "Redacción de artículos optimizados para SEO",
+            "Creación de newsletters atractivas",
+            "Optimización de tus páginas para la conversión"
+          ],
+          "description": "Crea contenidos atractivos y optimizados para cada canal digital. Nuestro equipo redacta, estructura y optimiza tus contenidos para maximizar tu visibilidad e impacto.",
+          "button": "Ver precios"
+        },
+        "ai": {
+          "label": "IA",
+          "title": "IA",
+          "items": [
+            "Análisis de mercado automatizado",
+            "Generación de ideas innovadoras",
+            "Automatización de tareas de marketing"
+          ],
+          "description": "Aprovecha la IA para potenciar tu estrategia: análisis, generación de contenido, automatización y anticipación de tendencias.",
+          "button": "Ver precios"
+        },
+        "social": {
+          "label": "Social",
+          "title": "Social",
+          "items": [
+            "Estrategia de redes sociales a medida",
+            "Creación de visuales y vídeos virales",
+            "Gestión de comunidad y campañas de influencers"
+          ],
+          "description": "Desarrolla tu presencia en redes sociales con contenidos creativos, gestión proactiva y campañas de influencers.",
+          "button": "Ver precios"
+        },
+        "advertising": {
+          "label": "Publicidad",
+          "title": "Publicidad",
+          "items": [
+            "Creación de campañas en Google y Meta",
+            "Optimización de presupuestos publicitarios",
+            "Análisis de resultados e informes detallados"
+          ],
+          "description": "Lanza campañas publicitarias efectivas en todos los canales. Desde la creación hasta la optimización, gestionamos tus campañas para generar leads y ventas.",
+          "button": "Ver precios"
+        },
+        "traffic": {
+          "label": "Tráfico y mercado",
+          "title": "Tráfico y mercado",
+          "items": [
+            "Análisis de tu audiencia digital",
+            "Inteligencia competitiva avanzada",
+            "Identificación de nuevas oportunidades de crecimiento"
+          ],
+          "description": "Analiza tu audiencia, monitorea a tus competidores e identifica nuevos motores de crecimiento para tu negocio.",
+          "button": "Ver precios"
+        },
+        "seo": {
+          "label": "SEO",
+          "title": "SEO",
+          "items": [
+            "Auditoría técnica completa de tu sitio",
+            "Investigación avanzada de palabras clave",
+            "Optimización de contenido y netlinking"
+          ],
+          "description": "Impulsa tu visibilidad en Google con auditorías, estrategia de palabras clave y optimización continua de tu sitio.",
+          "button": "Ver precios"
+        },
+        "creation": {
+          "label": "Creación",
+          "title": "Creación",
+          "items": [
+            "Creación de landing pages y sitios a medida",
+            "Integración de vídeos para captar la atención",
+            "Elaboración o adaptación de tu manual de marca"
+          ],
+          "description": "Diseñamos landing pages y sitios web inmersivos: diseño único, animaciones atractivas, integración de vídeo y respeto por tu identidad visual. Nuestro objetivo: transformar tus visitantes en clientes con una experiencia digital memorable.",
+          "button": "Ver precios"
+        }
+      }
+    },
+    "process": {
+      "section_title": "NUESTRO PROCESO",
+      "section_subtitle": "La innovación en el corazón de tu crecimiento",
+      "section_desc": "Nuestro equipo te acompaña en cada etapa para impulsar tu marca y alcanzar tus objetivos de negocio gracias al digital.",
+      "cta_btn": "Empezar ahora",
+      "step_1_title": "Análisis y Estrategia",
+      "step_1_desc": "Analizamos tus necesidades y definimos una estrategia digital a medida.",
+      "step_2_title": "Creación e Innovación",
+      "step_2_desc": "Diseñamos soluciones creativas e innovadoras para tu marca.",
+      "step_3_title": "Crecimiento y Seguimiento",
+      "step_3_desc": "Impulsamos tu negocio y optimizamos tus resultados de forma continua."
+    },
+    "footer": {
+      "about_title": "Sobre nosotros",
+      "description": "Conecio es tu socio digital para una transformación digital exitosa.",
+      "services_title": "Servicios",
+      "company_title": "Empresa",
+      "blog_title": "Blog",
+      "legal_title": "Legal",
+      "copyright": "Copyright © Conecio Agency. {{year}} - Todos los derechos reservados.",
+      "services": {
+        "seo": "SEO & SEM",
+        "web_design": "Diseño Web",
+        "marketing_mobile": "Marketing Móvil",
+        "social_media": "Redes Sociales",
+        "content_marketing": "Marketing de Contenidos",
+        "analytics": "Analítica & Informes",
+        "branding": "Branding & Identidad"
+      },
+      "company": {
+        "about": "Sobre nosotros",
+        "pricing": "Precios",
+        "blog": "Blog",
+        "contact": "Contacto"
+      },
+      "legal": {
+        "privacy": "Política de privacidad"
+      }
+    },
+    "blog": {
+      "badge": "BLOG",
+      "title": "Nuestros últimos artículos",
+      "subtitle": "Sumérgete en el universo Conecio: consejos, tendencias y experiencias sobre digital, marketing e innovación. Nuestros expertos comparten cada semana artículos para potenciar tu estrategia y creatividad.",
+      "new": "Nuevo",
+      "read_time": "de lectura",
+      "read": "Leer",
+      "see_all": "Ver todos los artículos"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Encuentra rápidamente la respuesta a tus preguntas según la temática.",
+      "categories": {
+        "Général": "General",
+        "Tarifs": "Precios",
+        "Services": "Servicios",
+        "Support": "Soporte",
+        "Sécurité": "Seguridad"
+      }
+    },
+    "process_steps": [
+      {
+        "title": "Análisis y Estrategia",
+        "desc": "Analizamos tus necesidades y definimos una estrategia digital a medida, adaptada a tus objetivos y a tu mercado.",
+        "description": "Comenzamos por comprender tus desafíos, analizar tu mercado y definir una hoja de ruta digital personalizada para maximizar tu impacto."
+      },
+      {
+        "title": "Creación e Innovación",
+        "desc": "Diseñamos soluciones creativas e innovadoras para tu marca: diseño, contenidos, campañas, herramientas digitales.",
+        "description": "Nuestro equipo creativo imagina y realiza experiencias digitales únicas, alineadas con las últimas tendencias y tecnologías."
+      },
+      {
+        "title": "Crecimiento y Seguimiento",
+        "desc": "Impulsamos tu negocio y optimizamos tus resultados de forma continua gracias al análisis de datos y la mejora continua.",
+        "description": "Medimos, analizamos y optimizamos cada acción para garantizar el crecimiento sostenible de tu marca en el entorno digital."
+      }
+    ],
+    "testimonials": {
+      "badge": "TESTIMONIOS",
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Descubre cómo hemos ayudado a nuestros clientes a lograr su transformación digital.",
+      "0": {
+        "quote": "El equipo de Conecio respondió perfectamente a nuestras expectativas. Nuestro sitio ahora es mucho más eficiente y nuestro tráfico no deja de aumentar.",
+        "name": "Hamza Semlali",
+        "position": "Directora de Marketing"
+      },
+      "1": {
+        "quote": "Nuestra transformación digital con Conecio fue un verdadero éxito. Su experiencia técnica y su enfoque al cliente fueron determinantes.",
+        "name": "Tariq Filali",
+        "position": "CEO y Fundador"
+      },
+      "2": {
+        "quote": "Profesionalismo y reactividad ejemplares. Nuestra aplicación fue entregada a tiempo y con una calidad excepcional.",
+        "name": "Boutaina Chahdi",
+        "position": "Directora de Operaciones"
+      },
+      "3": {
+        "quote": "Conecio transformó totalmente nuestra presencia online. Su experiencia en UI/UX mejoró considerablemente la experiencia de nuestros usuarios.",
+        "name": "Youssef Boutaib",
+        "position": "Fundador y CTO"
+      }
+    },
+    "servicesPage": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Descubre todas nuestras experticias digitales para impulsar tu marca.",
+      "agencyTitle": "Agencia Conecio",
+      "agencyIntro": "Nuestro equipo te acompaña en todos tus proyectos digitales, desde la estrategia hasta la realización, con creatividad y rendimiento."
+    },
+    "navigation": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "pricing": "Precios",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "about": "Sobre Nosotros",
+      "audit": "Audita tu Sitio Gratis"
+    },
+    "seo_process": {
+      "section_title": "SEM",
+      "section_subtitle": "SEO + SEA + SMO",
+      "section_desc": "Un enfoque integral para maximizar tu visibilidad online",
+      "seo": {
+        "title": "SEO",
+        "description": "Optimización para motores de búsqueda",
+        "details": [
+          "Optimización técnica del sitio",
+          "Investigación y análisis de palabras clave",
+          "Optimización de contenido",
+          "Netlinking y backlinks"
+        ]
+      },
+      "sea": {
+        "title": "SEA",
+        "description": "Publicidad en motores de búsqueda",
+        "details": [
+          "Creación de campañas Google Ads",
+          "Optimización de pujas",
+          "Seguimiento de rendimiento",
+          "Pruebas A/B de anuncios"
+        ]
+      },
+      "smo": {
+        "title": "SMO",
+        "description": "Optimización de redes sociales",
+        "details": [
+          "Estrategia de contenido social",
+          "Optimización de perfiles",
+          "Compromiso comunitario",
+          "Análisis de rendimiento"
+        ]
+      }
+    },
+    "portfolio": {
+      "section_title": "Portafolio",
+      "section_desc": "Descubre algunos sitios web creados por la agencia. ¡Haz clic en un proyecto para ver la demo en vivo!",
+      "see_site": "Ver sitio",
+      "badge": "PORTAFOLIO",
+      "title": "Ejemplos de Logros",
+      "subtitle": "Descubra algunos de los sitios web creados por la agencia. ¡Haga clic en un proyecto para ver la demostración en vivo!"
+    },
+    "our_agency": {
+      "badge": "NUESTRA AGENCIA",
+      "title": "Da vida a tus proyectos"
     }
   },
   "clients": {
     "subtitle": "NUESTROS CLIENTES",
     "description": "Descubra las empresas que confían en nosotros para su transformación digital. Nuestra experiencia y nuestro enfoque innovador han permitido a estas organizaciones destacarse en su sector.",
     "logoAlt": "Logo del cliente {{number}}"
-  },
-  "portfolio": {
-    "badge": "PORTAFOLIO",
-    "title": "Ejemplos de Logros",
-    "subtitle": "Descubra algunos de los sitios web creados por la agencia. ¡Haga clic en un proyecto para ver la demostración en vivo!"
-  },
-  "our_agency": {
-    "badge": "NUESTRA AGENCIA",
-    "title": "Da vida a tus proyectos"
-  },
-  "navigation": {
-    "home": "Inicio",
-    "services": "Servicios",
-    "pricing": "Tarifas",
-    "about": "Sobre nosotros",
-    "blog": "Blog",
-    "contact": "Contacto",
-    "faq": "FAQ",
-    "quote": "Cotización",
-    "privacy": "Privacidad",
-    "terms": "Términos de uso"
   }
 } 
