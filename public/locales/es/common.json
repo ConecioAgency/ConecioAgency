@@ -5,7 +5,7 @@
       "description": "Conecio es una agencia de marketing digital innovadora que te acompaña en tu transformación digital con soluciones a medida: SEO, diseño web, redes sociales, marketing de contenidos y más.",
       "keywords": "agencia marketing digital, SEO, diseño web, redes sociales, marketing de contenidos, transformación digital, innovación digital, estrategia digital",
       "og_image_alt": "Conecio - Agencia de Marketing Digital",
-      "structured_desc": "Agencia de marketing digital innovadora especializada en transformación digital"
+      "structured_desc": "Agencia de marketing digital innovadora especializada en la transformación digital"
     },
     "parallax": {
       "innovate": "INNOVA.",
@@ -19,12 +19,12 @@
       "difference": "DIFERENCIA"
     },
     "cta": {
-      "badge": "INICIAR UN PROYECTO",
-      "title": "¿Listo para concretar tu proyecto digital?",
-      "desc": "Hablemos de tus ideas y demos vida a una solución a medida, creativa y de alto rendimiento.",
+      "badge": "¿Listo para empezar?",
+      "title": "¿Tienes un proyecto en mente?",
+      "desc": "¡Hablemos de ello! Estamos listos para ayudarte a hacer realidad tu visión.",
       "button": "Contáctanos",
-      "img_alt": "Iniciar un proyecto",
-      "startProject": "Iniciar un proyecto",
+      "img_alt": "Ilustración de un cohete para la llamada a la acción",
+      "startProject": "Audita tu sitio gratis",
       "discoverAgency": "Descubrir la agencia"
     }
   },
@@ -390,7 +390,7 @@
   },
   "footer": {
     "about_title": "Sobre nosotros",
-    "description": "Conecio es tu socio digital para una transformación digital exitosa.",
+    "description": "Conecio es una innovadora agencia de marketing digital dedicada a transformar tu presencia en línea.",
     "services_title": "Servicios",
     "company_title": "Empresa",
     "blog_title": "Blog",
@@ -479,10 +479,21 @@
     }
   },
   "servicesPage": {
-    "title": "Nuestros Servicios",
-    "subtitle": "Descubre todas nuestras experticias digitales para impulsar tu marca.",
-    "agencyTitle": "Agencia Conecio",
-    "agencyIntro": "Nuestro equipo te acompaña en todos tus proyectos digitales, desde la estrategia hasta la realización, con creatividad y rendimiento."
+    "title": "Conecio - Agencia de Marketing Digital e Innovación",
+    "description": "Conecio es una agencia de marketing digital innovadora que te acompaña en tu transformación digital con soluciones a medida: SEO, diseño web, redes sociales, marketing de contenidos y más.",
+    "keywords": "agencia marketing digital, SEO, diseño web, redes sociales, marketing de contenidos, transformación digital, innovación digital, estrategia digital",
+    "og_image_alt": "Conecio - Agencia de Marketing Digital",
+    "structured_desc": "Agencia de marketing digital innovadora especializada en transformación digital"
+  },
+  "clients": {
+    "subtitle": "NUESTROS CLIENTES",
+    "description": "Descubra las empresas que confían en nosotros para su transformación digital. Nuestra experiencia y nuestro enfoque innovador han permitido a estas organizaciones destacarse en su sector.",
+    "logoAlt": "Logo del cliente {{number}}"
+  },
+  "portfolio": {
+    "badge": "PORTAFOLIO",
+    "title": "Ejemplos de Logros",
+    "subtitle": "Descubra algunos de los sitios web creados por la agencia. ¡Haga clic en un proyecto para ver la demostración en vivo!"
   },
   "navigation": {
     "home": "Inicio",
@@ -490,50 +501,27 @@
     "pricing": "Precios",
     "blog": "Blog",
     "contact": "Contacto",
-    "about": "Sobre Nosotros",
-    "audit": "Audita tu Sitio Gratis"
+    "about": "Sobre nosotros",
+    "faq": "FAQ",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse"
   },
-  "seo_process": {
-    "section_title": "SEM",
-    "section_subtitle": "SEO + SEA + SMO",
-    "section_desc": "Un enfoque integral para maximizar tu visibilidad online",
-    "seo": {
-      "title": "SEO",
-      "description": "Optimización para motores de búsqueda",
-      "details": [
-        "Optimización técnica del sitio",
-        "Investigación y análisis de palabras clave",
-        "Optimización de contenido",
-        "Netlinking y backlinks"
-      ]
-    },
-    "sea": {
-      "title": "SEA",
-      "description": "Publicidad en motores de búsqueda",
-      "details": [
-        "Creación de campañas Google Ads",
-        "Optimización de pujas",
-        "Seguimiento de rendimiento",
-        "Pruebas A/B de anuncios"
-      ]
-    },
-    "smo": {
-      "title": "SMO",
-      "description": "Optimización de redes sociales",
-      "details": [
-        "Estrategia de contenido social",
-        "Optimización de perfiles",
-        "Compromiso comunitario",
-        "Análisis de rendimiento"
-      ]
+  "footer": {
+    "description": "Conecio es una innovadora agencia de marketing digital dedicada a transformar tu presencia en línea.",
+    "quick_links": "Enlaces rápidos",
+    "legal": "Legal",
+    "contact_us": "Contáctanos",
+    "newsletter_title": "Suscríbete a nuestro boletín",
+    "newsletter_desc": "Recibe nuestras últimas noticias y ofertas directamente en tu bandeja de entrada.",
+    "newsletter_placeholder": "Tu correo electrónico",
+    "subscribe": "Suscribirse",
+    "links": {
+      "home": "Inicio",
+      "about": "Sobre nosotros",
+      "services": "Servicios",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso"
     }
-  },
-  "portfolio": {
-    "section_title": "Portafolio",
-    "section_desc": "Descubre algunos sitios web creados por la agencia. ¡Haz clic en un proyecto para ver la demo en vivo!",
-    "see_site": "Ver sitio",
-    "badge": "PORTAFOLIO",
-    "title": "Ejemplos de Logros",
-    "subtitle": "Descubra algunos de los sitios web creados por la agencia. ¡Haga clic en un proyecto para ver la demostración en vivo!"
   }
 } 

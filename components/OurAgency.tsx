@@ -103,7 +103,7 @@ const OurAgency = () => {
     <section ref={ref} className="relative py-16 bg-white dark:bg-gray-800 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center mb-4">
-          <span className="inline-block bg-blue-50 dark:bg-gray-800 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{ letterSpacing: '0.08em' }}>
+          <span className="inline-block bg-white px-6 py-1 rounded-full font-bold text-base tracking-widest animate__animated animate__zoomInDown shadow-md" style={{ letterSpacing: '0.08em' }}>
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('agency.section_title')}</span>
           </span>
         </div>

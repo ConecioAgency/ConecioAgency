@@ -105,9 +105,6 @@ export default function Home() {
             <Hero />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
-          <BrandIconsCarousel />
-          </Suspense>
-          <Suspense fallback={<LoadingFallback />}>
             <Services />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
@@ -124,6 +121,9 @@ export default function Home() {
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <Testimonials />
+          </Suspense>
+          <Suspense fallback={<LoadingFallback />}>
+            <BrandIconsCarousel />
           </Suspense>
           <Suspense fallback={<LoadingFallback />}>
             <PortfolioSection />

@@ -2,10 +2,10 @@
   "home": {
     "seo": {
       "title": "Conecio - Digital Marketing & Innovation Agency",
-      "description": "Conecio is an innovative digital marketing agency supporting your digital transformation with tailor-made solutions: SEO, web design, social media, content marketing and more.",
+      "description": "Conecio is an innovative digital marketing agency that supports you in your digital transformation with tailor-made solutions: SEO, web design, social media, content marketing and more.",
       "keywords": "digital marketing agency, SEO, web design, social media, content marketing, digital transformation, digital innovation, digital strategy",
       "og_image_alt": "Conecio - Digital Marketing Agency",
-      "structured_desc": "Innovative digital marketing agency specialized in digital transformation"
+      "structured_desc": "Innovative digital marketing agency specializing in digital transformation"
     },
     "parallax": {
       "innovate": "INNOVATE.",
@@ -19,12 +19,12 @@
       "difference": "DIFFERENCE"
     },
     "cta": {
-      "badge": "START A PROJECT",
-      "title": "Ready to bring your digital project to life?",
-      "desc": "Let's discuss your ideas and create a tailor-made, high-performing and creative solution.",
-      "button": "Contact us",
-      "img_alt": "Start a project",
-      "startProject": "Start a project",
+      "badge": "Ready to start?",
+      "title": "Have a project in mind?",
+      "desc": "Let's discuss it! We are ready to help you bring your vision to life.",
+      "button": "Contact Us",
+      "img_alt": "Illustration of a rocket for the call to action",
+      "startProject": "Audit your site for free",
       "discoverAgency": "Discover the agency"
     }
   },
@@ -393,7 +393,7 @@
   },
   "footer": {
     "about_title": "About",
-    "description": "Conecio is your digital partner for a successful digital transformation.",
+    "description": "Conecio is an innovative digital marketing agency dedicated to transforming your online presence.",
     "services_title": "Services",
     "company_title": "Company",
     "blog_title": "Blog",
@@ -416,6 +416,20 @@
     },
     "legal": {
       "privacy": "Privacy Policy"
+    },
+    "quick_links": "Quick Links",
+    "contact_us": "Contact Us",
+    "newsletter_title": "Subscribe to our newsletter",
+    "newsletter_desc": "Receive our latest news and offers directly in your inbox.",
+    "newsletter_placeholder": "Your email",
+    "subscribe": "Subscribe",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
     }
   },
   "blog": {
@@ -577,7 +591,9 @@
     "blog": "Blog",
     "contact": "Contact",
     "about": "About Us",
-    "audit": "Audit Your Site Free"
+    "faq": "FAQ",
+    "login": "Login",
+    "signup": "Sign Up"
   },
   "seo_process": {
     "section_title": "Search Engine Marketing (SEM)",
@@ -629,15 +645,11 @@
     }
   },
   "clients": {
-    "title": "They trust us",
     "subtitle": "OUR CLIENTS",
     "description": "Discover the companies that trust us for their digital transformation. Our expertise and innovative approach have enabled these organizations to stand out in their sector.",
     "logoAlt": "Client logo {{number}}"
   },
   "portfolio": {
-    "section_title": "Portfolio",
-    "section_desc": "Discover some websites created by the agency. Click on a project to see the live demo!",
-    "see_site": "View site",
     "badge": "PORTFOLIO",
     "title": "Examples of Achievements",
     "subtitle": "Discover some of the websites created by the agency. Click on a project to see the live demo!"
