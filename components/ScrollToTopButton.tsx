@@ -88,7 +88,7 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-8 right-8 z-50 w-14 h-14 flex items-center justify-center bg-transparent group"
+      className="fixed bottom-24 right-8 z-50 w-14 h-14 flex items-center justify-center bg-transparent group"
       aria-label="Retour en haut"
       style={{ 
         WebkitTapHighlightColor: 'transparent',

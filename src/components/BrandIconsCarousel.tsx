@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const icons = [
   'blogging.png',
@@ -57,54 +58,63 @@ export default function BrandIconsCarousel({ small = false }: BrandIconsCarousel
   const borderRadius = '2.5rem';
 
   return (
-    <div
-      className="w-full flex justify-center my-4"
-      style={{
-        zIndex: 10,
-        position: 'relative',
-      }}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 80, filter: 'blur(8px)' }}
+      whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
     >
-      {/* Wrapper dégradé + glow */}
-      <div
-        style={{
-          background: 'linear-gradient(90deg, #a855f7, #38bdf8, #f472b6, #a855f7)',
-          borderRadius,
-          boxShadow: '0 0 32px 0 #a855f7aa',
-          padding: '3px',
-          maxWidth: '600px',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        {/* Conteneur interne avec fond sombre et overflow-hidden */}
+      <section className="bg-white dark:bg-gray-800 py-12">
         <div
-          ref={scrollRef}
-          className="flex items-center overflow-hidden w-full"
+          className="w-full flex justify-center"
           style={{
-            background: '#23232b',
-            borderRadius,
-            width: '100%',
-            padding,
-            display: 'flex',
-            alignItems: 'center',
+            zIndex: 10,
+            position: 'relative',
           }}
         >
-          <div className="flex items-center w-full" style={{ gap }}>
-            {icons.concat(icons).map((icon, idx) => (
-              <div key={icon+idx} className="flex-shrink-0 flex flex-col items-center justify-center" style={{minWidth: minWH, minHeight: minWH}}>
-                <img
-                  src={`/images/icons/carouselle/${icon}`}
-                  alt={icon.replace('.png', '')}
-                  className="drop-shadow-xl"
-                  style={{ width: iconSize, height: iconSize, objectFit: 'contain' }}
-                  draggable={false}
-                />
+          {/* Wrapper dégradé + glow */}
+          <div
+            style={{
+              background: 'linear-gradient(90deg, #a855f7, #38bdf8, #f472b6, #a855f7)',
+              borderRadius,
+              boxShadow: '0 0 32px 0 #a855f7aa',
+              padding: '3px',
+              maxWidth: '600px',
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            {/* Conteneur interne avec fond sombre et overflow-hidden */}
+            <div
+              ref={scrollRef}
+              className="flex items-center overflow-hidden w-full"
+              style={{
+                background: '#23232b',
+                borderRadius,
+                width: '100%',
+                padding,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <div className="flex items-center w-full" style={{ gap }}>
+                {icons.concat(icons).map((icon, idx) => (
+                  <div key={icon+idx} className="flex-shrink-0 flex flex-col items-center justify-center" style={{minWidth: minWH, minHeight: minWH}}>
+                    <img
+                      src={`/images/icons/carouselle/${icon}`}
+                      alt={icon.replace('.png', '')}
+                      className="drop-shadow-xl"
+                      style={{ width: iconSize, height: iconSize, objectFit: 'contain' }}
+                      draggable={false}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </motion.div>
   );
 } 

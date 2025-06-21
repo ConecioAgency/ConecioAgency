@@ -1,42 +1,603 @@
 {
-  "home": {
-    "seo": {
-      "title": "Conecio - Agence de Marketing Digital & Innovation",
-      "description": "Conecio est une agence de marketing digital innovante qui vous accompagne dans votre transformation digitale avec des solutions sur mesure : SEO, web design, social media, content marketing et plus encore.",
-      "keywords": "agence marketing digital, SEO, web design, social media, content marketing, transformation digitale, innovation digitale, stratégie digitale",
-      "og_image_alt": "Conecio - Agence de Marketing Digital",
-      "structured_desc": "Agence de marketing digital innovante spécialisée dans la transformation digitale"
+  "common": {
+    "home": {
+      "seo": {
+        "title": "Conecio - Agence de Marketing Digital & Innovation",
+        "description": "Conecio est une agence de marketing digital innovante qui vous accompagne dans votre transformation digitale avec des solutions sur mesure : SEO, web design, social media, content marketing et plus encore.",
+        "keywords": "agence marketing digital, SEO, web design, social media, content marketing, transformation digitale, innovation digitale, stratégie digitale",
+        "og_image_alt": "Conecio - Agence de Marketing Digital",
+        "structured_desc": "Agence de marketing digital innovante spécialisée dans la transformation digitale"
+      },
+      "parallax": {
+        "innovate": "INNOVEZ.",
+        "impact": "IMPACTEZ.",
+        "dare": "OSEZ.",
+        "strategy": "STRATÉGIE",
+        "digital": "DIGITALE.",
+        "creativity": "CRÉATIVITÉ.",
+        "results": "RÉSULTATS.",
+        "agency_diff": "L'AGENCE QUI FAIT LA",
+        "difference": "DIFFÉRENCE"
+      },
+      "cta": {
+        "badge": "Prêt à commencer ?",
+        "title": "Un projet en tête ?",
+        "desc": "Discutons-en ! Nous sommes prêts à vous aider à concrétiser votre vision.",
+        "button": "Contactez-nous",
+        "img_alt": "Illustration d'une fusée pour l'appel à l'action",
+        "startProject": "Auditez votre site gratuitement",
+        "discoverAgency": "Découvrir l'agence"
+      }
     },
-    "parallax": {
-      "innovate": "INNOVEZ.",
-      "impact": "IMPACTEZ.",
-      "dare": "OSEZ.",
-      "strategy": "STRATÉGIE",
-      "digital": "DIGITALE.",
-      "creativity": "CRÉATIVITÉ.",
-      "results": "RÉSULTATS.",
-      "agency_diff": "L'AGENCE QUI FAIT LA",
-      "difference": "DIFFÉRENCE"
+    "clients": {
+      "subtitle": "NOS CLIENTS",
+      "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
+      "logoAlt": "Logo du client {{number}}"
     },
-    "cta": {
-      "badge": "Prêt à commencer ?",
-      "title": "Un projet en tête ?",
-      "desc": "Discutons-en ! Nous sommes prêts à vous aider à concrétiser votre vision.",
-      "button": "Contactez-nous",
-      "img_alt": "Illustration d'une fusée pour l'appel à l'action",
-      "startProject": "Auditez votre site gratuitement",
-      "discoverAgency": "Découvrir l'agence"
+    "portfolio": {
+      "badge": "PORTFOLIO",
+      "title": "Exemples de Réalisations",
+      "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !",
+      "our_agency": {
+        "badge": "NOTRE AGENCE",
+        "title": "Donnez vie à vos projets"
+      }
+    },
+    "navigation": {
+      "home": "Accueil"
     }
   },
+  "services": {
+    "section_title": "NOS SERVICES",
+    "section_subtitle": "Nos expertises digitales",
+    "section_desc": "Des solutions sur-mesure pour propulser votre business avec un style moderne, technique et épuré.",
+    "slide_1_title": "Créer",
+    "slide_1_desc": "Sites web, landing pages, expérience sur-mesure pour votre business.",
+    "slide_2_title": "Designer",
+    "slide_2_desc": "Logos, chartes graphiques, visuels impactants pour votre marque.",
+    "slide_3_title": "Promouvoir",
+    "slide_3_desc": "Publicité digitale (Meta Ads, Google Ads), boostez votre visibilité.",
+    "slide_4_title": "Gérer",
+    "slide_4_desc": "Gestion de projet, suivi, reporting et optimisation continue.",
+    "seo_sem": {
+      "title": "SEO & SEM",
+      "description": "Optimisez votre visibilité et atteignez le sommet des résultats de recherche",
+      "features": [
+        "Audit SEO Complet",
+        "Optimisation Technique",
+        "Stratégie de Contenu",
+        "Suivi des Performances"
+      ],
+      "detailedDescription": "Notre service SEO & SEM combine l'optimisation naturelle et la publicité payante pour maximiser votre visibilité en ligne. Nous analysons en profondeur votre site, identifions les opportunités d'amélioration et mettons en place des stratégies personnalisées pour augmenter votre classement dans les moteurs de recherche. Notre approche data-driven nous permet de mesurer précisément l'impact de nos actions et d'ajuster continuellement notre stratégie pour de meilleurs résultats.",
+      "sectionTitle": "Stratégie de Visibilité Digitale",
+      "sectionDescription": "Une approche complète pour dominer les résultats de recherche et maximiser votre présence en ligne"
+    },
+    "web_design": {
+      "title": "Web Design",
+      "description": "Créez une présence digitale qui captive et convertit",
+      "features": [
+        "Design Responsif",
+        "Conversion Optimisée",
+        "Expérience Utilisateur",
+        "Performance Technique"
+      ],
+      "detailedDescription": "Notre service de Web Design va au-delà de la simple création de sites web. Nous concevons des expériences digitales immersives qui captent l'attention de vos visiteurs et les guident naturellement vers la conversion. Chaque élément est pensé pour optimiser l'expérience utilisateur, des animations subtiles à la navigation intuitive, en passant par une architecture de contenu claire et engageante.",
+      "sectionTitle": "Design Web Créatif & Fonctionnel",
+      "sectionDescription": "Des sites web qui allient esthétique et performance pour une expérience utilisateur optimale"
+    },
+    "marketing_mobile": {
+      "title": "Marketing Mobile",
+      "description": "Connectez-vous avec votre audience où qu'elle soit",
+      "features": [
+        "Stratégies Adaptées",
+        "Expérience Utilisateur",
+        "Analyse Mobile",
+        "Optimisation Conversion"
+      ],
+      "detailedDescription": "Dans un monde où le mobile est devenu le premier point de contact avec vos clients, notre service de Marketing Mobile vous permet d'atteindre votre audience au bon moment, au bon endroit. Nous développons des stratégies mobiles-first, optimisons vos campagnes pour les appareils mobiles et créons des expériences utilisateur fluides qui convertissent.",
+      "sectionTitle": "Stratégie Mobile-First",
+      "sectionDescription": "Une approche centrée sur l'expérience mobile pour toucher votre audience partout"
+    },
+    "social_media": {
+      "title": "Social Media",
+      "description": "Engagez votre communauté sur les réseaux sociaux",
+      "features": [
+        "Stratégie Social Media",
+        "Création de Contenu",
+        "Community Management",
+        "Analyse des Performances"
+      ],
+      "detailedDescription": "Notre service Social Media transforme vos réseaux sociaux en véritables leviers de croissance. Nous créons et gérons votre présence sur les plateformes les plus pertinentes pour votre secteur, développons des contenus engageants qui résonnent avec votre audience, et construisons une communauté active autour de votre marque. Notre approche data-driven nous permet de mesurer l'impact de chaque action et d'optimiser continuellement votre stratégie.",
+      "sectionTitle": "Gestion de Communauté Digitale",
+      "sectionDescription": "Une présence sociale dynamique qui engage et fidélise votre audience"
+    },
+    "content_creator": {
+      "title": "Content Creator",
+      "description": "Créez du contenu engageant pour tous vos canaux",
+      "features": [
+        "Rédaction de Blogs",
+        "Posts Réseaux Sociaux",
+        "Contenu Web",
+        "Stratégie Éditoriale"
+      ],
+      "detailedDescription": "Notre service Content Creator vous aide à raconter votre histoire de manière captivante à travers différents formats et canaux. Nous créons des contenus qui non seulement informent et divertissent votre audience, mais qui renforcent également votre position d'expert dans votre domaine. Notre approche stratégique assure que chaque contenu contribue à vos objectifs business tout en engageant votre audience.",
+      "sectionTitle": "Création de Contenu Stratégique",
+      "sectionDescription": "Des contenus qui racontent votre histoire et renforcent votre position d'expert"
+    },
+    "ux_ui_design": {
+      "title": "UX/UI Design",
+      "description": "Concevez des interfaces intuitives et esthétiques",
+      "features": [
+        "Design d'Interface",
+        "Expérience Utilisateur",
+        "Prototypage",
+        "Tests Utilisateurs"
+      ],
+      "detailedDescription": "Notre service UX/UI Design combine esthétique et fonctionnalité pour créer des interfaces qui non seulement plaisent à l'œil mais qui sont également intuitives et efficaces. Nous mettons l'utilisateur au centre de notre processus de design, en créant des expériences fluides et agréables qui facilitent la navigation et augmentent l'engagement. Notre approche itérative nous permet d'affiner continuellement le design en fonction des retours utilisateurs.",
+      "sectionTitle": "Design Centré Utilisateur",
+      "sectionDescription": "Des interfaces qui allient beauté et fonctionnalité pour une expérience utilisateur optimale"
+    },
+    "innovation_digitale": {
+      "title": "Innovation Digitale",
+      "description": "Restez à la pointe avec les dernières technologies",
+      "features": [
+        "Veille Technologique",
+        "Solutions Innovantes",
+        "Transformation Digitale",
+        "Accompagnement"
+      ],
+      "detailedDescription": "Notre service d'Innovation Digitale vous aide à rester compétitif dans un monde en constante évolution. Nous identifions et intégrons les technologies émergentes qui peuvent transformer votre business, de l'intelligence artificielle à la réalité augmentée. Notre approche pragmatique nous permet de mettre en place des solutions innovantes qui génèrent des résultats concrets tout en préparant votre entreprise aux défis de demain.",
+      "sectionTitle": "Solutions Digitales Innovantes",
+      "sectionDescription": "Des technologies de pointe pour transformer votre business et rester compétitif"
+    },
+    "tabs": {
+      "create": {
+        "desc": "Nous créons des sites web modernes et performants, avec des animations vidéo captivantes pour une expérience utilisateur unique.",
+        "cta": "En savoir plus"
+      },
+      "design": {
+        "desc": "Nous construisons une identité forte pour votre marque : logo, charte graphique, visuels... mais aussi animations de logo, storyboards animés, vidéos explicatives et contenus motion design.",
+        "cta": "En savoir plus"
+      },
+      "promote": {
+        "desc": "Nous créons et gérons vos campagnes publicitaires sur Meta (Facebook/Instagram) et Google Ads, avec des visuels optimisés pour la conversion. Chaque message est clair, ciblé, et pensé pour maximiser vos résultats.",
+        "cta": "En savoir plus"
+      },
+      "manage": {
+        "desc": "De la création de contenu au planning de publication, nous assurons une gestion fluide de vos réseaux sociaux. Nous mettons en place des dashboards lisibles et efficaces pour suivre vos résultats et ajuster votre stratégie en temps réel.",
+        "cta": "En savoir plus"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Nos Tarifs",
+    "subtitle": "Choisissez le plan qui correspond à vos besoins",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "save": "Économisez",
+    "features": "Fonctionnalités",
+    "basic": {
+      "name": "Basique",
+      "price": "49",
+      "description": "Parfait pour les petites entreprises",
+      "features": [
+        "Audit de site web complet",
+        "Rapport détaillé",
+        "Recommandations d'optimisation",
+        "Support par email"
+      ]
+    },
+    "pro": {
+      "name": "Professionnel",
+      "price": "99",
+      "description": "Idéal pour les entreprises en croissance",
+      "features": [
+        "Tout du plan Basique",
+        "Analyse de la concurrence",
+        "Plan d'action personnalisé",
+        "Support prioritaire",
+        "Consultation téléphonique"
+      ]
+    },
+    "enterprise": {
+      "name": "Entreprise",
+      "price": "199",
+      "description": "Solution complète pour les grandes entreprises",
+      "features": [
+        "Tout du plan Professionnel",
+        "Audit SEO avancé",
+        "Analyse UX/UI",
+        "Support 24/7",
+        "Consultations mensuelles",
+        "Rapports personnalisés"
+      ]
+    },
+    "cta": {
+      "start": "Commencer",
+      "contact": "Contactez-nous"
+    }
+  },
+  "blog": "Blog",
+  "contact": {
+    "section_title": "CONTACT",
+    "section_subtitle": "Contactez-nous",
+    "section_desc": "Discutons de votre projet et voyons comment nous pouvons vous aider à atteindre vos objectifs",
+    "specify_request": "Spécifiez votre demande :",
+    "request_info": "Demande d'information",
+    "request_quote": "Demande de devis",
+    "request_audit": "Auditez mon site gratuitement",
+    "request_other": "Autre",
+    "error_select_request_type": "Veuillez sélectionner un type de demande",
+    "full_name": "Nom complet*",
+    "error_name_required": "Le nom est requis",
+    "sector": "Secteur d'activité*",
+    "choose_sector": "Choisissez un secteur",
+    "sector_it": "Informatique",
+    "sector_marketing": "Marketing",
+    "sector_health": "Santé",
+    "sector_finance": "Finance",
+    "sector_education": "Éducation",
+    "sector_realestate": "Immobilier",
+    "sector_commerce": "Commerce",
+    "sector_industry": "Industrie",
+    "sector_tourism": "Tourisme",
+    "sector_other": "Autre",
+    "error_sector_required": "Le secteur d'activité est requis",
+    "company_name": "Nom de l'entreprise*",
+    "error_company_required": "Le nom de l'entreprise est requis",
+    "phone_label": "Téléphone*",
+    "error_phone_required": "Le téléphone est requis",
+    "email": "Email",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "send_message": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "message": "Message*",
+    "error_message_required": "Le message est requis",
+    "website": "Site web*",
+    "error_website_required": "Le site web est requis"
+  },
+  "about": "À propos",
+  "start_project": "Démarrer un projet",
+  "agency": {
+    "section_title": "NOTRE AGENCE",
+    "give_life": "Donner Vie à Votre Identité",
+    "intro": "Chez Conecio, nous croyons que chaque marque mérite une signature visuelle forte et mémorable. Notre agence est spécialisée dans la création de contenu graphique et audiovisuel qui attire, inspire et engage.",
+    "creation_services": "Nos services de création incluent :",
+    "service_1_title": "Logos et chartes graphiques",
+    "service_1_desc": "Façonner votre identité visuelle.",
+    "service_1_point_1": "Création de logos sur-mesure adaptés à votre univers.",
+    "service_1_point_2": "Définition d'une charte graphique cohérente et impactante.",
+    "service_1_point_3": "Accompagnement pour décliner votre identité sur tous vos supports.",
+    "service_2_title": "Storyboards et vidéos explicatives",
+    "service_2_desc": "Raconter votre histoire.",
+    "service_2_point_1": "Élaboration de storyboards clairs et créatifs.",
+    "service_2_point_2": "Production de vidéos explicatives engageantes.",
+    "service_2_point_3": "Valorisation de votre message par l'image animée.",
+    "service_3_title": "Visuels pour réseaux sociaux et campagnes publicitaires",
+    "service_3_desc": "Des visuels percutants.",
+    "service_3_point_1": "Création de visuels adaptés à chaque plateforme.",
+    "service_3_point_2": "Déclinaison de campagnes publicitaires attractives.",
+    "service_3_point_3": "Optimisation de l'impact visuel pour votre audience.",
+    "service_4_title": "Animations et motion design",
+    "service_4_desc": "Capter l'attention dès les premières secondes.",
+    "service_4_point_1": "Réalisation d'animations dynamiques et modernes.",
+    "service_4_point_2": "Motion design pour renforcer votre identité.",
+    "service_4_point_3": "Animations adaptées à tous vos supports digitaux.",
+    "order_btn": "Passez votre commande",
+    "slogan": "🎯 De l'idée à la réalisation, nous créons des univers visuels cohérents et engageants, qui laissent une empreinte durable.",
+    "digital_creative": "Agence 100% digitale & créative"
+  },
+  "language": "Langue",
+  "welcome": "Bienvenue chez Conecio !",
+  "hero": {
+    "boost_visibility": "Boostez votre visibilité avec Conecio Agency",
+    "deploy_power": "Déployez la puissance digitale de",
+    "subtitle": "L'agence marketing qui allie données, créativité et performance pour propulser votre marque.",
+    "start_project": "Auditez votre site gratuitement",
+    "rotating_word_1": "votre marque",
+    "rotating_word_2": "votre croissance",
+    "rotating_word_3": "votre notoriété",
+    "rotating_word_4": "votre performance",
+    "rotating_word_5": "votre visibilité"
+  },
+  "expect": {
+    "stats_1": "Années d'expérience",
+    "stats_2": "Clients satisfaits",
+    "stats_3": "Projets réalisés",
+    "stats_4": "Experts à votre service",
+    "feature_1_title": "Contenu qui Convertit",
+    "feature_1_desc": "Nous produisons des visuels et vidéos pensés pour capter l'attention et générer de vraies actions : clics, ventes, engagement.",
+    "feature_2_title": "Cohérence de Marque Totale",
+    "feature_2_desc": "Chaque élément – logo, vidéo, site, post – est pensé pour renforcer une identité forte, mémorable et alignée.",
+    "feature_3_title": "Agilité & Réactivité",
+    "feature_3_desc": "Besoin urgent d'un visuel, d'un reel ou d'un changement ? Notre équipe répond vite, sans sacrifier la qualité.",
+    "feature_4_title": "Culture du Résultat",
+    "feature_4_desc": "Nos créations ne sont pas que belles. Elles sont conçues pour performer sur le terrain : réseaux sociaux, pubs, SEO, UX.",
+    "tools_title": "À chaque tâche sa boîte à outils",
+    "tools_badge": "Nos outils",
+    "tools_subtitle": "Découvrez notre gamme complète d'outils pour booster votre présence digitale",
+    "tools": {
+      "content": {
+        "label": "Contenu",
+        "title": "Contenu",
+        "items": [
+          "Rédaction d'articles optimisés SEO",
+          "Création de newsletters engageantes",
+          "Optimisation de vos pages pour la conversion"
+        ],
+        "description": "Créez des contenus engageants et optimisés pour chaque canal digital. Notre équipe rédige, structure et optimise vos contenus pour maximiser votre visibilité et votre impact.",
+        "button": "Voir les tarifs"
+      },
+      "ai": {
+        "label": "IA",
+        "title": "IA",
+        "items": [
+          "Analyse de marché automatisée",
+          "Génération d'idées innovantes",
+          "Automatisation des tâches marketing"
+        ],
+        "description": "Exploitez l'IA pour booster votre stratégie : analyse, génération de contenu, automatisation et anticipation des tendances.",
+        "button": "Voir les tarifs"
+      },
+      "social": {
+        "label": "Social",
+        "title": "Social",
+        "items": [
+          "Stratégie réseaux sociaux sur-mesure",
+          "Création de visuels et vidéos viraux",
+          "Gestion de communauté et campagnes d'influence"
+        ],
+        "description": "Développez votre présence sur les réseaux sociaux avec des contenus créatifs, une gestion active et des campagnes d'influence.",
+        "button": "Voir les tarifs"
+      },
+      "advertising": {
+        "label": "Publicité",
+        "title": "Publicité",
+        "items": [
+          "Création de campagnes Google et Meta",
+          "Optimisation des budgets publicitaires",
+          "Analyse des performances et reporting détaillé"
+        ],
+        "description": "Lancez des campagnes publicitaires efficaces sur tous les canaux. De la création à l'optimisation, nous gérons vos campagnes pour attirer clients et ventes.",
+        "button": "Voir les tarifs"
+      },
+      "traffic": {
+        "label": "Trafic et marché",
+        "title": "Trafic et marché",
+        "items": [
+          "Analyse de votre audience digitale",
+          "Veille concurrentielle avancée",
+          "Identification de nouvelles opportunités de croissance"
+        ],
+        "description": "Analysez votre audience, surveillez vos concurrents et identifiez de nouveaux leviers de croissance pour votre business.",
+        "button": "Voir les tarifs"
+      },
+      "seo": {
+        "label": "SEO",
+        "title": "SEO",
+        "items": [
+          "Audit technique complet de votre site",
+          "Recherche avancée de mots-clés",
+          "Optimisation du contenu et netlinking"
+        ],
+        "description": "Boostez votre visibilité sur Google grâce aux audits, à la stratégie de mots-clés et une optimisation continue de votre site.",
+        "button": "Voir les tarifs"
+      },
+      "creation": {
+        "label": "Création",
+        "title": "Création",
+        "items": [
+          "Création de landing pages sur-mesure et sites vitrines",
+          "Intégration de vidéos pour capter l'attention",
+          "Élaboration ou adaptation de votre charte graphique"
+        ],
+        "description": "Nous concevons des landing pages et des sites web immersifs : design unique, animations engageantes, intégration vidéo et respect de votre identité visuelle. Notre objectif : transformer vos visiteurs en clients grâce à une expérience digitale mémorable.",
+        "button": "Voir les tarifs"
+      }
+    }
+  },
+  "process": {
+    "section_title": "NOTRE PROCESSUS",
+    "section_subtitle": "L'Innovation au Cœur de Votre Croissance",
+    "section_desc": "Notre équipe vous accompagne à chaque étape pour propulser votre marque et atteindre vos objectifs business grâce au digital.",
+    "cta_btn": "Démarrer Maintenant",
+    "step_1_title": "Analyse & Stratégie",
+    "step_1_desc": "On analyse vos besoins et on définit une stratégie digitale sur-mesure.",
+    "step_2_title": "Création & Innovation",
+    "step_2_desc": "On conçoit des solutions créatives et innovantes pour votre marque.",
+    "step_3_title": "Croissance & Suivi",
+    "step_3_desc": "On propulse votre business et on optimise vos résultats en continu."
+  },
+  "footer": {
+    "about_title": "À propos",
+    "description": "Conecio est votre partenaire digital pour une transformation numérique réussie.",
+    "services_title": "Services",
+    "company_title": "Entreprise",
+    "blog_title": "Blog",
+    "legal_title": "Légal",
+    "copyright": "Copyright © Conecio Agency. {{year}} - Tous droits réservés.",
+    "services": {
+      "seo": "SEO & SEM",
+      "web_design": "Web Design",
+      "marketing_mobile": "Marketing Mobile",
+      "social_media": "Social Media",
+      "content_marketing": "Content Marketing",
+      "analytics": "Analytics & Reporting",
+      "branding": "Branding & Identité"
+    },
+    "company": {
+      "about": "À propos",
+      "pricing": "Tarifs",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "legal": {
+      "privacy": "Politique de confidentialité"
+    },
+    "blog": {
+      "trends": "Tendances du Digital Marketing à suivre en 2025",
+      "seo_tips": "10 astuces SEO incontournables pour 2024",
+      "content_strategy": "Comment bâtir une stratégie de contenu efficace ?"
+    }
+  },
+  "blog": {
+    "badge": "BLOG",
+    "title": "Nos derniers articles",
+    "subtitle": "Plongez dans l'univers Conecio : conseils, tendances et retours d'expérience sur le digital, le marketing et l'innovation. Nos experts partagent chaque semaine des articles pour booster votre stratégie et votre créativité.",
+    "new": "Nouveau",
+    "read_time": "de lecture",
+    "read": "Lire",
+    "see_all": "Voir tous les articles"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquentes",
+    "subtitle": "Trouvez rapidement la réponse à vos questions selon la thématique.",
+    "categories": {
+      "Général": "Général",
+      "Tarifs": "Tarifs",
+      "Services": "Services",
+      "Support": "Support",
+      "Sécurité": "Sécurité"
+    },
+    "questions": [
+      {
+        "category": "Général",
+        "question": "Comment Conecio se démarque-t-elle des autres agences digitales ?",
+        "answer": "Conecio se distingue par son approche holistique et personnalisée. Nous combinons expertise technique, créativité et stratégie business pour créer des solutions digitales qui génèrent des résultats concrets. Notre équipe d'experts certifiés et notre méthodologie éprouvée nous permettent d'offrir un accompagnement premium et des résultats mesurables."
+      },
+      {
+        "category": "Général",
+        "question": "Quelle est votre approche pour le développement d'un projet digital ?",
+        "answer": "Notre méthodologie se déroule en 4 phases clés : 1) Analyse approfondie de vos besoins et objectifs business, 2) Élaboration d'une stratégie sur-mesure, 3) Développement et mise en œuvre des solutions, 4) Suivi et optimisation continue. Chaque phase est documentée et validée avec vous pour garantir l'alignement parfait avec vos objectifs."
+      },
+      {
+        "category": "Général",
+        "question": "Combien de temps dure la création d'un site web ?",
+        "answer": "La durée dépend du type de site et de la complexité du projet. Un site vitrine prend généralement 4 à 6 semaines, tandis qu'un site e-commerce peut nécessiter 8 à 12 semaines. Nous vous fournissons un planning précis dès le début."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Quels sont vos tarifs et modes de facturation ?",
+        "answer": "Nos tarifs sont transparents et adaptés à chaque projet. Nous proposons des devis personnalisés basés sur vos besoins spécifiques. Les paiements sont échelonnés selon l'avancement du projet, avec des options de maintenance mensuelle ou annuelle. Contactez-nous pour un devis détaillé adapté à vos objectifs."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Proposez-vous des solutions pour les petites entreprises ?",
+        "answer": "Absolument ! Nous avons développé des solutions adaptées aux budgets et besoins des PME. Nos forfaits évolutifs permettent de démarrer avec l'essentiel et de développer votre présence digitale progressivement. Nous croyons que chaque entreprise mérite une stratégie digitale performante, quelle que soit sa taille."
+      },
+      {
+        "category": "Tarifs",
+        "question": "Quels sont les facteurs qui influencent le prix d'un site web ?",
+        "answer": "Le prix dépend de plusieurs critères : type de site (vitrine, e-commerce, sur-mesure), nombre de pages, fonctionnalités spécifiques, design personnalisé, intégrations tierces, etc. Nous réalisons toujours un devis détaillé et transparent."
+      },
+      {
+        "category": "Services",
+        "question": "Quels types de services proposez-vous ?",
+        "answer": "Nous proposons une gamme complète de services digitaux : création de site web, SEO, SEA, gestion des réseaux sociaux, branding, analytics, campagnes publicitaires, et plus encore. Nous adaptons chaque prestation à vos besoins spécifiques."
+      },
+      {
+        "category": "Services",
+        "question": "Quels sont vos délais moyens pour un projet de site web ?",
+        "answer": "Les délais varient selon la complexité du projet. Un site vitrine prend généralement 4-6 semaines, un site e-commerce 8-12 semaines. Nous établissons un planning détaillé dès le début du projet et assurons un suivi régulier pour respecter les délais convenus."
+      },
+      {
+        "category": "Services",
+        "question": "Réalisez-vous des sites e-commerce performants ?",
+        "answer": "Oui, nous concevons des boutiques en ligne optimisées pour la conversion, la sécurité et la gestion des stocks. Nous intégrons les meilleurs outils de paiement et proposons des solutions évolutives pour accompagner votre croissance."
+      },
+      {
+        "category": "Services",
+        "question": "Proposez-vous des services de design sur-mesure ?",
+        "answer": "Notre équipe de designers crée des interfaces uniques, modernes et adaptées à votre image de marque. Nous privilégions l'expérience utilisateur (UX) et l'esthétique pour maximiser l'impact de votre site."
+      },
+      {
+        "category": "Support",
+        "question": "Quelle est votre politique de maintenance et de support ?",
+        "answer": "Nous offrons un support technique réactif 24/7, des mises à jour régulières, des sauvegardes automatiques et une maintenance préventive. Nos clients bénéficient d'un accès à un portail dédié pour suivre l'état de leur projet et soumettre des demandes."
+      },
+      {
+        "category": "Support",
+        "question": "Comment fonctionne le suivi de projet ?",
+        "answer": "Un chef de projet dédié vous accompagne à chaque étape. Vous recevez des points réguliers, des rapports détaillés et pouvez suivre l'avancement en temps réel via notre plateforme."
+      },
+      {
+        "category": "Services",
+        "question": "Proposez-vous des prestations SEO pour améliorer la visibilité ?",
+        "answer": "Oui, nous proposons des audits SEO, l'optimisation technique, la rédaction de contenus optimisés, le netlinking et le suivi de positionnement. Notre objectif est d'augmenter durablement votre trafic qualifié."
+      },
+      {
+        "category": "Sécurité",
+        "question": "Comment assurez-vous la sécurité des données de mes clients ?",
+        "answer": "La sécurité est au cœur de nos préoccupations. Nous implémentons les dernières normes de sécurité (RGPD, SSL, cryptage), effectuons des audits réguliers et formons nos clients aux bonnes pratiques. Nos solutions sont hébergées sur des serveurs sécurisés et nous garantissons la confidentialité totale des données."
+      },
+      {
+        "category": "Sécurité",
+        "question": "Êtes-vous conforme au RGPD ?",
+        "answer": "Oui, toutes nos solutions sont conçues pour être conformes au RGPD. Nous accompagnons également nos clients dans la mise en conformité de leurs propres outils digitaux."
+      }
+    ],
+    "help_title": "Vous avez encore des questions ou besoin d'aide ?",
+    "help_commercial": "Écrivez-nous à <a href=\"mailto:conecioagency@gmail.com\" class=\"text-indigo-400 underline\">conecioagency@gmail.com</a> pour toute question commerciale.",
+    "help_tech": "Pour un problème technique, veuillez <a href=\"/contact\" class=\"text-indigo-400 underline\">contacter le support</a>. (Si vous devez partager des informations privées, vous pouvez aussi <a href=\"mailto:contact@conecio.com\" class=\"text-indigo-400 underline\">nous écrire à contact@conecio.com</a>.)"
+  },
+  "process_steps": [
+    {
+      "title": "Analyse & Stratégie",
+      "desc": "On analyse vos besoins et on définit une stratégie digitale sur-mesure, adaptée à vos objectifs et à votre marché.",
+      "description": "Nous commençons par comprendre vos enjeux, analyser votre marché et définir une feuille de route digitale personnalisée pour maximiser votre impact."
+    },
+    {
+      "title": "Création & Innovation",
+      "desc": "On conçoit des solutions créatives et innovantes pour votre marque : design, contenus, campagnes, outils digitaux.",
+      "description": "Notre équipe créative imagine et réalise des expériences digitales uniques, en phase avec les dernières tendances et technologies."
+    },
+    {
+      "title": "Croissance & Suivi",
+      "desc": "On propulse votre business et on optimise vos résultats en continu grâce à l'analyse de données et l'amélioration continue.",
+      "description": "Nous mesurons, analysons et optimisons chaque action pour garantir la croissance durable de votre marque sur le digital."
+    }
+  ],
+  "testimonials": {
+    "badge": "TÉMOIGNAGES",
+    "title": "Ce que disent nos clients",
+    "subtitle": "Découvrez comment nous avons aidé nos clients à réussir leur transformation digitale.",
+    "0": {
+      "quote": "L'équipe de Conecio a su répondre parfaitement à nos attentes. Notre site est maintenant beaucoup plus performant et notre trafic ne cesse d'augmenter.",
+      "name": "Hamza Semlali",
+      "position": "Directrice Marketing"
+    },
+    "1": {
+      "quote": "Notre transformation digitale avec Conecio a été un véritable succès. Leur expertise technique et leur approche client ont été déterminantes.",
+      "name": "Tariq Filali",
+      "position": "CEO & Fondateur"
+    },
+    "2": {
+      "quote": "Professionnalisme et réactivité exemplaires. Notre application a été livrée dans les délais avec une qualité exceptionnelle.",
+      "name": "Boutaina Chahdi",
+      "position": "Directrice des Opérations"
+    },
+    "3": {
+      "quote": "Conecio a totalement transformé notre présence en ligne. Leur expertise en UI/UX a considérablement amélioré l'expérience de nos utilisateurs.",
+      "name": "Youssef Boutaib",
+      "position": "Fondateur & CTO"
+    }
+  },
+  "servicesPage": {
+    "title": "Nos Services",
+    "subtitle": "Découvrez l'ensemble de nos expertises digitales pour propulser votre marque.",
+    "agencyTitle": "L'Agence Conecio",
+    "agencyIntro": "Notre équipe vous accompagne dans tous vos projets digitaux, de la stratégie à la réalisation, avec créativité et performance."
+  },
+  "tools": {
+    "subtitle": "Découvrez notre gamme complète d'outils pour booster votre présence digitale"
+  },
   "clients": {
+    "title": "Ils nous font confiance",
     "subtitle": "NOS CLIENTS",
     "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
     "logoAlt": "Logo du client {{number}}"
-  },
-  "portfolio": {
-    "badge": "PORTFOLIO",
-    "title": "Exemples de Réalisations",
-    "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !"
   },
   "navigation": {
     "home": "Accueil",
@@ -45,26 +606,63 @@
     "blog": "Blog",
     "contact": "Contact",
     "about": "À propos de nous",
-    "faq": "FAQ",
-    "login": "Connexion",
-    "signup": "Inscription"
+    "audit": "Auditez votre site gratuitement"
   },
-  "footer": {
-    "description": "Conecio est une agence de marketing digital innovante dédiée à transformer votre présence en ligne.",
-    "quick_links": "Liens rapides",
-    "legal": "Légal",
-    "contact_us": "Contactez-nous",
-    "newsletter_title": "Abonnez-vous à notre newsletter",
-    "newsletter_desc": "Recevez nos dernières actualités et offres directement dans votre boîte de réception.",
-    "newsletter_placeholder": "Votre email",
-    "subscribe": "S'abonner",
-    "links": {
-      "home": "Accueil",
+  "seo_process": {
+    "section_title": "Visibilité",
+    "section_subtitle": "Une Visibilité Digitale Maximale",
+    "section_desc": "Découvrez notre méthodologie SEM : SEO, SEA et SMO, pour maximiser la visibilité de votre marque sur tous les leviers du web.",
+    "seo": {
+      "title": "SEO",
+      "description": "Le SEO (Search Engine Optimization) regroupe toutes les techniques visant à améliorer le positionnement d'un site dans les résultats naturels des moteurs de recherche. Il repose sur trois piliers : la technique, le contenu et la popularité.",
+      "details": [
+        "Optimisation technique du site (arborescence, balisage, responsive, UX…)" ,
+        "Création de contenus riches, uniques et pertinents",
+        "Stratégie de mots-clés et cocon sémantique",
+        "Développement de la popularité (backlinks, partages, notoriété)",
+        "Suivi des performances et adaptation continue"
+      ]
+    },
+    "sea": {
+      "title": "SEA",
+      "description": "Le SEA (Search Engine Advertising) désigne la publicité sur les moteurs de recherche, comme Google Ads. Il permet d'obtenir une visibilité immédiate grâce à l'achat de mots-clés et d'emplacements sponsorisés.",
+      "details": [
+        "Création et gestion de campagnes Google Ads",
+        "Achat de mots-clés stratégiques aux enchères",
+        "Rédaction d'annonces percutantes et ciblées",
+        "Analyse du retour sur investissement (ROI)",
+        "Optimisation continue des campagnes"
+      ]
+    },
+    "smo": {
+      "title": "SMO",
+      "description": "Le SMO (Social Media Optimization) vise à développer la visibilité d'une entreprise via les réseaux sociaux. Il s'agit d'optimiser la présence, l'engagement et le partage sur les plateformes sociales.",
+      "details": [
+        "Définition d'une stratégie social media adaptée",
+        "Création de contenus engageants pour chaque réseau",
+        "Animation et gestion de communauté",
+        "Veille et analyse des performances sociales",
+        "Amplification de la notoriété via le partage et l'influence"
+      ]
+    }
+  },
+  "menu": {
+    "more_info": "Plus d'infos",
+    "dropdown": {
       "about": "À propos",
-      "services": "Services",
+      "services": "Nos services",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
       "contact": "Contact",
+      "careers": "Carrières",
+      "faq": "FAQ",
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation"
     }
+  },
+  "portfolio": {
+    "badge": "PORTFOLIO",
+    "title": "Exemples de Réalisations",
+    "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !"
   }
-} 
+}
