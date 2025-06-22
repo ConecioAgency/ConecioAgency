@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaEye } from 'react-icons/fa';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const portfolioSites = [
   {

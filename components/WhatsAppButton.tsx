@@ -13,10 +13,10 @@ const WhatsAppButton = () => {
   return (
     <>
       <a
-        href="https://wa.me/212705115758"
+        href="https://wa.me/33758137332"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 p-3 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full shadow-lg hover:from-green-500 hover:to-green-700 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 transition-all duration-300 animate-bounce"
+        className="fixed bottom-6 right-6 z-50 p-3 bg-gradient-to-r from-green-400 to-teal-500 text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
         aria-label="Contactez-nous sur WhatsApp"
       >
         <FaWhatsapp className="w-8 h-8" />

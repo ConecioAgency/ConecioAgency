@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 const seoSteps = [
   {
@@ -27,11 +28,20 @@ export default function SEOProcess() {
   const [selected, setSelected] = useState(0);
   const [isPending, startTransition] = useTransition();
   const [isMounted, setIsMounted] = useState(false);
+  const [imageError, setImageError] = useState<string | null>(null);
   const { t } = useTranslation('common');
 
   useEffect(() => {
     setIsMounted(true);
+    console.log('SEOProcess mounted, selected:', selected);
   }, []);
+
+  useEffect(() => {
+    console.log('Selected step changed:', selected);
+    console.log('Current image path:', seoSteps[selected].image);
+    // Reset image error when selection changes
+    setImageError(null);
+  }, [selected]);
 
   const getDetails = (key: string): string[] => {
     const details = t(key, { returnObjects: true });
@@ -53,6 +63,11 @@ export default function SEOProcess() {
     });
   };
 
+  const handleImageError = (e: any) => {
+    console.error('Error loading image:', e);
+    setImageError(`Failed to load image: ${seoSteps[selected].image}`);
+  };
+
   if (!isMounted) {
     return null; // or a loading skeleton
   }
@@ -66,19 +81,30 @@ export default function SEOProcess() {
             {/* Glow effet */}
             <div className="absolute inset-0 rounded-[2.5rem] blur-2xl pointer-events-none" style={{boxShadow: '0 0 40px 8px #a855f755, 0 0 24px 4px #38bdf855'}} />
             <div className="relative bg-[#23232b] rounded-[2.5rem] p-8 shadow-2xl w-full min-h-[420px] flex items-center justify-center">
-              <img
-                src={seoSteps[selected].image}
-                alt={t(seoSteps[selected].titleKey)}
-                className="w-full h-full max-h-[340px] object-contain drop-shadow-2xl animate-zoom-in"
-                style={{ 
-                  transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', 
-                  transform: 'scale(1.08)',
-                  width: '100%',
-                  height: 'auto',
-                  maxWidth: '100%'
-                }}
-                loading="lazy"
-              />
+              {imageError ? (
+                <div className="text-red-500 text-center p-4">
+                  {imageError}
+                </div>
+              ) : (
+                <div className="relative w-full h-[340px]">
+                  <Image
+                    src={seoSteps[selected].image}
+                    alt={t(seoSteps[selected].titleKey)}
+                    fill
+                    className="object-contain drop-shadow-2xl animate-zoom-in"
+                    style={{ 
+                      transition: 'transform 0.5s cubic-bezier(.4,2,.6,1)', 
+                      transform: 'scale(1.08)',
+                    }}
+                    priority
+                    onError={handleImageError}
+                    onLoad={() => {
+                      console.log('Image loaded successfully:', seoSteps[selected].image);
+                      setImageError(null);
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

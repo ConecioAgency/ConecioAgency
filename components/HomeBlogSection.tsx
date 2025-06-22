@@ -30,12 +30,12 @@ export default function HomeBlogSection() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center mb-4">
           <span className="inline-block bg-blue-50 px-6 py-1 rounded-xl font-bold text-base tracking-widest animate__animated animate__zoomInDown" style={{letterSpacing: '0.08em'}}>
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('blog.badge')}</span>
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('blogPage.badge')}</span>
           </span>
         </div>
         <div className="flex flex-col items-center w-full">
           <AnimatedTitle className="heading heading-lg font-bold mb-8 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent w-full">
-            {t('blog.title')}
+            {t('blogPage.title')}
           </AnimatedTitle>
         </div>
         <motion.p
@@ -44,7 +44,7 @@ export default function HomeBlogSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="body text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-12"
-        >{t('blog.subtitle')}</motion.p>
+        >{t('blogPage.subtitle')}</motion.p>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2 w-full">
           {articles.slice(0, 6).map((article, i) => {
             const isNew = (Date.now() - new Date(article.date).getTime()) < 1000 * 60 * 60 * 24 * 15;
@@ -67,7 +67,7 @@ export default function HomeBlogSection() {
                   )}>
                     <Image src={article.image} alt={article.title} fill className="object-cover rounded-t-md" />
                     {isNew && (
-                      <span className="absolute top-2 left-2 bg-pink-500 text-white text-[10px] px-2 py-0.5 rounded-full font-semibold shadow">{t('blog.new')}</span>
+                      <span className="absolute top-2 left-2 bg-pink-500 text-white text-[10px] px-2 py-0.5 rounded-full font-semibold shadow">{t('blogPage.new')}</span>
                     )}
                   </div>
                   <div className="h-1 w-full bg-gradient-to-r from-indigo-200 via-pink-200 to-transparent dark:from-indigo-900/30 dark:via-pink-900/20 dark:to-zinc-900" />
@@ -86,7 +86,7 @@ export default function HomeBlogSection() {
                         {article.title}
                       </h3>
                     </div>
-                    <span className="text-[10px] text-zinc-400 dark:text-zinc-400 mb-1">{(article as any).readTime ? String((article as any).readTime) : '5 min'} {t('blog.read_time')}</span>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-400 mb-1">{(article as any).readTime ? String((article as any).readTime) : '5 min'} {t('blogPage.read_time')}</span>
                     <p className="body text-zinc-600 dark:text-zinc-300 mb-1 flex-1 text-[11px] line-clamp-1">{article.summary}</p>
                     <div className="flex items-center justify-between text-[10px] text-zinc-400 dark:text-zinc-500 mt-auto">
                       <span className="inline-flex items-center gap-1">
@@ -97,7 +97,7 @@ export default function HomeBlogSection() {
                         href={`/blog/${article.slug}`}
                         className="text-[10px] text-indigo-600 dark:text-indigo-300 underline hover:no-underline font-medium"
                       >
-                        {t('blog.read')}
+                        {t('blogPage.read')}
                       </Link>
                     </div>
                   </div>
@@ -108,7 +108,7 @@ export default function HomeBlogSection() {
         </div>
         <div className="flex justify-center mt-12">
           <a href="/blog" style={{ textDecoration: 'none' }}>
-            <ReadMoreButton text={t('blog.see_all')} />
+            <ReadMoreButton text={t('blogPage.see_all')} />
           </a>
         </div>
       </div>

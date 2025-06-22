@@ -1,51 +1,37 @@
 {
-  "common": {
-    "home": {
-      "seo": {
-        "title": "Conecio - Agence de Marketing Digital & Innovation",
-        "description": "Conecio est une agence de marketing digital innovante qui vous accompagne dans votre transformation digitale avec des solutions sur mesure : SEO, web design, social media, content marketing et plus encore.",
-        "keywords": "agence marketing digital, SEO, web design, social media, content marketing, transformation digitale, innovation digitale, stratégie digitale",
-        "og_image_alt": "Conecio - Agence de Marketing Digital",
-        "structured_desc": "Agence de marketing digital innovante spécialisée dans la transformation digitale"
-      },
-      "parallax": {
-        "innovate": "INNOVEZ.",
-        "impact": "IMPACTEZ.",
-        "dare": "OSEZ.",
-        "strategy": "STRATÉGIE",
-        "digital": "DIGITALE.",
-        "creativity": "CRÉATIVITÉ.",
-        "results": "RÉSULTATS.",
-        "agency_diff": "L'AGENCE QUI FAIT LA",
-        "difference": "DIFFÉRENCE"
-      },
-      "cta": {
-        "badge": "Prêt à commencer ?",
-        "title": "Un projet en tête ?",
-        "desc": "Discutons-en ! Nous sommes prêts à vous aider à concrétiser votre vision.",
-        "button": "Contactez-nous",
-        "img_alt": "Illustration d'une fusée pour l'appel à l'action",
-        "startProject": "Auditez votre site gratuitement",
-        "discoverAgency": "Découvrir l'agence"
-      }
+  "home": {
+    "seo": {
+      "title": "Conecio - Agence de Marketing Digital & Innovation",
+      "description": "Conecio est une agence de marketing digital innovante qui vous accompagne dans votre transformation digitale avec des solutions sur mesure : SEO, web design, social media, content marketing et plus encore.",
+      "keywords": "agence marketing digital, SEO, web design, social media, content marketing, transformation digitale, innovation digitale, stratégie digitale",
+      "og_image_alt": "Conecio - Agence de Marketing Digital",
+      "structured_desc": "Agence de marketing digital innovante spécialisée dans la transformation digitale"
     },
-    "clients": {
-      "subtitle": "NOS CLIENTS",
-      "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
-      "logoAlt": "Logo du client {{number}}"
+    "parallax": {
+      "innovate": "INNOVEZ.",
+      "impact": "IMPACTEZ.",
+      "dare": "OSEZ.",
+      "strategy": "STRATÉGIE",
+      "digital": "DIGITALE.",
+      "creativity": "CRÉATIVITÉ.",
+      "results": "RÉSULTATS.",
+      "agency_diff": "L'AGENCE QUI FAIT LA",
+      "difference": "DIFFÉRENCE"
     },
-    "portfolio": {
-      "badge": "PORTFOLIO",
-      "title": "Exemples de Réalisations",
-      "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !",
-      "our_agency": {
-        "badge": "NOTRE AGENCE",
-        "title": "Donnez vie à vos projets"
-      }
-    },
-    "navigation": {
-      "home": "Accueil"
+    "cta": {
+      "badge": "Prêt à commencer ?",
+      "title": "Un projet en tête ?",
+      "desc": "Discutons-en ! Nous sommes prêts à vous aider à concrétiser votre vision.",
+      "button": "Contactez-nous",
+      "img_alt": "Illustration d'une fusée pour l'appel à l'action",
+      "startProject": "Auditez votre site gratuitement",
+      "discoverAgency": "Découvrir l'agence"
     }
+  },
+  "portfolio": {
+    "badge": "PORTFOLIO",
+    "title": "Exemples de Réalisations",
+    "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !"
   },
   "services": {
     "section_title": "NOS SERVICES",
@@ -441,10 +427,10 @@
       "content_strategy": "Comment bâtir une stratégie de contenu efficace ?"
     }
   },
-  "blog": {
+  "blogPage": {
     "badge": "BLOG",
     "title": "Nos derniers articles",
-    "subtitle": "Plongez dans l'univers Conecio : conseils, tendances et retours d'expérience sur le digital, le marketing et l'innovation. Nos experts partagent chaque semaine des articles pour booster votre stratégie et votre créativité.",
+    "subtitle": "Découvrez l'univers de Conecio : conseils, tendances et retours d'expérience sur le marketing digital et l'innovation. Nos experts partagent chaque semaine des articles pour booster votre stratégie et votre créativité.",
     "new": "Nouveau",
     "read_time": "de lecture",
     "read": "Lire",
@@ -597,7 +583,7 @@
     "title": "Ils nous font confiance",
     "subtitle": "NOS CLIENTS",
     "description": "Découvrez les entreprises qui nous font confiance pour leur transformation digitale. Notre expertise et notre approche innovante ont permis à ces organisations de se démarquer dans leur secteur.",
-    "logoAlt": "Logo du client {{number}}"
+    "logoAlt": "Logo client {{number}}"
   },
   "navigation": {
     "home": "Accueil",
@@ -659,10 +645,5 @@
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation"
     }
-  },
-  "portfolio": {
-    "badge": "PORTFOLIO",
-    "title": "Exemples de Réalisations",
-    "subtitle": "Découvrez quelques sites web créés par l'agence. Cliquez sur un projet pour voir la démo en direct !"
   }
-}
+} 
