@@ -37,6 +37,22 @@ const portfolioSites = [
     link: 'https://ankouss-youssef.vercel.app/',
     size: 'normal',
   },
+  {
+    title: 'Ankousse Academy',
+    subtitle: 'Plateforme de cours en ligne',
+    category: 'Éducation',
+    image: '/images/web/7.png',
+    link: 'https://ankousse.vercel.app/#',
+    size: 'normal',
+  },
+  {
+    title: 'Rowae',
+    subtitle: 'Boutique de chaussures marocaines',
+    category: 'E-commerce',
+    image: '/images/web/8.png',
+    link: 'https://rowae.vercel.app/#accueil',
+    size: 'normal',
+  },
 ];
 
 const getGridClasses = (size: 'normal' | 'large' | 'wide') => {
