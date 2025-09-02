@@ -57,7 +57,7 @@ const Contact = () => {
     {
       icon: PhoneIcon,
       title: t('contact.phone'),
-      content: '+212 705115758 (WhatsApp)',
+      content: '+212 705-115758 (WhatsApp)',
       link: 'https://wa.me/212705115758',
     },
     {
